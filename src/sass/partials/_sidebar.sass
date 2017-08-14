@@ -1,0 +1,35 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/*SIDEBAR*/
+.sidebar
+	background-color: $panels-color
+	user-select: none
+	
+.sidebar__align
+	width: #{$sidebar-width + 100px}
+	background-color: inherit
+
+.sidebar__holder
+	position: relative
+	width: $sidebar-width
+
+/*logo*/
+.logo
+	position: relative
+	float: left
+	background: url(../../img/logo.png) no-repeat
+	width: 220px
+	height: 85px
+	text-indent: -9999px
+	overflow: hidden
+	margin: 0 2rem 0 0
+	z-index: 5
+
+	a
+		display: block
+		height: 100%
+
+/*logo end*/
+/*SIDEBAR end*/

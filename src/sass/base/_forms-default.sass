@@ -1,0 +1,790 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/*FORM STYLES DEFAULT
+/*form layout
+.form-row, .input-wrap
+	position: relative // Важно! Для позицирования отметки подтверждения полей формы
+	margin-bottom: $form-bottom-space
+	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
+
+.input-holder
+	position: relative // Важно! Для позицирования отметки подтверждения полей формы
+	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
+
+.form-row
+	margin: 0 -#{round($form-gap*0.5)}
+	font-size: 0
+	letter-spacing: -4px
+
+	.input-wrap
+		+display-inline-block-top
+		width: calc(100% * 0.5 - #{$form-gap})
+		+margin-horizontal(#{round($form-gap*0.5)})
+
+		font-size: $font-size
+		letter-spacing: normal
+
+		+media('<mob-lg')
+			display: block
+			width: auto
+			margin-bottom: $form-bottom-space--sm
+
+label
+	+font($font-size, $line-height)
+	color: $text-color
+
+.label-holder
+	+font($form-font-size, $form-line-height)
+	color: $text-color
+	margin-bottom: 2px
+
+	label
+		+font(inherit, inherit)
+		color: inherit
+
+.form-mark
+	display: inline-block
+	vertical-align: top
+	color: $mark-color
+
+/*form layout end*/
+
+/*form common*/
+input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+	display: block
+	padding: #{$form-input-space-v} #{$form-input-space-h}
+	+font-normal
+	+size(100%, $form-input-height)
+	+font($form-font-size, $form-line-height)
+	color: $form-text-color
+	letter-spacing: normal
+	background: $form-bg-color
+	box-shadow: inset 0 0 0 1px transparent
+	border: 1px solid $form-border-color
+	transition-property: border-color, background-color, box-shadow
+	transition-duration: $animation-speed
+	margin: 0 0 $form-bottom-space
+
+	.input-wrap &
+		margin: 0
+
+	//form hover
+	.no-touchevents &:hover
+		border-color: $form-border-focus-color
+
+	//form focus
+	&:focus
+		border-color: $form-border-focus-color
+		box-shadow: inset 0 0 0 1px $form-border-focus-color
+
+	//form error
+	&.error, .no-touchevents &.error
+		color: $form-error-color
+		border-color: $form-error-color
+		box-shadow: inset 0 0 0 1px transparent
+
+		&:focus
+			box-shadow: inset 0 0 0 1px $form-error-color
+
+textarea
+	padding: #{$form-input-space-v} #{$form-input-space-h}
+	min-height: 114px
+	height: 114px
+	resize: vertical
+
+.error-note
+	position: absolute
+	+size(100%, 22px)
+	+font(12px, 22px)
+	letter-spacing: normal // Важно!
+	+truncate(none)
+	color: $form-error-color
+	display: none
+
+	form .error ~ &
+		display: block
+
+.confirm-note
+
+	$this-icon-size: 16px
+	$this-icon-lines-width: 12px
+	$this-icon-lines-height: 2px
+	$this-icon-lines-color: $base-color
+
+	position: absolute
+	left: 100%
+	top: round($form-input-height*0.5)
+	+font(0, 0)
+	+size($this-icon-size)
+	margin: -8px 0 0 #{round(($text-layout-space-horizontal - $this-icon-size)*0.5)}
+	backface-visibility: hidden
+	z-index: -1
+	pointer-events: none
+	display: none
+
+	+media('<tab-lg')
+		margin-left: #{round(($text-layout-space-horizontal--md - $this-icon-size)*0.5)}
+
+	+media('<tab-sm')
+		margin-left: #{round(($text-layout-space-horizontal--sm - $this-icon-size)*0.5)}
+
+	form .success ~ &
+		display: block
+
+	&::before, &::after
+		+pseudo()
+		bottom: 0
+		backface-visibility: hidden
+		background-color: $this-icon-lines-color
+		transition-property: background-color
+		transition-duration: $animation-speed
+
+	&::before
+		+size(round($this-icon-lines-width*0.75), $this-icon-lines-height)
+		right: 50%
+		transform-origin: bottom right
+		transform: rotate(45deg)
+
+	&::after
+		+size(round($this-icon-lines-width*1.3), $this-icon-lines-height)
+		left: 50%
+		transform-origin: bottom left
+		transform: rotate(-55deg)
+
+/*form common end*/
+
+/*form placeholder*/
+input, textarea
+	&::-webkit-input-placeholder
+		color: $form-placeholder-color
+		transition: $animation-speed
+
+	&:-moz-placeholder
+		color: $form-placeholder-color
+		transition: $animation-speed
+
+	&::-moz-placeholder
+		color: $form-placeholder-color
+		transition: $animation-speed
+		opacity: 1
+
+	&:-ms-input-placeholder
+		color: $form-placeholder-color
+		transition: $animation-speed
+		opacity: 1
+
+	&.placeholder
+		color: $form-placeholder-color
+		transition: $animation-speed
+		opacity: 1
+
+	//form placeholder hide
+	&:focus
+		&::-webkit-input-placeholder
+			color: transparent !important
+
+		&:-moz-placeholder
+			color: transparent !important
+
+		&::-moz-placeholder
+			color: transparent !important
+
+		&:-ms-input-placeholder
+			color: transparent !important
+
+	&.placeholder:focus
+		color: transparent !important
+
+	//form error placeholder
+	&.error
+		&::-webkit-input-placeholder
+			color: $form-error-color
+
+		&:-moz-placeholder
+			color: $form-error-color
+
+		&::-moz-placeholder
+			color: $form-error-color
+			opacity: 1
+
+		&:-ms-input-placeholder
+			color: $form-error-color
+			opacity: 1
+
+		&.placeholder
+			color: $form-error-color
+			opacity: 1
+
+/*form placeholder end*/
+
+/*form checkbox and radiobutton*/
+input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
+	+display-inline-block-top
+	+font(16px, 20px)
+	color: #000
+	text-transform: none
+	cursor: pointer
+	position: relative
+	transition-property: color
+	transition-duration: $animation-speed
+
+	.no-touchevents &:hover
+		color: $link-color
+
+input[type="checkbox"],
+input[type="radio"]
+	float: left
+	+size(16px)
+	padding: 0
+	margin: 0
+	display: none
+
+	& ~ label > span,
+	& ~ span
+		display: inline-block
+		vertical-align: top
+		position: relative
+		padding: 0 0 0 34px
+		z-index: 2
+
+	& ~ i
+		+font(0, 0)
+
+	& ~ i
+		position: absolute
+		left: 0
+		top: 50%
+
+//checkbox
+input[type="checkbox"]
+
+	& ~ label,
+	& ~ i
+		&::before
+			content: ''
+			+size(18px)
+			position: absolute
+			left: 0
+			top: 50%
+			margin-top: -9px
+			border-radius: 0
+			border: 1px solid $checkbox-color
+
+		&::after
+			content: ''
+			+size(16px)
+			position: absolute
+			left: 1px
+			top: 50%
+			margin-top: -8px
+			border-radius: 0
+			background: none
+			transition-property: opacity
+			transition-duration: $animation-speed
+
+	& ~ label > span,
+	& ~ span
+		&::before,
+		&::after
+			content: ''
+			position: absolute
+			+size(0, 3px)
+			left: 0
+			top: 50%
+			border-radius: 2px
+			background: $checkbox-color
+			transition-property: opacity
+			transition-duration: $animation-speed
+			transition-timing-function: linear
+
+		&::before
+			transform: rotate(45deg)
+			transform-origin: 0 7px
+			z-index: 1
+
+		&::after
+			transform: rotate(-50deg)
+			transform-origin: 0 10px
+			left: 22px
+
+	// checkbox checked
+	&:checked
+		& ~ label > span,
+		& ~ span
+			&::before
+				width: 7px
+				margin: -4px 0 0 0
+				transition-property: width
+				transition-duration: 0.1s
+				backface-visibility: hidden
+
+			&::after
+				width: 11px
+				margin: 0 0 0 -8px
+				transition-property: width
+				transition-duration: 0.1s
+				transition-delay: 0.1s
+				backface-visibility: hidden
+
+	// checkbox disabled
+	&:disabled
+		& ~ label,
+		& ~ span
+			color: #bdbdbd
+			cursor: default
+
+		& ~ label,
+		& ~ i
+			&::before
+				border-color: #d6d6d6
+
+		& ~ label > span,
+		& ~ span
+			&:before,
+			&:after
+				background: #b9b9b9
+
+// radio
+input[type="radio"]
+
+	& ~ label,
+	& ~ span
+		&::before
+			content: ''
+			+size(18px)
+			position: absolute
+			left: 0
+			top: 50%
+			margin-top: -9px
+			border-radius: 50px
+			border: 1px solid $checkbox-color
+
+		&::after
+			content: ''
+			+size(16px)
+			position: absolute
+			left: 1px
+			top: 50%
+			margin-top: -8px
+			border-radius: 50px
+			background: none
+			transition-property: opacity
+			transition-duration: 0.2s
+
+	& ~ label > span,
+	& ~ i
+		&::after
+			content: ''
+			+size(10px)
+			position: absolute
+			top: 50%
+			left: 4px
+			margin-top: -5px
+			border-radius: 50%
+			overflow: hidden
+			background: $checkbox-color
+			animation: bounceout 0s
+			animation-iteration-count: 1
+			animation-fill-mode: forwards
+			opacity: 0
+
+	// radio checked
+	&:checked
+		& ~ label > span,
+		& ~ i
+			&::after
+				animation: bounce 0.3s
+				animation-iteration-count: 1
+				opacity: 1
+
+	@keyframes bounce
+		0%
+			transform: scale(0.8)
+			opacity: 0.4
+
+		50%
+			transform: scale(1.4)
+			opacity: 1
+
+		100%
+			transform: scale(1)
+			opacity: 1
+
+	@keyframes bounceout
+		0%
+			transform: scale(0)
+			opacity: 1
+
+		50%
+			transform: scale(1.4)
+			opacity: 1
+
+		100%
+			transform: scale(0)
+			opacity: 0.4
+
+	// radio disabled
+	&:disabled
+		& ~ label,
+		& ~ span
+			color: #bdbdbd
+			cursor: default
+
+			&::before
+				border-color: #d6d6d6
+
+		& ~ label > span,
+		& ~ i
+			&::after
+				background: #b9b9b9
+
+.check-list
+	+font(16px, 20px)
+
+	&, .#{$user-content} &
+		margin: 0
+		padding: 0
+
+		li
+			margin: 0 0 20px
+			padding-left: 0
+
+			&::before
+				content: none
+
+/*form checkbox and radiobutton end*/
+
+///*select*/
+// select overall
+//.select
+	position: relative
+	margin: 0 0 $form-bottom-space
+	width: 100%
+
+	.input-wrap &
+		margin-bottom: 0
+
+	.cselect
+		width: 100%
+
+	select, button.cselect .select-inner
+		display: block
+		overflow: hidden
+		text-overflow: ''
+		cursor: pointer
+		padding: 13px 40px 13px 18px
+		white-space: nowrap
+		text-indent: 0
+		width: 100%
+		border: 1px solid $form-border-color
+		border-radius: 0
+		background: $form-bg-color
+		box-shadow: none
+		transition-property: background, border, color, box-shadow
+		transition-duration: $animation-speed
+		outline: none
+
+	select, button.cselect, button.cselect .select-inner
+		+font-normal
+		font-size: 16px
+		line-height: 22px
+		text-transform: none
+		color: $form-text-color
+
+	select
+		height: 50px
+		padding-right: 40px
+
+	button.cselect
+		z-index: 2
+
+	select:focus, button.cselect:focus .select-inner, button.cselect.ui-state-active .select-inner
+		color: $form-text-color
+		border-color: $form-border-focus-color
+
+	&::before, &::after, button.cselect .ui-icon .arrow-select::before, button.cselect .ui-icon .arrow-select::after
+		content: ''
+		position: absolute
+		right: 22px
+		top: 50%
+		+size(10px, 3px)
+		background-color: $form-border-focus-color
+		border-radius: 2px
+		margin-top: -1px
+		z-index: 1
+
+	&::before, button.cselect .ui-icon .arrow-select::before
+		transform: rotate(45deg)
+
+	&::after, button.cselect .ui-icon .arrow-select::after
+		transform: rotate(-45deg)
+		right: 17px
+
+	// multiselect button
+	button.cselect
+		display: block
+		position: relative
+		padding: 0
+		margin: 0
+		border: none
+		border-radius: 0
+		background: none
+
+		.ui-icon
+			display: block
+			background: none
+
+			&, .arrow-select
+				position: absolute
+				right: 0
+				top: 0
+				height: 100%
+				width: 45px
+
+		.select-text
+			display: block
+			overflow: hidden
+			text-overflow: ellipsis
+			white-space: nowrap
+			min-height: 20px
+
+///*multiselect menu*/
+// div.cselect
+	&.ui-multiselect-menu
+		padding: 2px 0
+		margin: 0
+
+	.ui-multiselect-checkboxes
+		padding: 0
+		margin: 0
+		list-style-type: none
+		height: auto !important
+		max-height: 322px
+		overflow: auto
+		border-radius: 4px
+		background-color: $form-bg-color
+		border: 1px solid $form-border-focus-color
+
+		li
+			padding: 0
+			overflow: hidden
+
+			&:first-child
+				border-radius: 4px 4px 0 0
+
+			&:last-child
+				border-radius: 0 0 4px 4px
+
+		label
+			display: block
+			padding: 13px 18px
+			+font-normal
+			+font(16px, 22px)
+			color: $form-text-color
+			cursor: pointer
+			border: none
+			text-transform: none
+			background-color: $form-bg-color
+			transition-property: background, color
+			transition-duration: $animation-speed
+
+			input
+				position: absolute
+				left: -9999px
+
+	.desktop .ui-multiselect-checkboxes label:hover
+		background-color: #eaeaea
+		color: $form-text-color
+
+	.ui-multiselect-checkboxes label.ui-state-active
+		background-color: #f3f3f3
+		color: $form-text-color
+
+	.ui-multiselect-checkboxes input[type="radio"] + span
+		padding-left: 0
+
+		&::before, &::after
+			content: none
+
+///*multiselect menu end*/
+///*select end*/
+
+/*select*/
+// select overall
+.select
+	position: relative
+	margin: 0 0 $form-bottom-space
+	width: 100%
+
+	.input-wrap &
+		margin-bottom: 0
+
+	.cselect
+		width: 100%
+
+	select,
+	.select2-container--default .select2-selection
+		display: block
+		position: relative
+		overflow: hidden
+		height: $form-input-height
+		text-overflow: ''
+		cursor: pointer
+		padding: #{$select-space-v} #{$select-arrow-width} #{$select-space-v} #{$select-space-h}
+		white-space: nowrap
+		text-indent: 0
+		width: 100%
+		border: 1px solid $form-border-color
+		border-radius: 0
+		background: $form-bg-color
+		box-shadow: none
+		transition-property: background, border, color, box-shadow
+		transition-duration: $animation-speed
+		outline: none
+
+	.select2-container--default .select2-selection--multiple
+		height: auto
+
+	select,
+	.select2-container--default .select2-selection .select2-selection__rendered
+		+font-normal
+		+font($form-font-size, $form-line-height)
+		text-transform: none
+		color: $form-text-color
+
+	select
+		padding-right: 40px
+
+	//&:focus
+		color: $form-text-color
+		border-color: $form-border-focus-color
+
+	.select2-container--default
+		.select2-selection--single
+			.select2-selection__rendered
+				padding-left: 0
+				padding-right: 0
+
+			.select2-selection__arrow
+				position: absolute
+				right: 0
+				top: 0
+				+size($select-arrow-width, $select-arrow-height)
+				background-color: white
+				z-index: 2
+
+				b
+					border: none
+					+cover()
+					margin: 0
+
+	&::before,
+	&::after,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::before,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::after
+		content: ''
+		position: absolute
+		right: 22px
+		top: 50%
+		+size(8px, 2px)
+		background-color: $title-color
+		margin-top: -1px
+		z-index: 1
+
+	&::before,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::before
+		transform: rotate(45deg)
+
+	&::after,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b::after
+		transform: rotate(-45deg)
+		right: 17px
+
+	.select2-container--default .select2-search--inline .select2-search__field
+		height: auto
+		margin: 0
+
+	// multiple
+	.select2-container--default .select2-selection--multiple
+		padding: 8px #{$select-arrow-width} 8px #{$select-space-h}
+
+		.select2-selection__rendered
+			padding-left: 0
+			padding-right: 0
+			margin: 0
+			vertical-align: top
+			max-width: none
+
+			li
+				padding: 0 4px
+				margin: 3px 8px 3px 0
+				border-right: 1px solid transparent
+
+				&::before
+					content: none
+
+		.select2-selection__choice
+			background-color: #f3f3f3
+			border: 1px solid #f3f3f3
+			border-radius: 0
+			color: $text-color
+
+		.select2-selection__choice__remove
+			color: $text-color
+
+			&:hover
+				color: $link-color
+
+.select select.error
+	&,
+	& ~ .select2-container--default .select2-selection--single,
+	& ~ .select2-container--default .select2-selection--multiple
+		border-color: $form-error-color
+
+/*select2 dropdown*/
+.select2-dropdown
+	border-color: $form-border-color
+	border-radius: 0
+	z-index: 9999
+
+.select2-results__options
+	+font-normal
+	+font($form-font-size, $form-line-height)
+
+.select2-results__option
+	padding: 8px #{$select-space-h} 8px #{$select-space-h}
+
+.select2-container--default
+	.select2-search--dropdown
+		.select2-search__field
+			border-color: $form-border-color
+			margin: 0
+			height: 34px
+
+			&:focus
+				border-color: $form-border-focus-color
+				//box-shadow: inset 0 0 0 1px $form-border-focus-color
+				box-shadow: none
+
+	.select2-results>.select2-results__options
+		max-height: 200px
+
+	.select2-results__option[aria-selected=true]
+		background-color: #f3f3f3
+
+	.select2-results__option--highlighted[aria-selected]
+		background-color: $base-color
+		color: $text-color
+
+.select2-container--open
+	.select2-dropdown--below
+		box-shadow: 0 -1px 0 $form-border-color
+
+	.select2-dropdown--above
+		box-shadow: 0 1px 0 $form-border-color
+
+/*select2 dropdown end*/
+/*select end*/
+/*FORM STYLE DEFAULT end*/

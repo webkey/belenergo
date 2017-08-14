@@ -1,0 +1,211 @@
+@import ../utils/functions
+@import ../utils/placeholders
+
+// medium query
+//$breakpoints: ('mob-sm': 320px, 'mob-md': 480px, 'mob-lg': 640px, 'tab-sm': 768px, 'tab-lg': 992px, 'desk-sm': 1200px, 'desk-md': 1366px, 'desk-lg': 1600px, 'desk-hd': 1920px)
+$breakpoints: ('desk-hd': 1920px, 'desk-lg': 1600px, 'desk-md': 1366px, 'desk-sm': 1200px, 'tab-lg': 992px, 'tab-sm': 768px, 'mob-lg': 640px, 'mob-md': 480px, 'mob-sm': 320px)
+
+// base
+$font-size: 1.6rem !default
+$line-height: round-float(2.4rem/$font-size, 2) !default
+// ===============
+$font-size--sm: 1.4rem !default
+$line-height--sm: round-float(2.4rem/$font-size--sm, 2) !default
+// ===============
+$font-size--less: 1.2rem !default
+$line-height--less: round-float(2.0rem/$font-size--less, 2) !default
+
+// =======h1========
+$font-size-h1: 4.8rem !default
+$line-height-h1: round-float(6.0rem/$font-size-h1, 2) !default
+// md ===
+$font-size-h1--md: 3.6rem !default
+$line-height-h1--md: round-float(4.8rem/$font-size-h1--md, 2) !default
+// sm ===
+$font-size-h1--sm: 3.0rem !default
+$line-height-h1--sm: round-float(4.2rem/$font-size-h1--sm, 2) !default
+// =======h2========
+$font-size-h2: round-float($font-size-h1*3.6rem/4.8rem, 1) !default
+$line-height-h2: round-float(4.8rem/3.6rem, 2) !default
+// md ===
+$font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
+$line-height-h2--md: round-float(($line-height-h1--md*1.02),2) !default
+// sm ===
+$font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
+$line-height-h2--sm: round-float(($line-height-h1--sm*1.01),2) !default
+// =======h3========
+$font-size-h3: round-float($font-size-h1*2.4rem/4.8rem, 1) !default
+$line-height-h3: round-float(3.6rem/2.4rem, 2) !default
+// sm ===
+$font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
+$line-height-h3--sm: round-float(($line-height-h1--sm*1.05),2) !default
+// =======h4========
+$font-size-h4: round-float($font-size-h1*1.8rem/4.8rem, 1) !default
+$line-height-h4: round-float(3.0rem/1.8rem, 2) !default
+// =======h5========
+$font-size-h5: $font-size !default
+$line-height-h5: $line-height !default
+// =======h6========
+$font-size-h6: round-float($font-size*0.75, 1) !default
+$line-height-h6: round-float($line-height*1.25, 2) !default
+
+
+$bottom-space: round-float($font-size*$line-height, 1) !default
+$bottom-space--sm: round-float($font-size*$line-height*0.5, 1) !default
+$bottom-space--md: round-float($font-size*$line-height*1.5, 1) !default
+$bottom-space--lg: round-float($font-size*$line-height*2, 1) !default
+
+// цвет бренда
+$base-color: #d3ab48 !default
+$base-color-alt: #242b53 !default
+// цвет бренда
+$panels-color: white !default
+// цвет фона страницы
+$bg-color: #e5e5e5 !default
+// цвет фона элементов выделяющихся на страницы
+$bg-color-alt: #f3f3f3 !default
+// цвет основного текста
+$text-color: #262626 !default
+// цвет основных заголовков заголовков
+$title-color: black !default
+// цвет текста светлее основного
+$text-color-light: gray !default
+// цвет для выделения текста
+$text-color-alt: $base-color-alt !default
+// цвет ссылки
+$link-color: #d3ab48 !default
+// цвет линий и границ
+$border-color: lightgray !default
+// цвет специальных элементов
+$mark-color: coral !default
+
+// user content class
+// class на контейнере, в котором будет использоваться стилизация
+// типографических элементов: списков, таблиц, цытат и т.д.
+$user-content: user-content !default
+
+// layout
+// отступы слева и справа для всего сайта
+$page-layout-space-horizontal: 0 !default
+// максимальная ширина сайта
+$page-layout-width: 1920px !default
+// отступы между основновными элементами странницы
+$grid-layout-space: 80px - 6px !default // -6px для компенсации скролла
+// минимальные отступы слева и справа у текствого блока
+$text-layout-space-horizontal: 0 !default
+$text-layout-space-horizontal--md: 0 !default
+$text-layout-space-horizontal--sm: 0 !default
+// максимальная ширина текстового блока
+$text-layout-width: 800px !default
+// максимальная ширина текстового блока выходящего за пределы текста
+$flood-layout-width: 1000px !default
+
+// form
+$form-text-color: $text-color-light !default
+$form-placeholder-color: lightgray !default
+$form-bg-color: white !default
+$form-border-color: lightgray !default
+$form-border-focus-color: darken($form-border-color, 20%) !default
+$form-error-color: red !default
+$form-success-color: green !default
+$form-bottom-space: 3rem !default
+$form-bottom-space--sm: 1.5em !default
+$form-gap: 60px !default
+// ==================
+$form-font-size: 16px
+$form-line-height: 24px
+$form-input-height: 50px
+// ==================
+$checkbox-color: tomato
+// ==================
+$form-input-space-v: 12px
+$form-input-space-h: 18px
+$select-space-v: 12px
+$select-space-h: $form-input-space-h
+$select-arrow-width: 40px
+$select-arrow-height: 100%
+
+// btn
+$btn-bg-color: tomato !default
+$btn-bg-hover-color: darken($btn-bg-color, 20%) !default
+$btn-text-color: white !default
+
+// table color
+$table-text-color: $text-color !default
+$table-border-color: tomato !default
+$table-bg-color: white !default
+$table-text-alt-color: white !default
+$table-bg-alt-color: tomato !default
+
+// header
+$header-height: 80px !default
+
+// sidebar
+$sidebar-width: 340px !default
+
+// aside
+$aside-width: 320px + $grid-layout-space !default
+
+// footer
+$footer-nav-horizontal-space: 40px
+
+// animation
+$animation-speed: 0.2s !default
+$animation-speed-mouseleave: 0.35s !default
+
+// fonts style
+$font-norm: 'brutaltype', sans-serif !default
+$font-bold: 'brutaltype-bold', sans-serif !default
+$font-extra-bold: 'brutaltype-extrabold', sans-serif !default
+$font-light: 'brutaltype-light', sans-serif !default
+$font-medium: 'brutaltype-medium', sans-serif !default
+$font-alt: 'menuet-script', serif !default
+
+// ============= обнуление жирности и наклонности шрифта ==============
+// ============= использовать, если подключается font-face ==============
+=font-reset()
+	font:
+		weight: normal
+		style: normal
+
+// ============= основоной шрифт ==============
+=font-normal()
+	font:
+		family: $font-norm
+	+font-reset
+
+=font-bold()
+	font:
+		family: $font-bold
+	+font-reset
+
+=font-italic()
+	font:
+		family: $font-norm
+	+font-reset
+
+=font-bold-italic()
+	font:
+		family: $font-bold
+	+font-reset
+
+=font-extra-bold()
+	font:
+		family: $font-extra-bold
+	+font-reset
+
+=font-light()
+	font:
+		family: $font-light
+	+font-reset
+
+=font-light()
+	font:
+		family: $font-medium
+	+font-reset
+
+// ========== дополнительный шрифт ============
+=font-alt()
+	font:
+		family: $font-alt
+	+font-reset

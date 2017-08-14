@@ -1,0 +1,63 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* v-middle
+.v-middle
+	 overflow: hidden // необходим для скрытия скролла, если нет overflow: hidden на родительских элементах
+
+.v-middle__align
+	// width: calc(100% + 100px)
+	overflow-x: hidden
+	overflow-y: auto
+	height: 100%
+
+.v-middle__holder
+	// display: table
+	// min-height: 100vh // не работает в фф
+	// в теории можно заменить на height
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	min-height: 100vh // ie поддерживает min-height для table
+
+	// для браузеров не поддерживающих display: flex
+	.no-flexbox &
+		display: table
+		table-layout: fixed
+		width: 100%
+
+	// в ие 11 не поддерживается flex-direction: column вместе с min-height
+	// для этого браузера исспользуем хак
+	@media all and (-ms-high-contrast: none)
+		&::-ms-backdrop, &
+			display: table
+			table-layout: fixed
+			width: 100%
+
+.v-middle__row
+
+	// для браузеров не поддерживающих display: flex
+	.no-flexbox &
+		display: table-row
+
+	// в ие 11 не поддерживается flex-direction: column вместе с min-height
+	// для этого браузера исспользуем хак
+	@media all and (-ms-high-contrast: none)
+		&::-ms-backdrop, &
+			display: table-row
+
+.v-middle__cell
+	// для браузеров не поддерживающих display: flex
+	.no-flexbox &
+		display: table-cell
+		vertical-align: middle
+
+	// в ие 11 не поддерживается flex-direction: column вместе с min-height
+	// для этого браузера исспользуем хак
+	@media all and (-ms-high-contrast: none)
+		&::-ms-backdrop, &
+			display: table-cell
+			vertical-align: middle
+
+/* v-middle end
