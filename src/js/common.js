@@ -293,6 +293,153 @@ function slidersInit() {
 /*sliders end*/
 
 /**
+ * !toggle drop
+ * */
+function toggleDrop() {
+
+	var $choiceContainer = $('.js-choice-wrap');
+	var openClass = 'choice-opened';
+
+	if ($choiceContainer.length) {
+
+		$.each($choiceContainer, function () {
+			var $thisContainer = $(this);
+
+			if ($thisContainer.attr('data-parent-position') !== undefined) {
+				$thisContainer.parent().css({
+					'position': 'relative',
+					'padding-right': Math.round($thisContainer.outerWidth() + 10),
+					'overflow': 'visible'
+				});
+			}
+		});
+
+		$('.js-choice-open').on('click', function (e) {
+			e.preventDefault();
+			var $currentContainer = $(this).closest('.js-choice-wrap');
+
+			e.stopPropagation();
+
+			if ($currentContainer.hasClass(openClass)) {
+				$currentContainer.removeClass(openClass);
+				return;
+			}
+
+			$choiceContainer.removeClass(openClass);
+			$currentContainer.addClass(openClass);
+		});
+
+		$(document).on('click', function () {
+			closeDrop();
+		});
+
+		$choiceContainer.on('closeChoiceDrop', function () {
+			closeDrop();
+		});
+
+		function closeDrop() {
+			$choiceContainer.removeClass(openClass);
+		}
+
+		$('.js-choice-drop').on('click', 'a', function (e) {
+			var $this = $(this);
+
+			// if data-window-location is true, prevent default
+			if ($this.closest($choiceContainer).attr('data-window-location') === 'true') {
+				e.preventDefault();
+			}
+
+			// if data-select is false, do not replace text
+			if ($this.closest($choiceContainer).attr('data-select') === 'false') {
+				return false;
+			}
+
+			$('a', '.js-choice-drop').removeClass('active');
+
+			$this
+				.addClass('active')
+				.closest('.js-choice-wrap')
+				.find('.js-choice-open span')
+				.text($this.find('span').text());
+		});
+	}
+
+}
+/*toggle drop end*/
+
+/**
+ * !show form search
+ * */
+function toggleSearchForm(){
+	var $searchFormContainer = $('.search-form-js');
+	if(!$searchFormContainer.length){ return; }
+
+	var $html = $('html');
+	var $searchField = $('.search-field-js');
+	var btnSearchCloseClass = 'btn-search-close-js';
+	var classFormIsOpen = 'form-is-open';
+
+	$html.on('click', '.btn-search-open-js', function(e){
+		e.stopPropagation();
+
+		// !important
+		// var $searchForm = $searchFormContainer.find('form');
+		// if ( $searchForm.find($searchField).val().length && $searchFormContainer.is(':visible') ){
+		// 	$searchForm.submit();
+		// 	return;
+		// }
+
+		// close lang drop
+		$('.lang-js').trigger('langDropClose');
+
+		if ($html.hasClass(classFormIsOpen)){
+			closeSearchForm($searchFormContainer);
+			return;
+		}
+
+		setTimeout(function () {
+			$searchField.trigger('focus');
+			$('.js-choice-wrap').trigger('closeChoiceDrop'); // close lang drop
+		}, 50);
+
+		$html.addClass(classFormIsOpen);
+
+		e.preventDefault();
+
+	});
+
+	$html.on('click', '.' + btnSearchCloseClass, function(e){
+		e.stopPropagation();
+		e.preventDefault();
+
+		closeSearchForm($searchFormContainer);
+	});
+
+	$(document).on('click', function (e) {
+		closeSearchForm();
+	});
+
+	$(document).keyup(function(e) {
+		if ($html.hasClass(classFormIsOpen) && e.keyCode === 27) {
+			closeSearchForm($searchFormContainer);
+		}
+	});
+
+	$searchFormContainer.on('click', function (e) {
+		if($(e.target).hasClass(btnSearchCloseClass)) {
+			return
+		}
+
+		e.stopPropagation();
+	});
+
+	function closeSearchForm(){
+		$('html').removeClass(classFormIsOpen)
+	}
+}
+/*show form search end*/
+
+/**
  * !footer at bottom
  * */
 function footerBottom() {
@@ -395,6 +542,8 @@ $(document).ready(function () {
 	customSelect($('select.cselect'));
 	fileInput();
 	slidersInit();
+	toggleDrop();
+	toggleSearchForm();
 
 	footerBottom();
 	formSuccessExample();

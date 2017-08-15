@@ -1,0 +1,163 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* search-form
+.search-form
+	background-color: #fff
+	transition-property: opacity, visibility
+	transition-duration: $animation-speed
+	opacity: 0
+	visibility: hidden
+	z-index: 100
+
+	.form-is-open &
+		opacity: 1
+		visibility: visible
+
+	.header &
+		position: absolute
+		left: 0
+		top: 0
+		bottom: 0
+		width: 100%
+		+padding-horizontal($header-height)
+
+	form
+		display: table
+		+size(100%)
+
+	.input-wrapper
+		display: table-cell
+		vertical-align: middle
+		position: relative
+		+padding-horizontal(30px)
+		opacity: 0
+
+		.form-is-open &
+			opacity: 1
+
+	input
+		&[type="search"], &[type="text"]
+			+font(20px, 30px)
+			color: $text-color
+			padding: 0
+			height: auto
+			background: none
+			box-shadow: none
+			border: none
+			margin: 0
+
+		+placeholder-style($text-color-light !important, null)
+
+	.btn-search
+		$magnifier-color: black
+
+		position: absolute
+		right: 100%
+		top: 50%
+		+size($header-height)
+		box-shadow: 1px 0 0 $border-color
+		transform: translate(0, -50%)
+		transition-property: background-color
+		transition-duration: $animation-speed
+
+		span
+			+hide-text
+
+		i
+			position: absolute
+			+position(50%, 50%)
+			+size(18px)
+			+font(0, 0)
+			pointer-events: none
+			z-index: 2
+			transform: translate(-50%, -50%)
+
+			&:before, &:after
+				+pseudo()
+				background-color: $magnifier-color
+				border: 2px solid $magnifier-color
+				transition-property: background-color, border-color
+				transition-duration: $animation-speed
+
+			&:before
+				left: 0
+				top: 0
+				+size(16px)
+				border-radius: 50%
+				background: none
+
+			&:after
+				bottom: 0
+				right: 0
+				+size(8px, 2px)
+				border-radius: 2px
+				border: none
+				transform-origin: right bottom
+				transform: rotate(38deg)
+
+		input[type="submit"]
+			padding: 0
+			border: none
+			background: none
+			margin: 0
+
+		.no-touchevents &:hover
+			background-color: $base-color-alt
+
+			i
+				&:before
+					border-color: white
+
+				&:after
+					background-color: white
+
+.btn-search-close
+	position: absolute
+	+position(50%, 100%)
+	+size($header-height)
+	box-shadow: -1px 0 0 $border-color
+	transition-property: background-color
+	transition-duration: $animation-speed
+	transform: translate(0, -50%)
+
+	span
+		+hide-text
+
+	i
+		position: absolute
+		+position(50%, 50%)
+		+size(18px)
+		+font(0, 0)
+		z-index: 2
+		pointer-events: none
+		transform: translate(-50%, -50%)
+
+		&:before, &:after
+			$line-width: 22px
+
+			+pseudo()
+			+position(50%, 50%)
+			height: 2px
+			+size($line-width, 2px)
+			margin: -1px 0 0 (-$line-width/2)
+			border-radius: 2px
+			background-color: $text-color
+			transition-property: background-color
+			transition-duration: $animation-speed
+
+		&::before
+			transform: rotate(-45deg)
+
+		&::after
+			transform: rotate(45deg)
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+
+		i
+			&::before, &::after
+				background-color: white
+
+/* search-form end

@@ -363,7 +363,7 @@
 
 	@if $pseudo
 		&::before
-			+pseudo($pos: relative)
+			+pseudo-relative
 
 			height: 0
 			padding-top: $padding
@@ -592,29 +592,34 @@
 // Input placeholder
 // =============================================================================
 
-=search-form-placeholder($color: #ccc, $tsp: color, $tsd: $animation-speed)
+=placeholder-style($color: #ccc, $tsp: color, $tsd: $animation-speed)
 	&::-webkit-input-placeholder
 		color: $color
-		transition: $tsp $tsd
+		@if $tsp
+			transition: $tsp $tsd
 
 	&:-moz-placeholder
 		color: $color
-		transition: $tsp $tsd
+		@if $tsp
+			transition: $tsp $tsd
 
 	&::-moz-placeholder
 		color: $color
-		transition: $tsp $tsd
 		opacity: 1
+		@if $tsp
+			transition: $tsp $tsd
 
 	&:-ms-input-placeholder
 		color: $color
-		transition: $tsp $tsd
 		opacity: 1
+		@if $tsp
+			transition: $tsp $tsd
 
 	&.placeholder
 		color: $color
-		transition: $tsp $tsd
 		opacity: 1
+		@if $tsp
+			transition: $tsp $tsd
 
 // =============================================================================
 // Scroll lock

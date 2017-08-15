@@ -1,0 +1,99 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* user options
+/* lang
+.lang
+	$text-color: black
+	position: relative
+
+	&.choice-opened > a
+		background-color: #fafafa
+
+	& > a
+		& > span
+			$this-icon-lines-width: 8px
+			$this-icon-lines-height: 2px
+			$this-icon-lines-color: black
+
+			+display-inline-block-middle
+			padding-right: 22px
+			position: relative
+
+			&::before, &::after
+				+pseudo()
+				right: 0
+				top: 50%
+				backface-visibility: hidden
+				+size($this-icon-lines-width, $this-icon-lines-height)
+				margin-top: -1px
+				background-color: $this-icon-lines-color
+				transition-property: background-color
+				transition-duration: $animation-speed
+
+			&::before
+				transform: rotate(-45deg)
+
+			&::after
+				right: round(get-catheter($this-icon-lines-width) - $this-icon-lines-height*0.5)
+				transform: rotate(45deg)
+
+		.no-touchevents &:hover > span
+				&::before, &::after
+					background-color: white
+
+	&.choice-opened > a > span
+			&::before
+				transform: rotate(45deg)
+
+			&::after
+				transform: rotate(-45deg)
+
+.lang__list
+	list-style: none
+	position: absolute
+	top: 100%
+	left: 0
+	margin: 0
+	padding: 0
+	font-size: 16px
+	width: 100%
+	opacity: 0
+	visibility: hidden
+	background-color: white
+	border: 1px solid $border-color
+	border-left: none
+	box-shadow: -1px 0 0 $border-color
+	transition-property: opacity, visibility
+	transition-duration: $animation-speed
+	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+	.choice-opened &
+		opacity: 1
+		visibility: visible
+
+	li
+		padding: 0
+
+	a
+		display: block
+		text-decoration: none
+		text-align: center
+		color: $text-color
+		padding: 12px 6px
+		font-size: 16px
+		line-height: 24px
+		letter-spacing: normal
+		border-top: 1px solid $border-color
+		transition-property: background-color, color
+		transition-duration: $animation-speed
+
+		.no-touchevents &:hover
+			background-color: $base-color-alt
+			color: white
+
+	li:first-child a
+		border-top: none
+
+/* lang end

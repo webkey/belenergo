@@ -3,7 +3,7 @@
 @import ../../libs/include-media/dist/include-media
 
 .wrapper
-	//margin: 0 auto
+	margin: 0 auto
 	min-height: 100vh
 	overflow: hidden
 	position: relative
@@ -37,12 +37,13 @@
 	z-index: 1020
 	height: $header-height
 	margin: 0 0 0 $sidebar-width
+	padding-left: $grid-layout-space
+	width: calc(100% - #{$sidebar-width})
+	box-shadow: 0 1px 0 $border-color
 	@if $page-layout-width
-		width: calc(#{$page-layout-width} - #{$sidebar-width})
+		max-width: calc(#{$page-layout-width} - #{$sidebar-width})
 	@else
-		width: calc(100% - #{$sidebar-width})
-
-	background-color: lightgreen
+		max-width: calc(100% - #{$sidebar-width})
 
 .sidebar
 	position: fixed
@@ -68,7 +69,7 @@
 
 /* footer common (layout)
 .footer-common
-	padding: round($grid-layout-space*1.5) #{$grid-layout-space} round($grid-layout-space*1.5 - $footer-nav-horizontal-space)
+	padding: round($grid-layout-space) #{$grid-layout-space} round($grid-layout-space - $footer-nav-horizontal-space)
 
 /* footer common (layout) end
 
@@ -93,10 +94,11 @@
 		max-width: $page-layout-width + $page-layout-space-horizontal*2
 
 .layout
-	+padding-horizontal($page-layout-space-horizontal)
-	+push-auto
+	//+push-auto
+	@if $page-layout-space-horizontal != 0
+		+padding-horizontal($page-layout-space-horizontal)
 
-	+media('<tab-lg')
+	//+media('<tab-lg')
 		.main &
 			+padding-horizontal(0)
 

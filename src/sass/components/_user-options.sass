@@ -1,0 +1,91 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* user options
+.user-options
+	position: relative
+	+clear-spacing
+	z-index: 100
+
+	.header &
+		float: right
+
+.user-options__item
+	+display-inline-block-top
+	position: relative
+	+size($header-height)
+
+	& > a
+		display: block
+		height: 100%
+		+padding-horizontal(12px)
+		color: black
+		fill: black // для svg
+		text-decoration: none
+		text-align: center
+		box-shadow: -1px 0 0 $border-color
+		transition-property: background-color, color, box-shadow
+		transition-duration: $animation-speed
+
+		& > *
+			+display-inline-block-middle
+			+font-medium
+			+font(16px, 20px)
+			letter-spacing: normal
+
+		&::before
+			+pseudo-inline-block()
+			vertical-align: middle
+			height: 100%
+
+		svg
+			+size(30px)
+			display: inline-block
+			transform: scale(0.8)
+			transition-property: background-color, color
+			transition-duration: $animation-speed
+
+			&.svg-search
+				+size(24px)
+
+			&.svg-visually-impaired
+				+size(32px)
+
+			& ~ span
+				padding-left: 15px
+
+		path
+			fill: inherit
+			transition-property: fill
+			transition-duration: $animation-speed
+
+		.no-touchevents &:hover
+			background-color: $base-color-alt
+			color: white
+			box-shadow: -1px 0 0 $base-color-alt
+
+			path
+				fill: white
+
+		& > span
+			display: inline-block
+
+		.hide-text
+			+hide-text
+
+	&.banner-opener
+		display: none
+
+	&.cecutient-link
+		width: auto
+		height: $header-height
+
+	&.theme-toggle
+		width: 155px
+		height: $header-height
+
+	.theme--night
+		display: none
+
+/* user options

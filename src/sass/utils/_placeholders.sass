@@ -31,3 +31,21 @@
 	$value: round($number*$float)/$float
 
 	@return $value
+
+/// Remove the unit of a length
+/// @param {Number} $number - Number to remove unit from
+/// @return {Number} - Unitless number
+@function strip-unit($number)
+	@if type-of($number) == 'number' and not unitless($number)
+		@return $number / ($number * 0 + 1)
+
+	@return $number
+
+/// Получить катет прямоугольного равнобедренного треугольника
+/// @param {Number} $number - Длина гипотенузы
+/// @param {Number} $n -Количество знаков после запяной при округлении
+/// @return {Number} - Длинна катета
+@function get-catheter($number)
+	$unit: $number * 0 + 1
+
+	@return sqrt(pow(strip-unit($number), 2)/2)*$unit
