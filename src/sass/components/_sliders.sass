@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/*slick sliders*/
+/* slick sliders
 // arrows
 .slick-arrow
 	+size(40px)
@@ -90,7 +90,7 @@
 	margin: 0
 	line-height: 0
 
-	.#{$user-content} &
+	&, .#{$user-content} &
 		margin: 0
 		max-width: none
 
@@ -101,43 +101,45 @@
 		margin: 0
 
 		&, .#{$user-content} &
-			padding: 4px 10px
-			margin: 0
+			padding: 8px
+			margin: 0 7px
 
 			&::before
 				content: none
 
 		button
-			width: 12px
-			height: 12px
+			+size(8px)
 			padding: 0
 			border-radius: 50%
-			background: $text-color-alt
 			position: relative
+			background-color: transparent
+			border: 1px solid $base-color-alt
 			transition-property: background, border, box-shadow, transform
-			transition-duration: 0.6s
+			transition-duration: 0.4s
 
 			&::before
-				content: ''
-				position: absolute
-				left: 2px
-				top: 2px
-				height: 8px
-				width: 8px
-				background: #fff
+				+pseudo()
+				+position(50%)
+				+size(24px)
+				margin: -12px 0 0 -12px
 				border-radius: 50%
-				opacity: 1
-				box-shadow: 0 2px 3px rgba(0, 0, 0, 0.20)
-				transition-property: transform, opacity
-				transition-duration: $animation-speed
+				border: 1px solid $base-color-alt
+				opacity: 0
+				transition-property: opacity, transform
+				transition-duration: 0.2s
+				transform: scale(0.2)
 
-		&.slick-active button::before
-			opacity: 0
+		&.slick-active button
+			background: $base-color-alt
+
+			&::before
+				opacity: 1
+				transform: scale(1)
 
 //.no-touchevents &:hover button::before
-/*slick sliders end*/
+/* slick sliders end
 
-/*images slider*/
+/* images slider
 .images-slider
 	position: relative
 	margin-bottom: $bottom-space
@@ -233,9 +235,9 @@
 				opacity: 1
 				transform: scale(2)
 
-/*images slider end*/
+/* images slider end
 
-/*flashes*/
+/* flashes
 .flashes
 	padding: 0 90px
 
@@ -246,4 +248,185 @@
 	& > *:last-child
 		margin-bottom: 0
 
-/*flashes end*/
+/* flashes end
+
+/* promo slider
+.promo
+	position: relative
+	margin-bottom: $bottom-space--lg
+	+push-auto
+
+//.breadcrumbs + &
+	float: left
+	width: 100%
+
+.promo-slider
+	// before slide load
+	white-space: nowrap
+	overflow: hidden
+	// before slide load end
+	+push-auto
+	margin-bottom: 0
+
+	&.slick-initialized, .no-js &
+		// after slide load
+		white-space: normal
+		overflow: visible
+		// after slide load end
+
+	&.slick-dotted
+		margin-bottom: 0
+
+	.slick-dots
+		position: absolute
+		width: auto
+		bottom: 60px
+		left: 53px
+
+.promo-slide
+	// before slide load
+	float: none
+	display: inline-block
+	vertical-align: top
+	// before slide load end
+	position: relative
+	color: $text-color
+	text-decoration: none
+	background-color: white
+	height: 460px
+
+	.slick-initialized &
+		// after slide load
+		float: left
+		display: block
+		// after slide load end
+
+.promo-slider__figure
+	overflow: hidden
+	position: absolute
+	+position(0, 50%)
+	+size(774px, auto)
+	transform: translate(-50%, -50%)
+	border-radius: 50%
+
+	&::before
+		+pseudo-block-relative()
+		+ratio(1, 1)
+
+.promo-slider__img
+	position: absolute
+	+position(50%, 0)
+	+size(100%)
+	background-position: center
+	background-repeat: no-repeat
+	background-size: cover
+
+.promo-slider__text
+	position: absolute
+	+position(60px)
+	+font-bold
+	+font(36px, 48px)
+	text-transform: uppercase
+	width: 650px
+	max-width: 100%
+	color: white
+
+	span
+		background: $base-color-alt
+		box-shadow: 10px 0 0 $base-color-alt, -10px 0 0 $base-color-alt
+
+	//+media('<desk-hd')
+		$fz-kef: 0.8
+		$lh-kef: 1.2
+
+		height: calc(3 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
+		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
+
+	//+media('<desk-lg')
+		$fz-kef: 0.6
+		$lh-kef: 1.3
+
+		height: calc(4 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
+		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
+
+	//+media('<mob-lg')
+		$fz-kef: 0.5
+		$lh-kef: 1.3
+
+		height: calc(4 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
+		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
+
+.slider-arrows
+	+clear-spacing
+
+	.promo &
+		position: absolute
+		right: 60px
+		bottom: 60px
+
+.slider-arrows__item
+	position: relative
+	+display-inline-block-top
+	+clear-spacing
+	padding: 0 20px
+
+	&::before
+		+pseudo()
+		left: -1px
+		top: 50%
+		+size(0, 22px)
+		margin-top: -11px
+		border-right: 2px solid $base-color
+
+	&:first-child
+		&::before
+			content: none
+
+.slider-arr
+
+	+size(46px, 30px)
+	+font($font-size, $line-height)
+	letter-spacing: normal
+	position: relative
+	backface-visibility: hidden
+	text-indent: -9999px
+	overflow: hidden
+	cursor: pointer
+	transition-property: background-color
+	transition-duration: $animation-speed
+
+	&::before, &::after
+		+pseudo()
+		+position(50%)
+		border: 0 solid $base-color-alt
+		transition-property: border-color
+		transition-duration: $animation-speed
+		transform: none
+
+	&::before
+		+size(26px, 2px)
+		border-top-width: 2px
+		margin: -1px 0 0 -13px
+
+	&::after
+		top: 0
+		+size(12px)
+		border-width: 2px 0 0 2px
+		transform: rotate(-45deg)
+		margin: 9px 0 0 -13px
+
+	.no-touchevents &:hover
+		background-color: transparent
+
+		&::before, &::after
+			border-color: $base-color
+
+	&:active
+		transform: translate(0, 1px)
+
+.slider-arr--next
+	&::after
+		border-width: 0 2px 2px 0
+		margin: 9px 0 0 1px
+
+/* promo slider end

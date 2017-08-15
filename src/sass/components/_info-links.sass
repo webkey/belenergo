@@ -1,0 +1,71 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* info links
+.info-links
+	display: table
+	width: 100%
+	background-image: url(../../img/bg-logo-right-bottom.png)
+	background-position: right bottom
+	background-repeat: no-repeat
+	background-size: 89.1%
+
+	.aside &
+		margin-bottom: $aside-bottom-space
+
+		&:last-child
+			margin-bottom: 0
+
+.info-links__item
+	display: table-row-group
+
+.info-links__inner
+	display: table-cell
+	position: relative
+	vertical-align: middle
+	color: $base-color-alt
+	text-decoration: none
+	text-align: center
+	padding: 30px 40px
+	transition-property: background-color, color
+	transition-duration: $animation-speed
+
+	&::before
+		+pseudo()
+		+position(0, 50%)
+		+size(220px, 0)
+		margin-left: -110px
+		border-top: 2px solid $border-color
+		transition-property: opacity
+		transition-duration: $animation-speed
+
+	.info-links__item:first-child &
+		&::before
+			content: none
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+		color: white
+
+	.no-touchevents .hover-next &, .no-touchevents &:hover
+		&::before
+			opacity: 0
+
+.info-links__text
+	display: block
+	+font-medium
+	+font(16px, round-float(19/16, 2))
+	letter-spacing: 0.05em
+	text-transform: uppercase
+	margin-bottom: 20px
+
+.info-links__icon
+	svg
+		+display-inline-block-top
+		+size(50px)
+
+	path
+		fill: $base-color
+
+/* info links end

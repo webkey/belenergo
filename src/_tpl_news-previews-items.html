@@ -1,0 +1,25 @@
+<article class="news__item">
+	<div class="news__inner">
+		<header class="news__meta">
+			<time datetime="@@datetime" class="news__date">@@date</time>
+		</header>
+		@@if (context.src) {
+		<div class="news__figure">
+			<a href="#" class="news__img">
+				<img src="img/@@src" alt="@@title" />
+			</a>
+		</div>
+		}
+		<div class="news__content">
+			@@if (context.src) {
+				<div class="news__title"><a href="#">@@title</a></div>
+			}
+			@@if (context.src) {
+				<div class="news__text">@@text</div>
+			}
+		</div>
+		<footer class="news__footer">
+			<a href="#" class="btn-read">Читать</a>
+		</footer>
+	</div>
+</article>

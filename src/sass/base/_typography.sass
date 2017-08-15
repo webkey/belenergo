@@ -462,7 +462,7 @@ table
 
 /*view print end*/
 
-/*logo*/
+/* logo
 .logo
 	display: block
 	position: relative
@@ -477,4 +477,141 @@ table
 		display: block
 		height: 100%
 
-/*logo end*/
+/* logo end
+
+/* add shadow
+.add-shadow, .add-shadow--full
+	visibility: visible
+	position: relative
+
+	&::before
+		+pseudo()
+		+size(100%)
+		+position(15px)
+		z-index: -1
+		background: url(../../img/bg-shadow.png) right bottom
+
+.add-shadow--full
+	background-color: white
+	border: 2px solid $base-color-alt
+
+/* add shadow end
+
+/* caption
+.caption
+	position: relative
+	margin-bottom: $bottom-space--md
+	+clear-spacing
+
+	&::before
+		+pseudo()
+		left: calc(54% - 1px)
+		top: 5px
+		bottom: 5px
+		border-left: 0 solid $base-color
+		border-width: 0 0 0 2px
+
+	&:last-child
+		margin-bottom: 0
+
+.caption__title
+	+display-inline-block-middle
+	width: 54%
+	margin-bottom: 0
+	+font(36px, round-float(43/36, 2))
+	letter-spacing: 0.05em
+	color: $title-color
+	text-transform: uppercase
+
+.caption__text
+	+display-inline-block-middle
+	width: 45.98%
+	padding-left: 32px
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	color: $text-color
+
+/* caption end
+
+/* caption box
+.caption-box
+	display: flex
+	justify-content: space-between
+	align-items: stretch
+	margin-bottom: $bottom-space--lg
+
+	.no-flexbox &
+		+clear-spacing
+
+	&:last-child
+		margin-bottom: 0
+
+.caption-box__title
+	width: 54%
+	+font(36px, round-float(43/36, 2))
+	letter-spacing: 0.05em
+	color: $title-color
+	text-transform: uppercase
+	margin-bottom: 0
+
+	.no-flexbox &
+		+display-inline-block-top
+
+		&:last-child
+			margin-bottom: 0
+
+.caption-box__content
+	display: flex
+	flex-direction: column
+	justify-content: space-between
+	align-items: stretch
+	width: 45.98%
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	color: $text-color
+
+	.no-flexbox &
+		+display-inline-block-top
+
+.caption-box__subtitle
+	+font-medium
+	+font(16px, round-float(19/16, 2))
+	letter-spacing: 0.05em
+	text-transform: uppercase
+	margin: 0
+	padding-bottom: $bottom-space
+
+	.no-flexbox &
+		padding-bottom: 0
+		margin-bottom: $bottom-space
+
+		&:last-child
+			margin-bottom: 0
+
+/* caption box end
+
+/* benefits counter
+.benefits-counter
+	+clear-spacing
+	+margin-horizontal(-20px)
+
+.benefits-counter__item
+	+display-inline-block-top
+	+padding-horizontal(20px)
+	width: round-float(100%/3, 2)
+	+font-medium
+	+font(16px, round-float(19px/16px, 2))
+	letter-spacing: 0.025em
+	color: $text-color
+
+	.dt
+		display: block
+		margin-bottom: 10px
+
+	.dd
+		+font-bold
+		+font(48px, round-float(52/48, 2))
+		letter-spacing: 0.05em
+		color: $base-color
+
+/* benefits counter end

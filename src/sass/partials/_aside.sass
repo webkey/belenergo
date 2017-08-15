@@ -2,5 +2,94 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/*ASIDE*/
-/*ASIDE end*/
+/* aside widget
+.aside-widget
+	margin-bottom: $aside-bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+.aside-widget__title
+	+font(36px, round-float(42/36, 2))
+	text-transform: uppercase
+	color: $title-color
+	margin-bottom: 30px
+
+/* aside widget end
+
+/* actual links
+.actual-links
+	list-style: none
+	padding: 0
+	margin: 0
+	+font-light
+	+font(1.6rem, round-float(24/16, 2))
+
+	li
+		margin-top: 24px
+
+		&:first-child
+			margin-top: 0
+
+	a
+		color: $text-color
+		text-decoration: none
+		transition-property: color
+		transition-duration: $animation-speed
+		padding-top: 0.5em
+
+		span
+			border-bottom: 1px solid tint($text-color, 40%)
+			transition-property: border-color
+			transition-duration: $animation-speed
+
+		.no-touchevents &:hover
+			color: $base-color
+
+			span
+				border-color: tint($base-color, 40%)
+
+/* actual links end
+
+/* banner inner
+.banner-inner
+	display: block
+	padding: 40px 48px 48px
+	text-align: center
+	+font(16px, round-float(24/16, 2))
+	color: $text-color
+
+.banner-inner__title
+	+font-medium
+	+font(16px, round-float(24/16, 2))
+	text-transform: uppercase
+	color: $base-color-alt
+	margin: 0 -15px 1em
+
+.banner-inner__figure
+	margin-bottom: 1em
+
+	svg
+		+display-inline-block-top
+		+size(50px)
+
+	path
+		fill: $base-color
+
+.banner-inner__content
+	text-align: left
+	margin-bottom: 1em
+
+.banner-inner__footer
+	[class*="btn-"]
+		display: block
+
+/* banner inner end
+
+/* banner
+.banner
+	display: block
+	text-decoration: none
+	color: $text-color
+
+/* banner end

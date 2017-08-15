@@ -1,0 +1,82 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* news previews
+
+$new-previews-space: 80px
+
+.news
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+.news__list
+	+grid-parent($new-previews-space)
+	+clear-spacing
+
+.news__item
+	position: relative
+	+grid-item(3, $new-previews-space, round($new-previews-space*0.5))
+	+font(1.5rem, round-float(18px/15px, 2))
+	letter-spacing: normal
+
+.news__inner
+	display: block
+	height: 100%
+	text-decoration: none
+	color: inherit
+
+.news__figure
+	position: relative
+	margin: 0 auto 26px
+	max-width: 320px
+	letter-spacing: normal
+
+	&:before
+		+pseudo-block-relative()
+		+ratio(27, 15)
+
+.news__img
+	+cover-abs()
+	font-size: $font-size
+	letter-spacing: normal
+	backface-visibility: hidden
+
+	img
+		display: block
+		max-height: 100%
+		max-width: 100%
+		+centering-transform-rel()
+
+.news__content
+	position: relative
+
+.news__title
+	margin-bottom: 16px
+	+font-alt
+	+font(18px, 26px)
+	letter-spacing: normal
+
+.news__text
+	position: relative
+	+font(16px, 26px)
+	letter-spacing: normal
+
+	& > *:last-child
+		margin-bottom: 0
+
+.news__footer
+	position: absolute
+	bottom: 0
+	left: 0
+	width: 100%
+
+.news__date
+	display: block
+	+font-normal
+	+font(14px, 26px)
+	letter-spacing: normal
+
+/* news end
