@@ -1,0 +1,83 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+// social color
+$facebook-color: #3a589e !default
+$vkontakte-color: #4b73a4 !default
+$twitter-color: #1da0f2 !default
+$odnoklassniki-color: #f2822e !default
+$youtube-color: #e62117 !default
+$instagram-color-start: #de4f5a !default
+$instagram-color-end: #a43b97 !default
+$social-space: 18px !default
+
+/* social networks
+.social-networks
+	margin-bottom: $bottom-space
+	+clear
+
+	&:last-child
+		margin-bottom: 0
+
+.social-networks__list
+	position: relative
+	float: left
+	width: calc(100% + #{$social-space})
+	margin: 0 -#{round($social-space/2)} -#{round($social-space*0.5)}
+	+clear-spacing
+
+.social-networks__item
+	+display-inline-block-top
+	margin: 0 #{round($social-space*0.5)} round($social-space*0.5)
+	+font(14px, round-float(18/14, 2))
+	letter-spacing: normal
+
+	a
+		display: block
+		position: relative
+		+size(40px)
+		transition-property: transform, border-color, background-color
+		transition-duration: $animation-speed
+
+		span
+			+hide-text
+
+		svg
+			+centering-transform-abs
+			+size(20px)
+
+		path
+			fill: $text-color-light
+			transition: fill $animation-speed
+
+		.no-touchevents &:hover
+			&.fb
+				path
+					fill: $facebook-color
+
+			&.vk
+				path
+					fill: $vkontakte-color
+
+			&.twitter
+				path
+					fill: $twitter-color
+
+			&.ok
+				path
+					fill: $odnoklassniki-color
+
+			&.youtube
+				path
+					fill: $youtube-color
+
+			&.instagram
+				path
+					//+linear-gradient(to right, #{$instagram-color-start} 0%, #{$instagram-color-end} 100%)
+					fill: $instagram-color-end
+
+			path
+				fill: white
+
+/* social networks end

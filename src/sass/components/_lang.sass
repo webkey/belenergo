@@ -76,6 +76,9 @@
 	li
 		padding: 0
 
+		&.current
+			display: none
+
 	a
 		display: block
 		text-decoration: none
@@ -93,7 +96,9 @@
 			background-color: $base-color-alt
 			color: white
 
-	li:first-child a
-		border-top: none
+	li:first-child,
+	li.current:first-child + li
+		a
+			border-top: none
 
 /* lang end

@@ -11,12 +11,13 @@
 	position: relative
 
 .nav__list
+	+margin-horizontal(-#{round($nav-item-space*0.5)})
 	+clear
 
 	li
 		position: relative
 
-		&.has-drop
+		//&.has-drop
 			padding-right: 2rem
 
 			.nav__angle
@@ -27,17 +28,45 @@
 				line-height: 0
 				pointer-events: none
 
+		&.hover > .nav__tab a
+			background-color: $bg-color-selected
+
 	a
 		display: block
+		+padding-horizontal(#{round($nav-item-space*0.5)})
+		+font-medium
+		+font(16px, 20px)
+		text-decoration: none
+		color: black
+		transition-property: background-color
+		transition-duration: $animation-speed
 
-	& > li
-		float: left
-		margin-right: 2rem
+	.nav__angle
+		display: none
 
-		&.has-drop > .nav__tab .nav__angle i
-			display: inline-block
-			vertical-align: top
-			+triangle(bottom, tomato, 5px, 2)
+// первый уровень навигации
+.nav__list > li
+	float: left
+
+	& > .nav__tab
+		a
+			height: $header-height
+			+clear-spacing
+
+			&::before
+				+pseudo-inline-block()
+				height: 100%
+				vertical-align: middle
+
+			span
+				+display-inline-block-middle
+				+font($font-size, $line-height)
+				letter-spacing: 0.05em
+
+//.nav__angle i
+	display: inline-block
+	vertical-align: top
+	+triangle(bottom, black, 5px, 2)
 
 .nav__drop
 	position: absolute
@@ -45,26 +74,22 @@
 	top: 100%
 	background-color: white
 	border: 1px solid $border-color
-	padding: 2rem
 	width: 320px
 	opacity: 0
 	visibility: hidden
 	z-index: 10
 
-	li:hover > &
+	li.hover > &
 		opacity: 1
 		visibility: visible
 
-	li
-		margin-bottom: 1rem
-		font-size: 1.4rem
-		line-height: 1.5
-
-		&.has-drop > .nav__tab .nav__angle i
+		//&.has-drop > .nav__tab .nav__angle i
 			display: inline-block
 			vertical-align: top
-			+triangle(right, tomato, 5px, 2)
+			+triangle(right, black, 5px, 2)
 
+	a
+		+padding-vertical(round($nav-item-space*0.25))
 
 	.nav__drop
 		top: 0

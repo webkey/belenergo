@@ -10,7 +10,7 @@ body
 	+font($font-size, $line-height)
 	color: $text-color
 	height: 100%
-	background: #{$bg-color} url(../../img/empty.png) no-repeat fixed
+	background: #{$bg-color} url(../../img/bg-home-img.jpg) no-repeat center top fixed
 	min-width: 320px
 
 h1, h2, h3, h4, h5, h6
@@ -461,3 +461,20 @@ table
 			display: none
 
 /*view print end*/
+
+/*logo*/
+.logo
+	display: block
+	position: relative
+	background: url(../../img/logo-full.png) no-repeat
+	width: 180px
+	height: 142px
+	text-indent: -9999px
+	overflow: hidden
+	z-index: 5
+
+	a
+		display: block
+		height: 100%
+
+/*logo end*/

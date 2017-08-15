@@ -34,6 +34,17 @@ function placeholderInit() {
 /*placeholder end*/
 
 /**
+ * !print
+ * */
+function printShow() {
+	$('.view-print').on('click', function (e) {
+		e.preventDefault();
+		window.print();
+	})
+}
+/*print end*/
+
+/**
  * !toggle class for input on focus
  * */
 function inputToggleFocusClass() {
@@ -144,15 +155,33 @@ function inputFilledClass() {
 /*toggle class for input on focus end*/
 
 /**
- * !print
+ * add class on scroll page
  * */
-function printShow() {
-	$('.view-print').on('click', function (e) {
-		e.preventDefault();
-		window.print();
-	})
+function addClassesOnScrollPage(){
+	// external js:
+	// 1) resizeByWidth (resize only width);
+
+	var $page = $('html'),
+		minScrollTop = 100,
+		scrollClass = "page-is-scrolled",
+		headerShowClass = 'header-show',
+		headerHideClass = 'header-hide';
+
+	var previousScrollTop = $(window).scrollTop();
+
+	$(window).on('scroll resizeByWidth', function () {
+		var currentScrollTop = $(window).scrollTop();
+
+		$page.toggleClass(scrollClass, (currentScrollTop >= minScrollTop));
+
+		var showHeaderPanel = currentScrollTop < previousScrollTop || currentScrollTop <= minScrollTop;
+		$page.toggleClass(headerShowClass, showHeaderPanel);
+		$page.toggleClass(headerHideClass, !showHeaderPanel);
+
+		previousScrollTop = currentScrollTop;
+	});
 }
-/*print end*/
+/*add class on scroll page end*/
 
 /**
  * !Multiselect init
@@ -171,6 +200,138 @@ function customSelect(select) {
 	})
 }
 /* Multiselect init end */
+
+/**
+ * jquery.toggleHoverClass
+ * */
+(function ($) {
+	var HoverClass = function (settings) {
+		var options = $.extend({
+			container: 'ul',
+			item: 'li',
+			drop: 'ul'
+		},settings || {});
+
+		var self = this;
+		self.options = options;
+
+		var container = $(options.container);
+		self.$container = container;
+		self.$item = $(options.item, container);
+		self.$drop = $(options.drop, container);
+
+		self.modifiers = {
+			hover: 'hover',
+			hoverNext: 'hover_next',
+			hoverPrev: 'hover_prev'
+		};
+
+		self.addClassHover();
+
+		if (!DESKTOP) {
+			$(window).on('debouncedresize', function () {
+				self.removeClassHover();
+			});
+		}
+	};
+
+	HoverClass.prototype.addClassHover = function () {
+		var self = this,
+			_hover = this.modifiers.hover,
+			_hoverNext = this.modifiers.hoverNext,
+			_hoverPrev = this.modifiers.hoverPrev,
+			$item = self.$item,
+			item = self.options.item,
+			$container = self.$container;
+
+		if (!DESKTOP) {
+
+			$container.on('click', ''+item+'', function (e) {
+				var $currentAnchor = $(this);
+				var currentItem = $currentAnchor.closest($item);
+
+				if (!currentItem.has(self.$drop).length){ return; }
+
+				e.stopPropagation();
+
+				if (currentItem.hasClass(_hover)){
+					currentItem.removeClass(_hover).find('.'+_hover+'').removeClass(_hover);
+					return;
+				}
+
+				$('.'+_hover+'').not($currentAnchor.parents('.'+_hover+''))
+					.removeClass(_hover)
+					.find('.'+_hover+'')
+					.removeClass(_hover);
+				currentItem.addClass(_hover);
+
+				e.preventDefault();
+			});
+
+			$container.on('click', ''+self.options.drop+'', function (e) {
+				e.stopPropagation();
+			});
+
+			$(document).on('click', function () {
+				$item.removeClass(_hover);
+			});
+
+		} else {
+			$container.on('mouseenter', ''+item+'', function () {
+
+				var currentItem = $(this);
+
+				if (currentItem.prop('hoverTimeout')) {
+					currentItem.prop('hoverTimeout', clearTimeout(currentItem.prop('hoverTimeout')));
+				}
+
+				currentItem.prop('hoverIntent', setTimeout(function () {
+					currentItem.addClass(_hover);
+					currentItem.next().addClass(_hoverNext);
+					currentItem.prev().addClass(_hoverPrev);
+				}, 50));
+
+			}).on('mouseleave', ''+ item+'', function () {
+
+				var currentItem = $(this);
+
+				if (currentItem.prop('hoverIntent')) {
+					currentItem.prop('hoverIntent', clearTimeout(currentItem.prop('hoverIntent')));
+				}
+
+				currentItem.prop('hoverTimeout', setTimeout(function () {
+					currentItem.removeClass(_hover);
+					currentItem.next().removeClass(_hoverNext);
+					currentItem.prev().removeClass(_hoverPrev);
+				}, 50));
+
+			});
+
+		}
+	};
+
+	HoverClass.prototype.removeClassHover = function () {
+		var self = this;
+		self.$item.removeClass(self.modifiers.hover );
+	};
+
+	window.HoverClass = HoverClass;
+
+}(jQuery));
+/*jquery.toggleHoverClass end*/
+
+/**
+ * toggle hover class
+ * */
+function hoverClassInit(){
+	if($('.nav').length){
+		new HoverClass({
+			container: ('.nav'),
+			drop: '.js-nav-drop'
+		});
+	}
+}
+/*toggle hover class end*/
 
 /**
  * file input
@@ -530,6 +691,10 @@ function formSuccessExample() {
 
 /** ready/load/resize document **/
 
+$(window).on('load', function () {
+	addClassesOnScrollPage();
+});
+
 $(document).ready(function () {
 	placeholderInit();
 	printShow();
@@ -540,6 +705,7 @@ $(document).ready(function () {
 	// 	customSelect($('select.cselect'));
 	// }
 	customSelect($('select.cselect'));
+	hoverClassInit();
 	fileInput();
 	slidersInit();
 	toggleDrop();

@@ -19,7 +19,6 @@
 	& > a
 		display: block
 		height: 100%
-		+padding-horizontal(12px)
 		color: black
 		fill: black // для svg
 		text-decoration: none
@@ -32,7 +31,7 @@
 			+display-inline-block-middle
 			+font-medium
 			+font(16px, 20px)
-			letter-spacing: normal
+			letter-spacing: 0.05em
 
 		&::before
 			+pseudo-inline-block()
@@ -81,9 +80,17 @@
 		width: auto
 		height: $header-height
 
+		a
+			+padding-horizontal(25px)
+
 	&.theme-toggle
-		width: 155px
+		width: auto
+		min-width: 155px
 		height: $header-height
+
+	&.lang
+		width: auto
+		min-width: 120px
 
 	.theme--night
 		display: none

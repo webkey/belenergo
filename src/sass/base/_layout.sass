@@ -9,6 +9,12 @@
 	position: relative
 	padding-top: $header-height
 
+	&::before
+		+pseudo()
+		min-height: 1100px
+		+size(100%)
+		+linear-gradient(to top, $bg-color 0, $bg-color 50%, transparentize($bg-color, 0.5) 100%)
+
 .main
 	position: relative
 	width: 100%
@@ -22,8 +28,6 @@
 
 .content
 	padding: #{$grid-layout-space} #{$grid-layout-space}
-
-	background-color: whitesmoke
 
 	+media('<desk-lg')
 		margin-right: 0
@@ -56,10 +60,8 @@
 	float: right
 	margin: 0 0 0 -#{$aside-width}
 	width: #{$aside-width}
-	padding: #{$grid-layout-space} #{$grid-layout-space} 0 0
+	padding: #{$grid-layout-space} #{$grid-layout-space} #{$grid-layout-space} 0
 	z-index: 999
-
-	background-color: sandybrown
 
 /* footer (layout)
 .footer

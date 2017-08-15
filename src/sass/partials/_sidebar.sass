@@ -2,11 +2,11 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/*SIDEBAR*/
 .sidebar
 	background-color: $panels-color
 	user-select: none
-	
+	border-right: 1px solid $border-color
+
 .sidebar__align
 	width: #{$sidebar-width + 100px}
 	background-color: inherit
@@ -15,21 +15,95 @@
 	position: relative
 	width: $sidebar-width
 
-/*logo*/
+	background: url(../../img/bg-sidebar-img.png) no-repeat left bottom
+	background-size: 89.1%
+
+.sidebar-widget
+	padding: $sidebar-inside-space
+	border-top: 1px solid $border-color
+
+/* logo
 .logo
-	display: block
-	position: relative
-	background: url(../../img/logo-full.png) no-repeat
-	width: 180px
-	height: 142px
-	text-indent: -9999px
-	overflow: hidden
-	margin: 0 2rem 0 0
-	z-index: 5
+	.sidebar &
+		+push-auto
+		+size(100%, 220px)
+		background-position: center 65px // удалить позже
+
+/* logo end
+
+/* contacts
+.short-contacts
+	list-style: none
+	margin: 0
+	padding: 0
+
+	li
+		padding: 10px 0
 
 	a
 		display: block
-		height: 100%
+		color: $text-color
+		text-decoration: none
+		+clear-spacing
 
-/*logo end*/
-/*SIDEBAR end*/
+		$icon-size: 24px
+		$icon-space: 10px
+
+		svg
+			+display-inline-block-top
+			+size(24px)
+			margin-right: $icon-space
+
+		path
+			fill: $base-color
+
+		span
+			+display-inline-block-top
+			max-width: calc(100% - #{$icon-size} - #{$icon-space})
+			+font(16px, #{$icon-size})
+			letter-spacing: normal
+			text-decoration: underline
+			
+		&[href^="tel:"]
+			span
+				text-decoration: none
+
+		.no-touchevents &:hover
+			span
+				text-decoration: none
+
+/* contacts end
+
+/* social networks (in sidebar)
+.social-networks__list
+	text-align: center
+
+/* social networks (in sidebar) end
+
+/* menu
+.menu-list
+	list-style: none
+	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
+	margin: 0
+
+	li
+		+padding-vertical(#{round($sidebar-inside-space*0.3)})
+
+	a
+		display: block
+		+font-medium
+		+font(16px, round-float(24/16, 2))
+		color: $text-color
+		letter-spacing: 0.05em
+		text-align: center
+		text-decoration: none
+		text-transform: uppercase
+		transition-property: color
+		transition-duration: $animation-speed
+
+	.no-touchevents & a:hover,
+	.no-touchevents & .current a
+		color: $base-color
+
+
+/* menu end
