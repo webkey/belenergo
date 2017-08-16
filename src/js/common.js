@@ -806,7 +806,7 @@ function footerBottom() {
  * !form success for example
  * */
 function formSuccessExample() {
-	var $form = $('.user-form form');
+	var $form = $('.user-form form, .subscription-form form');
 
 	if ( $form.length ) {
 

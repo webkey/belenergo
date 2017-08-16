@@ -591,35 +591,70 @@
 // =============================================================================
 // Input placeholder
 // =============================================================================
+/// @param {} - нет параметров
+///
+/// @example Sass - Использование
+/// .foo
+/// 	+placeholder
+/// 		color: green
+///
+/// +placeholder
+/// 	color: red
+///
+/// @example css - Вывод CSS
+/// .foo::-webkit-input-placeholder {
+/// 	color: green;
+/// }
+/// .foo:-moz-placeholder {
+/// 	color: green;
+/// }
+/// .foo::-moz-placeholder {
+/// 	color: green;
+/// }
+/// .foo:-ms-input-placeholder {
+/// 	color: green;
+/// }
+/// .foo.placeholder {
+/// 	color: green;
+/// }
+///
+/// ::-webkit-input-placeholder {
+/// 	color: red;
+/// }
+/// :-moz-placeholder {
+/// 		color: red;
+/// }
+/// ::-moz-placeholder {
+/// 	color: red;
+/// }
+/// :-ms-input-placeholder {
+/// 		color: red;
+/// }
+/// .placeholder {
+/// 		color: red;
+/// }
 
-=placeholder-style($color: #ccc, $tsp: color, $tsd: $animation-speed)
-	&::-webkit-input-placeholder
-		color: $color
-		@if $tsp
-			transition: $tsp $tsd
+=optional-at-root($sel)
+	@at-root #{if(not &, $sel, selector-append(&, $sel))}
+		@content
 
-	&:-moz-placeholder
-		color: $color
-		@if $tsp
-			transition: $tsp $tsd
+=placeholder()
+	+optional-at-root('::-webkit-input-placeholder')
+		@content
 
-	&::-moz-placeholder
-		color: $color
+	+optional-at-root(':-moz-placeholder')
+		@content
+
+	+optional-at-root('::-moz-placeholder')
+		@content
 		opacity: 1
-		@if $tsp
-			transition: $tsp $tsd
 
-	&:-ms-input-placeholder
-		color: $color
+	+optional-at-root(':-ms-input-placeholder')
+		@content
 		opacity: 1
-		@if $tsp
-			transition: $tsp $tsd
 
-	&.placeholder
-		color: $color
-		opacity: 1
-		@if $tsp
-			transition: $tsp $tsd
+	+optional-at-root('.placeholder')
+		@content
 
 // =============================================================================
 // Scroll lock

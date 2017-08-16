@@ -2,81 +2,152 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* news previews
+/* news-previews previews
 
-$new-previews-space: 80px
+$news-previews-space: 80px
 
-.news
-	margin-bottom: $bottom-space--lg
+.news-previews
+	margin-bottom: $bottom-space--md
 
 	&:last-child
 		margin-bottom: 0
 
-.news__list
-	+grid-parent($new-previews-space)
+.news-previews__list
+	+grid-parent($news-previews-space)
 	+clear-spacing
+	margin-bottom: $bottom-space--md
 
-.news__item
+	&:last-child
+		margin-bottom: 0
+
+.news-previews__item
 	position: relative
-	+grid-item(3, $new-previews-space, round($new-previews-space*0.5))
+	+grid-item(3, $news-previews-space, round($news-previews-space*0.5))
 	+font(1.5rem, round-float(18px/15px, 2))
 	letter-spacing: normal
 
-.news__inner
+.news-previews__inner
 	display: block
 	height: 100%
 	text-decoration: none
 	color: inherit
 
-.news__figure
+.news-previews__meta
+	margin-bottom: $bottom-space
+	cursor: default
+	+clear-spacing
+
+.news-previews__date
+	+display-inline-block-middle
+	+font-normal
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	color: $text-color-light
+
+	margin-right: 1em
+
+.news-previews__label
+	+display-inline-block-middle
+	+font-normal
+	+font(16px, round-float(16/16, 2))
+	text-transform: uppercase
+	letter-spacing: 0.025em
+	color: white
+	background-color: $text-color-light
+	box-shadow: 2px 0 0 #{$text-color-light}, -2px 0 0 #{$text-color-light}
+
+.news-previews__figure
 	position: relative
-	margin: 0 auto 26px
+	margin: 0 auto #{$bottom-space}
 	max-width: 320px
 	letter-spacing: normal
 
 	&:before
 		+pseudo-block-relative()
-		+ratio(27, 15)
+		+ratio(1, 1)
 
-.news__img
+.news-previews__img
+	position: relative
+	overflow: hidden
 	+cover-abs()
 	font-size: $font-size
 	letter-spacing: normal
 	backface-visibility: hidden
+	background-color: $border-color
+
+	&::before
+		+pseudo()
+		+position(0)
+		+size(100%)
+		z-index: 5
+		border: 3px solid $base-color
+		opacity: 0
+		visibility: hidden
+		transition:
+			property: opacity, visibility
+			duration: $animation-speed
 
 	img
 		display: block
 		max-height: 100%
 		max-width: 100%
-		+centering-transform-rel()
+		transform: translate(-50%, -50%)
+		position: absolute
+		+position(50%)
 
-.news__content
+	.no-touchevents &:hover
+		&::before
+			opacity: 1
+			visibility: visible
+
+.news-previews__content
 	position: relative
+	margin-bottom: $bottom-space
 
-.news__title
-	margin-bottom: 16px
-	+font-alt
-	+font(18px, 26px)
-	letter-spacing: normal
-
-.news__text
-	position: relative
-	+font(16px, 26px)
-	letter-spacing: normal
-
-	& > *:last-child
+	&:last-child
 		margin-bottom: 0
 
-.news__footer
-	position: absolute
-	bottom: 0
-	left: 0
-	width: 100%
+.news-previews__title, .news-previews__text
+	+font-medium
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	color: $text-color
+	margin-bottom: $bottom-space
+	
+	&:last-child
+		margin-bottom: 0
 
-.news__date
-	display: block
+	a
+		text-decoration: none
+		color: inherit
+		padding-top: 0.5em
+		transition:
+			property: color
+			duration: $animation-speed
+
+		.no-touchevents &:hover
+			color: $base-color
+
+.news-previews__text
 	+font-normal
-	+font(14px, 26px)
-	letter-spacing: normal
 
-/* news end
+.news-previews__footer
+	position: relative
+	
+.btn-read
+	+display-inline-block-top
+	+font-medium
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.05em
+	color: black
+	text-transform: uppercase
+	border-bottom: 2px solid black
+	transition:
+		property: border-color, color
+		duration: $animation-speed
+
+	.no-touchevents &:hover
+		color: $base-color
+		border-color: $base-color
+
+/* news-previews end

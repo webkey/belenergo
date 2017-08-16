@@ -1,24 +1,29 @@
-<article class="news__item">
-	<div class="news__inner">
-		<header class="news__meta">
-			<time datetime="@@datetime" class="news__date">@@date</time>
+<article class="news-previews__item">
+	<div class="news-previews__inner">
+		<header class="news-previews__meta">
+			@@if (context.date) {
+				<time datetime="@@datetime" class="news-previews__date">@@date</time>
+			}
+			@@if (context.label) {
+				<span class="news-previews__label">@@label</span>
+			}
 		</header>
 		@@if (context.src) {
-		<div class="news__figure">
-			<a href="#" class="news__img">
+		<div class="news-previews__figure add-shadow">
+			<a href="#" class="news-previews__img">
 				<img src="img/@@src" alt="@@title" />
 			</a>
 		</div>
 		}
-		<div class="news__content">
-			@@if (context.src) {
-				<div class="news__title"><a href="#">@@title</a></div>
+		<div class="news-previews__content">
+			@@if (context.title) {
+				<div class="news-previews__title"><a href="#">@@title</a></div>
 			}
-			@@if (context.src) {
-				<div class="news__text">@@text</div>
+			@@if (context.text) {
+				<div class="news-previews__text">@@text</div>
 			}
 		</div>
-		<footer class="news__footer">
+		<footer class="news-previews__footer">
 			<a href="#" class="btn-read">Читать</a>
 		</footer>
 	</div>

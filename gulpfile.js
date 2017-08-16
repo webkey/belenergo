@@ -21,7 +21,8 @@ var gulp = require('gulp'), // Подключаем Gulp
 	fs = require('fs'), // For compiling modernizr.min.js
 	modernizr = require('modernizr'), // For compiling modernizr.min.js
 	config = require('./modernizr-config'), // Path to modernizr-config.json
-	replace = require('gulp-string-replace')
+	replace = require('gulp-string-replace'),
+	cleanCSS = require('gulp-clean-css')
 	;
 
 gulp.task('htmlCompilation', function () { // Таск формирования ДОМ страниц
@@ -66,6 +67,10 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
 		], {
 			cascade: true
 		})) // Создаем префиксы
+		// .pipe(cleanCSS({
+		// 	compatibility: 'ie9',
+		// 	minify: false
+		// }))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./src/css')) // Выгружаем результата в папку src/css
 		.pipe(browserSync.reload({

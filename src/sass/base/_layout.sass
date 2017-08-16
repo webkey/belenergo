@@ -27,7 +27,7 @@
 	min-height: 50px
 
 .content
-	padding: #{$grid-layout-space} #{$grid-layout-space}
+	padding: #{$layout-spaces} #{$layout-spaces}
 
 	+media('<desk-lg')
 		margin-right: 0
@@ -41,7 +41,7 @@
 	z-index: 1020
 	height: $header-height
 	margin: 0 0 0 $sidebar-width
-	padding-left: $grid-layout-space
+	padding-left: $layout-spaces
 	width: calc(100% - #{$sidebar-width})
 	box-shadow: 0 1px 0 $border-color
 	@if $page-layout-width
@@ -60,7 +60,7 @@
 	float: right
 	margin: 0 0 0 -#{$aside-width}
 	width: #{$aside-width}
-	padding: #{$grid-layout-space} #{$grid-layout-space} #{$grid-layout-space} 0
+	padding: #{$layout-spaces} #{$layout-spaces} #{$layout-spaces} 0
 	z-index: 999
 
 /* footer (layout)
@@ -71,7 +71,7 @@
 
 /* footer common (layout)
 .footer-common
-	padding: round($grid-layout-space) #{$grid-layout-space} round($grid-layout-space - $footer-nav-horizontal-space)
+	padding: round($layout-spaces) #{$layout-spaces} round($layout-spaces - $footer-nav-horizontal-space)
 
 /* footer common (layout) end
 

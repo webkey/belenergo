@@ -1,0 +1,170 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* subscription form
+.subscription-form
+	position: relative
+	text-align: left
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+	.input-wrap
+		margin: 0
+		padding: $grid-space
+		+clear-spacing
+
+	.label-holder
+		+display-inline-block-middle
+		width: round-float(100%/2, 3)
+		+font-normal
+		+font(16px, round-float(24/16, 2))
+		letter-spacing: normal
+		color: $text-color
+		margin-bottom: 0
+
+	.form-fields
+		position: relative
+		+display-inline-block-middle
+		width: round-float(100%/2, 3)
+		letter-spacing: normal
+
+	.input-holder
+		position: relative
+		height: 50px
+		transition:
+			property: opacity, visibility, transform
+			duration: 0.25s
+		+clear
+
+	&.success-form .input-holder
+		opacity: 0
+		visibility: hidden
+		transform: scale(0.76, 0.76)
+
+	input[type='text'], input[type='email']
+		float: left
+		padding: 11px 12px 11px
+		height: 100%
+		width: round-float(100%/2, 3)
+		+font-normal
+		+font(16px, 24px)
+		letter-spacing: 0.025em
+		text-transform: none
+		color: $text-color
+		text-align: center
+		background-color: white
+		border: 2px solid #{$base-color-alt}
+		border-radius: 0
+		box-shadow: none
+		transition:
+			property: background, color
+			duration: $animation-speed
+
+		+placeholder()
+			color: $text-color-light
+			+font-medium
+			+font(14px, 24px)
+			text-transform: uppercase
+			letter-spacing: 0.1em
+
+	input[type='submit']
+		height: 100%
+		width: round-float(100%/2, 3)
+		+font-medium
+		+font(16px, 24px)
+		letter-spacing: 0.05em
+		text-transform: uppercase
+		color: white
+		border: none
+		cursor: pointer
+		background: $btn-bg-color
+		transition:
+			property: background-color
+			duration: $animation-speed
+
+		.no-touchevents &:hover
+			background: $btn-bg-hover-color
+
+.success-text
+	position: absolute
+	+position(0)
+	+size(100%)
+	opacity: 0
+	visibility: hidden
+	background-color: $base-color-alt
+	transform: scale(0.76, 0.76)
+	transition:
+		property: opacity, visibility, transform
+		duration: 0.25s
+
+	.subscription-form.success-form &
+		opacity: 1
+		visibility: visible
+		transform: scale(1, 1)
+
+	span
+		position: absolute
+		+position(50%)
+		+size(24px, 16px)
+		margin: -8px 0 0 -12px
+
+		&::before, &::after
+			+pseudo()
+			+size(0, 3px)
+			+position(50%)
+			border-radius: 2px
+			background-color: $form-success-color
+			transition:
+				property: width
+				duration: 0.12s
+				timing-function: linear
+			backface-visibility: hidden
+
+		&::before
+			margin: -7px 0 0 -19px
+			transform: rotate(45deg)
+			transform-origin: 0 13px
+			transition-delay: 0.12s
+
+		&::after
+			transform: rotate(-50deg)
+			transform-origin: 0 21px
+			margin: -1px 0 0 12px
+
+.subscription-form.success-form .success-text span
+	&::before
+		width: 13px
+		transition:
+			delay: 0s
+			timing-function: cubic-bezier(0.6, -0.28, 0.74, 0.05)
+
+	&::after
+		width: 21px
+		transition-delay: 0.12s
+
+.error-text
+	position: absolute
+	+position(100%, 0)
+	+size(100%, 24px)
+	padding: 0 8px
+	+font-light
+	+font(12px, 24px)
+	color: $form-error-color
+	background-color: #f2f2f2
+	+truncate(100%)
+	opacity: 0
+	visibility: hidden
+	transform: scale(0.76, 0.76)
+	transition:
+		property: opacity, visibility, transform
+		duration: 0.1s
+
+	.subscription-form.error-form &
+		opacity: 1
+		visibility: visible
+		transform: scale(1, 1)
+
+/* subscription form end

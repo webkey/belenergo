@@ -13,6 +13,10 @@ body
 	background: #{$bg-color} url(../../img/bg-home-img.jpg) no-repeat center top fixed
 	min-width: 320px
 
+	*::selection
+		background-color: $base-color
+		color: white
+
 h1, h2, h3, h4, h5, h6
 	padding: 0
 	+font-bold
@@ -483,8 +487,9 @@ table
 .add-shadow, .add-shadow--full
 	visibility: visible
 	position: relative
+	z-index: auto
 
-	&::before
+	&::after
 		+pseudo()
 		+size(100%)
 		+position(15px)
@@ -575,7 +580,7 @@ table
 
 .caption-box__subtitle
 	+font-medium
-	+font(16px, round-float(19/16, 2))
+	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	margin: 0
@@ -615,3 +620,33 @@ table
 		color: $base-color
 
 /* benefits counter end
+
+/* main section
+.main-section
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+/* main section end
+
+/* section footer
+.section-footer
+	text-align: center
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+	[class*="btn-"]
+		min-width: 288px
+		margin: 0 10px 20px
+
+		+media('<tab-sm')
+			min-width: 0
+
+.section-footer__holder
+	position: relative
+	margin: 0 -10px -20px
+
+/* section footer end
