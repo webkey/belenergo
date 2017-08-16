@@ -2,6 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
+//=========== SLICK SLIDERS ==========//
 /* slick sliders
 // arrows
 .slick-arrow
@@ -18,7 +19,7 @@
 	transition-property: background, opacity, visibility
 	transition-duration: 0.2s
 
-	.no-touchevents &:hover
+	.no-touchevents &:not(.slick-disabled):hover
 		opacity: 1
 		background: #e6e6e6
 
@@ -138,6 +139,80 @@
 //.no-touchevents &:hover button::before
 /* slick sliders end
 
+// ========== CUSTOM ARROW OF SLIDERS ==========//
+/* custom arrow of sliders
+.slider-arrows
+	+clear-spacing
+	user-select: none
+
+.slider-arrows__item
+	position: relative
+	+display-inline-block-top
+	letter-spacing: normal
+	padding: 0 20px
+
+	&::before
+		+pseudo()
+		left: -1px
+		top: 50%
+		+size(0, 22px)
+		margin-top: -11px
+		border-right: 2px solid $base-color
+
+	&:first-child
+		&::before
+			content: none
+
+.slider-arr
+
+	+size(46px, 30px)
+	+font($font-size, $line-height)
+	letter-spacing: normal
+	position: relative
+	backface-visibility: hidden
+	text-indent: -9999px
+	overflow: hidden
+	cursor: pointer
+	transition-property: background-color
+	transition-duration: $animation-speed
+
+	&::before, &::after
+		+pseudo()
+		+position(50%)
+		border: 0 solid $base-color-alt
+		transition-property: border-color
+		transition-duration: $animation-speed
+		transform: none
+
+	&::before
+		+size(26px, 2px)
+		border-top-width: 2px
+		margin: -1px 0 0 -13px
+
+	&::after
+		top: 0
+		+size(12px)
+		border-width: 2px 0 0 2px
+		transform: rotate(-45deg)
+		margin: 9px 0 0 -13px
+
+	.no-touchevents &:not(.slick-disabled):hover
+		background-color: transparent
+
+		&::before, &::after
+			border-color: $base-color
+
+	&:not(.slick-disabled):active
+		transform: translate(0, 1px)
+
+.slider-arr--next
+	&::after
+		border-width: 0 2px 2px 0
+		margin: 9px 0 0 1px
+
+/* custom arrow of sliders end
+
+// ======== IMAGES SLIDER =========//
 /* images slider
 .images-slider
 	position: relative
@@ -249,15 +324,20 @@
 
 /* flashes end
 
+// ======== PROMO SLIDER =========//
 /* promo slider
 .promo
 	position: relative
 	margin-bottom: $bottom-space--lg
 	+push-auto
 
-//.breadcrumbs + &
-	float: left
-	width: 100%
+	&:last-child
+		margin-bottom: 0
+
+	.slider-arrows
+		position: absolute
+		right: 60px
+		bottom: 60px
 
 .promo-slider
 	// before slide load
@@ -355,77 +435,142 @@
 		height: calc(4 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
 		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
 
-.slider-arrows
-	+clear-spacing
+/* promo slider end
 
-	.promo &
-		position: absolute
-		right: 60px
-		bottom: 60px
-
-.slider-arrows__item
+// ======== SEVERAL SLIDER =========//
+/* several slider
+.several-slider
 	position: relative
+	+push-auto
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+	.slider-arrows
+		display: block
+		text-align: center
+
+.several-slider-list
+	// before slide load
+	white-space: nowrap
+	overflow: hidden
+	// before slide load end
+	+push-auto
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+	&.slick-initialized, .no-js &
+		// after slide load
+		white-space: normal
+		overflow: visible
+		// after slide load end
+
+	&.slick-dotted
+		margin-bottom: 0
+
+.several-slider__item
+	// before slide load
+	float: none
 	+display-inline-block-top
-	+clear-spacing
-	padding: 0 20px
+	// before slide load end
+	position: relative
+	color: $text-color
+	text-decoration: none
+	background-color: white
+	transition:
+		property: background-color
+		duration: $animation-speed
+
+	.slick-initialized &
+		// after slide load
+		float: left
+		display: block
+		// after slide load end
 
 	&::before
 		+pseudo()
-		left: -1px
-		top: 50%
-		+size(0, 22px)
-		margin-top: -11px
-		border-right: 2px solid $base-color
+		right: 0
+		top: 40px
+		bottom: 40px
+		border: 0 solid $border-color
+			width: 0 0 0 2px
+		transition:
+			property: opacity
+			duration: $animation-speed
 
-	&:first-child
+	&:last-child
 		&::before
 			content: none
 
-.slider-arr
-
-	+size(46px, 30px)
-	+font($font-size, $line-height)
-	letter-spacing: normal
-	position: relative
-	backface-visibility: hidden
-	text-indent: -9999px
-	overflow: hidden
-	cursor: pointer
-	transition-property: background-color
-	transition-duration: $animation-speed
-
-	&::before, &::after
-		+pseudo()
-		+position(50%)
-		border: 0 solid $base-color-alt
-		transition-property: border-color
-		transition-duration: $animation-speed
-		transform: none
-
-	&::before
-		+size(26px, 2px)
-		border-top-width: 2px
-		margin: -1px 0 0 -13px
-
-	&::after
-		top: 0
-		+size(12px)
-		border-width: 2px 0 0 2px
-		transform: rotate(-45deg)
-		margin: 9px 0 0 -13px
-
 	.no-touchevents &:hover
-		background-color: transparent
+		background-color: $base-color-alt
 
-		&::before, &::after
-			border-color: $base-color
+	.no-touchevents &:hover, .no-touchevents &.hover-prev
+		&::before
+			opacity: 0
 
-	&:active
-		transform: translate(0, 1px)
+.several-slider__inner
+	padding: $grid-space
+	height: 100%
+	display: flex
+	justify-content: space-between
+	flex-direction: column
+	text-align: center
 
-.slider-arr--next
-	&::after
-		border-width: 0 2px 2px 0
-		margin: 9px 0 0 1px
+.several-slider__text
+	+font-normal
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	color: $text-color
+	padding-bottom: $bottom-space
 
-/* promo slider end
+	&:last-child
+		padding-bottom: 0
+
+.several-slider__figure
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+	svg
+		+display-inline-block-top
+		+size(50px)
+
+	path
+		fill: $base-color
+
+.several-slider__value
+	+font-bold
+	+font(24px, round-float(32/24, 2))
+	letter-spacing: 0.05em
+	color: $base-color-alt
+	text-transform: uppercase
+	margin-bottom: 2px
+
+	&:last-child
+		margin-bottom: 0
+
+.several-slider__unit
+	+font-bold
+	+font(14px, round-float(18/14, 2))
+	letter-spacing: 0.05em
+	color: $text-color-light
+	text-transform: uppercase
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+.several-slider__text, .several-slider__value
+	transition:
+		property: color
+		duration: $animation-speed
+
+	.no-touchevents .several-slider__item:hover &
+		color: white
+
+/* several slider end

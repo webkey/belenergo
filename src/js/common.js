@@ -453,7 +453,7 @@ function hoverClassInit(){
  * !toggle sibling classes
  * */
 function toggleSiblingClasses() {
-	var $container = $('.sibling-classes-js');
+	var $container = $('.sibling-classes-js, .several-slider-js');
 	var elem = 'a';
 	var prevClass = 'hover-prev';
 	var nextClass = 'hover-next';
@@ -461,11 +461,15 @@ function toggleSiblingClasses() {
 	$container.on('mouseenter', elem, function () {
 		var $currentElem = $(this);
 		var $parentCurrentElem = $currentElem.parent();
+		$currentElem.prev().addClass(prevClass);
+		$currentElem.next().addClass(nextClass);
 		$parentCurrentElem.prev().addClass(prevClass);
 		$parentCurrentElem.next().addClass(nextClass);
 	}).on('mouseleave', elem, function () {
 		var $currentElem = $(this);
 		var $parentCurrentElem = $currentElem.parent();
+		$currentElem.prev().removeClass(prevClass);
+		$currentElem.next().removeClass(nextClass);
 		$parentCurrentElem.prev().removeClass(prevClass);
 		$parentCurrentElem.next().removeClass(nextClass);
 	})
@@ -591,9 +595,7 @@ function slidersInit() {
 	}
 
 	/*promo slider*/
-	var $promoSlider = $('.promo-slider');
-	var dur = 200;
-
+	var $promoSlider = $('.promo-slider-js');
 	if ($promoSlider.length && getCookie('cecutientVersion') !== 'true') {
 		$.each($promoSlider, function () {
 			var $currentSlider = $(this);
@@ -603,18 +605,69 @@ function slidersInit() {
 
 			$currentSlider.slick({
 				fade: false,
-				speed: dur,
+				speed: 300,
 				slidesToShow: 1,
 				slidesToScroll: 1,
 				// initialSlide: 2,
 				// lazyLoad: 'ondemand',
-				// autoplay: true,
-				// autoplaySpeed: 8000,
+				autoplay: true,
+				autoplaySpeed: 8000,
 				infinite: true,
 				dots: true,
 				prevArrow: $arrPrev,
 				nextArrow: $arrNext
 				// arrows: true
+			});
+		});
+	}
+
+	/*several slider*/
+	var $severalSlider = $('.several-slider-js');
+	if ($severalSlider.length && getCookie('cecutientVersion') !== 'true') {
+		$.each($severalSlider, function () {
+			var $currentSlider = $(this);
+			var $parentCurrentSlider = $currentSlider.parent();
+			var $arrPrev = $parentCurrentSlider.find('.slider-arr-prev-js');
+			var $arrNext = $parentCurrentSlider.find('.slider-arr-next-js');
+
+			$currentSlider.on('init', function (event, slick) {
+
+				$(slick.$slider).find('.slick-slide').matchHeight({
+					byRow: true, property: 'height', target: null, remove: false
+				});
+
+			});
+
+			$currentSlider.slick({
+				fade: false,
+				speed: 300,
+				slidesToShow: 4,
+				slidesToScroll: 4,
+				// initialSlide: 2,
+				// lazyLoad: 'ondemand',
+				// autoplay: true,
+				// autoplaySpeed: 8000,
+				infinite: false,
+				dots: false,
+				prevArrow: $arrPrev,
+				nextArrow: $arrNext,
+				// arrows: true
+				responsive: [
+					{
+						breakpoint: 1920,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 3
+						}
+					},
+					{
+						breakpoint: 1600,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					}
+				]
 			});
 		});
 	}

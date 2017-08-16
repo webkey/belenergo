@@ -16,21 +16,23 @@
 	<div class="main__holder">
 		<!--CONTENT-->
 		<div class="content user-content">
-			<!--promo slide-->
-			<section class="promo add-shadow--full">
-				<div class="promo-slider">
-					@@loop('_tpl_promo-slider-items.html', 'includes-json/promo-slider-items.json')
+			<section class="main-section">
+				<!--promo slide-->
+				<div class="promo">
+					<div class="promo-slider add-shadow--full promo-slider-js">
+						@@loop('_tpl_promo-slider-items.html', 'includes-json/promo-slider-items.json')
+					</div>
+					<div class="slider-arrows">
+						<div class="slider-arrows__item">
+							<div class="slider-arr slider-arr--prev slider-arr-prev-js">Предыдущий слайд</div>
+						</div>
+						<div class="slider-arrows__item">
+							<div class="slider-arr slider-arr--next slider-arr-next-js">Слудующий слайд</div>
+						</div>
+					</div>
 				</div>
-				<footer class="slider-arrows">
-					<div class="slider-arrows__item">
-						<div class="slider-arr slider-arr--prev slider-arr-prev-js">Предыдущий слайд</div>
-					</div>
-					<div class="slider-arrows__item">
-						<div class="slider-arr slider-arr--next slider-arr-next-js">Слудующий слайд</div>
-					</div>
-				</footer>
+				<!--promo slide end-->
 			</section>
-			<!--promo slide end-->
 
 			<section class="main-section">
 				<!--caption box-->
@@ -97,10 +99,92 @@
 			<section class="main-section">
 				<!--caption-->
 				<div class="caption">
-					<h2 class="caption__title">Основные <br> показатели <br> гпо «Белэнерго»</h2>
+					<h2 class="caption__title">Основные<br> показатели<br> ГПО «Белэнерго»</h2>
 					<div class="caption__text">Сегодня можно с уверенностью констатировать, что энергетики внесли бесценный вклад в социально-экономическое развитие нашей республики.</div>
 				</div>
 				<!--caption end-->
+
+				<div class="several-slider">
+					<div class="several-slider-list add-shadow--full several-slider-js">
+						@@loop('_tpl_several-slider-items.html', 'includes-json/several-slider-items.json')
+					</div>
+					<div class="slider-arrows">
+						<div class="slider-arrows__item">
+							<div class="slider-arr slider-arr--prev slider-arr-prev-js">Предыдущий слайд</div>
+						</div>
+						<div class="slider-arrows__item">
+							<div class="slider-arr slider-arr--next slider-arr-next-js">Слудующий слайд</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="main-section">
+				<!--caption-->
+				<div class="caption">
+					<h2 class="caption__title">популярные<br> разделы<br> сайта</h2>
+					<div class="caption__text">Мы подобрали для вас самые посещаемые разделы нашего портала, чтобы вы могли оперативно находить любую интересующую вас информацию.</div>
+				</div>
+				<!--caption end-->
+
+				<div class="several-slider">
+					<div>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consectetur consequatur corporis dolores illo, iste magnam minus molestias mollitia necessitatibus recusandae suscipit vitae. Consequatur debitis, obcaecati omnis totam ut voluptates!
+					</div>
+				</div>
+			</section>
+
+			<section class="main-section">
+				<!--caption-->
+				<div class="caption">
+					<h2 class="caption__title">Возникновение<br> и развитие нашего<br> объединения</h2>
+					<div class="caption__text">Мы подобрали для вас самые посещаемые разделы нашего портала, чтобы вы могли оперативно находить любую интересующую вас информацию.</div>
+				</div>
+				<!--caption end-->
+
+				<div class="several-slider">
+					<div>
+						<img src="img/img-year.png" alt="1931" />
+					</div>
+					<div class="section-footer">
+						<div class="section-footer__holder">
+							<a href="#" class="btn-default">Об объединении</a>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="main-section">
+				<!--caption-->
+				<div class="caption">
+					<h2 class="caption__title">Состав<br> объединения</h2>
+					<div class="caption__text">По состоянию на 1 января 2017 г. в состав Государственного Производственного Объединения «Белэнерго» входят 30 организаций.</div>
+				</div>
+				<!--caption end-->
+
+				<div class="several-slider">
+					<div>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consectetur consequatur corporis dolores illo, iste magnam minus molestias mollitia necessitatibus recusandae suscipit vitae. Consequatur debitis, obcaecati omnis totam ut voluptates!
+					</div>
+				</div>
+			</section>
+
+			<section class="main-section">
+				<!--caption-->
+				<div class="caption">
+					<h2 class="caption__title">Схема основной<br> сети оэс беларуси</h2>
+					<div class="caption__text">Управление энергосистемой осуществляет РУП ОДУ, в составе которого много служб. Они обеспечивают устойчивость и экономичную работу энергосистемы.</div>
+				</div>
+				<!--caption end-->
+
+				<div class="several-slider">
+					<div>
+						<img src="img/img-scheme.png" alt="Схема сети" />
+					</div>
+					<div>
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consectetur consequatur corporis dolores illo, iste magnam minus molestias mollitia necessitatibus recusandae suscipit vitae. Consequatur debitis, obcaecati omnis totam ut voluptates!
+					</div>
+				</div>
 			</section>
 		</div>
 		<!--CONTENT end-->

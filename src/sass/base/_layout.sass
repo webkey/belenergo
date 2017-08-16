@@ -9,11 +9,24 @@
 	position: relative
 	padding-top: $header-height
 
-	&::before
+	&::before, &::after
 		+pseudo()
+
+	&::before
 		min-height: 1100px
+		+position(0)
 		+size(100%)
 		+linear-gradient(to top, $bg-color 0, $bg-color 50%, transparentize($bg-color, 0.5) 100%)
+		z-index: -2
+
+	&::after
+		right: 0
+		bottom: 0
+		background: url(../../img/bg-page-bottom.png) no-repeat
+		background-size: contain
+		height: 737px
+		width: 734px
+		z-index: -1
 
 .main
 	position: relative
