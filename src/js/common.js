@@ -822,6 +822,37 @@ function toggleSearchForm(){
 /*show form search end*/
 
 /**
+ * !simple accordion init
+ */
+function simpleAccordion() {
+	function simpleAccordion($hand, $panel, animateSpeed) {
+		var activeClass = 'is-open';
+
+		if ($panel.hasClass(activeClass)) {
+			$panel.toggle().prev().addClass(activeClass);
+		}
+
+		$hand.on('click', function (e) {
+			e.preventDefault();
+
+			$(this).toggleClass(activeClass);
+			$panel.stop().slideToggle(animateSpeed);
+		})
+	}
+
+	var $simpleAccordionHand = $('.simple-accordion-head-js');
+
+	if ($simpleAccordionHand.length) {
+		$simpleAccordionHand.each(function () {
+			var $thisHand = $(this);
+
+			simpleAccordion($thisHand, $thisHand.next(), 200);
+		})
+	}
+}
+/* simple accordion init */
+
+/**
  * !footer at bottom
  * */
 function footerBottom() {
@@ -934,6 +965,7 @@ $(document).ready(function () {
 	toggleDrop();
 	toggleSearchForm();
 	slidersInit();
+	simpleAccordion();
 
 	footerBottom();
 	formSuccessExample();
