@@ -1,6 +1,6 @@
 @@include('_tpl_layout_head.html', {
 	"title": "Главная",
-	"pageClass": ""
+	"pageClass": "home-page"
 })
 
 @@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
@@ -122,16 +122,18 @@
 			<section class="main-section">
 				<!--caption-->
 				<div class="caption">
-					<h2 class="caption__title">популярные<br> разделы<br> сайта</h2>
+					<h2 class="caption__title">Популярные<br> разделы<br> сайта</h2>
 					<div class="caption__text">Мы подобрали для вас самые посещаемые разделы нашего портала, чтобы вы могли оперативно находить любую интересующую вас информацию.</div>
 				</div>
 				<!--caption end-->
 
-				<div class="several-slider">
-					<div>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consectetur consequatur corporis dolores illo, iste magnam minus molestias mollitia necessitatibus recusandae suscipit vitae. Consequatur debitis, obcaecati omnis totam ut voluptates!
-					</div>
+				<!--popular-->
+				<div class="popular previews-grid add-shadow">
+					<section class="popular-list previews-grid-list">
+						@@loop("_tpl_popular-items.html", "includes-json/popular-items.json")
+					</section>
 				</div>
+				<!--popular end-->
 			</section>
 
 			<section class="main-section">
@@ -142,14 +144,12 @@
 				</div>
 				<!--caption end-->
 
-				<div class="several-slider">
-					<div>
-						<img src="img/img-year.png" alt="1931" />
-					</div>
-					<div class="section-footer">
-						<div class="section-footer__holder">
-							<a href="#" class="btn-default">Об объединении</a>
-						</div>
+				<div class="visual-preview">
+					<img src="img/img-year.png" alt="1931" />
+				</div>
+				<div class="section-footer">
+					<div class="section-footer__holder">
+						<a href="#" class="btn-default">Об объединении</a>
 					</div>
 				</div>
 			</section>
@@ -162,22 +162,149 @@
 				</div>
 				<!--caption end-->
 
-				<div class="several-slider">
-					<div class="structure">
-						<div class="structure__list">
-							<div class="structure__item">
-								<div class="structure__content">
-									<ul>
-										<li>
-											<a href="#" class="has-arrow simple-accordion-head-js"><span>Главное управление внутреннего аудита</span></a>
-											<ul class="simple-accordion-panel-js">
-												<li>Управление комплексного аудита</li>
-												<li>Отдел информационного аудита</li>
-												<li>Отдел управления рисками</li>
-											</ul>
-										</li>
-									</ul>
-								</div>
+				<div class="structure">
+					<div class="structure-list">
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Энергоснабжение</div>
+								<em class="counter" data-text="6">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергосетьпроект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+							</div>
+						</div>
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Диспетчерское управление</div>
+								<em class="counter" data-text="1">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергосетьпроект»</div>
+								</a>
+							</div>
+						</div>
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Проектирование. изыскание</div>
+								<em class="counter" data-text="4">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Мы подобрали для вас самые посещаемые разделы нашего портала</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Объединения «Белэнерго» входят 30 организаций.</div>
+								</a>
+							</div>
+						</div>
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Диспетчерское управление</div>
+								<em class="counter" data-text="0">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">По состоянию на 1 января 2017 г. в состав Государственного Производственного Объединения «Белэнерго» входят 30 организаций.</div>
+									<div class="structure-panel-label">Действует на основании договора о взаимодействии</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+									<div class="structure-panel-label">Действует на основании договора о взаимодействии</div>
+								</a>
+							</div>
+						</div>
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Строительство, ремонт и наладка</div>
+								<em class="counter" data-text="15">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергосетьпроект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Схема основной сети оэс беларуси</div>
+									<div class="structure-panel-label">Действует на основании договора о взаимодействии</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Управление энергосистемой осуществляет РУП ОДУ, в составе которого много служб. Они обеспечивают устойчивость и экономичную работу энергосистемы.</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергосетьпроект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+									<div class="structure-panel-label">Действует на основании договора о взаимодействии</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Управление энергосистемой осуществляет РУП ОДУ, в составе которого много служб.</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Они обеспечивают устойчивость и экономичную работу энергосистемы.</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">ОАО «Белэнергоснабкомплект»</div>
+								</a>
+							</div>
+						</div>
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Промышленное производство</div>
+								<em class="counter" data-text="1">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Сегодня можно с уверенностью констатировать, что энергетики внесли бесценный вклад в социально-экономическое развитие нашей республики</div>
+								</a>
+							</div>
+						</div>
+						<div class="structure-item add-shadow">
+							<div class="structure-hand simple-accordion-head-js">
+								<div class="text">Образование</div>
+								<em class="counter" data-text="2">&nbsp;</em>
+								<i class="angle">&nbsp;</i>
+							</div>
+							<div class="structure-panel">
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Подстанция 220 кВ Подстанция 330 кВ</div>
+									<div class="structure-panel-label">Действует на основании договора о взаимодействии</div>
+								</a>
+								<a class="structure-panel-item">
+									<div class="structure-panel-text">Они обеспечивают устойчивость и экономичную работу энергосистемы.</div>
+								</a>
 							</div>
 						</div>
 					</div>
@@ -192,12 +319,73 @@
 				</div>
 				<!--caption end-->
 
-				<div class="several-slider">
-					<div>
+				<div class="main-scheme">
+					<div class="main-scheme-visual">
 						<img src="img/img-scheme.png" alt="Схема сети" />
 					</div>
-					<div>
-						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda consectetur consequatur corporis dolores illo, iste magnam minus molestias mollitia necessitatibus recusandae suscipit vitae. Consequatur debitis, obcaecati omnis totam ut voluptates!
+					<div class="main-scheme-description">
+						<ul>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-01.png" alt="image description" />
+								</div>
+								<span>Электростанция</span>
+							</li>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-02.png" alt="image description" />
+								</div>
+								<span>Атомная станция</span>
+							</li>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-03.png" alt="image description" />
+								</div>
+								<span>Подстанция 750 кВ</span>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-04.png" alt="image description" />
+								</div>
+								<span>Подстанция 220 кВ</span>
+							</li>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-05.png" alt="image description" />
+								</div>
+								<span>Подстанция 330 кВ</span>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-06.png" alt="image description" />
+								</div>
+								<span>ВЛ-750 кВ</span>
+							</li>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-07.png" alt="image description" />
+								</div>
+								<span>ВЛ-330 кВ</span>
+							</li>
+						</ul>
+						<ul>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-08.png" alt="image description" />
+								</div>
+								<span>ВЛ-220 кВ</span>
+							</li>
+							<li>
+								<div class="ico">
+									<img src="img/depict-scheme-09.png" alt="image description" />
+								</div>
+								<span>ВЛ-110 кВ</span>
+							</li>
+						</ul>
 					</div>
 				</div>
 			</section>

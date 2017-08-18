@@ -50,11 +50,19 @@ $news-previews-space: 80px
 	+display-inline-block-middle
 	+font-normal
 	+font(16px, round-float(16/16, 2))
-	text-transform: uppercase
 	letter-spacing: 0.025em
+	text-transform: uppercase
+	text-decoration: none
 	color: white
 	background-color: $text-color-light
 	box-shadow: 2px 0 0 #{$text-color-light}, -2px 0 0 #{$text-color-light}
+	transition:
+		property: background-color, box-shadow
+		duration: $animation-speed
+
+	.no-touchevents &:hover
+		background-color: $base-color
+		box-shadow: 2px 0 0 #{$base-color}, -2px 0 0 #{$base-color}
 
 .news-previews__figure
 	position: relative

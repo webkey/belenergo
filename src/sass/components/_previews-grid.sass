@@ -1,0 +1,81 @@
+@import ../utils/_variables
+@import ../utils/_mixins
+@import ../../libs/include-media/dist/_include-media
+
+/* previews-grid
+$previews-grid-border-weight: 2px
+$previews-grid-border-color: $base-color-alt
+
+.previews-grid, .previews-grid-list, .previews-grid-item, .previews-grid-inner
+	position: relative
+
+	&::before, &::after
+		+pseudo()
+		+size(0)
+		border: 0 solid $previews-grid-border-color
+
+.previews-grid
+	overflow: hidden
+	padding-right: $previews-grid-border-weight
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+.previews-grid-list
+	+clear-spacing
+	padding-bottom: $previews-grid-border-weight
+
+.previews-grid-item
+	+display-inline-block-top
+	width: round-float(100%/3, 4)
+	position: relative
+	padding: #{$previews-grid-border-weight} 0 0 #{$previews-grid-border-weight}
+	+font(1.5rem, round-float(18px/15px, 2))
+	letter-spacing: normal
+	border-width: 0 #{$previews-grid-border-weight} #{$previews-grid-border-weight} 0
+
+.previews-grid-inner
+	display: block
+	position: relative
+	padding: 26px 30px
+	height: 100%
+
+// границы
+.previews-grid
+	&::before
+		left: 0
+		bottom: 0
+		border-width: 0 0 #{$previews-grid-border-weight}
+		+size(9999px, 0)
+
+.previews-grid-list, .previews-grid-item
+	&::before
+		right: -#{$previews-grid-border-weight}
+		top: 0
+		+size(0, 9999px)
+		border-width: 0 #{$previews-grid-border-weight} 0 0
+
+.previews-grid-list
+	&::after
+		top: 0
+		left: 0
+		+size(9999px, 0)
+		border-width: 0 0 #{$previews-grid-border-weight} 0
+
+.previews-grid-item
+	&::after
+		top: 0
+		left: 0
+		+size(0, 9999px)
+		border-width: 0 0 0 #{$previews-grid-border-weight}
+
+.previews-grid-inner
+	&::after
+		top: -#{$previews-grid-border-weight}
+		left: 0
+		+size(9999px, 0)
+		border-width: #{$previews-grid-border-weight} 0 0
+
+/* grid view end
+/* previews-grid end

@@ -1,0 +1,64 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* main scheme
+.main-scheme
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+.main-scheme-visual
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+.main-scheme-visual
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+.main-scheme-description
+	+clear
+	+clear-spacing
+	+grid-parent($grid-space)
+
+	ul
+		+grid-item(4, $grid-space)
+		+padding-vertical(0)
+		+font-normal()
+		+font(16px, round-float(24/16, 2))
+		letter-spacing: 0.025em
+		margin: 0
+
+		li
+			margin: 12px 0 0
+			padding: 0
+
+			&::before
+				content: none
+
+			&:first-child
+				margin-top: 0
+
+		.ico
+			+display-inline-block-top
+			margin-right: 14px
+			line-height: 0
+			white-space: normal
+
+			&::before
+				content: ""
+				+display-inline-block-middle
+				height: 24px
+
+			img
+				+display-inline-block-middle
+
+		li > span
+			+display-inline-block-top
+
+/* main scheme end

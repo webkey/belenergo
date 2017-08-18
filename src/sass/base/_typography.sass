@@ -8,10 +8,14 @@ html
 body
 	+font-normal
 	+font($font-size, $line-height)
+	letter-spacing: 0.025em
 	color: $text-color
 	height: 100%
-	background: #{$bg-color} url(../../img/bg-home-img.jpg) no-repeat center top fixed
+	background: #{$bg-color} url(../../img/empty.png) no-repeat center top fixed
 	min-width: 1900px
+
+	&.home-page
+		background-image: url(../../img/bg-home-img.jpg)
 
 	*::selection
 		background-color: $base-color
@@ -466,22 +470,63 @@ table
 
 /*view print end*/
 
-/* logo
-.logo
+/* logo in sidebar
+.logo-side
 	display: block
-	position: relative
-	background: url(../../img/logo-full.png) no-repeat
-	width: 180px
-	height: 142px
-	text-indent: -9999px
-	overflow: hidden
+	+size(100%, 220px)
 	z-index: 5
+	will-change: transform
+	transition:
+		property: height
+		duration: 0.4s
+		delay: 0s
+		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
-	a
-		display: block
-		height: 100%
+	.page-is-scrolled &
+		height: $header-height
+		transition:
+			delay: 0.1s
 
-/* logo end
+.logo-side-text
+	+hide-text
+
+.logo-side-inner
+	position: relative
+	display: block
+	height: 100%
+	backface-visibility: hidden
+
+	&::before, &::after
+		+pseudo()
+		left: 50%
+		will-change: transform
+		transition:
+			property: transform
+			duration: 0.4s
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+	&::before
+		top: 72px
+		background: url(../../img/logo-i.png) no-repeat
+		width: 54px
+		height: 76px
+		margin-left: -27px
+
+	&::after
+		top: 170px
+		background: url(../../img/logo-t.png) no-repeat
+		width: 180px
+		height: 43px
+		margin-left: -90px
+
+	.page-is-scrolled &
+		&::before
+			transform: translate(-92px, -62px) scale(0.6)
+
+		&::after
+			transform: translate(0px, -141px) scale(0.7)
+
+/* logo in sidebar end
 
 /* add shadow
 .add-shadow, .add-shadow--full
@@ -650,3 +695,13 @@ table
 	margin: 0 -10px -20px
 
 /* section footer end
+
+/* visual preview
+.visual-preview
+	margin-right: -15px
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+/* visual preview end

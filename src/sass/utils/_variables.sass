@@ -49,7 +49,6 @@ $line-height-h5: $line-height !default
 $font-size-h6: round-float($font-size*0.75, 1) !default
 $line-height-h6: round-float($line-height*1.25, 2) !default
 
-
 $bottom-space: round-float($font-size*$line-height, 1) !default
 $bottom-space--sm: round-float($font-size*$line-height*0.5, 1) !default
 $bottom-space--md: round-float($font-size*$line-height*2.0, 1) !default
@@ -75,7 +74,7 @@ $text-color-light: #b2b2b2 !default
 // цвет для выделения текста
 $text-color-alt: $base-color-alt !default
 // цвет ссылки
-$link-color: #d3ab48 !default
+$link-color: $base-color !default
 // цвет линий и границ
 $border-color: #e6e6e6 !default
 // цвет специальных элементов
@@ -136,7 +135,7 @@ $select-arrow-height: 100% !default
 
 // btn
 $btn-bg-color: $base-color-alt !default
-$btn-bg-hover-color: darken($btn-bg-color, 20%) !default
+$btn-bg-hover-color: $base-color !default
 $btn-text-color: white !default
 
 // table color
@@ -159,9 +158,6 @@ $sidebar-inside-space: 50px !default
 // aside
 $aside-width: 320px + $layout-spaces !default
 $aside-bottom-space: 60px !default
-
-// footer
-$footer-nav-horizontal-space: 40px
 
 // animation
 $animation-speed: 0.2s !default

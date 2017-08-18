@@ -4,9 +4,12 @@
 
 //=========== SLICK SLIDERS ==========//
 /* slick sliders
+.slick-list
+	user-select: none
+
 // arrows
 .slick-arrow
-	+size(40px)
+	+size(46px, 30px)
 	display: block
 	position: absolute
 	border: none
@@ -32,34 +35,46 @@
 		&::before
 			opacity: 1
 
+	&::before, &::after
+		+pseudo()
+		+position(50%)
+		border: 0 solid $base-color-alt
+		transition:
+			property: border-color
+			duration: $animation-speed
+		transform: none
+
 	&::before
-		content: none
+		+size(26px, 2px)
+		border-top-width: 2px
+		margin: -1px 0 0 -13px
 
 	&::after
-		top: 50%
-		content: ""
-		position: absolute
-		opacity: 1
-		pointer-events: none
+		top: 0
 		+size(12px)
-		transform: rotate(45deg)
-		border: 0 solid #000
+		border-width: 2px 0 0 2px
+		transform: rotate(-45deg)
+		margin: 9px 0 0 -13px
+
+	.no-touchevents &:not(.slick-disabled):hover
+		background-color: transparent
+
+		&::before, &::after
+			border-color: $base-color
+
+	&:not(.slick-disabled):active
+		margin-top: 1px
+		margin-bottom: -1px
 
 .slick-prev
 	left: 0
-
-	&::after
-		left: 50%
-		border-width: 0 0 2px 2px
-		margin: -6px 0 0 -4px
 
 .slick-next
 	right: 0
 
 	&::after
-		right: 50%
-		border-width: 2px 2px 0 0
-		margin: -6px -4px 0 0
+		border-width: 0 2px 2px 0
+		margin: 9px 0 0 1px
 
 // arrows outside
 .slick-arrow-outside, .slick-arrow-outside:hover, .slick-arrow-outside:focus
@@ -203,7 +218,8 @@
 			border-color: $base-color
 
 	&:not(.slick-disabled):active
-		transform: translate(0, 1px)
+		margin-top: 1px
+		margin-bottom: -1px
 
 .slider-arr--next
 	&::after

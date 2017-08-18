@@ -3,178 +3,177 @@
 @import ../../libs/include-media/dist/include-media
 
 /* structure
-
+$structure-item-bottom-space: 40px
+$structure-branch-weight: 2px
+$structure-branch-space-v: 29px
+$structure-branch-space-h: 28px
 
 .structure
-	padding-bottom: 2rem
+	margin-bottom: $bottom-space--lg
 
-.structure:last-child
-	padding-bottom: 0
+	&:last-child
+		margin-bottom: 0
 
-.structure__item
-	background-color: #fff
-	padding: 3rem
-	width: 100%
-	box-sizing: border-box
+.structure-item, .structure-hand
+	&::before
+		+pseudo()
+		right: 100%
+		border: 0 solid $base-color-alt
 
-.structure__item:after
-	content: ''
-	display: block
-	clear: both
-
-.structure__item:nth-child(odd)
-	background-color: #f7f3e8
-
-.structure__img
-	float: left
-	margin-right: 3rem
-	max-width: 300px
-	width: 30%
-
-.structure__img figure
-	margin: 0
-	padding: 0 0 1rem
-
-.structure__img figure:last-child
-	padding-bottom: 0
-
-.structure__img img
-	width: 100%
-
-.structure__content
-	overflow: hidden
-
-.structure__caption
-	padding-bottom: 1.5rem
-
-.structure__title,
-.user-section .structure__title
-	font-size: 27px
-	line-height: 1.5
-	margin: 0
-	padding-bottom: 0.5rem
-
-.structure__subtitle,
-.user-section .structure__subtitle
-	font-size: 14px
-	line-height: 1.4
-	font-weight: normal
-	color: #666
-	margin: 0
-	padding-bottom: 0.5rem
-
-.structure__title:last-child,
-.user-section .structure__title:last-child,
-.structure__subtitle:last-child,
-.user-section .structure__subtitle:last-child
-	padding-bottom: 0
-
-.structure__content ul
-	font-size: 18px
-	padding-left: 16px
-
-a.show-more
-	text-decoration: none
-	display: inline-block
-	vertical-align: top
-	margin-bottom: 1rem
-
-.structure__content a.has-arrow,
-a.show-more.has-arrow
+.structure-item
 	position: relative
-	display: inline-block
-	padding-right: 20px
+	margin-bottom: $structure-item-bottom-space
+	margin-left: $structure-branch-space-h
 
-.simple-accordion-panel-js
+	&:last-child
+		margin-bottom: 0
+
+	&::before
+		+size(#{$structure-branch-space-h}, calc(100% + #{$structure-item-bottom-space}))
+		border-width: 0 0 0 $structure-branch-weight
+
+	&:first-child
+		&::before
+			top: $structure-branch-space-v
+
+	&:last-child
+		&::before
+			top: 0
+			height: #{$structure-branch-space-v + $structure-branch-weight}
+
+.structure-hand
+	$this-angle-lines-width: 13px
+	$this-angle-lines-height: 3px
+	$this-icon-lines-color: $base-color-alt
+	
+	position: relative
+	background-color: white
+	border: 2px solid $base-color-alt
+	padding: #{round($grid-space*0.5)} #{round($grid-space*2 + $this-angle-lines-width)} #{round($grid-space*0.5)} #{$grid-space}
+	cursor: pointer
+	+font-medium
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.05em
+	color: $base-color-alt
+	text-transform: uppercase
+	user-select: none
+	transition:
+		property: background-color, color
+		duration: $animation-speed
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+		color: white
+
+	&::before
+		top: #{$structure-branch-space-v - $structure-branch-weight} // минус бордер
+		+size(#{$structure-branch-space-h}, 0)
+		border-width: $structure-branch-weight 0 0
+
+	.text
+		+display-inline-block-top
+
+	.counter
+		$counter-space-h: 8px
+
+		+display-inline-block-top
+		+font-medium
+		color: $text-color-light
+		padding-left: $counter-space-h
+
+		&::before
+			+display-inline-block-top
+			padding-right: $counter-space-h
+			content: "/"
+
+		&::after
+			content: attr(data-text)
+
+		&[data-text*="0"]
+			display: none
+
+	.angle
+		position: absolute
+		right: $grid-space
+		top: 50%
+		+size($this-angle-lines-width, $this-angle-lines-height)
+		margin-top: -#{round($this-angle-lines-height*0.5)}
+		backface-visibility: hidden
+
+		&::before, &::after
+			+pseudo()
+			left: 0
+			backface-visibility: hidden
+			+size($this-angle-lines-width, $this-angle-lines-height)
+			background-color: $this-icon-lines-color
+			transition:
+				property: background-color, transform
+				duration: $animation-speed
+
+		&::before
+			top: 0
+
+		&::after
+			top: 0
+			transform: rotate(90deg)
+
+	.no-touchevents &:hover
+		.angle
+			&::before, &::after
+				background-color: white
+
+	&.is-open
+		.angle
+			&::after
+				transform: rotate(0)
+
+.structure-panel
 	display: none
 
-.structure__content a.has-arrow:after,
-a.show-more.has-arrow:after
-	content: ''
-	position: absolute
-	right: 0
-	top: 50%
-	margin-top: -7px
-	height: 14px
-	width: 14px
-	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDMyIDMyIiBoZWlnaHQ9IjMycHgiIHZlcnNpb249IjEuMSIgdmlld0JveD0iMCAwIDMyIDMyIiB3aWR0aD0iMzJweCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayI+PHBhdGggZD0iTTI0LjI4NSwxMS4yODRMMTYsMTkuNTcxbC04LjI4NS04LjI4OGMtMC4zOTUtMC4zOTUtMS4wMzQtMC4zOTUtMS40MjksMCAgYy0wLjM5NCwwLjM5NS0wLjM5NCwxLjAzNSwwLDEuNDNsOC45OTksOS4wMDJsMCwwbDAsMGMwLjM5NCwwLjM5NSwxLjAzNCwwLjM5NSwxLjQyOCwwbDguOTk5LTkuMDAyICBjMC4zOTQtMC4zOTUsMC4zOTQtMS4wMzYsMC0xLjQzMUMyNS4zMTksMTAuODg5LDI0LjY3OSwxMC44ODksMjQuMjg1LDExLjI4NHoiIGZpbGw9IiM5OTAwMzMiLz48L3N2Zz4=)
-	background-position: 50% 50%
-	background-repeat: no-repeat
-	-webkit-background-size: 18px
-	background-size: 18px
-	-webkit-filter: saturate(0)
-	-o-filter: saturate(0)
-	filter: saturate(0)
+.structure-panel-item
+	padding: #{round($grid-space*0.5)} #{$grid-space} #{round($grid-space*0.5)}
+	border: solid $base-color-alt
+	border-width: 0 2px 2px
+	background-color: white
+	color: $text-color
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	text-decoration: none
+	display: table
+	width: 100%
+	//display: block
+	//display: flex
+	//justify-content: space-between
+	//align-items: center
+	transition:
+		property: background-color, color
+		duration: $animation-speed
 
-.structure__content a.has-arrow.active:after,
-a.show-more.has-arrow.active:after
-	-webkit-transform: rotate(-0.5turn)
-	-ms-transform: rotate(-0.5turn)
-	transform: rotate(-0.5turn)
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+		color: white
 
-a.show-more:before
-	content: attr(data-show-text)
-	display: inline-block
-	line-height: 1.2
+.structure-panel-text, .structure-panel-label
+	display: table-cell
+	vertical-align: middle
 
-a.show-more.active:before
-	content: attr(data-hide-text)
+//.structure-panel-text
+	flex-basis: calc(100% - 200px)
 
-.structure__content a span,
-a.show-more:before
-	border-bottom: 1px dotted #903
+.structure-panel-label
+	$width: 200px
 
-.structure__content a:hover span,
-a.show-more:hover:before
-	border-color: #c38b00
+	+font(10px, 12px)
+	text-align: right
+	color: $text-color-light
+	text-transform: uppercase
+	padding-left: 20px
+	//flex-basis: 200px
+	max-width: $width
+	min-width: $width
+	width: $width
 
-a.show-more span
-	position: absolute
-	left: -10000px
-	top: auto
-	width: 1px
-	height: 1px
-	overflow: hidden
-	clip: rect(1px 1px 1px 1px) /* IE6, IE7 */
-	clip: rect(1px, 1px, 1px, 1px)
-
-.structure__content ul,
-.structure__content ul ul
-	margin-left: 0
-	padding-left: 40px
-
-.structure__content ul li:before,
-.structure__content ul ul li:before,
-.structure__content ul li:after,
-.structure__content ul ul li:after
-	content: ''
-	position: absolute
-	top: 0
-	left: -30px
-	width: 20px
-	background: none
-	border: dashed #999
-
-.structure__content ul li:before,
-.structure__content ul ul li:before
-	bottom: 0
-	height: auto
-	border-width: 0 0 0 1px
-
-.structure__content ul li:first-child:before
-	top: -10px
-
-.structure__content ul ul li:first-child:before
-	top: 0
-
-.structure__content ul li:last-child:before,
-.structure__content ul ul li:last-child:before
-	bottom: auto
-	height: 24px
-
-.structure__content ul li:after,
-.structure__content ul ul li:after
-	border-width: 0 0 1px
-	height: 24px
+	&:empty
+		display: none
 
 /* structure end

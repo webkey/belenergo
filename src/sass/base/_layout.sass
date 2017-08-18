@@ -12,12 +12,13 @@
 	&::before, &::after
 		+pseudo()
 
-	&::before
-		min-height: 1100px
-		+position(0)
-		+size(100%)
-		+linear-gradient(to top, $bg-color 0, $bg-color 50%, transparentize($bg-color, 0.5) 100%)
-		z-index: -2
+	.home-page &
+		&::before
+			min-height: 1100px
+			+position(0)
+			+size(100%)
+			+linear-gradient(to top, $bg-color 0, $bg-color 50%, transparentize($bg-color, 0.5) 100%)
+			z-index: -2
 
 	&::after
 		right: 0
@@ -27,6 +28,9 @@
 		height: 737px
 		width: 734px
 		z-index: -1
+
+	& > .layout
+		+clear
 
 .main
 	position: relative
@@ -69,11 +73,13 @@
 	z-index: 1001
 
 .aside
-	position: relative
+	//position: relative
 	float: right
 	margin: 0 0 0 -#{$aside-width}
 	width: #{$aside-width}
-	padding: #{$layout-spaces} #{$layout-spaces} #{$layout-spaces} 0
+	padding: #{$layout-spaces} #{$layout-spaces} 0 0
+
+.aside, .aside__holder
 	z-index: 999
 
 /* footer (layout)
@@ -82,9 +88,15 @@
 	clear: both
 	z-index: 5
 
+/* footer gov (layout)
+.footer-gov
+	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
+
+/* footer gov (layout) end
+
 /* footer common (layout)
 .footer-common
-	padding: round($layout-spaces) #{$layout-spaces} round($layout-spaces - $footer-nav-horizontal-space)
+	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
 
 /* footer common (layout) end
 

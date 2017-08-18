@@ -1,6 +1,15 @@
 <footer class="footer max-wrap">
 
 	<div class="footer__holder">
+		<!--footer gov-->
+		<div class="footer-gov">
+			<div class="gov">
+				<div class="gov__list add-shadow--full slider-gov-js">
+					@@loop('_tpl_gov-items.html', 'includes-json/gov-items.json')
+				</div>
+			</div>
+		</div>
+		<!--footer gov end-->
 
 		<!--footer common-->
 		<div class="footer-common">
@@ -20,7 +29,7 @@
 						<div class="footer-nav__item">
 							<ul class="dl">
 								<li>
-									<div class="dt hide">Телефон:</div>
+									<div class="dt">Телефон:</div>
 									<div class="dd"><a href="tel:+375 (17) 218-23-59">+375 (17) 218-23-59</a></div>
 								</li>
 								<li>
@@ -29,7 +38,7 @@
 								</li>
 								<li>
 									<div class="dt">E-mail:</div>
-									<div class="dd"><a href="tel:belenergo@belenergo.by">belenergo@belenergo.by</a></div>
+									<div class="dd"><a href="mailto:belenergo@belenergo.by">belenergo@belenergo.by</a></div>
 								</li>
 							</ul>
 						</div>
@@ -37,8 +46,8 @@
 					<div class="footer-nav__col">
 						<!--developer-->
 						<div class="developer">
-							<a href="http://astronim.by/">
-								<span class="developer__label">Разработка сайта —</span>
+							<a href="http://astronim.by/" target="_blank">
+								<!--<span class="developer__label">Разработка сайта —</span>-->
 								<span class="developer__logo">Astronim*Support</span>
 							</a>
 						</div>

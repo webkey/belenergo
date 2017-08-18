@@ -285,7 +285,13 @@ function addClassesOnScrollPage(){
 
 	var previousScrollTop = $(window).scrollTop();
 
+	addClass();
+
 	$(window).on('scroll resizeByWidth', function () {
+		addClass();
+	});
+
+	function addClass() {
 		var currentScrollTop = $(window).scrollTop();
 
 		$page.toggleClass(scrollClass, (currentScrollTop >= minScrollTop));
@@ -295,7 +301,7 @@ function addClassesOnScrollPage(){
 		$page.toggleClass(headerHideClass, !showHeaderPanel);
 
 		previousScrollTop = currentScrollTop;
-	});
+	}
 }
 /*add class on scroll page end*/
 
@@ -671,6 +677,45 @@ function slidersInit() {
 			});
 		});
 	}
+
+	/*gov slider*/
+	var $govSlider = $('.slider-gov-js');
+
+	if ($govSlider.length) {
+
+		$govSlider.each(function () {
+			var $currentSlider = $(this);
+			var dur = 200;
+
+			$currentSlider.on('init', function (event, el) {
+				$(el.$slides).matchHeight({
+					byRow: true, property: 'height', target: null, remove: false
+				});
+			}).slick({
+				fade: false,
+				speed: dur,
+				slidesToShow: 4,
+				slidesToScroll: 4,
+				// autoplay: true,
+				// autoplaySpeed: 5000,
+				// initialSlide: 2,
+				// lazyLoad: 'ondemand',
+				infinite: false,
+				dots: false,
+				arrows: true,
+				responsive: [
+					{
+						breakpoint: 1600,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 3
+						}
+					}
+				]
+			});
+
+		});
+	}
 }
 /*sliders end*/
 
@@ -836,7 +881,9 @@ function simpleAccordion() {
 			e.preventDefault();
 
 			$(this).toggleClass(activeClass);
-			$panel.stop().slideToggle(animateSpeed);
+			$panel.stop().slideToggle(animateSpeed, function () {
+				$(document.body).trigger("sticky_kit:recalc");
+			});
 		})
 	}
 
@@ -851,6 +898,45 @@ function simpleAccordion() {
 	}
 }
 /* simple accordion init */
+
+/**
+ * !equal height init
+ */
+function equalHeight() {
+	var $popular = $('.popular-list');
+
+	if($popular) {
+		$popular.children().matchHeight({
+			byRow: true, property: 'height', target: null, remove: false
+		});
+	}
+}
+/* equal height init */
+
+/**
+ * !sticky layout
+ * */
+function stickyLayout() {
+
+	if (!DESKTOP) {
+		return;
+	}
+
+	var offsetTopBase = $('.header').outerHeight();
+
+	/*aside sticky*/
+	var $aside = $(".aside__holder");
+
+	if ($aside.length) {
+		var offsetTop = offsetTopBase + 74;
+
+		$aside.stick_in_parent({
+			parent: '.layout',
+			offset_top: offsetTop
+		});
+	}
+}
+/*sticky layout end*/
 
 /**
  * !footer at bottom
@@ -945,6 +1031,11 @@ function formSuccessExample() {
 
 $(window).on('load', function () {
 	addClassesOnScrollPage();
+	stickyLayout();
+});
+
+$(window).on('debouncedresize', function () {
+	$(document.body).trigger("sticky_kit:recalc");
 });
 
 $(document).ready(function () {
@@ -966,6 +1057,7 @@ $(document).ready(function () {
 	toggleSearchForm();
 	slidersInit();
 	simpleAccordion();
+	equalHeight();
 
 	footerBottom();
 	formSuccessExample();

@@ -16,25 +16,93 @@
 	bottom: 0
 	cursor: default
 
+/*footer gov*/
+.footer-gov
+	position: relative
+
+.gov
+	z-index: 2 // поднять над контентов (нужно для тени)
+	position: relative
+
+.gov__list
+	padding: 28px calc(103px - #{round($grid-space/2)})
+
+	.slick-prev
+		left: 30px
+
+	.slick-next
+		right: 30px
+
+.gov__item
+	display: block
+	padding: 0 #{round($grid-space/2)}
+	transition:
+		property: background-color
+		duration: $animation-speed
+
+.gov__inner
+	display: block
+	color: $text-color
+	text-decoration: none
+	padding: 20px
+	border: 1px solid $border-color
+	transition:
+		property: background-color, border-color
+		duration: $animation-speed
+
+	.no-touchevents &:hover
+		background-color: $base-color
+		border-color: $base-color
+
+	p
+		margin-bottom: round($bottom-space/2)
+
+		&:last-child
+			margin-bottom: 0
+
+.gov__figure
+	position: relative
+	margin: 0 auto #{round($bottom-space/2)}
+	max-width: 320px
+
+	&:before
+		+pseudo-block-relative()
+		+ratio(14, 5)
+
+	&:last-child
+		margin-bottom: 0
+
+.gov__img
+	position: relative
+	overflow: hidden
+	+cover-abs()
+	backface-visibility: hidden
+
+	img
+		display: block
+		max-height: 100%
+		max-width: 100%
+		transform: translate(-50%, -50%)
+		position: absolute
+		+position(50%)
+			
+/*footer gov end*/
+
 /*footer common*/
 .footer-common
 	position: relative
-	overflow: hidden
-	color: black
+	color: $text-color
 
-	a:not([href^="tel"])
-		+font(inherit, inherit)
-		color: inherit
+	a
+		color: $link-color
 		text-decoration: none
-		transition-property: color
-		transition-duration: $animation-speed
+		transition:
+			property: color
+			duration: $animation-speed
+		cursor: pointer !important
 
 		.no-touchevents &:hover
 			color: $link-color
-
-	.copyright
-		font-size: 13px
-		text-transform: uppercase
 
 	.dl
 		list-style: none
@@ -48,94 +116,30 @@
 		.hide
 			display: none
 
-	.dev
+	.adr
 		+font-normal
-		font-size: 14px
-		color: $text-color-light
-
-.footer-common-holder
-	float: left
-	width: 100%
 
 // footer nav
 .footer-nav
-	margin: 0 round(-$footer-nav-horizontal-space*0.5)
+	+grid-parent($grid-space)
 	+clear-spacing
 
 .footer-nav__col
 	position: relative
-	+display-inline-block-top
-	width: round-float(100%/4, 2)
-	padding: 0 $footer-nav-horizontal-space*0.5
-	margin-bottom: $footer-nav-horizontal-space
-	+font(16px, 24px)
-	letter-spacing: normal
+	+grid-item(4, $grid-space)
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
 
-	+media('<desk-sm')
-		width: round-float(100%/4, 2)
-
-		&.footer-add-info
-			width: 100%
-
-	+media('<tab-lg')
-		width: round-float(100%/2, 2)
-
-		&.footer-add-info
-			width: 100%
-
-	+media('<mob-lg')
-		display: none
-		width: 100%
-
-		&.footer-add-info
-			display: block
-			text-align: center
+	&:last-child
+		text-align: right
 
 	& > *:last-child
 		margin-bottom: 0
 
-.footer-nav__title
-	position: relative
-	display: block
-	+font-bold
-	font-size: 18px
-	color: black
-	margin-bottom: 1.5em
-	padding-bottom: 1.5em
-
-	&::after
-		+pseudo()
-		bottom: 0
-		border-top: 2px solid black
-		width: 32px
-
-	+media('<mob-lg')
-		margin-bottom: $bottom-space--sm
-
-	a
-		color: inherit
-		text-decoration: none
-
-		& > span
-			border-bottom: 1px solid transparent
-			transition-property: border-color
-			transition-duration: $animation-speed
-
-		.no-touchevents &:hover > span
-			border-bottom-color: rgba(255, 255, 255, 0.30)
-
-.footer-nav__links
-	list-style: none
-	margin: 0 0 1.5em
-	color: $text-color-light
-
 .footer-nav__list
 	list-style: none
-	+font-bold
-	font-size: 18px
-	color: black
-
-.footer-nav__links, .footer-nav__list
+	padding: 0
+	margin: 0
 
 	li
 		margin-bottom: 20px
@@ -144,20 +148,11 @@
 		&:last-child
 			margin-bottom: 0
 
-	a
-		padding-top: 0.3em
-		color: inherit
-		+font(inherit, inherit)
-		text-decoration: none
-		transition-property: color
-		transition-duration: $animation-speed
-
-		.no-touchevents &:hover
-			color: $link-color
-
 .footer-nav__item
 	margin-bottom: 20px
-	overflow: hidden
+
+	&:last-child
+		margin-bottom: 0
 
 /*footer common end*/
 

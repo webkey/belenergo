@@ -1,0 +1,46 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* info links
+.popular
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+.popular__inner
+	position: relative
+	vertical-align: middle
+	color: $base-color-alt
+	text-decoration: none
+	text-align: center
+	padding: #{round($grid-space*1.5)} #{$grid-space}
+	transition:
+		property: background-color, color
+		duration: $animation-speed
+	display: flex
+	justify-content: space-between
+	flex-direction: column
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+		color: white
+
+.popular__text
+	display: block
+	+font-medium
+	+font(16px, round-float(19/16, 2))
+	letter-spacing: 0.05em
+	text-transform: uppercase
+	margin-bottom: 20px
+
+.popular__icon
+	svg
+		+display-inline-block-top
+		+size(50px)
+
+	path
+		fill: $base-color
+
+/* info links end
