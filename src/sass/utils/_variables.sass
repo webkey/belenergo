@@ -16,35 +16,40 @@ $font-size--less: 1.2rem !default
 $line-height--less: round-float(2.0rem/$font-size--less, 2) !default
 
 // =======h1========
-$font-size-h1: 4.8rem !default
-$line-height-h1: round-float(6.0rem/$font-size-h1, 2) !default
+$font-size-h1: 52px !default
+$line-height-h1: round-float(52px/$font-size-h1, 2) !default
 // md ===
-$font-size-h1--md: 3.6rem !default
-$line-height-h1--md: round-float(4.8rem/$font-size-h1--md, 2) !default
+$font-size-h1--md: 36px !default
+$line-height-h1--md: round-float(36px/$font-size-h1--md, 2) !default
 // sm ===
-$font-size-h1--sm: 3.0rem !default
-$line-height-h1--sm: round-float(4.2rem/$font-size-h1--sm, 2) !default
+$font-size-h1--sm: 30px !default
+$line-height-h1--sm: round-float(30px/$font-size-h1--sm, 2) !default
+
 // =======h2========
-$font-size-h2: round-float($font-size-h1*3.6rem/4.8rem, 1) !default
-$line-height-h2: round-float(4.8rem/3.6rem, 2) !default
+$font-size-h2: round-float($font-size-h1*42/52, 1) !default
+$line-height-h2: round-float(42/42, 2) !default
 // md ===
 $font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
 $line-height-h2--md: round-float(($line-height-h1--md*1.02),2) !default
 // sm ===
 $font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
 $line-height-h2--sm: round-float(($line-height-h1--sm*1.01),2) !default
+
 // =======h3========
-$font-size-h3: round-float($font-size-h1*2.4rem/4.8rem, 1) !default
-$line-height-h3: round-float(3.6rem/2.4rem, 2) !default
+$font-size-h3: round-float($font-size-h1*32/52, 1) !default
+$line-height-h3: round-float(32/32, 2) !default
 // sm ===
 $font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
 $line-height-h3--sm: round-float(($line-height-h1--sm*1.05),2) !default
+
 // =======h4========
-$font-size-h4: round-float($font-size-h1*1.8rem/4.8rem, 1) !default
-$line-height-h4: round-float(3.0rem/1.8rem, 2) !default
+$font-size-h4: round-float($font-size-h1*24/52, 1) !default
+$line-height-h4: round-float(24/24, 2) !default
+
 // =======h5========
 $font-size-h5: $font-size !default
 $line-height-h5: $line-height !default
+
 // =======h6========
 $font-size-h6: round-float($font-size*0.75, 1) !default
 $line-height-h6: round-float($line-height*1.25, 2) !default
@@ -92,13 +97,15 @@ $page-layout-space-horizontal: 0 !default
 $page-layout-width: 1920px !default
 // отступы между основновными элементами странницы
 $layout-spaces: 80px - 6px !default // -6px для компенсации скролла
+$layout-spaces--md: 60px !default // -6px для компенсации скролла
 // ==================
 // минимальные отступы слева и справа у текствого блока
-$text-layout-space-horizontal: 0 !default
+$text-layout-indent: 160px !default
+$text-layout-space-horizontal: 40px !default
 $text-layout-space-horizontal--md: 0 !default
 $text-layout-space-horizontal--sm: 0 !default
 // максимальная ширина текстового блока
-$text-layout-width: 800px !default
+$text-layout-width: 860px !default
 // максимальная ширина текстового блока выходящего за пределы текста
 $flood-layout-width: 1000px !default
 // ==================
@@ -138,18 +145,23 @@ $btn-bg-color: $base-color-alt !default
 $btn-bg-hover-color: $base-color !default
 $btn-text-color: white !default
 
+// datetime
+$datetime-size: 100px
+$datetime-size--sm: 60px
+
 // table color
 $table-text-color: $text-color !default
-$table-border-color: tomato !default
+$table-border-color: $border-color !default
 $table-bg-color: white !default
 $table-text-alt-color: white !default
-$table-bg-alt-color: tomato !default
+$table-bg-alt-color: $base-color-alt !default
 
 // header
 $header-height: 80px !default
 
 // navigation
 $nav-item-space: 46px !default
+$nav-item-space--sm: 30px !default
 
 // sidebar
 $sidebar-width: 340px !default
@@ -162,6 +174,10 @@ $aside-bottom-space: 60px !default
 // animation
 $animation-speed: 0.2s !default
 $animation-speed-mouseleave: 0.35s !default
+
+// promo slider
+$promo-slider-space: 60px
+$promo-slider-space--md: 40px
 
 // fonts style
 $font-norm: 'brutaltype', sans-serif !default

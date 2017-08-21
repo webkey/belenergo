@@ -41,32 +41,5 @@
 	@@include('_tpl_nav-LINK--full.html', { "txt": "Юридическим лицам", "href": "#", "key": "@@bsKey" })
 	</li>
 	<!--@@bsKey item end-->
-
-	<!--@@bsKey item start-->
-	<li class="has-drop@@if(currentItem === 'tt1tt'){current}">
-	@@include('_tpl_nav-LINK--full.html', { "txt": "tt1tt", "href": "#", "key": "@@bsKey" })
-	@@include('_tpl_nav-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "start", "key": "@@bsKey"})
-
-
-
-	<!--==================================================================-->
-	<!--=========================== ПРИМЕР ===============================-->
-	<!--==================================================================-->
-	<!--Чтобы лучше было видно группу пунктов в одно дропе, нужно подсветить этот дроп, введя в поиск ==========3========== -->
-	<li class="has-drop">@@include('_tpl_nav-LINK--full.html', { "txt": "tt2tt", "href": "#", "key": "@@bsKey" })
-		@@include('_tpl_nav-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "start", "key": "@@bsKey"})
-	<li>@@include('_tpl_nav-LINK--full.html', { "txt": "tt3tt", "href": "#", "key": "@@bsKey" })</li>
-	@@include('_tpl_nav-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "end", "key": "@@bsKey"})
-
-	<!--пробел ставим ТОЛЬКО после элемента с правилом "pos": "end"-->
-	<!--пример конец-->
-	<!--==================================================================-->
-	<!--=========================== ПРИМЕР конец =========================-->
-	<!--==================================================================-->
-
-	@@include('_tpl_nav-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "end", "key": "@@bsKey"})
-
-	</li>
-	<!--@@bsKey item end-->
 </ul>
 <!--(1) END @@bsKey FIRST level-->

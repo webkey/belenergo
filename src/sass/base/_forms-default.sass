@@ -222,8 +222,8 @@ input, textarea
 /*form checkbox and radiobutton*/
 input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
 	+display-inline-block-top
-	+font(16px, 20px)
-	color: #000
+	+font(16px, 22px)
+	color: $text-color
 	text-transform: none
 	cursor: pointer
 	position: relative
@@ -262,27 +262,25 @@ input[type="checkbox"]
 
 	& ~ label,
 	& ~ i
-		&::before
+		&::before,
+		&::after
 			content: ''
-			+size(18px)
+			+size(22px)
 			position: absolute
 			left: 0
 			top: 50%
-			margin-top: -9px
+			margin-top: -11px
 			border-radius: 0
-			border: 1px solid $checkbox-color
+			transition:
+				property: background-color, border-color
+				duration: $animation-speed
+
+		&::before
+			border: 2px solid $checkbox-color
+			background-color: transparent
 
 		&::after
-			content: ''
-			+size(16px)
-			position: absolute
-			left: 1px
-			top: 50%
-			margin-top: -8px
-			border-radius: 0
-			background: none
-			transition-property: opacity
-			transition-duration: $animation-speed
+			content: none
 
 	& ~ label > span,
 	& ~ span
@@ -290,18 +288,18 @@ input[type="checkbox"]
 		&::after
 			content: ''
 			position: absolute
-			+size(0, 3px)
+			+size(0, 4px)
 			left: 0
 			top: 50%
-			border-radius: 2px
-			background: $checkbox-color
+			border-radius: 0
+			background: white
 			transition-property: opacity
 			transition-duration: $animation-speed
 			transition-timing-function: linear
 
 		&::before
 			transform: rotate(45deg)
-			transform-origin: 0 7px
+			transform-origin: 0 10px
 			z-index: 1
 
 		&::after
@@ -311,18 +309,24 @@ input[type="checkbox"]
 
 	// checkbox checked
 	&:checked
+		& ~ label,
+		& ~ i
+			&::before
+				border-color: $base-color
+				background-color: $base-color
+
 		& ~ label > span,
 		& ~ span
 			&::before
 				width: 7px
-				margin: -4px 0 0 0
+				margin: -5px 0 0 0
 				transition-property: width
 				transition-duration: 0.1s
 				backface-visibility: hidden
 
 			&::after
 				width: 11px
-				margin: 0 0 0 -8px
+				margin: 0 0 0 -7px
 				transition-property: width
 				transition-duration: 0.1s
 				transition-delay: 0.1s
@@ -339,12 +343,13 @@ input[type="checkbox"]
 		& ~ i
 			&::before
 				border-color: #d6d6d6
+				background-color: #f3f3f3
 
 		& ~ label > span,
 		& ~ span
 			&:before,
 			&:after
-				background: #b9b9b9
+				background: #d6d6d6
 
 // radio
 input[type="radio"]

@@ -68,15 +68,14 @@ function getCookie(name) {
 /*cookie end*/
 
 /**
- *  placeholder
+ *  Add placeholder for old browsers
  * */
 function placeholderInit() {
 	$('[placeholder]').placeholder();
 }
-/*placeholder end*/
 
 /**
- * !print
+ * !Show print page by click on the button
  * */
 function printShow() {
 	$('.view-print').on('click', function (e) {
@@ -84,10 +83,9 @@ function printShow() {
 		window.print();
 	})
 }
-/*print end*/
 
 /**
- * !switch cecutient version
+ * !Switch cecutient version
  * */
 function switchCecutientVersion() {
 	$('.cecutient-version-toggle-js').on('click', function (e) {
@@ -99,20 +97,18 @@ function switchCecutientVersion() {
 		location.reload();
 	});
 }
-/*switch cecutient version end*/
 
 /**
- * !check cecutient version cookie
+ * !Check cecutient version cookie
  */
 function checkCecutientVersionCookie() {
 	if (getCookie('cecutientVersion') === 'true' && !$('#cecutient-css-link').length) {
 		toggleCecutientVersion();
 	}
 }
-/*check cecutient version cookie end*/
 
 /**
- * !toggle cecutient version
+ * !Toggle cecutient version
  * */
 function toggleCecutientVersion() {
 
@@ -158,10 +154,9 @@ function toggleCecutientVersion() {
 		$(document).trigger('specialVersionOn');
 	}
 }
-/*toggle cecutient version end*/
 
 /**
- * !toggle class for input on focus
+ * !Toggle class for input on focus
  * */
 function inputToggleFocusClass() {
 	// use for the "focus" state
@@ -268,10 +263,10 @@ function inputFilledClass() {
 		});
 	}
 }
-/*toggle class for input on focus end*/
+/* !toggle class for input on focus end */
 
 /**
- * add class on scroll page
+ * !Add class on scroll page
  * */
 function addClassesOnScrollPage(){
 	// external js:
@@ -303,10 +298,9 @@ function addClassesOnScrollPage(){
 		previousScrollTop = currentScrollTop;
 	}
 }
-/*add class on scroll page end*/
 
 /**
- * !Multiselect init
+ * !Initial custom select for cross-browser styling
  * */
 function customSelect(select) {
 	$.each(select, function () {
@@ -321,10 +315,9 @@ function customSelect(select) {
 		});
 	})
 }
-/* Multiselect init end */
 
 /**
- * jquery.toggleHoverClass
+ * !Plugin HoverClass
  * */
 (function ($) {
 	var HoverClass = function (settings) {
@@ -440,10 +433,9 @@ function customSelect(select) {
 	window.HoverClass = HoverClass;
 
 }(jQuery));
-/*jquery.toggleHoverClass end*/
 
 /**
- * toggle hover class
+ * !Toggle "hover" class by hover on the item of the list
  * */
 function hoverClassInit(){
 	if($('.nav').length){
@@ -453,10 +445,9 @@ function hoverClassInit(){
 		});
 	}
 }
-/*toggle hover class end*/
 
 /**
- * !toggle sibling classes
+ * !Toggle sibling classes by fire events on the item of the list
  * */
 function toggleSiblingClasses() {
 	var $container = $('.sibling-classes-js, .several-slider-js');
@@ -480,10 +471,9 @@ function toggleSiblingClasses() {
 		$parentCurrentElem.next().removeClass(nextClass);
 	})
 }
-/*toggle sibling classes end*/
 
 /**
- * file input
+ * !Initial custom file input
  * */
 function fileInput() {
 	$('.upload-file').each(function () {
@@ -543,10 +533,9 @@ function fileInput() {
 		});
 	});
 }
-/*file input end end*/
 
 /**
- * !sliders
+ * !Initial sliders on the project
  * */
 function slidersInit() {
 	//images carousel
@@ -705,7 +694,7 @@ function slidersInit() {
 				arrows: true,
 				responsive: [
 					{
-						breakpoint: 1600,
+						breakpoint: 1920,
 						settings: {
 							slidesToShow: 3,
 							slidesToScroll: 3
@@ -717,10 +706,9 @@ function slidersInit() {
 		});
 	}
 }
-/*sliders end*/
 
 /**
- * !toggle drop
+ * !Toggle drop
  * */
 function toggleDrop() {
 
@@ -792,10 +780,9 @@ function toggleDrop() {
 	}
 
 }
-/*toggle drop end*/
 
 /**
- * !show form search
+ * !Show search field
  * */
 function toggleSearchForm(){
 	var $searchFormContainer = $('.search-form-js');
@@ -864,10 +851,9 @@ function toggleSearchForm(){
 		$('html').removeClass(classFormIsOpen)
 	}
 }
-/*show form search end*/
 
 /**
- * !simple accordion init
+ * !Collapse and expand blocks by fire events on the title of these blocks
  */
 function simpleAccordion() {
 	function simpleAccordion($hand, $panel, animateSpeed) {
@@ -897,10 +883,9 @@ function simpleAccordion() {
 		})
 	}
 }
-/* simple accordion init */
 
 /**
- * !equal height init
+ * !Equal height of blocks by maximum height of them
  */
 function equalHeight() {
 	var $popular = $('.popular-list');
@@ -911,10 +896,9 @@ function equalHeight() {
 		});
 	}
 }
-/* equal height init */
 
 /**
- * !sticky layout
+ * !Sticky element on the page by scroll
  * */
 function stickyLayout() {
 
@@ -922,24 +906,20 @@ function stickyLayout() {
 		return;
 	}
 
-	var offsetTopBase = $('.header').outerHeight();
-
 	/*aside sticky*/
 	var $aside = $(".aside__holder");
 
 	if ($aside.length) {
-		var offsetTop = offsetTopBase + 74;
 
 		$aside.stick_in_parent({
 			parent: '.layout',
-			offset_top: offsetTop
+			offset_top: $('.header').outerHeight()
 		});
 	}
 }
-/*sticky layout end*/
 
 /**
- * !footer at bottom
+ * !Always place the footer at the bottom of the page
  * */
 function footerBottom() {
 	var $footer = $('.footer__holder');
@@ -970,10 +950,9 @@ function footerBottom() {
 		}
 	}
 }
-/*footer at bottom end*/
 
 /**
- * !form success for example
+ * !Testing form validation (for example). Do not use on release!
  * */
 function formSuccessExample() {
 	var $form = $('.user-form form, .subscription-form form');
@@ -1025,9 +1004,10 @@ function formSuccessExample() {
 		});
 	}
 }
-/* form success for example end */
 
-/** ready/load/resize document **/
+/**
+ * =========== !ready document, load/resize window ===========
+ */
 
 $(window).on('load', function () {
 	addClassesOnScrollPage();

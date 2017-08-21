@@ -10,12 +10,6 @@ body
 	+font($font-size, $line-height)
 	letter-spacing: 0.025em
 	color: $text-color
-	height: 100%
-	background: #{$bg-color} url(../../img/empty.png) no-repeat center top fixed
-	min-width: 1900px
-
-	&.home-page
-		background-image: url(../../img/bg-home-img.jpg)
 
 	*::selection
 		background-color: $base-color
@@ -31,6 +25,7 @@ h1, h2, h3, h4, h5, h6
 		margin: 0 0 round-float($bottom-space*0.85, 1)
 
 h1
+	+font-extra-bold
 	+font($font-size-h1, $line-height-h1)
 
 	+media('<mob-lg')
@@ -104,9 +99,64 @@ i, em
 i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	+font-bold-italic
 
+/* add shadow
+.add-shadow, .add-shadow--full
+	visibility: visible
+	position: relative
+	z-index: auto
+
+	&::after
+		+pseudo()
+		+size(100%)
+		+position(15px)
+		z-index: -1
+		background: url(../../img/bg-shadow.png) right bottom
+
+.add-shadow--full
+	background-color: white
+	border: 2px solid $base-color-alt
+
+/* add shadow end
+
+/* heading
+.heading
+	position: relative
+	min-height: $datetime-size
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+/* heading end
+
+/* datetime
+.datetime
+	display: block
+	position: absolute
+	+position(6px, 0)
+	+size($datetime-size)
+	padding: 8px 5px 0
+	margin-bottom: $bottom-space
+	+font-medium
+	+font(15px, round-float(24/15, 2))
+	letter-spacing: normal
+	text-align: center
+	text-transform: uppercase
+	color: $base-color-alt
+
+	&:last-child
+		margin-bottom: 0
+
+	& > strong
+		display: block
+		+font-bold
+		+font(60px, 1)
+		margin-bottom: -5px
+
+/* datetime end
+
 .entry-text
-	+font-bold
-	font-size: 1.2em
+	+font-medium
 	margin-bottom: $bottom-space
 
 	b, strong
@@ -115,11 +165,16 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	i, em
 		+font-bold-italic
 
+.entry-img-wrap
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
 .entry-img
 	position: relative
 	overflow: hidden
-	+ratio(10, 6)
-	margin-bottom: $bottom-space
+	+ratio(1020, 464)
 
 	img
 		position: absolute
@@ -141,11 +196,12 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 .entry-img__title
 	position: absolute
-	left: 50%
-	top: 50%
+	+position(50%)
+	+padding-horizontal(0 !important)
+	margin: 0
 	transform: translate(-50%, -50%)
 	z-index: 10
-	font-size: $font-size-h1
+	+font($font-size-h1, $line-height-h1)
 	color: white
 	text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2)
 	text-align: center
@@ -194,7 +250,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	margin: 0 0 $bottom-space $bottom-space
 
 .imgl, .imgr
-	max-width: 50%
+	max-width: 40%
 
 	+media('<tab-sm')
 		float: none
@@ -240,30 +296,28 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		p + #{$tags},
 		ul + #{$tags},
 		ol + #{$tags}
-			margin-top: round-float($bottom-space*1.5, 1)
+			margin-top: round-float($bottom-space--md, 1)
 
 /*list*/
 .#{$user-content}
 	//list
-	ul,
-	ol
+	ul, ol
 		margin: 0 0 $bottom-space
 		padding: 0
 		list-style: none
 
 		li
-			padding-left: 30px
+			padding-left: 40px
 			margin: 0 0 round($bottom-space*0.5)
 			position: relative
 
 	ul > li::before
 		+pseudo()
 		left: 0
-		top: 9px
-		+size(0)
-		border: solid transparent
-		border-width: 5px 0 5px 9px
-		border-left-color: $text-color-alt
+		top: 0.3em
+		+size(13px)
+		border-radius: 50%
+		border: 2px solid $text-color-alt
 
 	ol
 		counter-reset: section
@@ -276,19 +330,26 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			&::before
 				position: relative
 				display: inline-block
-				text-align: left
-				+font-bold
-				color: $text-color-alt
 				content: counter(section)
-				padding: 0 4px 0 0
-				min-width: 30px
-				margin-left: -30px
+				padding: 0
+				+size(25px)
+				margin-left: -40px
+				margin-right: 15px
+				border: 2px solid $text-color-alt
+				border-radius: 50%
+				+font-medium
+				+font(16px, 23px)
+				text-align: center
+				color: $text-color-alt
+				letter-spacing: normal
 
-	ul,
-	ol
-		ul,
-		ol
+	ul, ol
+		ul, ol
 			margin: round($bottom-space*0.5) 0
+
+		ul li
+			&::before
+				background-color: $text-color-alt
 
 /*list reset
 .reset-list,
@@ -312,9 +373,9 @@ table
 	width: auto
 
 	td, th
-		+font(1.4rem, 1.3)
+		+font($font-size, $line-height)
 		color: $table-text-color
-		padding: 8px 10px
+		padding: 8px 15px
 		border-color: black
 
 .table-auto
@@ -322,12 +383,17 @@ table
 	overflow: auto
 	max-width: 100%
 	-webkit-overflow-scrolling: touch
-	margin-bottom: $bottom-space
 
 	table
 		margin-bottom: 0
 		width: auto
 		min-width: 100%
+
+.table, .table-auto
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
 
 .#{$user-content}
 	table
@@ -343,17 +409,11 @@ table
 			color: $table-text-color
 			background-color: $table-bg-color
 			border: 0 solid $table-border-color
-			+font(1.4rem, 1.5)
-
-			&:first-child, &:first-child
-				border-left-width: 1px
-
-			&:last-child, &:last-child
-				border-right-width: 1px
+			padding: 16px 20px
 
 		tr:last-child
 			td
-				border-width: 1px 0
+				border-bottom-width: 0
 
 		td
 			border-top-width: 1px
@@ -361,20 +421,22 @@ table
 		tbody tr:first-child td
 			border-top-width: 0
 
-		tbody tr:nth-child(even) td
-			background: $table-bg-alt-color
-			color: $table-text-alt-color
-
-		th, thead td
+		th, thead td, tfoot td
 			+font-bold
 			font-size: 1.6rem
+			text-transform: uppercase
+			letter-spacing: 0.05em
 			text-align: left
 
-		th, thead td, tfoot td
+		th, thead td
 			background: $table-bg-alt-color
 			color: $table-text-alt-color
 			border-color: $table-bg-alt-color
 			border-top-width: 0
+
+		tfoot td
+			color: $base-color
+			border-top-width: 2px
 
 /*table end*/
 
@@ -383,30 +445,39 @@ table
 
 	blockquote
 		display: block
-		margin: 0 0 $bottom-space
+		margin: $bottom-space--lg 0
 		padding: 0
-		background-color: white
 
 		q
+			position: relative
 			display: block
 			margin: 0
-			padding: 0 0 10px
-			font-family: $font-alt
-			+font(round-float($font-size*1.25, 1), $line-height)
-			color: $text-color
+			padding: 0
+			+font-alt
+			+font(36px, round-float(44/36, 2))
+			color: black
 			text-align: center
 
 			&::before, &::after
-				+pseudo($pos: relative)
-				+font(4rem, 1)
+				+pseudo()
+				+position(50%)
+				background: url(../../img/depict-quote.png) no-repeat
+				background-size: contain
+				width: 182px
+				height: 162px
 				text-align: left
+				z-index: -1
+				transform: translate(-50%, -50%)
 
 			&::before
-				content: '«'
+				content: ''
 				padding-left: 17%
 				padding-bottom: 10px
 
 			&::after
+				content: none
+
+			//&::after
 				content: '»'
 				text-align: right
 				padding-right: 18.5%
@@ -416,18 +487,14 @@ table
 			text-align: right
 			display: block
 			margin-left: auto
-			+font($font-size, $line-height)
+			+font-alt
+			+font(24px, 32px)
 			color: $text-color-light
 
+		q + cite
+			padding-top: 20px
+
 /*blockquote end*/
-
-/*datetime*/
-.datetime
-	display: block
-	font-style: normal
-	margin-bottom: $bottom-space
-
-/*datetime end*/
 
 /*view print*/
 .view-print
@@ -528,25 +595,6 @@ table
 
 /* logo in sidebar end
 
-/* add shadow
-.add-shadow, .add-shadow--full
-	visibility: visible
-	position: relative
-	z-index: auto
-
-	&::after
-		+pseudo()
-		+size(100%)
-		+position(15px)
-		z-index: -1
-		background: url(../../img/bg-shadow.png) right bottom
-
-.add-shadow--full
-	background-color: white
-	border: 2px solid $base-color-alt
-
-/* add shadow end
-
 /* caption
 .caption
 	position: relative
@@ -568,10 +616,14 @@ table
 	+display-inline-block-middle
 	width: 54%
 	margin-bottom: 0
+	padding-right: 20px
 	+font(36px, round-float(43/36, 2))
 	letter-spacing: 0.05em
 	color: $title-color
 	text-transform: uppercase
+
+	+media('<desk-hd')
+		font-size: 28px
 
 .caption__text
 	+display-inline-block-middle
@@ -598,11 +650,15 @@ table
 
 .caption-box__title
 	width: 54%
+	padding-right: 20px
 	+font(36px, round-float(43/36, 2))
 	letter-spacing: 0.05em
 	color: $title-color
 	text-transform: uppercase
 	margin-bottom: 0
+
+	+media('<desk-hd')
+		font-size: 28px
 
 	.no-flexbox &
 		+display-inline-block-top
@@ -650,19 +706,27 @@ table
 	+padding-horizontal(20px)
 	width: round-float(100%/3, 2)
 	+font-medium
-	+font(16px, round-float(19px/16px, 2))
-	letter-spacing: 0.025em
-	color: $text-color
+	line-height: 1
 
 	.dt
 		display: block
 		margin-bottom: 10px
+		+font(16px, round-float(19px/16px, 2))
+		letter-spacing: 0.025em
+		color: $text-color
+
+		+media('<desk-hd')
+			font-size: 12px
 
 	.dd
 		+font-bold
 		+font(48px, round-float(52/48, 2))
 		letter-spacing: 0.05em
 		color: $base-color
+
+		+media('<desk-hd')
+			font-size: 32px
+			letter-spacing: 0.025em
 
 /* benefits counter end
 

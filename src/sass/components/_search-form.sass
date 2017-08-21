@@ -5,10 +5,11 @@
 /* search-form
 .search-form
 	background-color: #fff
-	transition-property: opacity, visibility
-	transition-duration: $animation-speed
 	opacity: 0
 	visibility: hidden
+	transition:
+		property: opacity, visibility
+		duration: $animation-speed
 	z-index: 100
 
 	.form-is-open &
@@ -60,8 +61,9 @@
 		+size($header-height)
 		box-shadow: 1px 0 0 $border-color
 		transform: translate(0, -50%)
-		transition-property: background-color
-		transition-duration: $animation-speed
+		transition:
+			property: background-color
+			duration: $animation-speed
 
 		span
 			+hide-text
@@ -75,21 +77,21 @@
 			z-index: 2
 			transform: translate(-50%, -50%)
 
-			&:before, &:after
+			//&:before, &:after
 				+pseudo()
 				background-color: $magnifier-color
 				border: 2px solid $magnifier-color
 				transition-property: background-color, border-color
 				transition-duration: $animation-speed
 
-			&:before
+			//&:before
 				left: 0
 				top: 0
 				+size(16px)
 				border-radius: 50%
 				background: none
 
-			&:after
+			//&:after
 				bottom: 0
 				right: 0
 				+size(8px, 2px)
@@ -97,6 +99,16 @@
 				border: none
 				transform-origin: right bottom
 				transform: rotate(38deg)
+
+			svg
+				+display-inline-block-top
+				+size(20px)
+
+			path
+				fill: black
+				transition:
+					property: fill
+					duration: $animation-speed
 
 		input[type="submit"]
 			padding: 0
@@ -108,19 +120,23 @@
 			background-color: $base-color-alt
 
 			i
-				&:before
+				//&:before
 					border-color: white
 
-				&:after
+				//&:after
 					background-color: white
+
+				path
+					fill: white
 
 .btn-search-close
 	position: absolute
 	+position(50%, 100%)
 	+size($header-height)
 	box-shadow: -1px 0 0 $border-color
-	transition-property: background-color
-	transition-duration: $animation-speed
+	transition:
+		property: background-color
+		duration: $animation-speed
 	transform: translate(0, -50%)
 
 	span
@@ -144,9 +160,10 @@
 			+size($line-width, 2px)
 			margin: -1px 0 0 (-$line-width/2)
 			border-radius: 2px
-			background-color: $text-color
-			transition-property: background-color
-			transition-duration: $animation-speed
+			background-color: black
+			transition:
+				property: background-color
+				duration: $animation-speed
 
 		&::before
 			transform: rotate(-45deg)

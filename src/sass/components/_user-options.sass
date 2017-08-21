@@ -39,17 +39,19 @@
 			height: 100%
 
 		svg
-			+size(30px)
+			+size(24px)
 			display: inline-block
-			transform: scale(0.8)
 			transition-property: background-color, color
 			transition-duration: $animation-speed
 
-			&.svg-search
-				+size(24px)
-
 			&.svg-visually-impaired
-				+size(32px)
+				+size(38px, 21px)
+
+			&.svg-theme
+				+size(16px)
+
+			&.svg-search
+				+size(20px)
 
 			& ~ span
 				padding-left: 15px
@@ -73,6 +75,13 @@
 		.hide-text
 			+hide-text
 
+	&.width-auto
+		a
+			+padding-horizontal(25px)
+
+			+media('<desk-hd')
+				+padding-horizontal(15px)
+
 	&.banner-opener
 		display: none
 
@@ -80,17 +89,20 @@
 		width: auto
 		height: $header-height
 
-		a
-			+padding-horizontal(25px)
-
 	&.theme-toggle
 		width: auto
 		min-width: 155px
 		height: $header-height
 
+		+media('<desk-hd')
+			min-width: 130px
+
 	&.lang
 		width: auto
 		min-width: 120px
+
+		+media('<desk-hd')
+			min-width: 100px
 
 	.theme--night
 		display: none

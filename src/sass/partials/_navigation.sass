@@ -14,6 +14,9 @@
 	+margin-horizontal(-#{round($nav-item-space*0.5)})
 	+clear
 
+	+media('<desk-hd')
+		+margin-horizontal(-#{round($nav-item-space--sm*0.5)})
+
 	li
 		position: relative
 
@@ -40,6 +43,9 @@
 		color: black
 		transition-property: background-color
 		transition-duration: $animation-speed
+
+		+media('<desk-hd')
+			+padding-horizontal(#{round($nav-item-space--sm*0.5)})
 
 	.nav__angle
 		display: none

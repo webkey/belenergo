@@ -24,17 +24,19 @@
 				})
 				<!--breadcrumbs end-->
 
-				<!--heading-->
-				@@include('_tpl_typography_components.html', {
-				"component": "heading"
-				})
-				<!--heading end-->
+				<div class="heading layout-text">
+					<!--datetime-->
+					@@include('_tpl_typography_components.html', {
+					"component": "dateTime"
+					})
+					<!--datetime end-->
 
-				<!--datetime-->
-				@@include('_tpl_typography_components.html', {
-				"component": "dateTime"
-				})
-				<!--datetime end-->
+					<!--heading-->
+					@@include('_tpl_typography_components.html', {
+					"component": "heading"
+					})
+					<!--heading end-->
+				</div>
 
 				<!--entry-img-->
 				@@include('_tpl_typography_components.html', {
@@ -193,11 +195,11 @@
 
 				<div class="user-spacer">&nbsp;</div>
 
-				<!--print-button-->
+				<!--view-print-->
 				@@include('_tpl_typography_components.html', {
-				"component": "printButton"
+				"component": "viewPrint"
 				})
-				<!--print-button end-->
+				<!--view-print end-->
 			</div>
 
 			<script>

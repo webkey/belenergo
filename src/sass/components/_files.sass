@@ -4,21 +4,24 @@
 
 /*files links*/
 .file
-	$file-icon-size: 32px
-	display: inline-block
-	vertical-align: top
+	$file-icon-size: 42px
+	+display-inline-block-top
+	min-height: $file-icon-size
 	padding: 0.5em
-	+font(1.6rem, 1.4)
+	+font(16px, 20px)
+	color: $base-color-alt
 	text-decoration: none
+	transition:
+		property: background-color
+		duration: $animation-speed
 	+clear
-
-	.no-touchevents &:hover
-		box-shadow: inset 0 0 0 1px $border-color
 
 	svg
 		float: left
-		+margin($top: 0.3em, $bottom: -0.3em)
 		+size($file-icon-size)
+
+	path
+		fill: $text-color
 
 	.st-bg
 		fill: #e2e5e7
@@ -41,5 +44,14 @@
 		display: block
 		font-size: 1.4rem
 		color: $text-color-light
+		transition:
+			property: color
+			duration: $animation-speed
+
+	.no-touchevents &:hover
+		background-color: $base-color
+
+		& > em
+			color: white
 
 /*files links end*/

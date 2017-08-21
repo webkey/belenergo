@@ -352,8 +352,12 @@
 
 	.slider-arrows
 		position: absolute
-		right: 60px
-		bottom: 60px
+		right: $promo-slider-space
+		bottom: $promo-slider-space
+
+		+media('<desk-hd')
+			right: $promo-slider-space--md
+			bottom: $promo-slider-space--md
 
 .promo-slider
 	// before slide load
@@ -375,8 +379,12 @@
 	.slick-dots
 		position: absolute
 		width: auto
-		bottom: 60px
-		left: 53px
+		bottom: $promo-slider-space
+		left: #{$promo-slider-space - 15}
+
+		+media('<desk-hd')
+			bottom: $promo-slider-space--md
+			left: #{$promo-slider-space--md - 15}
 
 .promo-slide
 	// before slide load
@@ -390,6 +398,9 @@
 	background-color: white
 	height: 460px
 
+	+media('<desk-hd')
+		height: 380px
+
 	.slick-initialized &
 		// after slide load
 		float: left
@@ -401,8 +412,13 @@
 	position: absolute
 	+position(0, 50%)
 	+size(774px, auto)
+	max-width: calc(100% - #{$promo-slider-space}*4)
 	transform: translate(-50%, -50%)
 	border-radius: 50%
+
+	+media('<desk-hd')
+		width: 570px
+		max-width: calc(100% - #{$promo-slider-space--md}*4)
 
 	&::before
 		+pseudo-block-relative()
@@ -418,17 +434,25 @@
 
 .promo-slider__text
 	position: absolute
-	+position(60px)
+	+position(#{$promo-slider-space})
+	width: 650px
+	max-width: calc(100% - #{$promo-slider-space}*2)
 	+font-bold
 	+font(36px, 48px)
 	text-transform: uppercase
-	width: 650px
-	max-width: 100%
 	color: white
 
 	span
 		background: $base-color-alt
 		box-shadow: 10px 0 0 $base-color-alt, -10px 0 0 $base-color-alt
+
+	+media('<desk-hd')
+		+position(#{$promo-slider-space--md})
+		max-width: calc(100% - #{$promo-slider-space--md}*2)
+		+font(24px, 36px)
+
+		span
+			box-shadow: 6px 0 0 $base-color-alt, -6px 0 0 $base-color-alt
 
 	//+media('<desk-hd')
 		$fz-kef: 0.8

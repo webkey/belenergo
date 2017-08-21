@@ -5,6 +5,7 @@
 /* news-previews previews
 
 $news-previews-space: 80px
+$news-previews-space--md: 40px
 
 .news-previews
 	margin-bottom: $bottom-space--md
@@ -17,6 +18,9 @@ $news-previews-space: 80px
 	+clear-spacing
 	margin-bottom: $bottom-space--md
 
+	+media('<desk-hd')
+		+grid-parent($news-previews-space--md)
+
 	&:last-child
 		margin-bottom: 0
 
@@ -25,6 +29,9 @@ $news-previews-space: 80px
 	+grid-item(3, $news-previews-space, round($news-previews-space*0.5))
 	+font(1.5rem, round-float(18px/15px, 2))
 	letter-spacing: normal
+
+	+media('<desk-hd')
+		+grid-item-responsive(3, $news-previews-space--md)
 
 .news-previews__inner
 	display: block
@@ -36,6 +43,7 @@ $news-previews-space: 80px
 	margin-bottom: $bottom-space
 	cursor: default
 	+clear-spacing
+	white-space: nowrap
 
 .news-previews__date
 	+display-inline-block-middle
@@ -46,23 +54,29 @@ $news-previews-space: 80px
 
 	margin-right: 1em
 
+	+media('<desk-hd')
+		font-size: 14px
+
 .news-previews__label
 	+display-inline-block-middle
 	+font-normal
-	+font(16px, round-float(16/16, 2))
+	+font(16px, 1.1)
 	letter-spacing: 0.025em
 	text-transform: uppercase
 	text-decoration: none
 	color: white
 	background-color: $text-color-light
-	box-shadow: 2px 0 0 #{$text-color-light}, -2px 0 0 #{$text-color-light}
+	box-shadow: 0 0 0 1px #{$text-color-light}, 2px 0 0 1px #{$text-color-light}, -2px 0 0 1px #{$text-color-light}
 	transition:
 		property: background-color, box-shadow
 		duration: $animation-speed
 
+	+media('<desk-hd')
+		font-size: 14px
+
 	.no-touchevents &:hover
 		background-color: $base-color
-		box-shadow: 2px 0 0 #{$base-color}, -2px 0 0 #{$base-color}
+		box-shadow: 0 0 0 1px #{$base-color}, 2px 0 0 1px #{$base-color}, -2px 0 0 1px #{$base-color}
 
 .news-previews__figure
 	position: relative

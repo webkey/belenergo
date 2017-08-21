@@ -5,7 +5,10 @@
 /*breadcrumbs*/
 .breadcrumbs
 	color: $text-color-light
-	margin-bottom: $bottom-space
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
 
 .breadcrumbs__list, .#{$user-content} .breadcrumbs__list
 	padding: 0
@@ -21,48 +24,46 @@
 .breadcrumbs__list
 	cursor: default
 	overflow: hidden
+	+clear-spacing
 
 	li
-		display: inline-block
-		vertical-align: top
+		display: inline
 		position: relative
+		+font($font-size, $line-height)
+		letter-spacing: 0.025em
+		margin-right: 15px
+		color: $text-color-light
 
 		&::after
-			content: '/'
-			position: absolute
-			right: 10px
-			top: 1px
-			height: 0
-			width: 0
-			line-height: 1.2
+			display: inline-block
+			vertical-align: baseline
+			content: '•'
 			border: none
-			color: $text-color-light
+			color: $base-color
+			padding-left: 15px
 
 		&:last-child::after
 			content: none
 
-		span
-			display: inline-block
-			vertical-align: top
-			line-height: 1.2
-			+truncate(260px)
-
 	a
 		display: inline-block
 		vertical-align: top
-		color: $link-color
+		color: $text-color
 		text-decoration: none
 		cursor: pointer
+		transition:
+			property: color
+			duration: $animation-speed
 
 		.no-touchevents &:hover
-			text-decoration: none
+			color: $base-color
 
-		span
+		//span
 			border-bottom: 1px solid transparent
 			transition-property: border-color, color
 			transition-duration: $animation-speed
 
-		.no-touchevents &:hover span
+		//.no-touchevents &:hover span
 			border-color: tint($link-color, 30%)
 			color: $link-color
 
