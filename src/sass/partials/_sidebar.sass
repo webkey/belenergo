@@ -18,6 +18,16 @@
 	background: url(../../img/bg-sidebar-img.png) no-repeat left bottom
 	background-size: 89.1%
 
+	// для браузеров не поддерживающих display: flex
+	.no-flexbox &
+		width: $sidebar-width
+
+	// в ие 11 не поддерживается flex-direction: column вместе с min-height
+	// для этого браузера исспользуем хак
+	@media all and (-ms-high-contrast: none)
+		&::-ms-backdrop, &
+			width: $sidebar-width
+
 .sidebar-widget
 	padding: $sidebar-inside-space
 	border-top: 1px solid $border-color

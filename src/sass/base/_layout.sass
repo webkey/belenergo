@@ -54,6 +54,15 @@ body
 	& > .layout
 		+clear
 
+.content-head
+	float: left
+	width: calc(100% - #{$sidebar-width})
+	margin-left: #{$sidebar-width}
+	padding: #{round($layout-spaces*0.8)} #{$layout-spaces}
+
+	+media('<desk-hd')
+		padding: #{$layout-spaces--md} #{$layout-spaces--md}
+
 .main
 	position: relative
 	width: 100%
@@ -64,6 +73,7 @@ body
 .main__holder
 	margin: 0 #{$aside-width} 0 #{$sidebar-width}
 	min-height: 50px
+	+clear
 
 .content
 	padding: #{$layout-spaces} #{$layout-spaces}
@@ -79,7 +89,7 @@ body
 	margin: 0 0 0 $sidebar-width
 	padding-left: $layout-spaces
 	width: calc(100% - #{$sidebar-width})
-	box-shadow: 0 1px 0 $border-color
+	box-shadow: inset 0 -1px 0 $border-color
 	@if $page-layout-width
 		max-width: calc(#{$page-layout-width} - #{$sidebar-width})
 	@else

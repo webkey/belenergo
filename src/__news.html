@@ -1,0 +1,59 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Новости",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
+
+<!--HEADER-->
+@@include('_tpl_layout_header.html', {
+	"currentItem": ""
+})
+<!--HEADER end-->
+
+<!--CONTENT HEAD-->
+<div class="content-head" style="background-image: url(img/bg-content-head-news.jpg);">
+	@@include('_tpl_breadcrumbs.html', {
+	"last": "Новости"
+	})
+	<h1>Новости</h1>
+</div>
+<!--CONTENT HEAD END-->
+
+<!--MAIN-->
+<div class="main">
+	<div class="main__holder">
+
+		<!--CONTENT-->
+		<div class="content user-content">
+
+			<div class="layout-article">
+				<!--news previews-->
+				<div class="news-previews --list-view">
+					<div class="news-previews__list">
+						@@loop("_tpl_news-previews-items.html", "includes-json/news-previews-items.json")
+					</div>
+				</div>
+				<!--news previews end-->
+			</div>
+
+		</div>
+		<!--CONTENT end-->
+
+	</div>
+</div>
+<!--MAIN end-->
+
+<!--SIDEBAR-->
+@@include('_tpl_layout_sidebar.html', {
+	"currentItem": "Деятельность"
+})
+<!--SIDEBAR-->
+
+<!--ASIDE-->
+@@include('_tpl_layout_aside.html')
+<!--ASIDE end-->
+
+@@include('_tpl_PAGE_WRAP.html', { "pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html')

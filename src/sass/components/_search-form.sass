@@ -57,10 +57,9 @@
 
 		position: absolute
 		right: 100%
-		top: 50%
+		top: 0
 		+size($header-height)
 		box-shadow: 1px 0 0 $border-color
-		transform: translate(0, -50%)
 		transition:
 			property: background-color
 			duration: $animation-speed
@@ -131,13 +130,12 @@
 
 .btn-search-close
 	position: absolute
-	+position(50%, 100%)
+	+position(0, 100%)
 	+size($header-height)
 	box-shadow: -1px 0 0 $border-color
 	transition:
 		property: background-color
 		duration: $animation-speed
-	transform: translate(0, -50%)
 
 	span
 		+hide-text

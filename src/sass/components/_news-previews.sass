@@ -5,6 +5,7 @@
 /* news-previews previews
 
 $news-previews-space: 80px
+$news-previews-list-space: 60px
 $news-previews-space--md: 40px
 
 .news-previews
@@ -78,6 +79,15 @@ $news-previews-space--md: 40px
 		background-color: $base-color
 		box-shadow: 0 0 0 1px #{$base-color}, 2px 0 0 1px #{$base-color}, -2px 0 0 1px #{$base-color}
 
+.news-previews__link
+	text-decoration: none
+	color: $text-color
+	display: block
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
 .news-previews__figure
 	position: relative
 	margin: 0 auto #{$bottom-space}
@@ -97,18 +107,6 @@ $news-previews-space--md: 40px
 	backface-visibility: hidden
 	background-color: $border-color
 
-	&::before
-		+pseudo()
-		+position(0)
-		+size(100%)
-		z-index: 5
-		border: 3px solid $base-color
-		opacity: 0
-		visibility: hidden
-		transition:
-			property: opacity, visibility
-			duration: $animation-speed
-
 	img
 		display: block
 		max-height: 100%
@@ -116,11 +114,6 @@ $news-previews-space--md: 40px
 		transform: translate(-50%, -50%)
 		position: absolute
 		+position(50%)
-
-	.no-touchevents &:hover
-		&::before
-			opacity: 1
-			visibility: visible
 
 .news-previews__content
 	position: relative
@@ -135,20 +128,15 @@ $news-previews-space--md: 40px
 	letter-spacing: 0.025em
 	color: $text-color
 	margin-bottom: $bottom-space
+	transition:
+		property: color
+		duration: $animation-speed
 	
 	&:last-child
 		margin-bottom: 0
 
-	a
-		text-decoration: none
-		color: inherit
-		padding-top: 0.5em
-		transition:
-			property: color
-			duration: $animation-speed
-
-		.no-touchevents &:hover
-			color: $base-color
+	.no-touchevents .news-previews__link:hover &
+		color: $base-color
 
 .news-previews__text
 	+font-normal
@@ -171,5 +159,37 @@ $news-previews-space--md: 40px
 	.no-touchevents &:hover
 		color: $base-color
 		border-color: $base-color
+
+
+.--list-view
+	$news-previews-figure-size: 160px
+	$news-previews-figure-space: 60px
+
+	.news-previews__list
+		+grid-parent($news-previews-list-space)
+
+	.news-previews__item
+		+grid-item-responsive(1, $news-previews-list-space)
+
+	.news-previews__link
+		display: inline
+
+	.news-previews__figure
+		float: left
+		width: $news-previews-figure-size
+		margin: 0
+
+	.news-previews__meta, .news-previews__content, .news-previews__footer
+		float: right
+		width: calc(100% - #{$news-previews-figure-size})
+		padding-left: $news-previews-figure-space
+
+	.news-previews__content
+		padding-bottom: 50px
+
+	.news-previews__footer
+		position: relative
+		clear: left
+		margin-top: -26px
 
 /* news-previews end

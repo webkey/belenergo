@@ -1,0 +1,26 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+.content-head
+	position: relative
+	background-color: $base-color-alt
+	background-position: center
+	background-size: cover
+	color: white
+
+	&::before
+		+pseudo()
+		+position(0)
+		+size(100%)
+		+linear-gradient(to right, transparentize($base-color-alt, 0.5) 0%, transparentize($base-color-alt, 1) 100%)
+
+	& > *
+		position: relative
+		z-index: 2
+
+	h1, h2, h3
+		color: white
+
+	.breadcrumbs__list a
+		color: white

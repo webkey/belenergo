@@ -8,21 +8,23 @@
 				<a href="#" class="news-previews__label">@@label</a>
 			}
 		</header>
-		@@if (context.src) {
-		<div class="news-previews__figure add-shadow">
-			<a href="#" class="news-previews__img">
-				<img src="img/@@src" alt="@@title" />
-			</a>
-		</div>
-		}
-		<div class="news-previews__content">
-			@@if (context.title) {
-				<div class="news-previews__title"><a href="#">@@title</a></div>
+		<a href="#" class="news-previews__link">
+			@@if (context.src) {
+			<div class="news-previews__figure add-shadow">
+				<div class="news-previews__img">
+					<img src="img/@@src" alt="@@title" />
+				</div>
+			</div>
 			}
-			@@if (context.text) {
-				<div class="news-previews__text">@@text</div>
-			}
-		</div>
+			<div class="news-previews__content">
+				@@if (context.title) {
+					<div class="news-previews__title">@@title</div>
+				}
+				@@if (context.text) {
+					<div class="news-previews__text">@@text</div>
+				}
+			</div>
+		</a>
 		<footer class="news-previews__footer">
 			<a href="#" class="btn-read">Читать</a>
 		</footer>

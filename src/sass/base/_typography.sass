@@ -21,8 +21,14 @@ h1, h2, h3, h4, h5, h6
 	color: $title-color
 	margin: 0 0 $bottom-space
 
+	&:last-child
+		margin-bottom: 0
+
 	+media('<mob-lg')
 		margin-bottom: round-float($bottom-space*0.85, 1)
+
+		&:last-child
+			margin-bottom: 0
 
 h1
 	+font-extra-bold
