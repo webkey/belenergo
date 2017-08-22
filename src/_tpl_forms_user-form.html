@@ -1,37 +1,45 @@
-<div class="user-form">
+<div class="user-form add-shadow--full">
 	<div class="layout-text">
 		<div class="form-title">@@title</div>
 		<form action="#" method="post">
-			<div class="input-wrap">
-				<div class="label-holder">
-					<label for="user-form-example__name-field">Имя<span class="form-mark">*</span></label>
+			
+			<div class="form-row">
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-01">Имя<span class="form-mark">*</span></label></div>
+					<input type="text" id="uf-light-field-01"/>
+					<span class="error-note">Поле обязательное для заполнения</span>
+					<span class="confirm-note">&nbsp;</span>
 				</div>
-				<div class="input-holder">
-					<input type="text" id="user-form-example__name-field">
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-04">E-mail<span class="form-mark">*</span></label></div>
+					<input type="email" id="uf-light-field-04" />
 					<span class="error-note">Поле обязательное для заполнения</span>
 					<span class="confirm-note">&nbsp;</span>
 				</div>
 			</div>
-			<div class="input-wrap">
-				<div class="label-holder">
-					<label for="user-form-example__email-field">E-mail<span class="form-mark">*</span></label>
+			
+			<div class="form-row">
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-03">Телефон<span class="form-mark">*</span></label></div>
+					<input type="text" id="uf-light-field-03"/>
+					<span class="error-note">Поле обязательное для заполнения</span>
+					<span class="confirm-note">&nbsp;</span>
 				</div>
-				<div class="input-holder">
-					<input type="email" id="user-form-example__email-field">
+				<div class="input-wrap light-form field-effects-js">
+					<div class="label-holder"><label for="uf-light-field-02">Организация<span class="form-mark">*</span></label></div>
+					<input type="text" id="uf-light-field-02"/>
 					<span class="error-note">Поле обязательное для заполнения</span>
 					<span class="confirm-note">&nbsp;</span>
 				</div>
 			</div>
-			<div class="input-wrap">
-				<div class="label-holder">
-					<label for="user-form-example__message-field">Сообщение<span class="form-mark">*</span></label>
-				</div>
-				<div class="input-holder">
-					<textarea id="user-form-example__message-field"></textarea>
-					<span class="error-note">Поле обязательное для заполнения</span>
-					<span class="confirm-note">&nbsp;</span>
-				</div>
+
+			<div class="input-wrap light-form field-effects-js">
+				<div class="label-holder"><label for="uf-light-field-05">Сообщение<span class="form-mark">*</span></label></div>
+				<textarea id="uf-light-field-05"></textarea>
+				<span class="error-note">Поле обязательное для заполнения</span>
+				<span class="confirm-note">&nbsp;</span>
 			</div>
+
 			<div class="input-wrap">
 				<div class="label-holder">
 					<span class="label">Прикрепить файл</span>
@@ -40,6 +48,7 @@
 					<input class="upload-file" name="files[]" type="file" multiple="multiple" data-jfiler-limit="2">
 				</div>
 			</div>
+
 			<div class="input-wrap">
 				<div class="label-holder">
 					<label for="user-form-example__captcha-field">Защита от спама:<span class="form-mark">*</span></label>
@@ -53,9 +62,15 @@
 					</div>
 				</div>
 			</div>
+			
 			<div class="form-footer">
 				<div class="form-buttons">
-					<button class="btn-default btn-submit" data-label="Отправить">Отправить</button>
+					<button class="btn-default btn-with-icon btn-submit" data-label="Отправить">
+						<i class="depict-send">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 91.8 37"><path d="M27.5 16H12c-1.1 0-2 0.9-2 2s0.9 2 2 2h15.5c1.1 0 2-0.9 2-2S28.6 16 27.5 16zM27.5 6H2C0.9 6 0 6.9 0 8s0.9 2 2 2h25.5c1.1 0 2-0.9 2-2S28.6 6 27.5 6zM27.5 26H22c-1.1 0-2 0.9-2 2s0.9 2 2 2h5.5c1.1 0 2-0.9 2-2S28.6 26 27.5 26zM44.8 10.1l10.6 8.1 -10.5 7.7c-0.8 0.6-0.9 1.8-0.4 2.6 0.6 0.9 1.8 1.2 2.8 0.6l11.5-8.3 2.7 2.1c0.7 0.6 1.7 0.6 2.5 0l3.2-2.5 10.8 8.4c0.9 0.7 2.1 0.5 2.8-0.4 0.7-0.9 0.5-2.1-0.4-2.8l-10-7.7 10-7.7c0.9-0.7 1-1.9 0.4-2.8 -0.7-0.9-1.9-1-2.8-0.4L62.5 18.7 47.2 6.9c-0.9-0.7-2.1-0.5-2.8 0.4C43.7 8.1 43.9 9.4 44.8 10.1zM87.8 0h-50c-2.2 0-4 1.8-4 4v29c0 2.2 1.8 4 4 4h50c2.2 0 4-1.8 4-4V4C91.8 1.8 90 0 87.8 0zM87.8 33h-50V4h50V33z"></path></svg>
+						</i>
+						<span>ОТПРАВИТЬ</span>
+					</button>
 				</div>
 				<div class="form-note">
 					<div class="form-note__item"><span class="form-mark">*</span> Поля обязательны для заполнения</div>

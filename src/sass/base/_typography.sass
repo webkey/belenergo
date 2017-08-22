@@ -496,6 +496,15 @@ table
 
 /*blockquote end*/
 
+/* user spacer
+.user-spacer
+	display: block
+	height: $bottom-space--lg
+	+font(0, 0)
+	+clear
+
+/* user spacer end
+
 /*view print*/
 .view-print
 	display: inline-block
@@ -550,7 +559,7 @@ table
 		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	.page-is-scrolled &
-		height: $header-height
+		height: 122px
 		transition:
 			delay: 0.1s
 
@@ -561,7 +570,6 @@ table
 	position: relative
 	display: block
 	height: 100%
-	backface-visibility: hidden
 
 	&::before, &::after
 		+pseudo()
@@ -571,27 +579,28 @@ table
 			property: transform
 			duration: 0.4s
 			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+		backface-visibility: hidden
 
 	&::before
 		top: 72px
-		background: url(../../img/logo-i.png) no-repeat
+		background: url(../../img/logo-i.svg) no-repeat
 		width: 54px
 		height: 76px
 		margin-left: -27px
 
 	&::after
 		top: 170px
-		background: url(../../img/logo-t.png) no-repeat
+		background: url(../../img/logo-t.svg) no-repeat
 		width: 180px
 		height: 43px
 		margin-left: -90px
 
 	.page-is-scrolled &
 		&::before
-			transform: translate(-92px, -62px) scale(0.6)
+			transform: translate(-96px, -26px) scale(0.92)
 
 		&::after
-			transform: translate(0px, -141px) scale(0.7)
+			transform: translate(38px, -106px) scale(0.92)
 
 /* logo in sidebar end
 

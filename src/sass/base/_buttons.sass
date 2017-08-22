@@ -21,6 +21,13 @@
 		z-index: 99
 		opacity: 0
 
+/* depicts
+.depict-send
+	svg
+		+size(40px, 16px)
+
+/* depicts end
+
 /*btn-default*/
 [class*="btn-default"]
 	position: relative
@@ -29,13 +36,16 @@
 	letter-spacing: 0.05em
 	color: white
 	text-transform: uppercase
-	padding: 12px 25px
+	padding: 11px 18px
 	border: 2px solid transparent
 	background: $btn-bg-color
 	box-shadow: none
 	transition-property: background-color, color
 	transition-duration: $animation-speed
 	margin: 0
+
+	path
+		fill: white
 
 	.no-touchevents &:hover
 		background-color: $btn-bg-hover-color
@@ -56,6 +66,33 @@
 		color: $btn-text-color
 
 /*btn-default-alt end*/
+
+/*btn-with-icon
+.btn-with-icon
+	& > i, & > span
+		display: inline-block
+		vertical-align: baseline
+
+	& > i
+		margin-right: 10px
+		line-height: 1
+
+	svg
+		+display-inline-block-top
+		+size(24px)
+
+	& > span
+		text-align: left
+		white-space: normal
+
+	.depict-send
+		svg
+			+size(40px, 16px)
+
+		& + span
+			max-width: calc(100% - 5px - 40px - 10px)
+
+/*btn-with-icon end
 /*button end*/
 
 /*button popup close*/

@@ -67,7 +67,7 @@ $panels-color: white !default
 // цвет фона страницы
 $bg-color: #fafafa !default
 // цвет фона элементов выделяющихся на страницы
-$bg-color-alt: #f3f3f3 !default
+$bg-color-alt: white !default
 // цвет фона выделенных элементов
 $bg-color-selected: #f3f3f3 !default
 // цвет основного текста
@@ -83,7 +83,7 @@ $link-color: $base-color !default
 // цвет линий и границ
 $border-color: #e6e6e6 !default
 // цвет специальных элементов
-$mark-color: coral !default
+$mark-color: #ff3349 !default
 
 // user content class
 // class на контейнере, в котором будет использоваться стилизация
@@ -102,8 +102,8 @@ $layout-spaces--md: 60px !default // -6px для компенсации скро
 // минимальные отступы слева и справа у текствого блока
 $text-layout-indent: 160px !default
 $text-layout-space-horizontal: 40px !default
-$text-layout-space-horizontal--md: 0 !default
-$text-layout-space-horizontal--sm: 0 !default
+$text-layout-space-horizontal--md: 30px !default
+$text-layout-space-horizontal--sm: 15px !default
 // максимальная ширина текстового блока
 $text-layout-width: 860px !default
 // максимальная ширина текстового блока выходящего за пределы текста
@@ -116,8 +116,8 @@ $grid-space: 30px !default
 $form-text-color: $text-color !default
 $form-placeholder-color: lightgray !default
 $form-bg-color: white !default
-$form-border-color: $border-color !default
-$form-border-focus-color: $base-color-alt !default
+$form-border-color: $base-color-alt !default
+$form-border-focus-color: $base-color !default
 $form-error-color: red !default
 $form-success-color: green !default
 $form-bottom-space: 3rem !default
@@ -129,16 +129,19 @@ $form-line-height: 24px !default
 $form-input-height: 50px !default
 $form-letter-spacing: 0.025em !default
 // ==================
-$checkbox-color: $base-color-alt !default
-// ==================
 $form-border-width: 2px !default
 $form-input-space-vt: floor(($form-input-height - $form-line-height - $form-border-width*2)/2) !default // верхний паддинг округляем в нижнюю сторону
 $form-input-space-vb: ceil(($form-input-height - $form-line-height - $form-border-width*2)/2) !default // нижний паддинг округляем в верхнюю сторону
 $form-input-space-h: 18px !default
+// ==================
 $select-space-v: 12px !default
 $select-space-h: $form-input-space-h !default
 $select-arrow-width: 40px !default
 $select-arrow-height: 100% !default
+// ==================
+$multiple-item-space: 3px
+// ==================
+$checkbox-color: $base-color-alt !default
 
 // btn
 $btn-bg-color: $base-color-alt !default

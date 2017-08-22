@@ -5,20 +5,18 @@
 $bg-page-top-space: 100vh
 body
 	height: 100%
-	background: #{$bg-color} url(../../img/empty.png) no-repeat left top fixed
+	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
 	min-width: 1280px
 	position: relative
 
 	&.home-page
-		background-image: url(../../img/bg-home-img.jpg)
-		background-color: #ebebeb
-
 		&::before
 			+pseudo()
-			min-height: $bg-page-top-space
 			+position(0)
+			min-height: $bg-page-top-space
 			+size(100%, $bg-page-top-space)
-			+linear-gradient(to top, $bg-color 0, $bg-color 10%, transparentize($bg-color, 1) 100%)
+			max-width: $page-layout-width
+			+linear-gradient(to top, $bg-color 0, $bg-color 10%, transparentize($bg-color, 1) 35%, transparentize($bg-color, 1) 100%)
 			z-index: -2
 
 .wrapper
@@ -36,19 +34,21 @@ body
 
 	&::before
 		.home-page &
-			right: 0
+			left: 0
 			bottom: 0
 			top: $bg-page-top-space
 			+size(100%, auto)
+			max-width: $page-layout-width
 			background: $bg-color
 
 	&::after
 		left: $page-layout-width
 		bottom: 0
-		background: url(../../img/bg-page-bottom.png) no-repeat right bottom
-		+size(1468px, 737px)
-		transform: translate(-50%, 0)
-		background-size: contain
+		background: url(../../img/bg-page-bottom.png) no-repeat left bottom
+		//+size(1468px, 737px)
+		+size(734px, 737px)
+		transform: translate(-100%, 0)
+		background-size: auto 100%
 		backface-visibility: hidden
 
 	& > .layout

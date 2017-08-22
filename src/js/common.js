@@ -486,7 +486,7 @@ function fileInput() {
 			'<i class="icon-jfi-cloud-up-o"></i>' +
 			'</div>' +
 			'<div class="jFiler-input-text">' +
-			'<strong>Чтобы добавить файл, перетащите его сюда</strong>' +
+			'<strong>Кликните по полю или перетащите сюда файл</strong>' +
 			'</div>' +
 			'</div>' +
 			'</div>',
@@ -496,7 +496,7 @@ function fileInput() {
 				button: "Выберите файлы",
 				feedback: "Выберите файлы для загрузки",
 				feedback2: "Файлы выбраны",
-				drop: "Чтобы добавить файл, перетащите его сюда",
+				drop: "Кликните по полю или перетащите сюда файл",
 				removeConfirmation: "Вы уверены, что хотите удалить этот файл?",
 				errors: {
 					filesLimit: "Максиальное количество файлов: {{fi-limit}}",
@@ -955,14 +955,14 @@ function footerBottom() {
  * !Testing form validation (for example). Do not use on release!
  * */
 function formSuccessExample() {
-	var $form = $('.user-form form, .subscription-form form');
+	var $form = $('.user-form form, .subscription-form form, .callback-form form');
 
 	if ( $form.length ) {
 
 		$form.submit(function (event) {
 			var $thisForm = $(this);
 
-			if ($thisForm.parent().hasClass('success-form')) return;
+			if ($thisForm.closest('.input-wrap').hasClass('success-form')) return;
 
 			event.preventDefault();
 
@@ -979,9 +979,9 @@ function formSuccessExample() {
 	}
 
 	function testValidateForm(form) {
-		var $thisFormWrap = form.parent();
+		var $thisFormWrap = form.closest('.input-wrap');
 
-		var $inputs = $(':text, input[type="email"], input[type="password"], textarea', form);
+		var $inputs = $(':text, input[type="email"], input[type="password"], textarea, select', form);
 
 		var inputsLength = $inputs.length;
 		var inputsHasValueLength = $inputs.filter(function () {
@@ -994,7 +994,7 @@ function formSuccessExample() {
 		$.each($inputs, function () {
 			var $thisInput = $(this);
 			var thisInputVal = $thisInput.val();
-			var $thisInputWrap = $thisInput.parent();
+			var $thisInputWrap = $thisInput.closest('.input-wrap');
 
 			$thisInput.toggleClass('error', !thisInputVal.length);
 			$thisInput.toggleClass('success', !!thisInputVal.length);

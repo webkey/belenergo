@@ -9,12 +9,26 @@
 	margin-bottom: $form-bottom-space
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
 
+.form-row:last-child
+	margin-bottom: 0
+
 .input-holder
 	position: relative // Важно! Для позицирования отметки подтверждения полей формы
 	z-index: 1 // Важно! Отметка подтверждения полей формы имеет z-index: -1
 
+.form-group
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+.form-group-title
+	+font-bold
+	+font(18px, round-float(32/18, 2))
+	margin-bottom: $bottom-space
+
 .form-row
-	margin: 0 -#{round($form-gap*0.5)}
+	+margin-horizontal(-#{round($form-gap*0.5)})
 	font-size: 0
 	letter-spacing: -4px
 
@@ -22,6 +36,7 @@
 		+display-inline-block-top
 		width: calc(100% * 0.5 - #{$form-gap})
 		+margin-horizontal(#{round($form-gap*0.5)})
+		margin-bottom: 0
 
 		font-size: $font-size
 		letter-spacing: normal
@@ -36,9 +51,12 @@ label
 	color: $text-color
 
 .label-holder
-	+font($form-font-size, $form-line-height)
-	color: $text-color
-	margin-bottom: 2px
+	+font-medium
+	+font(14px, 24px)
+	text-transform: uppercase
+	letter-spacing: 0.1em
+	color: $text-color-light
+	margin-bottom: 7px
 
 	label
 		+font(inherit, inherit)
@@ -50,6 +68,22 @@ label
 	color: $mark-color
 
 /*form layout end*/
+
+/* form footer
+.form-footer
+	+clear
+
+	.form-buttons
+		float: right
+		margin-left: $grid-space
+
+	.form-note
+		display: block
+		overflow: hidden
+		+font(14px, 22px)
+		min-height: 50px
+
+/* form footer end
 
 /*form common*/
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
@@ -230,8 +264,13 @@ input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radi
 	transition-property: color
 	transition-duration: $animation-speed
 
+	// hover
 	.no-touchevents &:hover
-		color: $link-color
+		color: $base-color
+
+		input[type="checkbox"]:not(:disabled) ~ i
+			&::before
+				border-color: $base-color
 
 input[type="checkbox"],
 input[type="radio"]
@@ -251,11 +290,21 @@ input[type="radio"]
 
 	& ~ i
 		+font(0, 0)
-
-	& ~ i
 		position: absolute
 		left: 0
 		top: 50%
+
+.no-touchevents .check-label:hover
+
+	input[type="checkbox"]:not(:disabled) ~ i
+		&::before
+			border-color: $base-color
+
+.no-touchevents .radio-label:hover
+
+	input[type="radio"]:not(:disabled) ~ span
+		&::before
+			border-color: $base-color
 
 //checkbox
 input[type="checkbox"]
@@ -356,37 +405,36 @@ input[type="radio"]
 
 	& ~ label,
 	& ~ span
-		&::before
+		&::before, &::after
 			content: ''
-			+size(18px)
+			+size(22px)
 			position: absolute
 			left: 0
 			top: 50%
-			margin-top: -9px
+			margin-top: -11px
 			border-radius: 50px
-			border: 1px solid $checkbox-color
+
+		&::before
+			border: 2px solid $checkbox-color
+			transition:
+				property: background-color, border-color
+				duration: $animation-speed
 
 		&::after
-			content: ''
-			+size(16px)
-			position: absolute
-			left: 1px
-			top: 50%
-			margin-top: -8px
-			border-radius: 50px
 			background: none
-			transition-property: opacity
-			transition-duration: 0.2s
+			transition:
+				property: opacity
+				duration: 0.2s
 
 	& ~ label > span,
 	& ~ i
 		&::after
 			content: ''
-			+size(10px)
+			+size(12px)
 			position: absolute
 			top: 50%
-			left: 4px
-			margin-top: -5px
+			left: 5px
+			margin-top: -6px
 			border-radius: 50%
 			overflow: hidden
 			background: $checkbox-color
@@ -395,14 +443,23 @@ input[type="radio"]
 			animation-fill-mode: forwards
 			opacity: 0
 
+	& ~ i
+		z-index: 3
+
 	// radio checked
 	&:checked
+		& ~ label,
+		& ~ span
+			&::before
+				border-color: $base-color
+
 		& ~ label > span,
 		& ~ i
 			&::after
 				animation: bounce 0.3s
 				animation-iteration-count: 1
 				opacity: 1
+				background-color: $base-color
 
 	@keyframes bounce
 		0%
@@ -433,12 +490,14 @@ input[type="radio"]
 	// radio disabled
 	&:disabled
 		& ~ label,
+		& ~ label > span,
 		& ~ span
 			color: #bdbdbd
 			cursor: default
 
 			&::before
 				border-color: #d6d6d6
+				background-color: #f3f3f3
 
 		& ~ label > span,
 		& ~ i
@@ -637,11 +696,11 @@ input[type="radio"]
 		height: $form-input-height
 		text-overflow: ''
 		cursor: pointer
-		padding: #{$select-space-v} #{$select-arrow-width} #{$select-space-v} #{$select-space-h}
+		padding: #{$form-input-space-vt} #{$select-arrow-width} #{$form-input-space-vb} #{$form-input-space-h}
 		white-space: nowrap
 		text-indent: 0
 		width: 100%
-		border: 1px solid $form-border-color
+		border: #{$form-border-width} solid #{$form-border-color}
 		border-radius: 0
 		background: $form-bg-color
 		box-shadow: none
@@ -666,6 +725,26 @@ input[type="radio"]
 		color: $form-text-color
 		border-color: $form-border-focus-color
 
+	&,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b
+		&::before,
+		&::after
+			content: ''
+			position: absolute
+			right: 22px
+			top: 50%
+			+size(8px, 2px)
+			background-color: $title-color
+			margin-top: -1px
+			z-index: 1
+
+		&::before
+			transform: rotate(45deg)
+
+		&::after
+			transform: rotate(-45deg)
+			right: 17px
+
 	.select2-container--default
 		.select2-selection--single
 			.select2-selection__rendered
@@ -677,7 +756,7 @@ input[type="radio"]
 				right: 0
 				top: 0
 				+size($select-arrow-width, $select-arrow-height)
-				background-color: white
+				background-color: $form-bg-color
 				z-index: 2
 
 				b
@@ -685,62 +764,40 @@ input[type="radio"]
 					+cover()
 					margin: 0
 
-	&::before,
-	&::after,
-	.select2-container--default .select2-selection--single .select2-selection__arrow b::before,
-	.select2-container--default .select2-selection--single .select2-selection__arrow b::after
-		content: ''
-		position: absolute
-		right: 22px
-		top: 50%
-		+size(8px, 2px)
-		background-color: $title-color
-		margin-top: -1px
-		z-index: 1
-
-	&::before,
-	.select2-container--default .select2-selection--single .select2-selection__arrow b::before
-		transform: rotate(45deg)
-
-	&::after,
-	.select2-container--default .select2-selection--single .select2-selection__arrow b::after
-		transform: rotate(-45deg)
-		right: 17px
-
-	.select2-container--default .select2-search--inline .select2-search__field
-		height: auto
-		margin: 0
-
-	// multiple
-	.select2-container--default .select2-selection--multiple
-		padding: 8px #{$select-arrow-width} 8px #{$select-space-h}
-
-		.select2-selection__rendered
-			padding-left: 0
-			padding-right: 0
+		.select2-search--inline .select2-search__field
+			height: auto
 			margin: 0
-			vertical-align: top
-			max-width: none
 
-			li
-				padding: 0 4px
-				margin: 3px 8px 3px 0
-				border-right: 1px solid transparent
+		// multiple
+		.select2-selection--multiple
+			padding: #{$form-input-space-vt - $multiple-item-space} #{$select-arrow-width} #{$form-input-space-vb - $multiple-item-space}  #{$select-space-h}
 
-				&::before
-					content: none
+			.select2-selection__rendered
+				padding-left: 0
+				padding-right: 0
+				margin: 0
+				vertical-align: top
+				max-width: none
 
-		.select2-selection__choice
-			background-color: #f3f3f3
-			border: 1px solid #f3f3f3
-			border-radius: 0
-			color: $text-color
+				li
+					padding: 0 4px
+					margin: #{$multiple-item-space} 8px #{$multiple-item-space} 0
+					border: none
 
-		.select2-selection__choice__remove
-			color: $text-color
+					&::before
+						content: none
 
-			&:hover
-				color: $link-color
+			.select2-selection__choice
+				background-color: #f3f3f3
+				border: 1px solid #f3f3f3
+				border-radius: 0
+				color: $text-color
+
+			.select2-selection__choice__remove
+				color: $text-color
+
+				&:hover
+					color: $link-color
 
 .select select.error
 	&,

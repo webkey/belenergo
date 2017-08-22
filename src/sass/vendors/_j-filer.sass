@@ -11,9 +11,9 @@
 .jFiler-input-dragDrop
 	margin: 0
 	cursor: pointer
-	padding: 20px
+	padding: $grid-space
 	background: $bg-color-alt
-	border: 1px dashed $border-color
+	border: 2px dashed $base-color-alt
 	transition-property: background-color, border-color, transform
 	transition-duration: $animation-speed
 
@@ -31,18 +31,21 @@
 		i
 			display: inline-block
 			vertical-align: top
-			background: url(../../img/attach.png) no-repeat
+			background: url(../../img/attach.svg) no-repeat
 			background-size: contain
-			+size(60px, 44px)
+			+size(50px, 37px)
 			transition-property: background-color, border-color, transform
 			transition-duration: $animation-speed
 
 	.jFiler-input-text strong
 		display: block
 		+font-normal
-		+font($font-size--less, $line-height--less)
+		+font(16px, round-float(20/16, 2))
+		letter-spacing: 0.025em
 		color: $text-color
 		text-align: center
+		+push-auto
+		max-width: 320px
 
 .jFiler-items
 	//margin: #{$form-bottom-space} 0 0
@@ -110,18 +113,19 @@
 	+size(20px)
 	z-index: 2
 	cursor: pointer
-	background-color: $text-color
+	background-color: white
 
 	&::before, &::after
 		content: ''
 		position: absolute
 		left: 50%
 		top: 50%
-		+size(16px, 2px)
-		border-radius: 2px
-		background: white
-		transition-property: background
-		transition-duration: $animation-speed
+		+size(20px, 2px)
+		border-radius: 0
+		background: $base-color-alt
+		transition:
+			property: background
+			duration: $animation-speed
 		margin: -1px 0 0 -8px
 
 	&::before
@@ -130,6 +134,6 @@
 	&::after
 		transform: rotate(45deg)
 
-	.no-touchevents &:hover::before,
-	.no-touchevents &:hover::after
-		background-color: $text-color-alt
+	.no-touchevents &:hover
+		&::before, &::after
+			background-color: $base-color
