@@ -22,14 +22,16 @@ h1, h2, h3, h4, h5, h6
 	margin: 0 0 $bottom-space
 
 	+media('<mob-lg')
-		margin: 0 0 round-float($bottom-space*0.85, 1)
+		margin-bottom: round-float($bottom-space*0.85, 1)
 
 h1
 	+font-extra-bold
 	+font($font-size-h1, $line-height-h1)
+	margin-bottom: $bottom-space--lg
 
 	+media('<mob-lg')
 		+font($font-size-h1--sm, $line-height-h1--sm)
+		margin-bottom: round-float($bottom-space--lg*0.7, 1)
 
 h2
 	+font($font-size-h2, $line-height-h2)
@@ -119,7 +121,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 /* add shadow end
 
 /* heading
-.heading
+.heading-article
 	position: relative
 	min-height: $datetime-size
 	margin-bottom: $bottom-space--lg

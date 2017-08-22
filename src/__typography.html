@@ -24,7 +24,7 @@
 				})
 				<!--breadcrumbs end-->
 
-				<div class="heading layout-text">
+				<div class="heading-article layout-text">
 					<!--datetime-->
 					@@include('_tpl_typography_components.html', {
 					"component": "dateTime"
@@ -486,7 +486,9 @@
 <!--MAIN end-->
 
 <!--SIDEBAR-->
-@@include('_tpl_layout_sidebar.html')
+@@include('_tpl_layout_sidebar.html', {
+	"currentItem": "О компании"
+})
 <!--SIDEBAR-->
 
 <!--ASIDE-->
