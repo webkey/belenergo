@@ -9,7 +9,7 @@ $news-previews-list-space: 60px
 $news-previews-space--md: 40px
 
 .news-previews
-	margin-bottom: $bottom-space--md
+	margin-bottom: $bottom-space--lg
 
 	&:last-child
 		margin-bottom: 0
@@ -53,7 +53,7 @@ $news-previews-space--md: 40px
 	letter-spacing: 0.025em
 	color: $text-color-light
 
-	margin-right: 1em
+	margin-right: 1.1em
 
 	+media('<desk-hd')
 		font-size: 14px
@@ -61,7 +61,7 @@ $news-previews-space--md: 40px
 .news-previews__label
 	+display-inline-block-middle
 	+font-normal
-	+font(16px, 1.1)
+	+font(14px, 1.1)
 	letter-spacing: 0.025em
 	text-transform: uppercase
 	text-decoration: none
@@ -90,7 +90,7 @@ $news-previews-space--md: 40px
 
 .news-previews__figure
 	position: relative
-	margin: 0 auto #{$bottom-space}
+	margin: 0 auto 3.8rem
 	max-width: 320px
 	letter-spacing: normal
 
@@ -128,6 +128,8 @@ $news-previews-space--md: 40px
 	letter-spacing: 0.025em
 	color: $text-color
 	margin-bottom: $bottom-space
+	overflow: hidden
+	max-height: #{5 * 16px * round-float(24/16, 2)}
 	transition:
 		property: color
 		duration: $animation-speed
@@ -184,8 +186,15 @@ $news-previews-space--md: 40px
 		width: calc(100% - #{$news-previews-figure-size})
 		padding-left: $news-previews-figure-space
 
+	.news-previews__meta
+		margin-top: -6px
+		margin-bottom: $bottom-space--sm
+
 	.news-previews__content
-		padding-bottom: 50px
+		margin-bottom: $bottom-space--md
+
+	.news-previews__title, .news-previews__text
+		max-height: #{3 * 16px * round-float(24/16, 2)}
 
 	.news-previews__footer
 		position: relative

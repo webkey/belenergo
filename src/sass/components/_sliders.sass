@@ -352,12 +352,12 @@
 
 	.slider-arrows
 		position: absolute
-		right: $promo-slider-space
-		bottom: $promo-slider-space
+		right: #{$promo-slider-space - 25px}
+		bottom: round($promo-slider-space*0.96)
 
 		+media('<desk-hd')
-			right: $promo-slider-space--md
 			bottom: $promo-slider-space--md
+			right: $promo-slider-space--md
 
 .promo-slider
 	// before slide load
@@ -379,8 +379,8 @@
 	.slick-dots
 		position: absolute
 		width: auto
-		bottom: $promo-slider-space
-		left: #{$promo-slider-space - 15}
+		bottom: round($promo-slider-space*0.96)
+		left: #{$promo-slider-space - 7}
 
 		+media('<desk-hd')
 			bottom: $promo-slider-space--md
@@ -434,11 +434,12 @@
 
 .promo-slider__text
 	position: absolute
-	+position(#{$promo-slider-space})
+	+position(#{round($promo-slider-space*0.96)}, #{round($promo-slider-space + 10px)})
 	width: 650px
 	max-width: calc(100% - #{$promo-slider-space}*2)
 	+font-bold
 	+font(36px, 48px)
+	letter-spacing: 0.05em
 	text-transform: uppercase
 	color: white
 

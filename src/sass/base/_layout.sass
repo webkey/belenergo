@@ -3,6 +3,7 @@
 @import ../../libs/include-media/dist/include-media
 
 $bg-page-top-space: 100vh
+
 body
 	height: 100%
 	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
@@ -10,17 +11,32 @@ body
 	position: relative
 
 	&.home-page
-		&::before
+		overflow-x: hidden // чтобы не появлялся нижний скрол от подложки с изображением
+		
+		&::before, &::after
 			+pseudo()
+
+		&::before
 			+position(0)
-			min-height: $bg-page-top-space
 			+size(100%, $bg-page-top-space)
+			min-height: $bg-page-top-space
 			max-width: $page-layout-width
 			+linear-gradient(to top, $bg-color 0, $bg-color 10%, transparentize($bg-color, 1) 35%, transparentize($bg-color, 1) 100%)
 			z-index: -2
 
-.wrapper
+		&::after
+			+size(100%)
+			+position(#{$header-height}, #{$sidebar-width})
+			max-height: calc(100% - #{$header-height})
+			background: url(../../img/bg-home-img.jpg) no-repeat fixed center top
+			background-size: cover
+			z-index: -3
+			@if $page-layout-width
+				max-width: calc(#{$page-layout-width} - #{$sidebar-width})
+			@else
+				max-width: calc(100% - #{$sidebar-width})
 
+.wrapper
 	margin: 0 auto
 	min-height: 100vh
 	overflow: hidden
@@ -58,7 +74,7 @@ body
 	float: left
 	width: calc(100% - #{$sidebar-width})
 	margin-left: #{$sidebar-width}
-	padding: #{round($layout-spaces*0.8)} #{$layout-spaces}
+	padding: #{round($layout-spaces*0.95)} #{$layout-spaces}
 
 	+media('<desk-hd')
 		padding: #{$layout-spaces--md} #{$layout-spaces--md}

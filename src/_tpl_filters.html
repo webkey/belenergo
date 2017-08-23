@@ -1,0 +1,8 @@
+<div class="filters add-shadow--full">
+	<a href="#" class="filters-all active"><span>Все рубрики</span></a>
+	<ul class="filters-list">
+		@@for (var i = 0; i < filters.length; i++) {
+			<li><a href="#"><span>`+filters[i]+`</span></a></li>
+		}
+	</ul>
+</div>

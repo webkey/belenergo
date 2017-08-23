@@ -1,0 +1,65 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* filters
+.filters
+	margin-bottom: $bottom-space--lg
+	padding: #{round($grid-space*0.85)} #{$grid-space}
+	width: 100% // clear layout
+	+font-medium
+
+	&:last-child
+		margin-bottom: 0
+
+	a
+		text-decoration: none
+		color: $text-color
+		transition:
+			property: color
+			duration: $animation-speed
+
+		span
+			border-bottom: 1px dotted tint($text-color, 40%)
+			transition:
+				property: border-color
+				duration: $animation-speed
+
+		.no-touchevents &:hover
+			color: $base-color
+
+			span
+				border-bottom-color: tint($base-color, 40%)
+
+		&.filters-all
+			float: right
+
+		&.active
+			color: $base-color
+
+			span
+				border-bottom-color: transparent !important
+
+.filters-list
+	&, .#{$user-content} &
+		padding: 0
+		margin: 0 0 -#{round($grid-space*0.5)}
+
+		li
+			margin: 0 #{$grid-space} #{round($grid-space*0.5)} 0
+			padding: 0
+
+			&::before
+				content: none
+
+	&
+		display: block
+		overflow: hidden
+		+clear
+
+		li
+			+display-inline-block-top
+			+font($font-size, $line-height)
+			letter-spacing: 0.025em
+
+/* filters end

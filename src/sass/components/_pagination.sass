@@ -1,0 +1,171 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+// pagination
+$pagination-hspace: round($grid-space/2)
+$pagination-vspace: 4px
+$pagination-font-size: 16px
+$pagination-height: 18px
+$pagination-width: $grid-space
+$pagination-border-width: 0
+
+/* pagination
+.pagination
+	+font-bold
+	+clear-spacing
+	color: $text-color
+	fill: $text-color
+	text-align: center
+	cursor: default
+	margin-bottom: $bottom-space--lg
+	padding: #{round($grid-space*0.85 - $pagination-vspace)} #{$grid-space - $pagination-hspace}
+	width: 100%
+
+	&:last-child
+		margin-bottom: 0
+
+.pg-left
+	float: left
+
+.pg-right
+	float: right
+
+.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
+	display: block
+	position: absolute
+	+position(50%, 0)
+	+size(100%, 2px)
+	margin-top: -1px
+	+font(0, 0)
+	letter-spacing: 0
+	border-top: 2px solid $base-color-alt
+	transition:
+		property: border-color
+		duration: $animation-speed
+
+	&::before, &::after
+		+pseudo()
+		top: 0
+		+size(14px)
+		margin-top: -1px
+		border: 0 solid $base-color-alt
+		backface-visibility: hidden
+		transition:
+			property: border-color
+			duration: $animation-speed
+
+.pg-first-arr, .pg-prev-arr
+	&::before, &::after
+		transform: rotate(-45deg)
+		transform-origin: left top
+		left: 0
+		margin-left: -1px
+		border-width: 2px 0 0 2px
+
+.pg-last-arr, .pg-next-arr
+	&::before, &::after
+		right: 0
+		margin-right: -1px
+		transform-origin: top right
+		transform: rotate(45deg)
+		border-width: 2px 2px 0 0
+
+.pg-first-arr
+
+	&::after
+		margin-left: 6px
+
+.pg-last-arr
+
+	&::after
+		margin-right: 6px
+
+.pg-prev-arr, .pg-next-arr
+
+	&::after
+		display: none
+
+
+.pg-first, .pg-last, .pg-prev, .pg-next
+	+display-inline-block-middle
+	position: relative
+	width: 27px
+	@if $pagination-border-width != 0
+		margin: 0 0 0 -#{$pagination-border-width}
+	@else
+		margin: #{$pagination-vspace} #{$pagination-hspace}
+	color: inherit
+	text-decoration: none
+
+	span
+		+hide-text
+
+	&.disabled
+		opacity: 0.5
+		cursor: default
+
+	.no-touchevents &:not(.disabled):hover
+		[class*="-arr"]
+			border-color: $base-color
+
+			&::before, &::after
+				border-color: $base-color
+
+	&:not(.disabled):active
+		margin-top: 1px
+		margin-bottom: -1px
+
+.pg-first, .pg-last
+	width: 33px
+
+.pg-list
+	+display-inline-block-middle
+
+	&, .#{$user-content} &
+		margin: 0
+
+		li
+			margin: #{$pagination-vspace} 4px
+			padding: 0
+
+			&:before
+				content: none
+
+	li
+		+display-inline-block-top
+		text-align: center
+
+		a, & > span
+			+display-inline-block-top
+			color: inherit
+			background: transparent
+			min-width: $pagination-width
+			padding: 0 2px
+			transition:
+				property: color
+				duration: $animation-speed
+
+		a
+			text-decoration: none
+			cursor: pointer
+
+			.no-touchevents &:hover
+				color: $base-color
+
+		&.active a, .no-touchevents &.active a:hover
+			color: $base-color
+			@if $pagination-border-width != 0
+				border:
+					top-color: $base-color
+					bottom-color: $base-color
+
+// шрифт для элементов пагинации
+.pg-first, .pg-last, .pg-prev, .pg-next, .pg-list a, .pg-list li > span
+	height: $pagination-height
+	+font($pagination-font-size, #{$pagination-height - $pagination-border-width*2})
+	letter-spacing: normal
+	@if $pagination-border-width != 0
+		border: #{$pagination-border-width} solid #{$border-color}
+
+/* pagination end

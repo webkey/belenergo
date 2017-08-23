@@ -25,7 +25,17 @@
 	position: relative
 
 .gov__list
+	// before slide load
+	white-space: nowrap
+	overflow: hidden
+	// before slide load end
 	padding: 28px calc(103px - #{round($grid-space/2)})
+
+	&.slick-initialized, .no-js &
+		// after slide load
+		white-space: normal
+		overflow: visible
+		// after slide load end
 
 	.slick-prev
 		left: 30px
@@ -34,11 +44,21 @@
 		right: 30px
 
 .gov__item
-	display: block
+	// before slide load
+	float: none
+	display: inline-block
+	vertical-align: top
+	// before slide load end
 	padding: 0 #{round($grid-space/2)}
 	transition:
 		property: background-color
 		duration: $animation-speed
+
+	.slick-initialized &
+		// after slide load
+		float: left
+		display: block
+		// after slide load end
 
 .gov__inner
 	display: block

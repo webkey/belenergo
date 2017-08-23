@@ -28,6 +28,12 @@
 		<div class="content user-content">
 
 			<div class="layout-article">
+
+				<!--filters-->
+				@@include('_tpl_filters.html', {
+					"filters": ["Подключение","Ремонт","Энергетика","Подведены","итоги" ,"республиканских" ,"соревнований" ,"бригад" ,"по" ,"ремонту" ,"и" ,"обслуживанию" ,"электрических"]
+				})
+				<!--filters end-->
 				<!--news previews-->
 				<div class="news-previews --list-view">
 					<div class="news-previews__list">
@@ -35,6 +41,9 @@
 					</div>
 				</div>
 				<!--news previews end-->
+				<!--pagination-->
+				@@include('_tpl_pagination.html')
+				<!--pagination end-->
 			</div>
 
 		</div>
