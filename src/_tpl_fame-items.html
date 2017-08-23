@@ -1,0 +1,56 @@
+<article class="fame__item">
+	<div class="fame__inner">
+
+		<div class="fame__card add-shadow">
+			<div class="fame__figure">
+				<div class="fame__img">
+					<img src="img/@@src" alt="@@title" />
+				</div>
+				<div class="fame__info">
+					<ul class="short-contacts">
+						@@if (context.phone) {
+						<li>
+							<a href="tel:+375 (17) 218-23-59">
+								<svg class="ico-search" viewBox="0 0 83.9 82">
+									<use xlink:href="#ico-phone"></use>
+								</svg>
+								<span>@@phone</span>
+							</a>
+						</li>
+						}
+						@@if (context.fax) {
+						<li>
+							<a href="tel:+375 (17) 218-26-39">
+								<svg class="ico-search" viewBox="0 0 309 247">
+									<use xlink:href="#ico-fax"></use>
+								</svg>
+								<span>@@fax</span>
+							</a>
+						</li>
+						}
+						@@if (context.email) {
+						<li>
+							<a href="mailto:belenergo@belenergo.by">
+								<svg class="ico-search" viewBox="0 0 88 58">
+									<use xlink:href="#ico-email"></use>
+								</svg>
+								<span>@@email</span>
+							</a>
+						</li>
+						}
+					</ul>
+				</div>
+			</div>
+		</div>
+
+		<div class="fame__content">
+			@@if (context.title) {
+				<div class="fame__title">@@title</div>
+			}
+			@@if (context.text) {
+				<div class="fame__text">@@text</div>
+			}
+		</div>
+
+	</div>
+</article>

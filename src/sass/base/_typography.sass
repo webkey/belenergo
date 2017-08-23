@@ -163,6 +163,20 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 
 /* datetime end
 
+.layout-article > p:first-of-type
+	&:first-letter
+		+font-medium
+		font-size: 82px
+		line-height: 82px
+		letter-spacing: 0
+		margin-right: 10px
+		margin-left: -6px
+		margin-bottom: -20px
+		margin-top: -3px
+		color: black
+		text-transform: uppercase
+		float: left
+
 .entry-text
 	+font-medium
 	margin-bottom: $bottom-space
@@ -786,3 +800,51 @@ table
 		margin-bottom: 0
 
 /* visual preview end
+
+/* contacts
+.short-contacts
+	&, .#{$user-content} &
+		list-style: none
+		margin: 0
+		padding: 0
+
+		li
+			padding: 10px 0
+			margin: 0
+
+			&::before
+				content: none
+
+	a
+		display: block
+		color: $text-color
+		text-decoration: none
+		+clear-spacing
+
+		$icon-size: 24px
+		$icon-space: 10px
+
+		svg
+			+display-inline-block-top
+			+size(24px)
+			margin-right: $icon-space
+
+		path, use
+			fill: $base-color
+
+		span
+			+display-inline-block-top
+			max-width: calc(100% - #{$icon-size} - #{$icon-space})
+			+font(16px, #{$icon-size})
+			letter-spacing: normal
+			text-decoration: underline
+
+		&[href^="tel:"]
+			span
+				text-decoration: none
+
+		.no-touchevents &:hover
+			span
+				text-decoration: none
+
+/* contacts end

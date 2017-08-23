@@ -1,0 +1,122 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* fame
+
+$fame-space: 80px
+$fame-list-space: 60px
+$fame-space--md: 40px
+
+.fame
+	margin-bottom: $bottom-space--lg
+
+	&:last-child
+		margin-bottom: 0
+
+.fame__list
+	+grid-parent($fame-space)
+	+clear-spacing
+	margin-bottom: $bottom-space--md
+
+	+media('<desk-hd')
+		+grid-parent($fame-space--md)
+
+	&:last-child
+		margin-bottom: 0
+
+.fame__item
+	position: relative
+	+grid-item(3, $fame-space, round($fame-space*0.5))
+	+font(1.5rem, round-float(18px/15px, 2))
+	letter-spacing: normal
+
+	+media('<desk-hd')
+		+grid-item-responsive(3, $fame-space--md)
+
+.fame__inner
+	display: block
+	height: 100%
+	text-decoration: none
+	color: inherit
+
+.fame__card
+	margin: 0 auto 3.8rem
+	max-width: 320px
+
+.fame__figure
+	position: relative
+	letter-spacing: normal
+
+	&:before
+		+pseudo-block-relative()
+		+ratio(286, 410)
+
+.fame__img
+	position: relative
+	overflow: hidden
+	+cover-abs()
+	font-size: $font-size
+	letter-spacing: normal
+	backface-visibility: hidden
+	background-color: $border-color
+
+	img
+		display: block
+		height: 100%
+		max-width: none
+		transform: translate(-50%, -50%)
+		position: absolute
+		+position(50%)
+
+.fame__content
+	position: relative
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+.fame__title, .fame__text
+	+font-medium
+	+font(16px, round-float(20/16, 2))
+	letter-spacing: 0.025em
+	color: $text-color
+	margin-bottom: $bottom-space--sm
+	overflow: hidden
+	max-height: #{5 * 16px * round-float(24/16, 2)}
+	transition:
+		property: color
+		duration: $animation-speed
+	
+	&:last-child
+		margin-bottom: 0
+
+	.no-touchevents .fame__link:hover &
+		color: $base-color
+
+.fame__text
+	+font-normal
+
+.fame__info
+	position: absolute
+	width: 100%
+	bottom: 0
+	background-color: white
+	padding: #{round($grid-space*0.85)} #{$grid-space}
+
+	.short-contacts
+		&, .#{$user-content} &
+			li
+				margin: 0 0 12px
+				padding: 0
+
+				&:last-child
+					margin-bottom: 0
+
+		a span
+			line-height: 18px
+
+		svg
+			+size(18px)
+
+/* fame end

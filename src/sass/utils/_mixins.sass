@@ -551,7 +551,7 @@
 ///   object-fit: cover
 /// }
 
-=object-fit($fit: cover, $pos: relative)
+=object-fit-position($fit: cover, $pos: relative)
 	position: $pos
 	top: 50%
 	left: 50%
@@ -564,6 +564,23 @@
 	transform: translate(-50%, -50%)
 	backface-visibility: hidden
 	object-fit: $fit
+
+//
+	This mixin can be used to set the object-fit:
+	+object-fit(contain)
+
+	or object-fit and object-position:
+	+object-fit(cover, top)
+
+=object-fit($fit: fill, $position: null)
+	-o-object-fit: $fit
+	object-fit: $fit
+	@if $position
+		-o-object-position: $position
+		object-position: $position
+		font-family: 'object-fit: #{$fit}; object-position: #{$position}'
+	@else
+		font-family: 'object-fit: #{$fit}'
 
 // =============================================================================
 // Hide text for screen reader

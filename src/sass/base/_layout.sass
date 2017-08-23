@@ -204,13 +204,17 @@ body
 		padding: round($text-layout-space-horizontal--sm*1.5) #{$text-layout-space-horizontal--sm} round($text-layout-space-horizontal--sm*2)
 
 	& > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote, & > .layout-text
-		max-width: $text-layout-width + $text-layout-indent
-		+padding-horizontal($text-layout-indent, 0)
+		//max-width: $text-layout-width + $text-layout-indent
+		//+padding-horizontal($text-layout-indent, 0)
+		max-width: $text-layout-width
+		+padding-horizontal(0)
 		+push-auto
 
 	.layout-flood
-		max-width: $flood-layout-width + $text-layout-indent
-		+padding-horizontal($text-layout-indent, 0)
+		//max-width: $flood-layout-width + $text-layout-indent
+		//+padding-horizontal($text-layout-indent, 0)
+		max-width: $text-layout-width
+		+padding-horizontal(0)
 		+push-auto
 
 	// элеметы без отступов по бокам
@@ -227,8 +231,8 @@ body
 
 // максимальная ширина текстовых элементов на внутренней (текстовой) странице
 .max-wrap-text
-	//max-width: #{$text-layout-width + $text-layout-space-horizontal*2}
-	max-width: #{$text-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
+	max-width: #{$text-layout-width + $text-layout-space-horizontal*2}
+	//max-width: #{$text-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
 
 	//+media('<tab-lg')
 		//max-width: #{$text-layout-width + $text-layout-space-horizontal--md*2}
@@ -257,8 +261,8 @@ body
 
 // максимальная ширина альтернативных элементов на внутренней (текстовой) странице
 .max-wrap-flood
-	//max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
-	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
+	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
+	//max-width: #{$flood-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
 
 	//+media('<tab-lg')
 		max-width: #{$flood-layout-width + $text-layout-space-horizontal--md*2}
@@ -269,9 +273,10 @@ body
 // выравнивание альтернативных элементов на внутренней (текстовой) странице
 // и их максимальная ширина
 .layout-flood
-	//max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
-	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
-	+padding-horizontal(#{$text-layout-indent + $text-layout-space-horizontal}, $text-layout-space-horizontal)
+	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
+	+padding-horizontal($text-layout-space-horizontal)
+	//max-width: #{$flood-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
+	//+padding-horizontal(#{$text-layout-indent + $text-layout-space-horizontal}, $text-layout-space-horizontal)
 	+push-auto
 
 	//+media('<tab-lg')
@@ -303,3 +308,7 @@ body
 
 	p, ul, ol, h1, h2, h3, h4, h5, h6, hr, blockquote
 		max-width: none
+
+.heading-article
+	&, .layout-article &
+		padding-left: $text-layout-indent
