@@ -44,24 +44,32 @@
 	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
 	margin: 0
 
+	$item-space-h: 30px
+	$item-space-v: 14px
+
 	li
-		+padding-vertical(#{round($sidebar-inside-space*0.28)})
+		+padding-vertical(round($item-space-v - (40px - 24px)/2))
+		+margin-horizontal(-#{$item-space-h})
+		text-align: center
 
 	a
-		display: block
+		+display-inline-block-top
 		+font-medium
-		+font(16px, round-float(24/16, 2))
+		+font(16px, 24px)
+		padding: round((40px - 24px)/2) #{$item-space-h}
 		color: $text-color
 		letter-spacing: 0.05em
-		text-align: center
 		text-decoration: none
 		text-transform: uppercase
-		transition-property: color
-		transition-duration: $animation-speed
+		transition:
+			property: color, background-color
+			duration: $animation-speed
 
-	.no-touchevents & a:hover,
-	.no-touchevents & .current a
+	.no-touchevents & a:hover
 		color: $base-color
 
+	.current a
+		color: white !important
+		background-color: $base-color
 
 /* menu end

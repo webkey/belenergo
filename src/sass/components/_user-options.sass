@@ -64,10 +64,8 @@
 		.no-touchevents &:hover
 			background-color: $base-color-alt
 			color: white
+			fill: white
 			box-shadow: -1px 0 0 $base-color-alt
-
-			path
-				fill: white
 
 		& > span
 			display: inline-block
@@ -94,8 +92,17 @@
 		min-width: 155px
 		height: $header-height
 
+		a
+			background-color: $base-color-alt
+			color: white
+			fill: white
+			box-shadow: -1px 0 0 $base-color-alt
+
 		+media('<desk-hd')
 			min-width: 130px
+
+	.theme--day
+		display: none
 
 	&.lang
 		width: auto
@@ -103,8 +110,5 @@
 
 		+media('<desk-hd')
 			min-width: 100px
-
-	.theme--night
-		display: none
 
 /* user options

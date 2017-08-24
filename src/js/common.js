@@ -919,6 +919,71 @@ function stickyLayout() {
 }
 
 /**
+ * !Add map on contacts page
+ * */
+function contactsMap() {
+
+	var mapId = "#contacts-map",
+		$mapId = $(mapId);
+
+	/*initial map*/
+	if ( $mapId.length ) {
+
+		var myMap,
+			myPlacemark,
+			contactsMapCoord = contactMapInfo.coord,
+			center = [];
+
+		if (window.innerWidth > 768) {
+			for (var i = 0; i < contactsMapCoord.length; i++) {
+				if (i === 1) {
+					center.push(contactsMapCoord[i] + 0.0006);
+					continue
+				}
+				center.push(contactsMapCoord[i] + 0.0002);
+			}
+		} else {
+			center = contactsMapCoord
+		}
+
+		ymaps.ready(init);
+
+		var balloonContent = '' +
+			'<div class="map-popup">' +
+			'<div class="map-popup__title">' + contactMapInfo.name + '</div>' +
+			'<div class="map-popup__list">' +
+			'<div class="map-popup__row"><i class="depict-pin"></i><div>' + contactMapInfo.address + '</div></div>' +
+			'<div class="map-popup__row"><i class="depict-time"></i><div>' + contactMapInfo.time + '</div></div>' +
+			'<div class="map-popup__row"><i class="depict-phone"></i><div>' + contactMapInfo.phones + '</div></div>' +
+			'</div>';
+
+		function init(){
+			/*create new map object*/
+			myMap = new ymaps.Map (mapId.substring(1), {
+				center: center,
+				zoom: 15,
+				controls: ['fullscreenControl', 'zoomControl']
+			});
+
+			myPlacemark = new ymaps.Placemark(contactsMapCoord, {
+				balloonContentBody: balloonContent,
+				hintContent: "ГПО «Белэнерго»"
+			}, {
+				iconLayout: 'default#image',
+				iconImageHref: contactsMapBaseImageURL + 'pin-map.png',
+				iconImageSize: [79, 88],
+				iconImageOffset: [-35, -77]
+			});
+
+			myMap.geoObjects.add(myPlacemark);
+
+			/*behaviors setting map*/
+			myMap.behaviors.disable('scrollZoom');
+		}
+	}
+}
+
+/**
  * !Always place the footer at the bottom of the page
  * */
 function footerBottom() {
@@ -1021,8 +1086,8 @@ $(window).on('debouncedresize', function () {
 $(document).ready(function () {
 	placeholderInit();
 	printShow();
-	// switchCecutientVersion();
-	// checkCecutientVersionCookie();
+	switchCecutientVersion();
+	checkCecutientVersionCookie();
 	inputToggleFocusClass();
 	inputHasValueClass();
 	// inputFilledClass();
@@ -1041,4 +1106,6 @@ $(document).ready(function () {
 
 	footerBottom();
 	formSuccessExample();
+
+	contactsMap();
 });

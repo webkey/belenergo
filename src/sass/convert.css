@@ -1,0 +1,172 @@
+/*contacts info*/
+.info-container
+	overflow: hidden
+
+.info-container__list
+	margin: 0 -20px
+	font-size: 0
+	letter-spacing: -4px
+	box-sizing: border-box
+
+.info-container__item
+	display: inline-block
+	vertical-align: top
+	width: 49.98%
+	padding: 0 20px 40px
+	font-size: 16px
+	letter-spacing: normal
+	color: #3a3a3a
+	box-sizing: border-box
+
+.info-container__title,
+.info-container__sub-title
+	display: block
+	padding: 0 0 20px
+	font-family: 'lato-black', sans-serif
+	color: #262626
+
+.info-container__sub-title
+	padding: 0 0 10px
+
+.info-container__row,
+.info-container__row_lg
+	padding-bottom: 20px
+	box-sizing: border-box
+
+.info-container__row_lg
+	padding: 0 0 40px
+
+.info-container__row:last-child,
+.info-container__row_lg:last-child
+	padding-bottom: 0 !important
+
+.info-container__depict
+	display: inline-block
+	vertical-align: middle
+	width: 40px
+	margin-left: -7px
+	margin-right: 5px
+	line-height: 1
+	text-align: center
+
+.info-container__depict svg
+	display: inline-block
+	vertical-align: top
+	width: 24px
+	height: 24px
+
+.info-container__depict svg path
+	fill: #008acf
+
+.info-container__text
+	box-sizing: border-box
+
+.info-container__depict + .info-container__text
+	display: inline-block
+	vertical-align: middle
+	width: calc(100% - 50px)
+
+.info-container__text [class*="btn-default"]
+	margin-bottom: 40px
+
+.info-container__text > p:last-child,
+.info-container__text > ul:last-child,
+.info-container__text > ol:last-child
+	margin-bottom: 0
+	padding-bottom: 0
+
+.info-container a[href*="mailto:"]
+	padding-top: 5px
+	-ms-word-wrap: break-word
+	word-wrap: break-word
+	text-decoration: none
+	color: inherit
+
+.desktop .info-container a[href*="mailto:"]:hover
+	text-decoration: underline
+
+.info-container__figure,
+.info-container__figure_circle
+	display: inline-block
+	vertical-align: middle
+	line-height: 1
+	width: 100px
+	height: 100px
+	margin-right: 20px
+
+.info-container__img
+	overflow: hidden
+	height: 100%
+
+.info-container__figure_circle .info-container__img
+	border-radius: 50%
+
+.info-container__figure + .info-container__text
+	display: inline-block
+	vertical-align: middle
+	width: calc(100% - 125px)
+
+/*contacts info end*/
+
+/*contacts map*/
+.contacts-map
+	position: relative
+	overflow: hidden
+	border: solid #d9d9d9
+	border-width: 1px 0
+
+.contacts-map__frame
+	height: 600px
+	background: #f3f3f3
+
+.contacts-map__info
+	position: absolute
+	right: 0
+	top: 50%
+	width: 230px
+	padding: 26px 30px 6px
+	max-height: 100%
+	color: #3a3a3a
+	background: #fff
+	box-shadow: -10px 0 20px rgba(0, 0, 0, 0.15)
+	box-sizing: border-box
+	-webkit-transform: translate(0, -50%)
+	-ms-transform: translate(0, -50%)
+	transform: translate(0, -50%)
+	z-index: 2
+
+.map-popup__row
+	padding: 0 0 20px
+
+.map-popup__row-title
+	font-family: 'lato-semibold', sans-serif
+	padding: 0 0 10px
+	color: #262626
+
+.map-popup__list dl,
+.map-popup__list dt,
+.map-popup__list dd
+	margin: 0
+	padding: 0
+
+.map-popup__list dl
+	overflow: hidden
+
+.map-popup__list dt
+	float: left
+	padding: 0 6px 0 0
+
+.map-popup__list dd
+	display: block
+	overflow: hidden
+
+.map-popup__list sup
+	font-size: 60%
+
+.map-popup__list > p:last-child,
+.map-popup__list > ul:last-child,
+.map-popup__list > ol:last-child
+	margin-bottom: 0
+	padding-bottom: 0
+
+/*contacts map end*/

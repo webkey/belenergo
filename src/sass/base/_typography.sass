@@ -830,7 +830,7 @@ table
 	path, use
 		fill: $base-color
 
-	a
+	a, & li > div
 		display: block
 		+font(16px, #{$icon-size})
 		margin-left: #{$icon-size + $icon-space}
@@ -839,6 +839,9 @@ table
 		transition:
 			property: color
 			duration: $animation-speed
+
+		sub, sup
+			font-size: 0.6em
 
 		& ~ a
 			margin-top: 5px

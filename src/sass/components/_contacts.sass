@@ -1,0 +1,99 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+.contacts-page
+	h1
+		text-transform: uppercase
+
+	.layout-article
+		min-height: calc(100vh - #{$header-height} - #{$layout-spaces})
+		+clear
+
+	.aside
+		display: none
+
+/* contacts info
+.info-container
+	float: left
+	width: 50%
+
+.info-container__list
+	+clear-spacing
+
+.info-container__item
+	+font($font-size, $line-height)
+	letter-spacing: 0.025em
+	color: $text-color
+	margin-bottom: $bottom-space--md
+
+	&:last-child
+		margin-bottom: 0
+
+	.short-contacts li:first-child
+		padding-top: 0
+
+.info-container__title
+	+font-medium
+	+font(16px, 24px)
+	letter-spacing: 0.05em
+	text-transform: uppercase
+	color: black
+	margin-bottom: $bottom-space
+
+.info-container__text
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+/* contacts info end
+
+/* contacts map
+.contacts-map
+	position: absolute
+	top: 0
+	right: 0
+	left: 50%
+	height: calc(100vh - #{$header-height})
+	//width: calc((100vw - #{$sidebar-width} - #{$aside-width})/2 + #{$aside-width})
+
+	&::after
+		+pseudo()
+		top: 100%
+		right: 0
+		+size(9999px, 0)
+		border-top: 1px solid $border-color
+
+.contacts-map__frame
+	height: 100%
+	background: $bg-color-selected
+
+/* contacts map end
+
+/* map popup
+.map-popup__title
+	display: block
+	+font-bold
+	+font(20px, 24px)
+	text-transform: uppercase
+	margin-bottom: 0.8em
+	color: $title-color
+
+.map-popup__row
+	+font(14px, 18px)
+	padding: 0 0 1em
+	+clear
+
+	sup, sub
+		font-size: 0.6em
+
+	[class*="depict"]
+		+size(18px)
+		float: left
+		margin-right: 1em
+
+		& + div
+			overflow: hidden
+
+/* map popup end
