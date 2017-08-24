@@ -46,6 +46,7 @@ $fame-space--md: 40px
 
 .fame__figure
 	position: relative
+	overflow: hidden
 	letter-spacing: normal
 
 	&:before
@@ -59,7 +60,25 @@ $fame-space--md: 40px
 	font-size: $font-size
 	letter-spacing: normal
 	backface-visibility: hidden
+	//background: $border-color url(../../img/news-no-img.jpg) no-repeat bottom right
+	//background-size: cover
 	background-color: $border-color
+	transition:
+		property: transform
+		duration: 0.4s
+		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+	&::after
+		+pseudo()
+		+position()
+		+size(100%)
+		background-color: transparentize($base-color-alt, 0.5)
+		opacity: 0
+		visibility: hidden
+		transition:
+			property: opacity, visibility
+			duration: 0.4s
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	img
 		display: block
@@ -67,6 +86,7 @@ $fame-space--md: 40px
 		max-width: none
 		transform: translate(-50%, -50%)
 		position: absolute
+		backface-visibility: hidden
 		+position(50%)
 
 .fame__content
@@ -81,7 +101,7 @@ $fame-space--md: 40px
 	+font(16px, round-float(20/16, 2))
 	letter-spacing: 0.025em
 	color: $text-color
-	margin-bottom: $bottom-space--sm
+	margin-bottom: 1rem
 	overflow: hidden
 	max-height: #{5 * 16px * round-float(24/16, 2)}
 	transition:
@@ -100,9 +120,18 @@ $fame-space--md: 40px
 .fame__info
 	position: absolute
 	width: 100%
+	max-height: 70%
+	overflow-x: hidden
+	overflow-y: auto
 	bottom: 0
 	background-color: white
 	padding: #{round($grid-space*0.85)} #{$grid-space}
+	box-shadow: inset 0 0 0 1px $border-color
+	transform: translate(0, 100%)
+	transition:
+		property: transform
+		duration: 0.4s
+		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	.short-contacts
 		&, .#{$user-content} &
@@ -113,10 +142,24 @@ $fame-space--md: 40px
 				&:last-child
 					margin-bottom: 0
 
-		a span
-			line-height: 18px
-
 		svg
 			+size(18px)
+
+		a
+			line-height: 18px
+
+.fame__figure
+	&:hover, &:focus
+
+		.fame__img
+			transform: translate(0, -12%)
+
+			&::after
+				opacity: 1
+				visibility: visible
+
+		.fame__info
+			transform: translate(0, 0)
+
 
 /* fame end

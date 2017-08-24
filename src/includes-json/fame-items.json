@@ -3,15 +3,57 @@
 		"src": "img-photo-01.jpg",
 		"title": "Воронов Евгений Олегович",
 		"text": "Генеральный директор",
-		"phone": "+375 (17) 218-23-55",
+		"phone": ["+375 (17) 218-23-55"],
 		"fax": "+375 (17) 218-23-55",
-		"email": "belenergo@belenergo.by"
+		"email": ["voronov@belenergo.by", "voronov.evgeniy@gmail.com"]
 	}, {
 		"src": "img-photo-02.jpg",
 		"title": "Короткевич Николай Михайлович",
 		"text": "Заместитель генерального директора",
-		"phone": "+375 (17) 218-23-55",
+		"phone": ["+375 (17) 218-23-55", "+375 (28) 218-23-55"],
 		"fax": "+375 (17) 218-23-55",
-		"email": "belenergo@belenergo.by"
+		"email": ["korotkevich@belenergo.by"]
+	}, {
+		"src": "img-photo-03.jpg",
+		"title": "Машкович Сергей Тихонович",
+		"text": "Первый заместитель генерального директора - главный инженер.",
+		"phone": ["+375 (17) 218-23-55"],
+		"fax": "+375 (17) 218-23-55",
+		"email": ["mashkov@belenergo.by"]
+	}, {
+		"src": "img-photo-04.jpg",
+		"title": "Меметов Джафер Исмаилович",
+		"text": "Заместитель главного инженера.",
+		"phone": ["+375 (28) 218-23-55"],
+		"fax": "+375 (17) 218-23-55",
+		"email": ["memetov@belenergo.by", "memetov.djafer@belenergo.by", "djafer.memetov@belenergo.by"]
+	}, {
+		"src": "img-photo-05.jpg",
+		"title": "Поршнев Валерий Николаевич",
+		"text": "Заместитель главного инженера.",
+		"phone": ["+375 (17) 218-23-55"],
+		"fax": "+375 (17) 218-23-55",
+		"email": ["porshev@belenergo.by"]
+	}, {
+		"src": "img-photo-06.jpg",
+		"title": "Шебеко Сергей Николаевич",
+		"text": "Заместитель генерального директора.",
+		"phone": ["+375 (17) 218-23-55", "+375 (28) 218-23-55", "+375 (28) 218-03-71", "+375 (28) 123-45-67", "+375 (25) 128-15-72", "+375 (28) 123-45-67", "+375 (25) 128-15-72"],
+		"fax": "+375 (17) 218-23-55",
+		"email": ["shebek@belenergo.by", "shebek.sergey@belenergo.by", "shebek.sergey@gmail.com", "shebek.s@mail.ru", "sergey.s@yandex.ru", "s.shebek@yandex.ru"]
+	},{
+		"src": "news-no-img.jpg",
+		"title": "Воронов Евгений Олегович",
+		"text": "Генеральный директор",
+		"phone": ["+375 (17) 218-23-55"],
+		"fax": "+375 (17) 218-23-55",
+		"email": ["voronov@belenergo.by", "voronov.evgeniy@gmail.com"]
+	},{
+		"src": "news-no-img.jpg",
+		"title": "Короткевич Николай Михайлович",
+		"text": "Заместитель генерального директора",
+		"phone": ["+375 (17) 218-23-55", "+375 (28) 218-23-55"],
+		"fax": "+375 (17) 218-23-55",
+		"email": ["korotkevich@belenergo.by"]
 	}
 ]

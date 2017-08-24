@@ -803,6 +803,9 @@ table
 
 /* contacts
 .short-contacts
+	$icon-size: 24px
+	$icon-space: 10px
+
 	&, .#{$user-content} &
 		list-style: none
 		margin: 0
@@ -815,36 +818,52 @@ table
 			&::before
 				content: none
 
+	li
+		+clear-spacing
+		+clear
+
+	svg
+		float: left
+		+size($icon-size)
+		margin-right: $icon-space
+
+	path, use
+		fill: $base-color
+
 	a
 		display: block
+		+font(16px, #{$icon-size})
+		margin-left: #{$icon-size + $icon-space}
 		color: $text-color
 		text-decoration: none
-		+clear-spacing
+		transition:
+			property: color
+			duration: $animation-speed
 
-		$icon-size: 24px
-		$icon-space: 10px
-
-		svg
-			+display-inline-block-top
-			+size(24px)
-			margin-right: $icon-space
-
-		path, use
-			fill: $base-color
+		& ~ a
+			margin-top: 5px
 
 		span
-			+display-inline-block-top
-			max-width: calc(100% - #{$icon-size} - #{$icon-space})
-			+font(16px, #{$icon-size})
 			letter-spacing: normal
-			text-decoration: underline
 
-		&[href^="tel:"]
+		&[href]
 			span
-				text-decoration: none
+				border-bottom: 1px solid tint($text-color, 40%)
+				transition:
+					property: border-color
+					duration: $animation-speed
 
-		.no-touchevents &:hover
+		&[href^="mailto:"]
+			word-wrap: break-word
+
+		&[href^="tel:"], a[href]
 			span
-				text-decoration: none
+				border-bottom-color: transparent
+
+		.no-touchevents &[href]:not([href^="tel:"]):hover
+			color: $base-color
+
+			span
+				border-bottom: 1px solid tint($base-color, 40%)
 
 /* contacts end

@@ -9,33 +9,38 @@
 				<div class="fame__info">
 					<ul class="short-contacts">
 						@@if (context.phone) {
-						<li>
-							<a href="tel:+375 (17) 218-23-59">
+
+							<li>
 								<svg class="ico-search" viewBox="0 0 83.9 82">
 									<use xlink:href="#ico-phone"></use>
 								</svg>
-								<span>@@phone</span>
-							</a>
-						</li>
+								@@for (var i = 0; i < phone.length; i++) {
+								<a href="tel:`+phone[i]+`">
+									<span>`+phone[i]+`</span>
+								</a>
+								}
+							</li>
 						}
 						@@if (context.fax) {
 						<li>
-							<a href="tel:+375 (17) 218-26-39">
-								<svg class="ico-search" viewBox="0 0 309 247">
-									<use xlink:href="#ico-fax"></use>
-								</svg>
+							<svg class="ico-search" viewBox="0 0 309 247">
+								<use xlink:href="#ico-fax"></use>
+							</svg>
+							<a>
 								<span>@@fax</span>
 							</a>
 						</li>
 						}
 						@@if (context.email) {
 						<li>
-							<a href="mailto:belenergo@belenergo.by">
-								<svg class="ico-search" viewBox="0 0 88 58">
-									<use xlink:href="#ico-email"></use>
-								</svg>
-								<span>@@email</span>
+							<svg class="ico-search" viewBox="0 0 88 58">
+								<use xlink:href="#ico-email"></use>
+							</svg>
+							@@for (var i = 0; i < email.length; i++) {
+							<a href="mailto:`+email[i]+`">
+								<span>`+email[i]+`</span>
 							</a>
+							}
 						</li>
 						}
 					</ul>
