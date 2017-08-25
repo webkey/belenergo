@@ -19,13 +19,16 @@
 	& > a
 		display: block
 		height: 100%
-		color: black
-		fill: black // для svg
+		color: $text-color-base
+		fill: $text-color-base
+		// для svg
 		text-decoration: none
 		text-align: center
-		box-shadow: -1px 0 0 $border-color
-		transition-property: background-color, color, box-shadow
-		transition-duration: $animation-speed
+		box-shadow: -1px 0 0 rgba($text-color-base, 0.15)
+		background-color: $bg-panels-color
+		transition:
+			property: background-color, color, box-shadow
+			duration: $animation-speed
 
 		& > *
 			+display-inline-block-middle
@@ -41,14 +44,12 @@
 		svg
 			+size(24px)
 			display: inline-block
-			transition-property: background-color, color
-			transition-duration: $animation-speed
+			transition:
+				property: background-color, color
+				duration: $animation-speed
 
 			&.svg-visually-impaired
 				+size(38px, 21px)
-
-			&.svg-theme
-				+size(16px)
 
 			&.svg-search
 				+size(20px)
@@ -58,14 +59,15 @@
 
 		path
 			fill: inherit
-			transition-property: fill
-			transition-duration: $animation-speed
+			transition:
+				property: fill
+				duration: $animation-speed
 
 		.no-touchevents &:hover
 			background-color: $base-color-alt
-			color: white
-			fill: white
-			box-shadow: -1px 0 0 $base-color-alt
+			color: $bg-color-base
+			fill: $bg-color-base
+			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15)
 
 		& > span
 			display: inline-block
@@ -98,11 +100,32 @@
 			fill: white
 			box-shadow: -1px 0 0 $base-color-alt
 
+		svg
+			&.svg-theme--dark
+				+size(16px)
+
+			&.svg-theme--light
+				+size(30px)
+
 		+media('<desk-hd')
 			min-width: 130px
 
-	.theme--day
+	.text-theme--light, .svg-theme--light
 		display: none
+
+	.theme-dark &
+		&.theme-toggle
+			a
+				background-color: $bg-panels-color !important
+				color: $base-color !important
+				fill: $base-color !important
+				box-shadow: -1px 0 0 $border-color !important
+
+		.text-theme--light, .svg-theme--light
+			display: inline-block
+
+		.text-theme--dark, .svg-theme--dark
+			display: none
 
 	&.lang
 		width: auto

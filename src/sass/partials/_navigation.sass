@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/*navigation*/
+/* navigation
 .nav-wrap
 	.header &
 		float: left
@@ -40,9 +40,10 @@
 		+font-medium
 		+font(16px, 20px)
 		text-decoration: none
-		color: black
-		transition-property: background-color
-		transition-duration: $animation-speed
+		color: $text-color-base
+		transition:
+			property: background-color, color
+			duration: $animation-speed
 
 		+media('<desk-hd')
 			+padding-horizontal(#{round($nav-item-space--sm*0.5)})
@@ -69,6 +70,16 @@
 				+font($font-size, $line-height)
 				letter-spacing: 0.05em
 
+				&.short-text
+					display: none
+
+				+media('<desk-lg')
+					&.full-text
+						display: none
+
+					&.short-text
+						display: inline-block
+
 //.nav__angle i
 	display: inline-block
 	vertical-align: top
@@ -78,7 +89,7 @@
 	position: absolute
 	left: 0
 	top: 100%
-	background-color: white
+	background-color: $bg-color-base
 	border: 1px solid $border-color
 	margin-top: -1px
 	width: 320px
@@ -102,4 +113,4 @@
 		top: 0
 		left: 100%
 
-/*navigation end*/
+/* navigation end

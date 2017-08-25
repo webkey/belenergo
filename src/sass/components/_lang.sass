@@ -2,20 +2,15 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* user options
 /* lang
 .lang
-	$text-color: black
 	position: relative
-
-	&.choice-opened > a
-		background-color: #fafafa
 
 	& > a
 		& > span
 			$this-icon-lines-width: 8px
 			$this-icon-lines-height: 2px
-			$this-icon-lines-color: black
+			$this-icon-lines-color: $text-color-base
 
 			+display-inline-block-middle
 			padding-right: 22px
@@ -29,8 +24,9 @@
 				+size($this-icon-lines-width, $this-icon-lines-height)
 				margin-top: -1px
 				background-color: $this-icon-lines-color
-				transition-property: background-color
-				transition-duration: $animation-speed
+				transition:
+					property: background-color
+					duration: $animation-speed
 
 			&::before
 				transform: rotate(-45deg)
@@ -41,9 +37,17 @@
 
 		.no-touchevents &:hover > span
 				&::before, &::after
-					background-color: white
+					background-color: $bg-color-base
 
-	&.choice-opened > a > span
+	&.choice-opened > a
+		background-color: $bg-color-selected
+		color: $text-color-base
+		box-shadow: -1px 0 0 rgba($text-color-base, 0.15)
+
+		& > span
+			&::before, &::after
+				background-color: $text-color-base
+
 			&::before
 				transform: rotate(45deg)
 
@@ -61,13 +65,14 @@
 	width: 100%
 	opacity: 0
 	visibility: hidden
-	background-color: white
-	border: 1px solid $border-color
-	border-left: none
+	background-color: $bg-panels-color
+	border: 0 solid $border-color
+	border-width: 1px 1px 1px 0
 	box-shadow: -1px 0 0 $border-color
-	transition-property: opacity, visibility
-	transition-duration: $animation-speed
-	transition-timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+	transition:
+		property: opacity, visibility
+		duration: $animation-speed
+		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	.choice-opened &
 		opacity: 1
@@ -83,18 +88,19 @@
 		display: block
 		text-decoration: none
 		text-align: center
-		color: $text-color
+		color: $text-color-base
 		padding: 12px 6px
 		font-size: 16px
 		line-height: 24px
 		letter-spacing: normal
 		border-top: 1px solid $border-color
-		transition-property: background-color, color
-		transition-duration: $animation-speed
+		transition:
+			property: background-color, color
+			duration: $animation-speed
 
 		.no-touchevents &:hover
 			background-color: $base-color-alt
-			color: white
+			color: $bg-color-base
 
 	li:first-child,
 	li.current:first-child + li

@@ -13,28 +13,36 @@ body
 	&.home-page
 		overflow-x: hidden // чтобы не появлялся нижний скрол от подложки с изображением
 		
-		&::before, &::after
-			+pseudo()
-
 		&::before
+			+pseudo()
 			+position(0)
 			+size(100%, $bg-page-top-space)
 			min-height: $bg-page-top-space
 			max-width: $page-layout-width
-			+linear-gradient(to top, $bg-color 0, $bg-color 10%, transparentize($bg-color, 1) 35%, transparentize($bg-color, 1) 100%)
+			+linear-gradient(to top, $bg-color 0, $bg-color 10%, rgba($bg-color, 0) 35%, rgba($bg-color, 0) 100%)
 			z-index: -2
 
-		&::after
-			+size(100%)
-			+position(#{$header-height}, #{$sidebar-width})
-			max-height: calc(100% - #{$header-height})
-			background: url(../../img/bg-home-img.jpg) no-repeat fixed center top
-			background-size: cover
-			z-index: -3
-			@if $page-layout-width
-				max-width: calc(#{$page-layout-width} - #{$sidebar-width})
-			@else
-				max-width: calc(100% - #{$sidebar-width})
+.bg-img
+	display: none
+
+	.home-page &
+		display: block
+		position: fixed
+		+position(#{$header-height}, #{$sidebar-width})
+		+size(100%)
+		max-height: calc(100% - #{$header-height})
+		z-index: -3
+		@if $page-layout-width
+			max-width: calc(#{$page-layout-width} - #{$sidebar-width})
+		@else
+			max-width: calc(100% - #{$sidebar-width})
+
+	.bg-img-inner
+		display: block
+		+size(100%)
+		background: url(../../img/bg-home-img.jpg) no-repeat center top
+		background-size: cover
+		opacity: 0.25
 
 .wrapper
 	margin: 0 auto

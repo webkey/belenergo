@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/*button*/
+/* button
 [class|="btn"], [class*=" btn-"], input[type="submit"], input[type="button"], input[type="reset"], button
 	display: inline-block
 	vertical-align: top
@@ -49,18 +49,20 @@
 	+font-medium
 	+font(16px, 24px)
 	letter-spacing: 0.05em
-	color: white
+	color: $bg-color-base
+	fill: $bg-color-base
 	text-transform: uppercase
 	padding: 11px 18px
 	border: 2px solid transparent
 	background: $btn-bg-color
 	box-shadow: none
-	transition-property: background-color, color
-	transition-duration: $animation-speed
+	transition:
+		property: background-color, color
+		duration: $animation-speed
 	margin: 0
 
 	path
-		fill: white
+		fill: inherit
 
 	.no-touchevents &:hover
 		background-color: $btn-bg-hover-color

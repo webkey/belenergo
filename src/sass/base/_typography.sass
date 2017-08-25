@@ -388,7 +388,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 /*list reset end
 /*list end*/
 
-/*table*/
+/* table
 table
 	border-collapse: collapse
 	border-spacing: 0
@@ -460,9 +460,9 @@ table
 			color: $base-color
 			border-top-width: 2px
 
-/*table end*/
+/* table end
 
-/*blockquote*/
+/* blockquote
 .#{$user-content}
 
 	blockquote
@@ -516,7 +516,7 @@ table
 		q + cite
 			padding-top: 20px
 
-/*blockquote end*/
+/* blockquote end
 
 /* user spacer
 .user-spacer
@@ -527,7 +527,7 @@ table
 
 /* user spacer end
 
-/*view print*/
+/* view print
 .view-print
 	display: inline-block
 	vertical-align: top
@@ -566,7 +566,7 @@ table
 		& span
 			display: none
 
-/*view print end*/
+/* view print end
 
 /* logo in sidebar
 .logo-side
@@ -662,7 +662,7 @@ table
 	padding-left: 32px
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
-	color: $text-color
+	color: inherit
 
 /* caption end
 
@@ -705,7 +705,6 @@ table
 	width: 45.98%
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
-	color: $text-color
 
 	.no-flexbox &
 		+display-inline-block-top
@@ -744,7 +743,6 @@ table
 		margin-bottom: 10px
 		+font(16px, round-float(19px/16px, 2))
 		letter-spacing: 0.025em
-		color: $text-color
 
 		+media('<desk-hd')
 			font-size: 12px
@@ -801,7 +799,7 @@ table
 
 /* visual preview end
 
-/* contacts
+/* short contacts
 .short-contacts
 	$icon-size: 24px
 	$icon-space: 10px
@@ -812,8 +810,11 @@ table
 		padding: 0
 
 		li
-			padding: 10px 0
+			padding: 0 0 20px
 			margin: 0
+
+			&:last-child
+				padding-bottom: 0
 
 			&::before
 				content: none
@@ -821,6 +822,8 @@ table
 	li
 		+clear-spacing
 		+clear
+		color: $text-color
+		cursor: default
 
 	svg
 		float: left
@@ -834,7 +837,7 @@ table
 		display: block
 		+font(16px, #{$icon-size})
 		margin-left: #{$icon-size + $icon-space}
-		color: $text-color
+		color: inherit
 		text-decoration: none
 		transition:
 			property: color
@@ -869,4 +872,4 @@ table
 			span
 				border-bottom: 1px solid tint($base-color, 40%)
 
-/* contacts end
+/* short contacts end

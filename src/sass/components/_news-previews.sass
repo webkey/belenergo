@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* news-previews previews
+/* news previews
 
 $news-previews-space: 80px
 $news-previews-list-space: 60px
@@ -69,7 +69,7 @@ $news-previews-space--md: 40px
 	background-color: $text-color-light
 	box-shadow: 0 0 0 1px #{$text-color-light}, 2px 0 0 1px #{$text-color-light}, -2px 0 0 1px #{$text-color-light}
 	transition:
-		property: background-color, box-shadow
+		property: background-color, box-shadow, color
 		duration: $animation-speed
 
 	+media('<desk-hd')
@@ -81,7 +81,7 @@ $news-previews-space--md: 40px
 
 .news-previews__link
 	text-decoration: none
-	color: $text-color
+	color: inherit
 	display: block
 	margin-bottom: $bottom-space
 
@@ -114,6 +114,7 @@ $news-previews-space--md: 40px
 		transform: translate(-50%, -50%)
 		position: absolute
 		+position(50%)
+		object-fit: contain
 
 .news-previews__content
 	position: relative
@@ -126,7 +127,6 @@ $news-previews-space--md: 40px
 	+font-medium
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
-	color: $text-color
 	margin-bottom: $bottom-space
 	overflow: hidden
 	max-height: #{5 * 16px * round-float(24/16, 2)}
@@ -151,9 +151,9 @@ $news-previews-space--md: 40px
 	+font-medium
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.05em
-	color: black
+	color: $text-color-base
 	text-transform: uppercase
-	border-bottom: 2px solid black
+	border-bottom: 2px solid $text-color-base
 	transition:
 		property: border-color, color
 		duration: $animation-speed
@@ -201,4 +201,4 @@ $news-previews-space--md: 40px
 		clear: left
 		margin-top: -26px
 
-/* news-previews end
+/* news previews end

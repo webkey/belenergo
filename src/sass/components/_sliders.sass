@@ -518,9 +518,9 @@
 	+display-inline-block-top
 	// before slide load end
 	position: relative
-	color: $text-color
+	color: inherit
 	text-decoration: none
-	background-color: white
+	background-color: $bg-color-base
 	transition:
 		property: background-color
 		duration: $animation-speed
@@ -548,6 +548,7 @@
 
 	.no-touchevents &:hover
 		background-color: $base-color-alt
+		color: $bg-color-base
 
 	.no-touchevents &:hover, .no-touchevents &.hover-prev
 		&::before
@@ -555,6 +556,7 @@
 
 .several-slider__inner
 	padding: $grid-space
+	color: inherit
 	height: 100%
 	display: flex
 	justify-content: space-between
@@ -565,7 +567,7 @@
 	+font-normal
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
-	color: $text-color
+	color: inherit
 	padding-bottom: $bottom-space
 
 	&:last-child
@@ -592,6 +594,9 @@
 	text-transform: uppercase
 	margin-bottom: 2px
 
+	.no-touchevents .several-slider__item:hover &
+		color: $bg-color-base
+
 	&:last-child
 		margin-bottom: 0
 
@@ -610,8 +615,5 @@
 	transition:
 		property: color
 		duration: $animation-speed
-
-	.no-touchevents .several-slider__item:hover &
-		color: white
 
 /* several slider end

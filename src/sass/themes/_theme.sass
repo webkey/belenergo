@@ -1,3 +1,340 @@
 @import ../utils/variables
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
+
+//========== VARIABLES =========
+// главные контрастные цвета (обычно, белый и черный)
+$text-color-base: white
+$bg-color-base: black
+// цвет панелей отличающихся по цвету фона от основного цвета страницы (хедер, сайдбар и т.д.)
+$bg-panels-color: #1e2345
+// цвет фона страницы
+$bg-color: $base-color-alt
+// цвет фона элементов выделяющихся на страницы
+//$bg-color-alt: white
+// цвет фона выделенных элементов
+//$bg-color-selected: #f3f3f3
+// цвет основного текста
+$text-color: white
+// цвет основных заголовков заголовков
+$title-color: white
+// цвет текста светлее основного
+//$text-color-light: #b2b2b2
+// цвет для выделения текста
+//$text-color-alt: $base-color-alt
+// цвет ссылки
+//$link-color: $base-color
+// цвет линий и границ
+$border-color: #3a4165
+
+//========== VARIABLES END =========
+
+
+/*=========== Themes dark ===========*/
+.theme-dark
+
+	//=========== TYPOGRAPHY ==========
+	h1, h2, h3, h4, h5, h6
+		color: $title-color
+
+	/* add shadow
+	.add-shadow, .add-shadow--full
+
+		&::after
+			background: url(../../img/bg-shadow--light.png) right bottom
+
+	.add-shadow--full
+		background-color: $base-color-alt
+		border: 2px solid $text-color-base
+
+	/* add shadow end
+
+	/* caption box
+	.caption-box__title
+		color: $title-color
+		
+	/* caption box end
+
+	/* benefits counter
+
+
+	/* benefits counter end
+
+	/* short contacts
+	.short-contacts
+
+		li
+			color: $text-color-base
+
+		a, & li > div
+			color: $text-color-base
+
+			&[href]
+				span
+					border-bottom-color: tint($text-color-base, 40%)
+
+			&[href^="tel:"], a[href]
+				span
+					border-bottom-color: transparent
+
+			.no-touchevents &[href]:not([href^="tel:"]):hover
+				color: $base-color
+
+				span
+					border-bottom-color: $base-color
+
+	/* short contacts end
+
+	//=========== TYPOGRAPHY END ==========
+
+	//=========== BUTTONS ==========
+	/* button
+
+	/* btn-default
+	[class*="btn-default"]
+		color: $bg-color-base
+		fill: $bg-color-base
+		background: $text-color-base
+
+	/* btn-default end
+
+	/* button end
+	//=========== BUTTONS END ==========
+
+	//=========== SLIDERS ==========
+	/* several slider
+
+	.several-slider
+		.slider-arr
+			&::before, &::after
+				border-color: $text-color-base
+
+
+	.several-slider__item
+		background-color: $base-color-alt
+
+		&::before
+			border-color: $text-color-base
+
+		.no-touchevents &:hover
+			background-color: $text-color-base
+			color: $bg-color-base
+
+	.several-slider__value
+		color: $text-color-base
+
+	.no-touchevents & .several-slider__item:hover .several-slider__value
+		color: $bg-color-base
+
+	//=========== SLIDERS END ==========
+
+	/* previews-grid
+	.previews-grid, .previews-grid-list, .previews-grid-item, .previews-grid-inner
+
+		&::before, &::after
+			border-color: $text-color-base
+
+	/* grid view end
+	/* previews-grid end
+
+	/* layout
+	&
+		background-color: $bg-color
+		color: $text-color
+
+		&.home-page
+			&::before
+				+linear-gradient(to top, $bg-color 0, $bg-color 10%, rgba($bg-color, 0) 35%, rgba($bg-color, 0) 100%)
+
+
+	&.home-page .wrapper::before
+		background: $bg-color
+
+	.wrapper::after
+			opacity: 0.02
+
+	/* layout end
+
+	/*header*/
+	.header
+		background-color: $bg-panels-color
+		box-shadow: inset 0 -1px 0 $bg-panels-color
+
+	/*header end*/
+
+	/* user options
+	.user-options__item
+		& > a
+			color: $text-color-base
+			fill: $text-color-base
+			box-shadow: -1px 0 0 rgba($text-color-base, 0.15)
+			background-color: $bg-panels-color
+
+		.no-touchevents &
+			& > a:hover
+				background-color: $text-color-base
+				color: $bg-color-base
+				fill: $bg-color-base
+				box-shadow: -1px 0 0 rgba($bg-color-base, 0.15)
+
+	/* lang
+	.lang
+
+		& > a
+			& > span
+				$this-icon-lines-color: $text-color-base
+
+				&::before, &::after
+					background-color: $this-icon-lines-color
+
+		.no-touchevents & > a:hover > span
+				&::before, &::after
+					background-color: $bg-color-base
+
+		&.choice-opened > a
+			background-color: $bg-color-selected
+			color: $bg-color-base
+			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15)
+
+			& > span
+				&::before, &::after
+					background-color: $bg-color-base
+
+	.lang__list
+		background-color: $bg-panels-color
+		border-color: $border-color
+		box-shadow: -1px 0 0 $border-color
+
+		a
+			color: $text-color-base
+			border-top: 1px solid $border-color
+
+		.no-touchevents &
+			a:hover
+				background-color: $text-color-base
+				color: $bg-color-base
+
+	/* lang end
+
+	/* navigation
+	.nav__list
+
+		li
+			&.hover > .nav__tab a
+				background-color: $text-color-base
+				color: $bg-color-base
+
+		a
+			color: $text-color-base
+
+	.nav__drop
+		border-color: $border-color
+		background-color: $base-color-alt
+
+	/* navigation end
+
+	/* sidebar
+	.sidebar
+		background-color: $bg-panels-color
+		border-right-color: $border-color
+
+	.sidebar__holder
+		background-image: none
+
+	.sidebar-widget
+		border-top-color: $border-color
+
+	/* menu
+	.menu-list
+
+		a
+			color: $text-color-base
+
+		.no-touchevents & a:hover
+			color: $base-color
+
+		.current a
+			color: $text-color-base !important
+			background-color: $base-color
+
+	/* menu end
+	/* sidebar end
+
+	/* news previews
+	.news-previews__date
+		color: $text-color-light
+
+	.news-previews__label
+		color: $base-color-alt
+		background-color: #70758f
+		box-shadow: 0 0 0 1px #70758f, 2px 0 0 1px #70758f, -2px 0 0 1px #70758f
+
+		.no-touchevents &:hover
+			color: white
+			background-color: $base-color
+			box-shadow: 0 0 0 1px #{$base-color}, 2px 0 0 1px #{$base-color}, -2px 0 0 1px #{$base-color}
+
+	.news-previews__img
+		background-color: $bg-panels-color
+
+	.news-previews__title, .news-previews__text
+		color: $text-color
+
+		.no-touchevents .news-previews__link:hover &
+			color: $base-color
+
+	.btn-read
+		color: $text-color-base
+		border-bottom-color: $text-color-base
+
+		.no-touchevents &:hover
+			color: $base-color
+			border-color: $base-color
+
+	/* news previews end
+
+	/* subscription form
+	.subscription-form
+
+		input[type='text'], input[type='email']
+			background-color: $base-color-alt
+			border: 2px solid #{$text-color-base}
+			box-shadow: none
+
+		input[type='submit']
+			color: $bg-color-base
+			fill: $bg-color-base
+			background: $text-color-base
+
+			.no-touchevents &:hover
+				background: $btn-bg-hover-color
+
+	.success-text
+		background-color: $text-color-base
+
+		//span
+
+			&::before, &::after
+				background-color: $form-success-color
+
+	//.error-text
+		color: $form-error-color
+		background-color: #f2f2f2
+
+	/* subscription form end
+
+	/* popular
+	.popular__inner
+		color: $text-color-base
+
+		.no-touchevents &:hover
+			background-color: $text-color-base
+			color: $bg-color-base
+
+	/* popular end
+
+
+
+
+
+/*=========== Themes dark end ===========*/

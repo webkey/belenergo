@@ -1,4 +1,16 @@
 /**
+ * !variables
+ * */
+
+var $documentBody = $('body');
+/**======================*/
+var cookieColorTheme = 'colorTheme';
+var themeDarkValue = 'theme-dark';
+var themeLightValue = 'theme-light';
+
+/* variables end */
+
+/**
  * !resize only width
  * */
 var resizeByWidth = true;
@@ -152,6 +164,59 @@ function toggleCecutientVersion() {
 		$body.addClass('images-bw');
 
 		$(document).trigger('specialVersionOn');
+	}
+}
+
+/**
+ * !Switch color version
+ * */
+function switchTheme() {
+	$('.theme-toggle-js').on('click', function (e) {
+		e.preventDefault();
+
+		toggleTheme();
+	});
+}
+
+/**
+ * !Check cecutient version cookie
+ */
+/*На этапе программирования добавлять или удалять класс через php*/
+/*Удалить после прокграммирования*/
+function checkThemeCookie() {
+	if (getCookie(cookieColorTheme) === themeDarkValue && !$documentBody.hasClass(themeDarkValue)) {
+		$documentBody.addClass(themeDarkValue);
+		$(document).trigger('themeColorIsDark');
+	}
+}
+
+/**
+ * !Toggle cecutient version
+ * */
+function toggleTheme() {
+
+	if (getCookie(cookieColorTheme) === themeDarkValue) {
+
+		setCookie(cookieColorTheme, themeLightValue, {
+			// expires: expiresValue,
+			// domain: "localhost:3000",
+			path: "/"
+		});
+
+		$documentBody.removeClass(themeDarkValue);
+
+		$(document).trigger('themeColorIsLight');
+
+	} else {
+		setCookie(cookieColorTheme, themeDarkValue, {
+			// expires: expiresValue,
+			// domain: "localhost:3000",
+			path: "/"
+		});
+
+		$documentBody.addClass(themeDarkValue);
+
+		$(document).trigger('themeColorIsDark');
 	}
 }
 
@@ -1027,7 +1092,7 @@ function formSuccessExample() {
 		$form.submit(function (event) {
 			var $thisForm = $(this);
 
-			if ($thisForm.closest('.input-wrap').hasClass('success-form')) return;
+			if ($thisForm.parent().hasClass('success-form')) return;
 
 			event.preventDefault();
 
@@ -1044,7 +1109,7 @@ function formSuccessExample() {
 	}
 
 	function testValidateForm(form) {
-		var $thisFormWrap = form.closest('.input-wrap');
+		var $thisFormWrap = form.parent();
 
 		var $inputs = $(':text, input[type="email"], input[type="password"], textarea, select', form);
 
@@ -1084,10 +1149,12 @@ $(window).on('debouncedresize', function () {
 });
 
 $(document).ready(function () {
+	// switchCecutientVersion();
+	// checkCecutientVersionCookie();
+	switchTheme();
+	checkThemeCookie();
 	placeholderInit();
 	printShow();
-	switchCecutientVersion();
-	checkCecutientVersionCookie();
 	inputToggleFocusClass();
 	inputHasValueClass();
 	// inputFilledClass();
