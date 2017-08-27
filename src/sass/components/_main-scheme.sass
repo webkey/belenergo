@@ -19,11 +19,15 @@
 		display: block
 		+push-auto
 
-.main-scheme-visual
-	margin-bottom: $bottom-space--md
+	.--theme-dark
+		display: none
 
-	&:last-child
-		margin-bottom: 0
+	.theme-dark &
+		.--theme-light
+			display: none
+
+		.--theme-dark
+			display: block
 
 .main-scheme-description
 	+clear
@@ -67,6 +71,16 @@
 				+display-inline-block-middle
 				font-size: $font-size
 				letter-spacing: normal
+
+			.--theme-dark
+				display: none
+
+			.theme-dark &
+				.--theme-light
+					display: none
+
+				.--theme-dark
+					display: inline-block
 
 		li > span
 			+display-inline-block-top

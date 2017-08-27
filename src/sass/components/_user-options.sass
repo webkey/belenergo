@@ -14,7 +14,8 @@
 .user-options__item
 	+display-inline-block-top
 	position: relative
-	+size($header-height)
+	+size(auto, $header-height)
+	min-width: $header-height
 
 	& > a
 		display: block
@@ -24,7 +25,7 @@
 		// для svg
 		text-decoration: none
 		text-align: center
-		box-shadow: -1px 0 0 rgba($text-color-base, 0.15)
+		box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
 		background-color: $bg-panels-color
 		transition:
 			property: background-color, color, box-shadow
@@ -88,6 +89,10 @@
 	&.cecutient-link
 		width: auto
 		height: $header-height
+
+		+media('<desk-hd')
+			a > span
+				display: none
 
 	&.theme-toggle
 		width: auto

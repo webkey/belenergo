@@ -797,6 +797,16 @@ table
 	&:last-child
 		margin-bottom: 0
 
+	.--theme-dark
+		display: none
+
+	.theme-dark &
+		.--theme-light
+			display: none
+
+		.--theme-dark
+			display: block
+
 /* visual preview end
 
 /* short contacts

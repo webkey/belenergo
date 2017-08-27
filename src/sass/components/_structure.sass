@@ -47,7 +47,7 @@ $structure-branch-space-h: 28px
 	$this-icon-lines-color: $base-color-alt
 	
 	position: relative
-	background-color: white
+	background-color: $bg-color-base
 	border: 2px solid $base-color-alt
 	padding: #{round($grid-space*0.5)} #{round($grid-space*2 + $this-angle-lines-width)} #{round($grid-space*0.5)} #{$grid-space}
 	cursor: pointer
@@ -61,14 +61,14 @@ $structure-branch-space-h: 28px
 		property: background-color, color
 		duration: $animation-speed
 
-	.no-touchevents &:hover
-		background-color: $base-color-alt
-		color: white
-
 	&::before
 		top: #{$structure-branch-space-v - $structure-branch-weight} // минус бордер
 		+size(#{$structure-branch-space-h}, 0)
 		border-width: $structure-branch-weight 0 0
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+		color: $bg-color-base
 
 	.text
 		+display-inline-block-top
@@ -120,7 +120,7 @@ $structure-branch-space-h: 28px
 	.no-touchevents &:hover
 		.angle
 			&::before, &::after
-				background-color: white
+				background-color: $bg-color-base
 
 	&.is-open
 		.angle
@@ -134,7 +134,7 @@ $structure-branch-space-h: 28px
 	padding: #{round($grid-space*0.5)} #{$grid-space} #{round($grid-space*0.5)}
 	border: solid $base-color-alt
 	border-width: 0 2px 2px
-	background-color: white
+	background-color: $bg-color-base
 	color: $text-color
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
@@ -150,8 +150,8 @@ $structure-branch-space-h: 28px
 		duration: $animation-speed
 
 	.no-touchevents &:hover
-		background-color: $base-color-alt
-		color: white
+		//background-color: $base-color-alt
+		color: $base-color
 
 .structure-panel-text, .structure-panel-label
 	display: table-cell

@@ -360,9 +360,14 @@
 			right: $promo-slider-space--md
 
 .promo-slider
+	transition:
+		property: opacity, visibility
+		duration: $animation-speed
 	// before slide load
 	white-space: nowrap
 	overflow: hidden
+	opacity: 0
+	visibility: hidden
 	// before slide load end
 	+push-auto
 	margin-bottom: 0
@@ -371,6 +376,8 @@
 		// after slide load
 		white-space: normal
 		overflow: visible
+		opacity: 1
+		visibility: visible
 		// after slide load end
 
 	&.slick-dotted
