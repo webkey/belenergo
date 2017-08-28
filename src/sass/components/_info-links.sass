@@ -15,6 +15,9 @@
 	.aside &
 		margin-bottom: $aside-widget-bottom-space
 
+		+media('<desk-lg')
+			margin-bottom: $layout-spaces--lg
+
 		&:last-child
 			margin-bottom: 0
 
@@ -69,6 +72,9 @@
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	margin-bottom: 20px
+
+	+media('<desk-lg')
+		+font(15px, round-float(19/15, 2))
 
 .info-links__icon
 	svg

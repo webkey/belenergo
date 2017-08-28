@@ -24,6 +24,10 @@
 	color: $title-color
 	margin-bottom: 30px
 
+	+media('<desk-lg')
+		font-size: 28px
+		margin-bottom: $bottom-space
+
 /* aside widget end
 
 /* actual links
@@ -35,7 +39,10 @@
 	+font(1.6rem, round-float(24/16, 2))
 
 	li
-		margin-top: 24px
+		margin-top: $bottom-space
+
+		+media('<desk-lg')
+			margin-top: $bottom-space--sm
 
 		&:first-child
 			margin-top: 0

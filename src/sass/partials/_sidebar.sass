@@ -41,7 +41,7 @@
 				width: $sidebar-width--lg
 
 .sidebar-widget
-	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
+	padding: round($sidebar-inside-space*0.85) $sidebar-inside-space
 	border-top: 1px solid $border-color
 
 	+media('<desk-lg')
@@ -54,7 +54,7 @@
 /* social networks (in sidebar) end
 
 /* menu
-.menu-list
+.menu-list, .sidebar .nav-list
 	list-style: none
 	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
 	margin: 0
@@ -85,9 +85,24 @@
 
 	.no-touchevents & a:hover
 		color: $base-color
+		background-color: transparent
 
 	.current a
 		color: $text-color-base !important
 		background-color: $base-color
 
 /* menu end
+
+/* navigation
+.sidebar
+	.nav
+		border-top: 1px solid $border-color
+
+	.nav-list
+		& > li
+			float: none
+
+		a
+			height: auto !important
+
+/* navigation end

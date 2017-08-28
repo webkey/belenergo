@@ -119,6 +119,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		+position(15px)
 		z-index: -1
 		background: url(../../img/bg-shadow.png) right bottom
+		
+		+media('<desk-lg')
+			+position(10px)
 
 .add-shadow--full
 	background-color: white
@@ -591,6 +594,9 @@ table
 		.page-is-scrolled &
 			height: 100px
 
+	+media('<desk-sm')
+		display: none
+
 .logo-side-text
 	+hide-text
 
@@ -700,6 +706,9 @@ table
 	&:last-child
 		margin-bottom: 0
 
+	+media('<desk-md')
+		display: block
+
 .caption-box__title
 	width: 54%
 	padding-right: 20px
@@ -711,6 +720,14 @@ table
 
 	+media('<desk-hd')
 		font-size: 28px
+
+	+media('<desk-md')
+		width: auto
+		padding-right: 0
+		margin-bottom: $bottom-space
+
+		&:last-child
+			margin-bottom: 0
 
 	.no-flexbox &
 		+display-inline-block-top
@@ -730,13 +747,20 @@ table
 	.no-flexbox &
 		+display-inline-block-top
 
+	+media('<desk-md')
+		display: block
+		width: auto
+
 .caption-box__subtitle
 	+font-medium
-	+font(16px, round-float(24/16, 2))
+	+font(16px, round-float(19/16, 2))
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	margin: 0
 	padding-bottom: $bottom-space
+
+	+media('<desk-hd')
+		padding-bottom: $bottom-space--sm
 
 	.no-flexbox &
 		padding-bottom: 0
@@ -752,12 +776,22 @@ table
 	+clear-spacing
 	+margin-horizontal(-20px)
 
+	+media('<desk-hd')
+		+margin-horizontal(0)
+
 .benefits-counter__item
 	+display-inline-block-top
 	+padding-horizontal(20px)
 	width: round-float(100%/3, 2)
 	+font-medium
 	line-height: 1
+
+	+media('<desk-hd')
+		width: auto
+		display: flex
+		justify-content: space-between
+		align-items: center
+		padding: 0 0 10px
 
 	.dt
 		display: block
@@ -766,13 +800,17 @@ table
 		letter-spacing: 0.025em
 
 		+media('<desk-hd')
-			font-size: 12px
+			//font-size: 12px
+			margin-bottom: 0
+			padding-right: 15px
 
 	.dd
 		+font-bold
 		+font(48px, round-float(52/48, 2))
 		letter-spacing: 0.05em
 		color: $base-color
+		min-width: 90px
+		text-align: right
 
 		+media('<desk-hd')
 			font-size: 32px
@@ -783,6 +821,9 @@ table
 /* main section
 .main-section
 	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: 3.2rem
 
 	&:last-child
 		margin-bottom: 0

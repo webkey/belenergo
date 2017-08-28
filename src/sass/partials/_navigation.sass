@@ -7,10 +7,19 @@
 	.header &
 		float: left
 
+		+media('<desk-sm')
+			display: none
+
+	.sidebar &
+		display: none
+
+		+media('<desk-sm')
+			display: block
+
 .nav
 	position: relative
 
-.nav__list
+.nav-list
 	+margin-horizontal(-#{round($nav-item-space*0.5)})
 	+clear
 
@@ -23,7 +32,7 @@
 		//&.has-drop
 			padding-right: 2rem
 
-			.nav__angle
+			//.nav__angle
 				position: absolute
 				right: 0
 				top: 50%
@@ -52,7 +61,7 @@
 		display: none
 
 // первый уровень навигации
-.nav__list > li
+.nav-list > li
 	float: left
 
 	& > .nav__tab
@@ -96,6 +105,9 @@
 	opacity: 0
 	visibility: hidden
 	z-index: 10
+
+	+media('<desk-sm')
+		display: none
 
 	li.hover > &
 		opacity: 1

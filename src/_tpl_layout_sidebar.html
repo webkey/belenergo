@@ -1,4 +1,4 @@
-<aside class="sidebar v-middle">
+<aside class="sidebar v-middle menu-popup-js">
 	<div class="sidebar__align v-middle__align">
 		<div class="sidebar__holder v-middle__holder">
 			<div class="v-middle__row v-middle--top">
@@ -21,6 +21,14 @@
 						<li @@if(context.currentItem === "Инфоцентр"){class="current"}><a href="fame.html"><span>Инфоцентр</span></a></li>
 						<li @@if(context.currentItem === "Контакты"){class="current"}><a href="contacts.html"><span>Контакты</span></a></li>
 					</ul>
+					<div class="nav-wrap">
+						<nav class="nav">
+							@@include('_tpl_nav-constructor.html', {
+							"currentItem": "@@currentItem",
+							"bsKey": "nav"
+							})
+						</nav>
+					</div>
 				</div>
 			</div>
 			<div class="v-middle__row v-middle--bottom">

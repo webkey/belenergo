@@ -35,6 +35,9 @@ $previews-grid-border-color: $base-color-alt
 	letter-spacing: normal
 	border-width: 0 #{$previews-grid-border-weight} #{$previews-grid-border-weight} 0
 
+	+media('<1280px')
+		width: round-float(100%/2, 4)
+
 .previews-grid-inner
 	display: block
 	position: relative

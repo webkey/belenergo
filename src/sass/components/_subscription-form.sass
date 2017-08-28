@@ -16,6 +16,9 @@
 		padding: $grid-space
 		+clear-spacing
 
+		+media('<desk-lg')
+			padding: $grid-space--lg
+
 	.label-holder
 		+display-inline-block-middle
 		width: round-float(100%/2, 3)
@@ -24,12 +27,23 @@
 		letter-spacing: normal
 		color: inherit
 		margin-bottom: 0
+		padding-right: $grid-space
+
+		+media('<desk-md')
+			display: block
+			width: auto
+			padding: 0
+			margin-bottom: $bottom-space--sm
 
 	.form-fields
 		position: relative
 		+display-inline-block-middle
 		width: round-float(100%/2, 3)
 		letter-spacing: normal
+
+		+media('<desk-md')
+			display: block
+			width: auto
 
 	.input-holder
 		position: relative

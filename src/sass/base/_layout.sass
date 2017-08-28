@@ -7,7 +7,7 @@ $bg-page-top-space: 100vh
 body
 	height: 100%
 	background: $bg-color url(../../img/empty.png) no-repeat left top fixed
-	min-width: 1280px
+	min-width: 320px
 	position: relative
 
 	&.home-page
@@ -40,6 +40,10 @@ body
 		+media('<desk-lg')
 			left: $sidebar-width--lg
 			max-width: calc(100% - #{$sidebar-width--lg})
+
+		+media('<desk-sm')
+			left: 0
+			max-width: 100%
 
 	.bg-img-inner
 		display: block
@@ -114,6 +118,9 @@ body
 	+media('<desk-lg')
 		+margin-horizontal($sidebar-width--lg, $aside-width--lg)
 
+	+media('<desk-sm')
+		margin-left: 0
+
 .content
 	padding: #{$layout-spaces} #{$layout-spaces}
 
@@ -146,6 +153,12 @@ body
 		margin-left: $sidebar-width--lg
 		max-width: calc(100% - #{$sidebar-width--lg})
 
+	+media('<desk-sm')
+		max-width: 100%
+		width: 100%
+		margin-left: 0
+		padding-left: 0
+
 .sidebar
 	position: fixed
 	+position(0, 0)
@@ -154,6 +167,17 @@ body
 
 	+media('<desk-lg')
 		width: $sidebar-width--lg
+
+	+media('>=desk-sm')
+		visibility: inherit !important
+		opacity: 1 !important
+		transform: matrix(1, 0, 0, 1, 0, 0) !important
+
+	+media('<desk-sm')
+		opacity: 0
+		visibility: hidden
+		height: calc(100% - #{$header-height})
+		top: $header-height
 
 .aside, .aside__holder
 	z-index: 999
@@ -227,6 +251,11 @@ body
 
 	+media('<desk-lg')
 		width: calc(#{$base-width--lg} - #{$aside-width--lg})
+		left: $sidebar-width--lg
+
+	+media('<desk-sm')
+		width: calc(100% - #{$aside-width--lg})
+		left: 0
 
 /* footer (layout) end
 

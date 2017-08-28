@@ -404,9 +404,13 @@
 	text-decoration: none
 	background-color: $bg-color-base
 	height: 460px
+	perspective: 1500px
 
 	+media('<desk-hd')
 		height: 380px
+
+	+media('<desk-md')
+		height: 320px
 
 	.slick-initialized &
 		// after slide load
@@ -424,8 +428,12 @@
 	border-radius: 50%
 
 	+media('<desk-hd')
-		width: 570px
-		max-width: calc(100% - #{$promo-slider-space--md}*4)
+		width: 700px
+		max-width: calc(100% - #{$promo-slider-space--md}*3)
+
+	+media('<desk-md')
+		width: 620px
+		max-width: calc(100% - #{$promo-slider-space--md}*2)
 
 	&::before
 		+pseudo-block-relative()
@@ -435,20 +443,42 @@
 	position: absolute
 	+position(50%, 0)
 	+size(100%)
-	background-position: center
-	background-repeat: no-repeat
-	background-size: cover
+	background:
+		position: center
+		repeat: no-repeat
+		size: cover
+	transition:
+		property: opacity, transform
+		duration: 1.2s
+	backface-visibility: hidden
+	transform: scale(1.15)
+
+	.slick-active &
+		transform: scale(1)
 
 .promo-slider__text
 	position: absolute
 	+position(#{round($promo-slider-space*0.96)}, #{round($promo-slider-space + 10px)})
 	width: 650px
-	max-width: calc(100% - #{$promo-slider-space}*2)
+	max-width: calc(80% - #{$promo-slider-space}*2)
 	+font-bold
 	+font(36px, 48px)
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	color: white
+	opacity: 0
+	transition:
+		property: opacity, transform
+		duration: 0.4s
+	transform-origin: 50% top
+	transform: scale(1.1) translate(0, 50px)
+	+antialiased
+
+	.slick-active &
+		transform: scale(1) translate(0, 0)
+		opacity: 1
+		transition:
+			duration: 0.8s
 
 	span
 		background: $base-color-alt
@@ -456,8 +486,11 @@
 
 	+media('<desk-hd')
 		+position(#{$promo-slider-space--md})
-		max-width: calc(100% - #{$promo-slider-space--md}*2)
-		+font(24px, 36px)
+		max-width: calc(80% - #{$promo-slider-space--md}*2)
+		+font(30px, 44px)
+
+	+media('<desk-md')
+		+font(26px, 40px)
 
 		span
 			box-shadow: 6px 0 0 $base-color-alt, -6px 0 0 $base-color-alt
