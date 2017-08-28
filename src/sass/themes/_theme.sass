@@ -104,10 +104,21 @@ $border-color: #3a4165
 	//=========== SLIDERS ==========
 	/* several slider
 
-	.several-slider
-		.slider-arr
+	.slider-arr, .slick-arrow
+		&::before, &::after
+			border-color: $text-color-base
+
+	/* promo slider
+	.promo-slide
+		background-color: $text-color-base
+
+	.promo
+		.slider-arr, .slick-arrow
 			&::before, &::after
-				border-color: $text-color-base
+				border-color: $bg-color-base
+
+
+	/* promo slider end
 
 
 	.several-slider__item
@@ -233,33 +244,6 @@ $border-color: #3a4165
 
 	/* navigation end
 
-	/* sidebar
-	.sidebar
-		background-color: $bg-panels-color
-		border-right-color: $border-color
-
-	.sidebar__holder
-		background-image: none
-
-	.sidebar-widget
-		border-top-color: $border-color
-
-	/* menu
-	.menu-list
-
-		a
-			color: $text-color-base
-
-		.no-touchevents & a:hover
-			color: $base-color
-
-		.current a
-			color: $text-color-base !important
-			background-color: $base-color
-
-	/* menu end
-	/* sidebar end
-
 	/* news previews
 	.news-previews__date
 		color: $text-color-light
@@ -357,6 +341,47 @@ $border-color: #3a4165
 				background-color: $base-color-alt
 
 	/* structure end
+
+	/* sidebar
+	.sidebar
+		background-color: $bg-panels-color
+		border-right-color: $border-color
+
+	.sidebar__holder
+		background-image: none
+
+	.sidebar-widget
+		border-top-color: $border-color
+
+	/* menu
+	.menu-list
+
+		a
+			color: $text-color-base
+
+		.no-touchevents & a:hover
+			color: $base-color
+
+		.current a
+			color: $text-color-base !important
+			background-color: $base-color
+
+	/* menu end
+	/* sidebar end
+
+	/* aside
+	/* actual links
+	.actual-links
+		a
+			span
+				border-color: tint($text-color, 40%)
+
+			.no-touchevents &:hover
+				span
+					border-color: $base-color
+
+	/* actual links end
+	/* aside end
 
 
 
