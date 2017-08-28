@@ -6,13 +6,14 @@
 .info-links
 	display: table
 	width: 100%
-	background-image: url(../../img/bg-logo-right-bottom.png)
-	background-position: right bottom
-	background-repeat: no-repeat
-	background-size: 89.1%
+	background:
+		image: url(../../img/bg-logo-right-bottom.png)
+		position: right bottom
+		repeat: no-repeat
+		size: 89.1%
 
 	.aside &
-		margin-bottom: $aside-bottom-space
+		margin-bottom: $aside-widget-bottom-space
 
 		&:last-child
 			margin-bottom: 0
@@ -29,8 +30,12 @@
 	text-align: center
 	padding: 30px 40px
 	background-color: $bg-color-base
-	transition-property: background-color, color
-	transition-duration: $animation-speed
+	transition:
+		property: background-color, color
+		duration: $animation-speed
+
+	+media('<desk-lg')
+		padding: #{round($grid-space--lg*0.9)} #{$grid-space--lg}
 
 	&::before
 		+pseudo()
@@ -40,6 +45,10 @@
 		border-top: 2px solid $border-color
 		transition-property: opacity
 		transition-duration: $animation-speed
+
+		+media('<desk-lg')
+			width: 186px
+			margin-left: round(-186px/2)
 
 	.info-links__item:first-child &
 		&::before

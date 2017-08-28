@@ -37,6 +37,10 @@ body
 		@else
 			max-width: calc(100% - #{$sidebar-width})
 
+		+media('<desk-lg')
+			left: $sidebar-width--lg
+			max-width: calc(100% - #{$sidebar-width--lg})
+
 	.bg-img-inner
 		display: block
 		+size(100%)
@@ -85,7 +89,12 @@ body
 	padding: #{round($layout-spaces*0.95)} #{$layout-spaces}
 
 	+media('<desk-hd')
-		padding: #{$layout-spaces--md} #{$layout-spaces--md}
+		padding: #{$layout-spaces--hd} #{$layout-spaces--hd}
+
+	+media('<desk-lg')
+		width: calc(100% - #{$sidebar-width--lg})
+		padding: #{$layout-spaces--lg} #{$layout-spaces--lg}
+		margin-left: #{$sidebar-width--lg}
 
 .main
 	position: relative
@@ -99,11 +108,20 @@ body
 	min-height: 50px
 	+clear
 
+	+media('<desk-hd')
+		margin-right: $aside-width--hd
+
+	+media('<desk-lg')
+		+margin-horizontal($sidebar-width--lg, $aside-width--lg)
+
 .content
 	padding: #{$layout-spaces} #{$layout-spaces}
 
 	+media('<desk-hd')
-		padding: #{$layout-spaces--md} #{$layout-spaces--md}
+		padding: #{$layout-spaces--hd} #{$layout-spaces--hd}
+
+	+media('<desk-lg')
+		padding: #{$layout-spaces--lg} #{$layout-spaces--lg}
 
 .header
 	position: fixed
@@ -120,13 +138,22 @@ body
 		max-width: calc(100% - #{$sidebar-width})
 
 	+media('<desk-hd')
-		padding-left: $layout-spaces--md
+		padding-left: $layout-spaces--hd
+
+	+media('<desk-lg')
+		width: calc(100% - #{$sidebar-width--lg})
+		padding-left: $layout-spaces--lg
+		margin-left: $sidebar-width--lg
+		max-width: calc(100% - #{$sidebar-width--lg})
 
 .sidebar
 	position: fixed
 	+position(0, 0)
 	+size($sidebar-width, 100%)
 	z-index: 1001
+
+	+media('<desk-lg')
+		width: $sidebar-width--lg
 
 .aside, .aside__holder
 	z-index: 999
@@ -139,13 +166,23 @@ body
 	padding-right: #{$layout-spaces}
 
 	+media('<desk-hd')
-		padding-right: #{$layout-spaces--md}
+		padding-right: #{$layout-spaces--hd}
+		width: #{$aside-width--hd}
+		margin-left: -#{$aside-width--hd}
+
+	+media('<desk-lg')
+		padding-right: #{$layout-spaces--lg}
+		width: #{$aside-width--lg}
+		margin-left: -#{$aside-width--lg}
 
 .aside__holder
-	padding: #{$layout-spaces} 0
+	+padding-vertical(#{$layout-spaces})
 
 	+media('<desk-hd')
-		padding: #{$layout-spaces--md} 0
+		+padding-vertical(#{$layout-spaces--hd})
+
+	+media('<desk-lg')
+		+padding-vertical(#{$layout-spaces--lg})
 
 /* footer (layout)
 .footer
@@ -158,7 +195,10 @@ body
 	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
 
 	+media('<desk-hd')
-		padding: 0 #{$layout-spaces--md} round($layout-spaces--md*0.8)
+		padding: 0 #{$layout-spaces--hd} round($layout-spaces--hd*0.8)
+
+	+media('<desk-lg')
+		padding: 0 #{$layout-spaces--lg} round($layout-spaces--lg*0.8)
 
 /* footer gov (layout) end
 
@@ -167,23 +207,26 @@ body
 	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
 
 	+media('<desk-hd')
-		padding: 0 #{$layout-spaces--md} round($layout-spaces--md*0.8)
+		padding: 0 #{$layout-spaces--hd} round($layout-spaces--hd*0.8)
+
+	+media('<desk-lg')
+		padding: 0 #{$layout-spaces--lg} round($layout-spaces--lg*0.8)
 
 /* footer common (layout) end
 
 .footer__holder
 	$base-width: 100% - #{$sidebar-width}
+	$base-width--lg: 100% - #{$sidebar-width--lg}
 
 	&
 		left: $sidebar-width
 		width: calc(#{$base-width} - #{$aside-width})
 
-	//+media('<desk-lg')
-		width: calc(#{$base-width} - #{$aside-width})
+	+media('<desk-hd')
+		width: calc(#{$base-width} - #{$aside-width--hd})
 
-	//+media('<tab-lg')
-		left: 0
-		width: 100%
+	+media('<desk-lg')
+		width: calc(#{$base-width--lg} - #{$aside-width--lg})
 
 /* footer (layout) end
 

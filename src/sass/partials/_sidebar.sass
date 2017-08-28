@@ -11,9 +11,15 @@
 	width: #{$sidebar-width + 100px}
 	background-color: inherit
 
+	+media('<desk-lg')
+		width: #{$sidebar-width--lg + 100px}
+
 .sidebar__holder
 	position: relative
 	width: $sidebar-width
+
+	+media('<desk-lg')
+		width: $sidebar-width--lg
 
 	background: url(../../img/bg-sidebar-img.png) no-repeat left bottom
 	background-size: 89.1%
@@ -22,15 +28,24 @@
 	.no-flexbox &
 		width: $sidebar-width
 
+		+media('<desk-lg')
+			width: $sidebar-width--lg
+
 	// в ие 11 не поддерживается flex-direction: column вместе с min-height
 	// для этого браузера исспользуем хак
 	@media all and (-ms-high-contrast: none)
 		&::-ms-backdrop, &
 			width: $sidebar-width
 
+			+media('<desk-lg')
+				width: $sidebar-width--lg
+
 .sidebar-widget
-	padding: $sidebar-inside-space
+	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
 	border-top: 1px solid $border-color
+
+	+media('<desk-lg')
+		padding: round($sidebar-inside-space--lg*0.85) $sidebar-inside-space--lg
 
 /* social networks (in sidebar)
 .social-networks__list
@@ -43,6 +58,9 @@
 	list-style: none
 	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
 	margin: 0
+
+	+media('<desk-lg')
+		padding: round($sidebar-inside-space--lg*0.3) $sidebar-inside-space--lg
 
 	$item-space-h: 30px
 	$item-space-v: 14px

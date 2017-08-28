@@ -122,9 +122,13 @@
 		&.theme-toggle
 			a
 				background-color: $bg-panels-color !important
-				color: $base-color !important
-				fill: $base-color !important
+				color: $text-color-base !important
+				fill: $text-color-base !important
 				box-shadow: -1px 0 0 $border-color !important
+
+			.no-touchevents &:hover
+				color: $base-color
+				fill: $text-color-base
 
 		.text-theme--light, .svg-theme--light
 			display: inline-block

@@ -585,6 +585,12 @@ table
 		transition:
 			delay: 0.1s
 
+	+media('<desk-lg')
+		height: 175px
+
+		.page-is-scrolled &
+			height: 100px
+
 .logo-side-text
 	+hide-text
 
@@ -610,6 +616,10 @@ table
 		height: 76px
 		margin-left: -27px
 
+		+media('<desk-lg')
+			top: 43px
+			transform: scale(0.84)
+
 	&::after
 		top: 164px
 		background: url(../../img/logo-t.svg) no-repeat
@@ -617,12 +627,23 @@ table
 		height: 43px
 		margin-left: -90px
 
+		+media('<desk-lg')
+			top: 130px
+			transform: scale(0.84)
+
 	.page-is-scrolled &
 		&::before
 			transform: translate(-96px, -19px) scale(0.92)
 
 		&::after
 			transform: translate(38px, -100px) scale(0.92)
+
+		+media('<desk-lg')
+			&::before
+				transform: translate(-78px, -28px) scale(0.77)
+
+			&::after
+				transform: translate(30px, -94px) scale(0.77)
 
 /* logo in sidebar end
 

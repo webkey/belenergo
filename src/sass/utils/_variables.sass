@@ -99,8 +99,9 @@ $page-layout-space-horizontal: 0 !default
 // максимальная ширина сайта
 $page-layout-width: 1920px !default
 // отступы между основновными элементами странницы
-$layout-spaces: 80px - 6px !default // -6px для компенсации скролла
-$layout-spaces--md: 60px !default // -6px для компенсации скролла
+$layout-spaces: 80px - 6px !default // -6px (x3) для компенсации скролла
+$layout-spaces--hd: 60px - 6px !default // -6px (x3) для компенсации скролла
+$layout-spaces--lg: 36px - 6px !default // -6px (x3) для компенсации скролла
 // ==================
 // минимальные отступы слева и справа у текствого блока
 $text-layout-indent: 160px !default
@@ -114,6 +115,7 @@ $flood-layout-width: 1000px !default
 // ==================
 // отступы внутри блочных элементов
 $grid-space: 28px !default
+$grid-space--lg: 20px !default
 
 // form
 $form-text-color: $text-color !default
@@ -171,11 +173,15 @@ $nav-item-space--sm: 30px !default
 
 // sidebar
 $sidebar-width: 340px !default
+$sidebar-width--lg: 260px !default
 $sidebar-inside-space: 50px !default
+$sidebar-inside-space--lg: 30px !default
 
 // aside
 $aside-width: 320px + $layout-spaces !default
-$aside-bottom-space: 60px !default
+$aside-width--hd: 320px + $layout-spaces--hd !default
+$aside-width--lg: 245px + $layout-spaces--lg !default
+$aside-widget-bottom-space: 60px !default
 
 // animation
 $animation-speed: 0.2s !default

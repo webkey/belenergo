@@ -352,12 +352,12 @@
 
 	.slider-arrows
 		position: absolute
-		right: #{$promo-slider-space - 25px}
 		bottom: round($promo-slider-space*0.96)
+		right: #{$promo-slider-space - 25px}
 
 		+media('<desk-hd')
-			bottom: $promo-slider-space--md
-			right: $promo-slider-space--md
+			bottom: round($promo-slider-space--md*0.96)
+			right: #{$promo-slider-space--md - 25px}
 
 .promo-slider
 	transition:
