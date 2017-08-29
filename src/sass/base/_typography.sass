@@ -5,6 +5,9 @@
 html
 	font-size: 62.5%
 
+	&.css-scroll-fixed
+		+scroll-blocked() // блокировка скролла
+
 body
 	+font-normal
 	+font($font-size, $line-height)
@@ -571,6 +574,25 @@ table
 
 /* view print end
 
+/* logo in header
+.logo
+	display: none
+	float: left
+	text-indent: -9999px
+	overflow: hidden
+	text-align: left
+	background: url(../../img/logo-full.svg) no-repeat center
+	background-size: 86%
+	+size(200px, #{$header-height})
+
+	+media('<desk-sm')
+		display: block
+
+.logo-for-print
+	display: none
+
+/* logo in header end
+
 /* logo in sidebar
 .logo-side
 	display: block
@@ -872,6 +894,9 @@ table
 /* visual preview end
 
 /* short contacts
+.short-contacts-wrap
+	text-align: center
+
 .short-contacts
 	$icon-size: 24px
 	$icon-space: 10px
@@ -890,6 +915,10 @@ table
 
 			&::before
 				content: none
+
+	&
+		+display-inline-block-top
+		text-align: left
 
 	li
 		+clear-spacing

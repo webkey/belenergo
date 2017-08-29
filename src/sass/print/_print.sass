@@ -102,7 +102,7 @@
 		& > *
 			padding: 0!important
 
-	.sidebar, .aside, .print-hidden, .view-print, .nav, .nav-list, .breadcrumbs, .breadcrumbs__list, form, .footer, .spacer, [class*="btn-"]
+	.sidebar, .aside, .print-hidden, .view-print, .nav, .nav-list, .breadcrumbs, .breadcrumbs__list, form, .footer, .spacer, [class*="btn-"], .logo
 		display: none !important
 
 	.main, .content, .layout, .layout-text, .layout-flood, .header, .header__holder, .blockquote, .blockquote *, blockquote, .imgl, .imgr, .imgc, table, blockquote, q, cite
@@ -114,15 +114,8 @@
 	.header, .blockquote, hr, blockquote
 		+prints-space-bottom-md
 
-	.logo
-		background: none !important
-
-		& > *
-			display: none !important
-
-		& > img
-			display: block !important
-			float: left !important
+	.logo-for-print
+		display: block
 
 	blockquote q::before, blockquote q::after
 		padding: 0 !important

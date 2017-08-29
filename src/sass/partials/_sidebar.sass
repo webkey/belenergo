@@ -14,12 +14,18 @@
 	+media('<desk-lg')
 		width: #{$sidebar-width--lg + 100px}
 
+	+media('<desk-sm')
+		width: #{$sidebar-width + 100px}
+
 .sidebar__holder
 	position: relative
 	width: $sidebar-width
 
 	+media('<desk-lg')
 		width: $sidebar-width--lg
+
+	+media('<desk-sm')
+		width: $sidebar-width
 
 	background: url(../../img/bg-sidebar-img.png) no-repeat left bottom
 	background-size: 89.1%
@@ -31,6 +37,9 @@
 		+media('<desk-lg')
 			width: $sidebar-width--lg
 
+		+media('<desk-sm')
+			width: $sidebar-width
+
 	// в ие 11 не поддерживается flex-direction: column вместе с min-height
 	// для этого браузера исспользуем хак
 	@media all and (-ms-high-contrast: none)
@@ -39,6 +48,9 @@
 
 			+media('<desk-lg')
 				width: $sidebar-width--lg
+
+			+media('<desk-sm')
+				width: $sidebar-width
 
 .sidebar-widget
 	padding: round($sidebar-inside-space*0.85) $sidebar-inside-space
@@ -56,11 +68,11 @@
 /* menu
 .menu-list, .sidebar .nav-list
 	list-style: none
-	padding: round($sidebar-inside-space*0.3) $sidebar-inside-space
+	padding: round($sidebar-inside-space*0.5) $sidebar-inside-space
 	margin: 0
 
 	+media('<desk-lg')
-		padding: round($sidebar-inside-space--lg*0.3) $sidebar-inside-space--lg
+		padding: round($sidebar-inside-space--lg*0.85) $sidebar-inside-space--lg
 
 	$item-space-h: 30px
 	$item-space-v: 14px
@@ -96,7 +108,16 @@
 /* navigation
 .sidebar
 	.nav
-		border-top: 1px solid $border-color
+		position: relative
+
+		&::before
+			$width: 200px
+
+			+pseudo()
+			+position(0, 50%)
+			+size($width, 0)
+			margin-left: -#{round($width/2)}
+			border-top: 1px solid $border-color
 
 	.nav-list
 		& > li

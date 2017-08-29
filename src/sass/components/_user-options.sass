@@ -68,7 +68,7 @@
 			background-color: $base-color-alt
 			color: $bg-color-base
 			fill: $bg-color-base
-			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15)
+			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
 
 		& > span
 			display: inline-block
@@ -103,7 +103,7 @@
 			background-color: $base-color-alt
 			color: white
 			fill: white
-			box-shadow: -1px 0 0 $base-color-alt
+			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
 
 		svg
 			&.svg-theme--dark
@@ -117,24 +117,6 @@
 
 	.text-theme--light, .svg-theme--light
 		display: none
-
-	.theme-dark &
-		&.theme-toggle
-			a
-				background-color: $bg-panels-color !important
-				color: $text-color-base !important
-				fill: $text-color-base !important
-				box-shadow: -1px 0 0 $border-color !important
-
-			.no-touchevents &:hover
-				color: $base-color
-				fill: $text-color-base
-
-		.text-theme--light, .svg-theme--light
-			display: inline-block
-
-		.text-theme--dark, .svg-theme--dark
-			display: none
 
 	&.lang
 		width: auto

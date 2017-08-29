@@ -18,7 +18,7 @@ var resizeByWidth = true;
 var prevWidth = -1;
 $(window).resize(function () {
 	var currentWidth = $('body').outerWidth();
-	resizeByWidth = prevWidth != currentWidth;
+	resizeByWidth = prevWidth !== currentWidth;
 	if (resizeByWidth) {
 		$(window).trigger('resizeByWidth');
 		prevWidth = currentWidth;
@@ -827,6 +827,12 @@ function toggleDrop() {
 			closeDrop();
 		});
 
+		$(document).keyup(function(e) {
+			if ($choiceContainer.hasClass(openClass) && e.keyCode === 27) {
+				closeDrop();
+			}
+		});
+
 		$choiceContainer.on('closeChoiceDrop', function () {
 			closeDrop();
 		});
@@ -892,7 +898,12 @@ function toggleSearchForm(){
 
 		setTimeout(function () {
 			$searchField.trigger('focus');
-			$('.js-choice-wrap').trigger('closeChoiceDrop'); // close lang drop
+
+			// close lang drop
+			var $choiceContainer = $('.js-choice-wrap');
+			if($choiceContainer.hasClass('choice-opened')) {
+				$choiceContainer.trigger('closeChoiceDrop');
+			}
 		}, 50);
 
 		$html.addClass(classFormIsOpen);
@@ -1113,6 +1124,7 @@ function contactsMap() {
 		overlayAppendTo: 'body', // where to place overlay
 		overlayAlpha: 0.8,
 		overlayIndex: 997,
+		overlayBg: 'black',
 		classReturn: null,
 		overlayBoolean: true,
 		animationType: 'ltr', // rtl or ltr
@@ -1162,6 +1174,7 @@ function contactsMap() {
 		self._overlayAlpha = options.overlayAlpha;
 		self._overlayIndex = options.overlayIndex;
 		self._animateSpeedOverlay = options.animationSpeedOverlay || _animateSpeed;
+		self._overlayBg = options.overlayBg;
 		self._minWidthItem = options.minWidthItem;
 		self._mediaWidth = options.mediaWidth;
 		self.closeOnResize = options.closeOnResize;
@@ -1203,7 +1216,7 @@ function contactsMap() {
 			height: '100%',
 			left: 0,
 			top: 0,
-			background: '#000',
+			background: self._overlayBg,
 			'z-index': self._overlayIndex,
 			onComplete: function () {
 				TweenMax.to($overlay, self._animateSpeedOverlay / 1000, {autoAlpha: self._overlayAlpha});
@@ -1359,9 +1372,10 @@ function contactsMap() {
 				$html.addClass(classAfterOpen);
 				$buttonClose.addClass(classAfterOpen);
 
-				if (DESKTOP) {
-					noScroll();
-				}
+				// blocked scroll on page
+				// if (DESKTOP) {
+				// 	noScroll();
+				// }
 			}
 		});
 
@@ -1425,9 +1439,10 @@ function contactsMap() {
 						autoAlpha: alpha
 					});
 
-					if (DESKTOP) {
-						canScroll();
-					}
+					// unblocked scroll on page
+					// if (DESKTOP) {
+					// 	canScroll();
+					// }
 
 					if(self.cssScrollBlocked){
 						self.cssScrollUnfixed();
@@ -1448,9 +1463,10 @@ function contactsMap() {
 						autoAlpha: alpha
 					});
 
-					if (DESKTOP) {
-						canScroll();
-					}
+					// unblocked scroll on page
+					// if (DESKTOP) {
+					// 	canScroll();
+					// }
 
 					if(self.cssScrollBlocked){
 						self.cssScrollUnfixed();
@@ -1468,9 +1484,10 @@ function contactsMap() {
 						self.preparationAnimation();
 					}
 
-					if (DESKTOP) {
-						canScroll();
-					}
+					// unblocked scroll on page
+					// if (DESKTOP) {
+					// 	canScroll();
+					// }
 
 					if(self.cssScrollBlocked){
 						self.cssScrollUnfixed();
@@ -1610,6 +1627,13 @@ function popupsInit(){
 	// $searchPopup.on('extraPopupBeforeOpen', function () {
 	// 	$navPopup.trigger('extraPopupClose');
 	// });
+	$navPopup.on('extraPopupBeforeOpen', function () {
+		// close lang drop
+		var $choiceContainer = $('.js-choice-wrap');
+		if($choiceContainer.hasClass('choice-opened')) {
+			$choiceContainer.trigger('closeChoiceDrop');
+		}
+	});
 }
 
 /**

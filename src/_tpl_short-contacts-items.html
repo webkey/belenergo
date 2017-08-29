@@ -1,48 +1,51 @@
-<ul class="short-contacts">
-	@@if (context.phone) {
-	<li>
-		<svg class="ico-search" viewBox="0 0 83.9 82">
-			<use xlink:href="#ico-phone"></use>
-		</svg>
-		@@for (var i = 0; i < phone.length; i++) {
-		<a href="tel:`+phone[i]+`">
-			<span>`+phone[i]+`</span>
-		</a>
+<div class="short-contacts-wrap">
+
+	<ul class="short-contacts">
+		@@if (context.phone) {
+		<li>
+			<svg class="ico-search" viewBox="0 0 83.9 82">
+				<use xlink:href="#ico-phone"></use>
+			</svg>
+			@@for (var i = 0; i < phone.length; i++) {
+			<a href="tel:`+phone[i]+`">
+				<span>`+phone[i]+`</span>
+			</a>
+			}
+		</li>
 		}
-	</li>
-	}
-	@@if (context.fax) {
-	<li>
-		<svg class="ico-search" viewBox="0 0 309 247">
-			<use xlink:href="#ico-fax"></use>
-		</svg>
-		<div>
-			<span>@@fax</span>
-		</div>
-	</li>
-	}
-	@@if (context.email) {
-	<li>
-		<svg class="ico-search" viewBox="0 0 88 58">
-			<use xlink:href="#ico-email"></use>
-		</svg>
-		@@for (var i = 0; i < email.length; i++) {
-		<a href="mailto:`+email[i]+`">
-			<span>`+email[i]+`</span>
-		</a>
+		@@if (context.fax) {
+		<li>
+			<svg class="ico-search" viewBox="0 0 309 247">
+				<use xlink:href="#ico-fax"></use>
+			</svg>
+			<div>
+				<span>@@fax</span>
+			</div>
+		</li>
 		}
-	</li>
-	}
-	@@if (context.time) {
-	<li>
-		<svg class="ico-search" viewBox="0 0 60 60">
-			<use xlink:href="#ico-time"></use>
-		</svg>
-		@@for (var i = 0; i < time.length; i++) {
-		<div>
-			<span>`+time[i]+`</span>
-		</div>
+		@@if (context.email) {
+		<li>
+			<svg class="ico-search" viewBox="0 0 88 58">
+				<use xlink:href="#ico-email"></use>
+			</svg>
+			@@for (var i = 0; i < email.length; i++) {
+			<a href="mailto:`+email[i]+`">
+				<span>`+email[i]+`</span>
+			</a>
+			}
+		</li>
 		}
-	</li>
-	}
-</ul>
+		@@if (context.time) {
+		<li>
+			<svg class="ico-search" viewBox="0 0 60 60">
+				<use xlink:href="#ico-time"></use>
+			</svg>
+			@@for (var i = 0; i < time.length; i++) {
+			<div>
+				<span>`+time[i]+`</span>
+			</div>
+			}
+		</li>
+		}
+	</ul>
+</div>

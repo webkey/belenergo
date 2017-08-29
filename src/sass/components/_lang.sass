@@ -42,7 +42,7 @@
 	&.choice-opened > a
 		background-color: $bg-color-selected
 		color: $text-color-base
-		box-shadow: -1px 0 0 rgba($text-color-base, 0.15)
+		box-shadow: -1px 0 0 rgba($text-color-base, 0.15), inset 0 -1px 0 $border-color
 
 		& > span
 			&::before, &::after
@@ -66,8 +66,8 @@
 	opacity: 0
 	visibility: hidden
 	background-color: $bg-panels-color
-	border: 0 solid $border-color
-	border-width: 1px 1px 1px 0
+	border: solid $border-color
+	border-width: 0 1px 1px 0
 	box-shadow: -1px 0 0 $border-color
 	transition:
 		property: opacity, visibility
