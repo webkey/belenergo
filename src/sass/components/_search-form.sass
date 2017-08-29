@@ -25,6 +25,9 @@
 		width: 100%
 		+padding-horizontal($header-height)
 
+		+media('<tab-lg')
+			+padding-horizontal($header-height--sm)
+
 	form
 		display: table
 		+size(100%)
@@ -64,6 +67,9 @@
 		transition:
 			property: background-color
 			duration: $animation-speed
+
+		+media('<tab-lg')
+			+size($header-height--sm)
 
 		span
 			+hide-text
@@ -137,6 +143,9 @@
 	transition:
 		property: background-color
 		duration: $animation-speed
+
+	+media('<tab-lg')
+		+size($header-height--sm)
 
 	span
 		+hide-text

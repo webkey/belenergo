@@ -588,6 +588,10 @@ table
 	+media('<desk-sm')
 		display: block
 
+	+media('<tab-lg')
+		+size(180px, $header-height--sm)
+		background-size: 80%
+
 .logo-for-print
 	display: none
 
@@ -681,6 +685,9 @@ table
 	margin-bottom: $bottom-space--md
 	+clear-spacing
 
+	+media('<desk-lg')
+		margin-bottom: $bottom-space
+
 	&::before
 		+pseudo()
 		left: calc(54% - 1px)
@@ -688,6 +695,9 @@ table
 		bottom: 5px
 		border-left: 0 solid $base-color
 		border-width: 0 0 0 2px
+
+		+media('<desk-lg')
+			left: calc(50% - 1px)
 
 	&:last-child
 		margin-bottom: 0
@@ -705,6 +715,9 @@ table
 	+media('<desk-hd')
 		font-size: 28px
 
+	+media('<desk-lg')
+		width: 50%
+
 .caption__text
 	+display-inline-block-middle
 	width: 45.98%
@@ -712,6 +725,9 @@ table
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
 	color: inherit
+
+	+media('<desk-lg')
+		width: 49.98%
 
 /* caption end
 

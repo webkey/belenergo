@@ -10,6 +10,9 @@
 		min-height: calc(100vh - #{$header-height} - #{$layout-spaces})
 		+clear
 
+		+media('<tab-lg')
+			min-height: calc(100vh - #{$header-height--sm} - #{$layout-spaces})
+
 	.aside
 		display: none
 
@@ -57,6 +60,9 @@
 	left: 50%
 	height: calc(100vh - #{$header-height})
 	//width: calc((100vw - #{$sidebar-width} - #{$aside-width})/2 + #{$aside-width})
+
+	+media('<desk-lg')
+		height: calc(100vh - #{$header-height--sm})
 
 	&::after
 		+pseudo()

@@ -157,6 +157,8 @@
 // ========== CUSTOM ARROW OF SLIDERS ==========//
 /* custom arrow of sliders
 .slider-arrows
+	display: block
+	text-align: center
 	+clear-spacing
 	user-select: none
 
@@ -432,7 +434,7 @@
 		max-width: calc(100% - #{$promo-slider-space--md}*3)
 
 	+media('<desk-md')
-		width: 620px
+		width: 600px
 		max-width: calc(100% - #{$promo-slider-space--md}*2)
 
 	&::before
@@ -525,20 +527,27 @@
 	+push-auto
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-lg')
+		margin-bottom: 3.2rem
+
 	&:last-child
 		margin-bottom: 0
-
-	.slider-arrows
-		display: block
-		text-align: center
 
 .several-slider-list
 	// before slide load
 	white-space: nowrap
 	overflow: hidden
+	transition:
+		property: opacity, visibility
+		duration: $animation-speed
+	opacity: 0
+	visibility: hidden
 	// before slide load end
 	+push-auto
 	margin-bottom: $bottom-space--md
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space
 
 	&:last-child
 		margin-bottom: 0
@@ -547,6 +556,8 @@
 		// after slide load
 		white-space: normal
 		overflow: visible
+		opacity: 1
+		visibility: visible
 		// after slide load end
 
 	&.slick-dotted
@@ -657,3 +668,12 @@
 		duration: $animation-speed
 
 /* several slider end
+
+/* info links slider (for mobile)
+.info-links-slider
+	display: none
+
+	+media('<tab-lg')
+		display: block
+
+/* info links slider (for mobile) end

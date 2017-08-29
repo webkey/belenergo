@@ -733,6 +733,20 @@ function slidersInit() {
 							slidesToShow: 2,
 							slidesToScroll: 2
 						}
+					},
+					{
+						breakpoint: 960,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 3
+						}
+					},
+					{
+						breakpoint: 768,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
 					}
 				]
 			});
@@ -774,6 +788,20 @@ function slidersInit() {
 					},
 					{
 						breakpoint: 1280,
+						settings: {
+							slidesToShow: 2,
+							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 960,
+						settings: {
+							slidesToShow: 3,
+							slidesToScroll: 3
+						}
+					},
+					{
+						breakpoint: 768,
 						settings: {
 							slidesToShow: 2,
 							slidesToScroll: 2
@@ -999,13 +1027,18 @@ function stickyLayout() {
 	/*aside sticky*/
 	var $aside = $(".aside__holder");
 
-	if ($aside.length) {
-
+	if ($aside.length && window.innerWidth >= 960) {
 		$aside.stick_in_parent({
 			parent: '.layout',
 			offset_top: $('.header').outerHeight()
 		});
 	}
+
+	$(window).on('debouncedresize', function () {
+		if(window.innerWidth < 960) {
+			$aside.trigger("sticky_kit:detach");
+		}
+	})
 }
 
 /**
@@ -1644,6 +1677,7 @@ function footerBottom() {
 
 	if ($footer.length) {
 		$('.main__holder').append($('<div class="spacer"></div>')); // need for sidebar's element sticky of bottom page
+		$('.wrapper').append($('<div class="spacer"></div>')); // need for sidebar's element sticky of bottom page (for responsive)
 
 		setTimeout(function () {
 			layoutFooter();
@@ -1737,11 +1771,11 @@ $(window).on('debouncedresize', function () {
 });
 
 $(document).ready(function () {
+	footerBottom();
 	// switchCecutientVersion();
 	// checkCecutientVersionCookie();
 	switchTheme();
 	checkThemeCookie();
-	footerBottom();
 	placeholderInit();
 	printShow();
 	inputToggleFocusClass();

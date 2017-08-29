@@ -6,7 +6,7 @@
 	position: relative
 
 /* aside widget
-.aside-widget
+.aside-widget, .banners-item
 	margin-bottom: $layout-spaces
 
 	+media('<desk-hd')
@@ -68,6 +68,19 @@
 				border-color: tint($base-color, 40%)
 
 /* actual links end
+
+/* banners
+.banners
+	+media('<tab-lg')
+		+grid-parent($layout-spaces--lg)
+		+clear-spacing
+
+.banners-item
+	+media('<tab-lg')
+		+grid-item(2, $layout-spaces--lg)
+		letter-spacing: 0.025em
+
+/* banners end
 
 /* banner inner
 .banner-inner

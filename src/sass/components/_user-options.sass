@@ -17,6 +17,10 @@
 	+size(auto, $header-height)
 	min-width: $header-height
 
+	+media('<tab-lg')
+		height: $header-height--sm
+		min-width: $header-height--sm
+
 	& > a
 		display: block
 		height: 100%
@@ -94,6 +98,9 @@
 			a > span
 				display: none
 
+		+media('<tab-lg')
+			height: $header-height--sm
+
 	&.theme-toggle
 		width: auto
 		min-width: 155px
@@ -105,6 +112,10 @@
 			fill: white
 			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
 
+			+media('<tab-lg')
+				span
+					display: none
+
 		svg
 			&.svg-theme--dark
 				+size(16px)
@@ -114,6 +125,10 @@
 
 		+media('<desk-hd')
 			min-width: 130px
+
+		+media('<tab-lg')
+			height: $header-height--sm
+			min-width: $header-height--sm
 
 	.text-theme--light, .svg-theme--light
 		display: none

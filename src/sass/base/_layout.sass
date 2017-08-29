@@ -45,6 +45,9 @@ body
 			left: 0
 			max-width: 100%
 
+		+media('<tab-lg')
+			top: $header-height--sm
+
 	.bg-img-inner
 		display: block
 		+size(100%)
@@ -58,6 +61,9 @@ body
 	overflow: hidden
 	position: relative
 	padding-top: $header-height
+
+	+media('<tab-lg')
+		padding-top: $header-height--sm
 
 	&::before,
 	&::after
@@ -121,6 +127,9 @@ body
 	+media('<desk-sm')
 		margin-left: 0
 
+	+media('<tab-lg')
+		margin-right: 0
+
 .content
 	padding: #{$layout-spaces} #{$layout-spaces}
 
@@ -159,6 +168,9 @@ body
 		margin-left: 0
 		padding-left: 0
 
+	+media('<tab-lg')
+		height: $header-height--sm
+
 .sidebar
 	position: fixed
 	+position(0, 0)
@@ -180,6 +192,10 @@ body
 		top: $header-height
 		width: $sidebar-width
 
+	+media('<tab-lg')
+		height: calc(100% - #{$header-height--sm})
+		top: $header-height--sm
+
 .aside, .aside__holder
 	z-index: 999
 
@@ -200,6 +216,13 @@ body
 		width: #{$aside-width--lg}
 		margin-left: -#{$aside-width--lg}
 
+	+media('<tab-lg')
+		display: block
+		float: left
+		width: 100%
+		margin: 0
+		padding-right: 0
+
 .aside__holder
 	+padding-vertical(#{$layout-spaces})
 
@@ -208,6 +231,12 @@ body
 
 	+media('<desk-lg')
 		+padding-vertical(#{$layout-spaces--lg})
+
+	+media('<tab-lg')
+		padding: #{$layout-spaces--lg} #{$layout-spaces--lg}
+		position: relative !important
+		top: auto !important
+		width: auto !important
 
 /* footer (layout)
 .footer
@@ -257,6 +286,9 @@ body
 	+media('<desk-sm')
 		width: calc(100% - #{$aside-width--lg})
 		left: 0
+
+	+media('<tab-lg')
+		width: 100%
 
 /* footer (layout) end
 
@@ -393,3 +425,18 @@ body
 .heading-article
 	&, .layout-article &
 		padding-left: $text-layout-indent
+
+/* footer at bottom
+.spacer
+	.wrapper > &
+		display: none
+
+		+media('<tab-lg')
+			display: block
+
+	.main__holder > &
+
+		+media('<tab-lg')
+			display: none
+
+/* footer at bottom end

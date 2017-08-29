@@ -18,6 +18,22 @@
 	<div class="main__holder">
 		<!--CONTENT-->
 		<div class="content user-content">
+			<!--info links slider (for mobile)-->
+			<div class="several-slider info-links-slider --duplicate">
+				<div class="several-slider-list add-shadow--full several-slider-js">
+					@@loop('_tpl_several-slider-items.html', 'includes-json/info-links-items.json')
+				</div>
+				<div class="slider-arrows">
+					<div class="slider-arrows__item">
+						<div class="slider-arr slider-arr--prev slider-arr-prev-js">Предыдущий слайд</div>
+					</div>
+					<div class="slider-arrows__item">
+						<div class="slider-arr slider-arr--next slider-arr-next-js">Следующий слайд</div>
+					</div>
+				</div>
+			</div>
+			<!--info links slider (for mobile) end-->
+
 			<section class="main-section">
 				<!--promo slide-->
 				<div class="promo">
@@ -29,7 +45,7 @@
 							<div class="slider-arr slider-arr--prev slider-arr-prev-js">Предыдущий слайд</div>
 						</div>
 						<div class="slider-arrows__item">
-							<div class="slider-arr slider-arr--next slider-arr-next-js">Слудующий слайд</div>
+							<div class="slider-arr slider-arr--next slider-arr-next-js">Следующий слайд</div>
 						</div>
 					</div>
 				</div>
@@ -115,7 +131,7 @@
 							<div class="slider-arr slider-arr--prev slider-arr-prev-js">Предыдущий слайд</div>
 						</div>
 						<div class="slider-arrows__item">
-							<div class="slider-arr slider-arr--next slider-arr-next-js">Слудующий слайд</div>
+							<div class="slider-arr slider-arr--next slider-arr-next-js">Следующий слайд</div>
 						</div>
 					</div>
 				</div>

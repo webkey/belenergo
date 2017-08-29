@@ -34,6 +34,9 @@
 	+media('<desk-lg')
 		padding: $grid-space--lg calc(103px - #{round($grid-space--lg/2)})
 
+	+media('<tab-lg')
+		padding: $grid-space--lg calc(63px - #{round($grid-space--lg/2)})
+
 	&.slick-initialized, .no-js &
 		// after slide load
 		white-space: normal
@@ -43,9 +46,14 @@
 	.slick-prev
 		left: 30px
 
+		+media('<tab-lg')
+			left: #{round($grid-space--lg/2)}
+
 	.slick-next
 		right: 30px
 
+		+media('<tab-lg')
+			right: #{round($grid-space--lg/2)}
 .gov__item
 	// before slide load
 	float: none
