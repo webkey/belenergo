@@ -43,6 +43,12 @@
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*0.9)} #{$grid-space--lg}
 
+	+media('<mob-md')
+		display: block
+		padding: #{$grid-space--lg}
+		text-align: left
+		direction: rtl
+
 	&::before
 		+pseudo()
 		+position(0, 50%)
@@ -79,6 +85,13 @@
 	+media('<desk-lg')
 		+font(15px, round-float(19/15, 2))
 
+	+media('<mob-md')
+		+display-inline-block-middle
+		margin: 0
+		width: calc(100% - 36px - 5px)
+		padding-left: $grid-space--lg
+		direction: ltr
+
 .info-links__icon
 	svg
 		+display-inline-block-top
@@ -86,5 +99,12 @@
 
 	path
 		fill: $base-color
+
+	+media('<mob-md')
+		+display-inline-block-middle
+		+size(36px)
+
+		svg
+			+size(36px)
 
 /* info links end

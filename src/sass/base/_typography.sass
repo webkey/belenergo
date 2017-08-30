@@ -578,19 +578,33 @@ table
 .logo
 	display: none
 	float: left
-	text-indent: -9999px
-	overflow: hidden
-	text-align: left
-	background: url(../../img/logo-full.svg) no-repeat center
-	background-size: 86%
 	+size(200px, #{$header-height})
+
+	a
+		text-indent: -9999px
+		overflow: hidden
+		display: block
+		height: 100%
+		background: url(../../img/logo-full.svg) no-repeat center
+		background-size: 86%
 
 	+media('<desk-sm')
 		display: block
 
 	+media('<tab-lg')
 		+size(180px, $header-height--sm)
-		background-size: 80%
+
+		a
+			background-size: 80%
+
+	+media('<mob-lg')
+		float: none
+		overflow: hidden
+		width: auto
+
+		a
+			+size(180px, $header-height--sm)
+			+push-auto
 
 .logo-for-print
 	display: none
@@ -693,17 +707,19 @@ table
 		left: calc(54% - 1px)
 		top: 5px
 		bottom: 5px
-		border-left: 0 solid $base-color
+		border-left: solid $base-color
 		border-width: 0 0 0 2px
 
 		+media('<desk-lg')
 			left: calc(50% - 1px)
 
+		+media('<desk-sm')
+			display: none
+
 	&:last-child
 		margin-bottom: 0
 
 .caption__title
-	+display-inline-block-middle
 	width: 54%
 	margin-bottom: 0
 	padding-right: 20px
@@ -718,8 +734,23 @@ table
 	+media('<desk-lg')
 		width: 50%
 
+	+media('<tab-sm')
+		margin-bottom: $bottom-space
+		padding-bottom: $bottom-space
+		position: relative
+
+		&::before
+			+pseudo()
+			left: 0
+			bottom: 0
+			width: 90px
+			border-top: solid $base-color
+			border-width: 2px 0 0
+
+	+media('<mob-md')
+		font-size: 24px
+
 .caption__text
-	+display-inline-block-middle
 	width: 45.98%
 	padding-left: 32px
 	+font(16px, round-float(24/16, 2))
@@ -728,6 +759,17 @@ table
 
 	+media('<desk-lg')
 		width: 49.98%
+
+.caption__title, .caption__text
+	+display-inline-block-middle
+
+	+media('<tab-sm')
+		display: block
+		width: auto
+		+padding-horizontal(0)
+
+		br
+			display: none
 
 /* caption end
 
@@ -766,6 +808,9 @@ table
 
 		&:last-child
 			margin-bottom: 0
+
+	+media('<mob-md')
+		font-size: 24px
 
 	.no-flexbox &
 		+display-inline-block-top
@@ -893,6 +938,9 @@ table
 .visual-preview
 	margin-right: -15px
 	margin-bottom: $bottom-space--md
+
+	+media('<desk-lg')
+		margin-bottom: 3.2rem
 
 	&:last-child
 		margin-bottom: 0

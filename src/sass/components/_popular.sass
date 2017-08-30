@@ -31,6 +31,12 @@
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*1.5)} #{$grid-space--lg}
 
+	+media('<mob-md')
+		display: block
+		padding: #{$grid-space--lg}
+		text-align: left
+		direction: rtl
+
 .popular__text
 	display: block
 	+font-medium
@@ -43,6 +49,13 @@
 		font-size: 14px
 		letter-spacing: 0.025em
 
+	+media('<mob-md')
+		+display-inline-block-middle
+		margin: 0
+		width: calc(100% - 36px - 5px)
+		padding-left: $grid-space--lg
+		direction: ltr
+
 .popular__icon
 	svg
 		+display-inline-block-top
@@ -50,5 +63,12 @@
 
 	path
 		fill: $base-color
+
+	+media('<mob-md')
+		+display-inline-block-middle
+		+size(36px)
+
+		svg
+			+size(36px)
 
 /* popular end

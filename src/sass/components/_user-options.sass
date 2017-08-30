@@ -35,6 +35,10 @@
 			property: background-color, color, box-shadow
 			duration: $animation-speed
 
+		+media('<mob-lg')
+			.sidebar &
+				box-shadow: -1px 0 0 $border-color
+
 		& > *
 			+display-inline-block-middle
 			+font-medium
@@ -87,7 +91,7 @@
 			+media('<desk-hd')
 				+padding-horizontal(15px)
 
-	&.banner-opener
+	//&.banner-opener
 		display: none
 
 	&.cecutient-link
@@ -116,6 +120,9 @@
 				span
 					display: none
 
+			+media('<mob-lg')
+				box-shadow: -1px 0 0 rgba($bg-color-base, 0.15)
+
 		svg
 			&.svg-theme--dark
 				+size(16px)
@@ -139,5 +146,14 @@
 
 		+media('<desk-hd')
 			min-width: 100px
+
+		+media('<mob-lg')
+			min-width: 0
+			width: 131px
+
+	&.cecutient-link, &.map-site-link, &.theme-toggle, &.lang
+		+media('<mob-lg')
+			.header &
+				display: none
 
 /* user options

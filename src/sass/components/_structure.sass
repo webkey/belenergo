@@ -4,9 +4,11 @@
 
 /* structure
 $structure-item-bottom-space: 40px
+$structure-item-bottom-space--sm: 30px
 $structure-branch-weight: 2px
 $structure-branch-space-v: 29px
 $structure-branch-space-h: 28px
+$structure-branch-space-h--sm: 14px
 
 .structure
 	margin-bottom: $bottom-space--lg
@@ -25,12 +27,21 @@ $structure-branch-space-h: 28px
 	margin-bottom: $structure-item-bottom-space
 	margin-left: $structure-branch-space-h
 
+	+media('<desk-lg')
+		margin-bottom: $structure-item-bottom-space--sm
+
+	+media('<mob-md')
+		margin-left: $structure-branch-space-h--sm
+
 	&:last-child
 		margin-bottom: 0
 
 	&::before
 		+size(#{$structure-branch-space-h}, calc(100% + #{$structure-item-bottom-space}))
 		border-width: 0 0 0 $structure-branch-weight
+
+		+media('<mob-md')
+			width: $structure-branch-space-h--sm
 
 	&:first-child
 		&::before
@@ -61,10 +72,19 @@ $structure-branch-space-h: 28px
 		property: background-color, color
 		duration: $animation-speed
 
+	+media('<desk-lg')
+		padding: #{round($grid-space--lg*0.5)} #{round($grid-space--lg*2 + $this-angle-lines-width)} #{round($grid-space--lg*0.5)} #{$grid-space--lg}
+
+	+media('<mob-md')
+		font-size: 14px
+
 	&::before
 		top: #{$structure-branch-space-v - $structure-branch-weight} // минус бордер
 		+size(#{$structure-branch-space-h}, 0)
 		border-width: $structure-branch-weight 0 0
+
+		+media('<mob-md')
+			width: $structure-branch-space-h--sm
 
 	.no-touchevents &:hover
 		background-color: $base-color-alt
@@ -81,13 +101,22 @@ $structure-branch-space-h: 28px
 		color: $text-color-light
 		padding-left: $counter-space-h
 
+		+media('<mob-md')
+			padding-left: 0
+
 		&::before
 			+display-inline-block-top
 			padding-right: $counter-space-h
 			content: "/"
 
+			+media('<mob-md')
+				content: none
+
 		&::after
 			content: attr(data-text)
+
+			+media('<mob-md')
+				content: '(' attr(data-text) ')'
 
 		&[data-text*="0"]
 			display: none
@@ -149,6 +178,9 @@ $structure-branch-space-h: 28px
 		property: background-color, color
 		duration: $animation-speed
 
+	+media('<desk-lg')
+		padding: #{round($grid-space--lg*0.5)} #{$grid-space--lg} #{round($grid-space--lg*0.5)}
+
 	.no-touchevents &:hover
 		//background-color: $base-color-alt
 		color: $base-color
@@ -156,6 +188,14 @@ $structure-branch-space-h: 28px
 .structure-panel-text, .structure-panel-label
 	display: table-cell
 	vertical-align: middle
+
+	+media('<mob-lg')
+		display: block
+		vertical-align: top
+		margin-bottom: 5px
+
+		&:last-child
+			margin-bottom: 0
 
 //.structure-panel-text
 	flex-basis: calc(100% - 200px)
@@ -172,6 +212,13 @@ $structure-branch-space-h: 28px
 	max-width: $width
 	min-width: $width
 	width: $width
+
+	+media('<mob-lg')
+		text-align: left
+		width: auto
+		padding-left: 0
+		max-width: none
+		min-width: 0
 
 	&:empty
 		display: none

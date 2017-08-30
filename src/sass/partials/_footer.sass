@@ -161,30 +161,21 @@
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
 
-	+media('<desk-lg')
-		+grid-item-responsive(3, $grid-space)
-
 	&:nth-last-child(1)
 		text-align: right
 
+	+media('<desk-lg')
+		+grid-item-responsive(2, $grid-space--lg)
+
+		&:nth-last-child(3)
+			text-align: right
+
+	+media('<mob-lg')
+		+grid-item-responsive(1, $grid-space--lg)
+		text-align: center !important
+
 	& > *:last-child
 		margin-bottom: 0
-
-.footer-nav__col-group
-	+display-inline-block-top
-	width: round-float(100%/4*3, 2)
-
-	+media('<desk-lg')
-		width: round-float(100%/3*2, 2)
-
-	.footer-nav__col
-		+grid-item-responsive(3, $grid-space)
-
-		+media('<desk-lg')
-			+grid-item-responsive(2, $grid-space)
-
-		&:nth-last-child(1)
-			text-align: left
 
 .footer-nav-list
 	list-style: none

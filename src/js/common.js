@@ -663,7 +663,11 @@ function slidersInit() {
 			var $arrPrev = $parentCurrentSlider.find('.slider-arr-prev-js');
 			var $arrNext = $parentCurrentSlider.find('.slider-arr-next-js');
 
-			$currentSlider.slick({
+			$currentSlider.on('init', function (event, el) {
+				$(el.$slides).matchHeight({
+					byRow: true, property: 'height', target: null, remove: false
+				});
+			}).slick({
 				fade: true,
 				speed: 500,
 				slidesToShow: 1,
@@ -675,8 +679,17 @@ function slidersInit() {
 				infinite: true,
 				dots: true,
 				prevArrow: $arrPrev,
-				nextArrow: $arrNext
+				nextArrow: $arrNext,
 				// arrows: true
+				responsive: [
+					{
+						breakpoint: 640,
+						settings: {
+							fade: false
+						}
+					}
+				]
+
 			});
 		});
 	}
@@ -747,6 +760,13 @@ function slidersInit() {
 							slidesToShow: 2,
 							slidesToScroll: 2
 						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
+						}
 					}
 				]
 			});
@@ -805,6 +825,13 @@ function slidersInit() {
 						settings: {
 							slidesToShow: 2,
 							slidesToScroll: 2
+						}
+					},
+					{
+						breakpoint: 480,
+						settings: {
+							slidesToShow: 1,
+							slidesToScroll: 1
 						}
 					}
 				]

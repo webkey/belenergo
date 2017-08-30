@@ -7,50 +7,12 @@
 	user-select: none
 	border-right: 1px solid $border-color
 
-.sidebar__align
-	width: #{$sidebar-width + 100px}
-	background-color: inherit
+	+media('<mob-lg')
+		border: none
 
-	+media('<desk-lg')
-		width: #{$sidebar-width--lg + 100px}
-
-	+media('<desk-sm')
-		width: #{$sidebar-width + 100px}
-
-.sidebar__holder
-	position: relative
-	width: $sidebar-width
-
-	+media('<desk-lg')
-		width: $sidebar-width--lg
-
-	+media('<desk-sm')
-		width: $sidebar-width
-
+//.sidebar__holder
 	background: url(../../img/bg-sidebar-img.png) no-repeat left bottom
 	background-size: 89.1%
-
-	// для браузеров не поддерживающих display: flex
-	.no-flexbox &
-		width: $sidebar-width
-
-		+media('<desk-lg')
-			width: $sidebar-width--lg
-
-		+media('<desk-sm')
-			width: $sidebar-width
-
-	// в ие 11 не поддерживается flex-direction: column вместе с min-height
-	// для этого браузера исспользуем хак
-	@media all and (-ms-high-contrast: none)
-		&::-ms-backdrop, &
-			width: $sidebar-width
-
-			+media('<desk-lg')
-				width: $sidebar-width--lg
-
-			+media('<desk-sm')
-				width: $sidebar-width
 
 .sidebar-widget
 	padding: round($sidebar-inside-space*0.85) $sidebar-inside-space
@@ -105,7 +67,7 @@
 
 /* menu end
 
-/* navigation
+/* navigation in sidebar
 .sidebar
 	.nav
 		position: relative
@@ -126,4 +88,31 @@
 		a
 			height: auto !important
 
-/* navigation end
+/* navigation in sidebar end
+
+/* settings elements in sidebar
+.sidebar
+	.user-options
+		display: none
+		position: fixed
+		left: 0
+		bottom: 0
+		width: 100%
+		box-shadow: 0 -1px 0 #{$border-color}, 0 5px 25px transparent
+		transition:
+			property: box-shadow
+			duration: $animation-speed
+
+		.menu--opened &
+			box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(0, 0, 0, 0.05)
+
+		.search-link
+			display: none
+
+		+media('<mob-lg')
+			display: block
+
+	.lang
+		float: right
+
+/* settings elements in sidebar end

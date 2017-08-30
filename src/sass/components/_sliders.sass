@@ -361,6 +361,9 @@
 			bottom: round($promo-slider-space--md*0.96)
 			right: #{$promo-slider-space--md - 25px}
 
+		+media('<mob-lg')
+			display: none
+
 .promo-slider
 	transition:
 		property: opacity, visibility
@@ -382,6 +385,9 @@
 		visibility: visible
 		// after slide load end
 
+	+media('<mob-lg')
+		padding-bottom: 65px
+
 	&.slick-dotted
 		margin-bottom: 0
 
@@ -394,6 +400,11 @@
 		+media('<desk-hd')
 			bottom: $promo-slider-space--md
 			left: #{$promo-slider-space--md - 15}
+
+		+media('<mob-lg')
+			width: 100%
+			left: 0
+			bottom: $grid-space--lg
 
 .promo-slide
 	// before slide load
@@ -408,17 +419,21 @@
 	height: 460px
 	perspective: 1500px
 
+	.slick-initialized &
+		// after slide load
+		float: left
+		display: block
+	// after slide load end
+
 	+media('<desk-hd')
 		height: 380px
 
 	+media('<desk-md')
 		height: 320px
 
-	.slick-initialized &
-		// after slide load
-		float: left
-		display: block
-		// after slide load end
+	+media('<mob-lg')
+		height: auto
+		min-height: 240px
 
 .promo-slider__figure
 	overflow: hidden
@@ -429,6 +444,10 @@
 	transform: translate(-50%, -50%)
 	border-radius: 50%
 
+	&::before
+		+pseudo-block-relative()
+		+ratio(1, 1)
+
 	+media('<desk-hd')
 		width: 700px
 		max-width: calc(100% - #{$promo-slider-space--md}*3)
@@ -437,9 +456,15 @@
 		width: 600px
 		max-width: calc(100% - #{$promo-slider-space--md}*2)
 
-	&::before
-		+pseudo-block-relative()
-		+ratio(1, 1)
+	+media('<mob-lg')
+		+position(0, 0)
+		+size(100%)
+		max-width: none
+		border-radius: 0
+		transform: none
+
+		&::before
+			content: none
 
 .promo-slider__img
 	position: absolute
@@ -458,6 +483,12 @@
 	.slick-active &
 		transform: scale(1)
 
+	+media('<mob-lg')
+		top: 0
+		background:
+			position: center top
+		transform: scale(1)
+
 .promo-slider__text
 	position: absolute
 	+position(#{round($promo-slider-space*0.96)}, #{round($promo-slider-space + 10px)})
@@ -468,6 +499,7 @@
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	color: white
+	will-change: transform
 	//opacity: 0
 	//transition:
 		property: opacity, transform
@@ -493,30 +525,17 @@
 
 	+media('<desk-md')
 		+font(26px, 40px)
+		+position(auto)
+		+size(auto)
+		max-width: none
+		padding: $grid-space--lg
 
 		span
 			box-shadow: 6px 0 0 $base-color-alt, -6px 0 0 $base-color-alt
 
-	//+media('<desk-hd')
-		$fz-kef: 0.8
-		$lh-kef: 1.2
-
-		height: calc(3 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
-		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
-
-	//+media('<desk-lg')
-		$fz-kef: 0.6
-		$lh-kef: 1.3
-
-		height: calc(4 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
-		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
-
-	//+media('<mob-lg')
-		$fz-kef: 0.5
-		$lh-kef: 1.3
-
-		height: calc(4 * #{round-float($font-size-h1*$fz-kef, 1)} * #{round-float($line-height-h1*$lh-kef, 1)})
-		+font(round-float($font-size-h1*$fz-kef, 1), round-float($line-height-h1*$lh-kef, 1))
+	+media('<mob-lg')
+		position: relative
+		+font(20px, 32px)
 
 /* promo slider end
 
@@ -614,6 +633,9 @@
 	flex-direction: column
 	text-align: center
 
+	+media('<mob-md')
+		padding: $grid-space--lg
+
 .several-slider__text
 	+font-normal
 	+font(16px, round-float(24/16, 2))
@@ -621,11 +643,17 @@
 	color: inherit
 	padding-bottom: $bottom-space
 
+	+media('<mob-md')
+		padding-bottom: 10px
+
 	&:last-child
 		padding-bottom: 0
 
 .several-slider__figure
 	margin-bottom: $bottom-space
+
+	+media('<mob-md')
+		margin-bottom: 10px
 
 	&:last-child
 		margin-bottom: 0
@@ -633,6 +661,9 @@
 	svg
 		+display-inline-block-top
 		+size(50px)
+
+		+media('<mob-md')
+			+size(36px)
 
 	path
 		fill: $base-color
@@ -675,5 +706,37 @@
 
 	+media('<tab-lg')
 		display: block
+
+	+media('<mob-md')
+		.slick-track
+			opacity: 1 !important
+			width: 100% !important
+			transform: none !important
+
+		.several-slider__item
+			height: auto !important
+			width: 100% !important
+			border-top: 2px solid $base-color-alt
+
+			&:first-child
+				border-top: none
+
+			&::before
+				display: none
+
+		.slick-cloned
+			display: none !important
+
+			& + .several-slider__item
+				border-top: none
+
+		.several-slider__inner
+			display: block
+			padding: #{$grid-space--lg}
+			text-align: left
+			direction: rtl
+
+		.slider-arrows
+			display: none
 
 /* info links slider (for mobile) end

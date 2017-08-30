@@ -9,5 +9,14 @@
 .header__holder
 	height: 100%
 
+	+media('<mob-lg')
+		box-shadow: 0 5px 25px transparent
+		transition:
+			property: box-shadow
+			duration: $animation-speed
+
+		.menu--opened &
+			box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05)
+
 
 /*HEADER end*/

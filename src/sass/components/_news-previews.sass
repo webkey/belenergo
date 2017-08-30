@@ -12,6 +12,9 @@ $news-previews-space--lg: 30px
 .news-previews
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-lg')
+		margin-bottom: 3.2rem
+
 	&:last-child
 		margin-bottom: 0
 
@@ -25,6 +28,7 @@ $news-previews-space--lg: 30px
 
 	+media('<desk-lg')
 		+grid-parent($news-previews-space--lg)
+		margin-bottom: 3.2rem
 
 	&:last-child
 		margin-bottom: 0
@@ -46,6 +50,12 @@ $news-previews-space--lg: 30px
 
 	+media('<tab-lg')
 		+grid-item-responsive(3, $news-previews-space--lg)
+
+	+media('<tab-sm')
+		+grid-item-responsive(2, $news-previews-space--lg)
+
+	+media('<mob-md')
+		+grid-item-responsive(1, $news-previews-space--lg)
 
 .news-previews__inner
 	display: block

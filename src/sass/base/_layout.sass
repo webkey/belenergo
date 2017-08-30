@@ -131,13 +131,16 @@ body
 		margin-right: 0
 
 .content
-	padding: #{$layout-spaces} #{$layout-spaces}
+	padding: #{$layout-spaces}
 
 	+media('<desk-hd')
-		padding: #{$layout-spaces--hd} #{$layout-spaces--hd}
+		padding: #{$layout-spaces--hd}
 
 	+media('<desk-lg')
-		padding: #{$layout-spaces--lg} #{$layout-spaces--lg}
+		padding: #{$layout-spaces--lg}
+
+	+media('<mob-lg')
+		padding: #{$layout-spaces--sm}
 
 .header
 	position: fixed
@@ -188,13 +191,71 @@ body
 	+media('<desk-sm')
 		opacity: 0
 		visibility: hidden
-		height: calc(100% - #{$header-height})
-		top: $header-height
+		//height: calc(100% - #{$header-height})
+		//top: $header-height
+		padding-top: $header-height
 		width: $sidebar-width
 
 	+media('<tab-lg')
-		height: calc(100% - #{$header-height--sm})
-		top: $header-height--sm
+		//height: calc(100% - #{$header-height--sm})
+		//top: $header-height--sm
+		padding-top: $header-height--sm
+
+	+media('<mob-lg')
+		width: 100%
+		padding-bottom: $header-height--sm // для нижней панели настроек
+
+.sidebar__align
+	width: #{$sidebar-width + 100px}
+	background-color: inherit
+
+	+media('<desk-lg')
+		width: #{$sidebar-width--lg + 100px}
+
+	+media('<desk-sm')
+		width: #{$sidebar-width + 100px}
+
+	+media('<mob-lg')
+		width: 100%
+
+	.touchevents &
+		width: 100%
+
+.sidebar__holder
+	position: relative
+	width: $sidebar-width
+
+	+media('<desk-lg')
+		width: $sidebar-width--lg
+
+	+media('<desk-sm')
+		width: $sidebar-width
+
+	+media('<mob-lg')
+		width: 100%
+
+
+	// для браузеров не поддерживающих display: flex
+	.no-flexbox &
+		width: $sidebar-width
+
+		+media('<desk-lg')
+			width: $sidebar-width--lg
+
+		+media('<desk-sm')
+			width: $sidebar-width
+
+	// в ие 11 не поддерживается flex-direction: column вместе с min-height
+	// для этого браузера исспользуем хак
+	@media all and (-ms-high-contrast: none)
+		&::-ms-backdrop, &
+			width: $sidebar-width
+
+			+media('<desk-lg')
+				width: $sidebar-width--lg
+
+			+media('<desk-sm')
+				width: $sidebar-width
 
 .aside, .aside__holder
 	z-index: 999
@@ -233,40 +294,19 @@ body
 		+padding-vertical(#{$layout-spaces--lg})
 
 	+media('<tab-lg')
-		padding: #{$layout-spaces--lg} #{$layout-spaces--lg}
+		padding: #{$layout-spaces--lg}
 		position: relative !important
 		top: auto !important
 		width: auto !important
+
+	+media('<mob-lg')
+		padding: $layout-spaces--sm
 
 /* footer (layout)
 .footer
 	position: relative
 	clear: both
 	z-index: 5
-
-/* footer gov (layout)
-.footer-gov
-	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
-
-	+media('<desk-hd')
-		padding: 0 #{$layout-spaces--hd} round($layout-spaces--hd*0.8)
-
-	+media('<desk-lg')
-		padding: 0 #{$layout-spaces--lg} round($layout-spaces--lg*0.8)
-
-/* footer gov (layout) end
-
-/* footer common (layout)
-.footer-common
-	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
-
-	+media('<desk-hd')
-		padding: 0 #{$layout-spaces--hd} round($layout-spaces--hd*0.8)
-
-	+media('<desk-lg')
-		padding: 0 #{$layout-spaces--lg} round($layout-spaces--lg*0.8)
-
-/* footer common (layout) end
 
 .footer__holder
 	$base-width: 100% - #{$sidebar-width}
@@ -289,6 +329,41 @@ body
 
 	+media('<tab-lg')
 		width: 100%
+		padding-top: $layout-spaces--lg
+		border-top: 1px solid #{$border-color}
+
+	+media('<mob-lg')
+		padding-top: round($layout-spaces--sm*1.2)
+
+/* footer gov (layout)
+.footer-gov
+	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
+
+	+media('<desk-hd')
+		padding: 0 #{$layout-spaces--hd} round($layout-spaces--hd*0.8)
+
+	+media('<desk-lg')
+		padding: 0 #{$layout-spaces--lg} round($layout-spaces--lg*0.8)
+
+	+media('<mob-lg')
+		padding: 0 #{$layout-spaces--sm} round($layout-spaces--sm*1.2)
+
+/* footer gov (layout) end
+
+/* footer common (layout)
+.footer-common
+	padding: 0 #{$layout-spaces} round($layout-spaces*0.8)
+
+	+media('<desk-hd')
+		padding: 0 #{$layout-spaces--hd} round($layout-spaces--hd*0.8)
+
+	+media('<desk-lg')
+		padding: 0 #{$layout-spaces--lg} round($layout-spaces--lg*0.8)
+
+	+media('<mob-lg')
+		padding: 0 #{$layout-spaces--sm} round($layout-spaces--sm*1.2)
+
+/* footer common (layout) end
 
 /* footer (layout) end
 

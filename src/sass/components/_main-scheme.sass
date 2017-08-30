@@ -6,11 +6,17 @@
 .main-scheme
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-lg')
+		margin-bottom: 3.2rem
+
 	&:last-child
 		margin-bottom: 0
 
 .main-scheme-visual
 	margin-bottom: $bottom-space--md
+
+	+media('<tab-lg')
+		margin-bottom: $bottom-space
 
 	&:last-child
 		margin-bottom: 0
@@ -45,9 +51,13 @@
 		+media('<desk-hd')
 			+grid-item-responsive(2, $grid-space)
 
+		+media('<mob-md')
+			+grid-item-responsive(1, $grid-space)
+
 		li
 			margin: 12px 0 0
 			padding: 0
+			+clear
 
 			&::before
 				content: none
@@ -56,7 +66,7 @@
 				margin-top: 0
 
 		.ico
-			+display-inline-block-top
+			float: left
 			margin-right: 14px
 			line-height: 0
 			white-space: normal
@@ -83,6 +93,7 @@
 					display: inline-block
 
 		li > span
-			+display-inline-block-top
+			display: block
+			overflow: hidden
 
 /* main scheme end

@@ -154,6 +154,9 @@ $border-color: #3a4165
 			background-color: $text-color-base
 			color: $bg-color-base
 
+		+media('<mob-md')
+			border-color: $text-color-base
+
 	.several-slider__value
 		color: $text-color-base
 
@@ -194,9 +197,17 @@ $border-color: #3a4165
 		background-color: $bg-panels-color
 		box-shadow: inset 0 -1px 0 $border-color
 
+	.header__holder
+		+media('<mob-lg')
+			box-shadow: 0 5px 25px transparent
+
+			.menu--opened &
+				box-shadow: 0 5px 25px rgba(255, 255, 255, 0.15)
+
 	/* header end
 
 	/* user options
+
 	.user-options__item
 		& > a
 			color: $text-color-base
@@ -220,6 +231,10 @@ $border-color: #3a4165
 			.no-touchevents &:hover
 				color: $base-color
 				fill: $base-color
+
+	+media('<mob-lg')
+		.sidebar .theme-toggle a
+			box-shadow: -1px 0 0 $border-color
 
 	.text-theme--light, .svg-theme--light
 		display: inline-block
@@ -265,6 +280,15 @@ $border-color: #3a4165
 				color: $bg-color-base
 
 	/* lang end
+
+	.sidebar
+		.user-options
+			box-shadow: 0 -1px 0 #{$border-color}, 0 5px 25px transparent
+
+			.menu--opened &
+				box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(255, 255, 255, 0.15)
+
+	/* user options
 
 	/* navigation
 	.nav-list
@@ -424,6 +448,11 @@ $border-color: #3a4165
 
 	/* actual links end
 	/* aside end
+
+	/* footer
+	.footer__holder
+		border-color: $border-color
+	/* footer end
 
 
 
