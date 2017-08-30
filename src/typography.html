@@ -1328,7 +1328,6 @@
 							</div>
 							<!--images descriptions list end-->
 							<!--feature-list end-->
-							<div class="user-spacer">&nbsp;</div>
 							<!--view-print-->
 							<a href="#" class="view-print">
 			<svg xmlns="http://www.w3.org/2000/svg" version="1.1" x="0px" y="0px" viewBox="0 0 295.1 280.4" style="enable-background:new 0 0 295.1 280.4;"> <path d="M218.4,236.1H76.7c-1.5,0-3,1.5-3,3v38.4c0,1.5,1.5,3,3,3h141.7c1.5,0,3-1.5,3-3V239C221.3,237.6,219.9,236.1,218.4,236.1z   M280.4,88.5h-44.3V14.8c0-8.9-5.9-14.8-14.8-14.8H73.8C64.9,0,59,5.9,59,14.8v73.8H14.8C5.9,88.5,0,94.4,0,103.3v162.3  c0,8.9,5.9,14.8,14.8,14.8h29.5v-73.8c0-8.9,5.9-14.8,14.8-14.8h177.1c8.9,0,14.8,5.9,14.8,14.8v73.8h29.5c8.9,0,14.8-5.9,14.8-14.8  V103.3C295.1,94.4,289.2,88.5,280.4,88.5z M191.8,162.3c-8.9,0-14.8-5.9-14.8-14.8s5.9-14.8,14.8-14.8s14.8,5.9,14.8,14.8  S200.7,162.3,191.8,162.3z M206.6,88.5h-118v-59h118V88.5z M243.5,162.3c-11.8,0-22.1-10.3-22.1-22.1s10.3-22.1,22.1-22.1  s22.1,10.3,22.1,22.1S255.3,162.3,243.5,162.3z"></path> </svg>
@@ -1518,9 +1517,13 @@
 								vertical-align: top;
 								color: inherit;
 								text-decoration: none;
-								border-bottom: 1px solid tomato;
 								-webkit-transition: border-color 0.2s;
 								transition: border-color 0.2s;
+							}
+
+							h3 a span,
+							h4 a span {
+								text-decoration: underline;
 							}
 
 							h4 a {
@@ -1540,25 +1543,24 @@
 								padding-top: 20px;
 								margin-top: -20px;
 							}
-
-							.hashAnchor::before {
-								content: "";
-								display: block;
-								position: absolute;
-								right: 100%;
-								top: 4px;
-								margin-right: 10px;
-								width: 24px;
-								height: 24px;
-								background-repeat: no-repeat;
-								background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDgwIDgwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA4MCA4MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0yOS4yOTgsNjMuNDcxbC00LjA0OCw0LjAyYy0zLjUwOSwzLjQ3OC05LjIxNiwzLjQ4MS0xMi43MjMsMCAgICBjLTEuNjg2LTEuNjczLTIuNjEyLTMuODk1LTIuNjEyLTYuMjU3czAuOTI3LTQuNTg1LDIuNjExLTYuMjU4bDE0LjktMTQuNzgzYzMuMDg4LTMuMDYyLDguODk3LTcuNTcxLDEzLjEzMS0zLjM3MiAgICBjMS45NDMsMS45Myw1LjA4MSwxLjkxNyw3LjAxLTAuMDI1YzEuOTMtMS45NDIsMS45MTgtNS4wODEtMC4wMjUtNy4wMDljLTcuMTk3LTcuMTQyLTE3LjgzNC01LjgyMi0yNy4wOTgsMy4zN0w1LjU0Myw0Ny45NDEgICAgQzEuOTY4LDUxLjQ5LDAsNTYuMjEsMCw2MS4yMzRzMS45NjgsOS43NDMsNS41NDQsMTMuMjkyQzkuMjIzLDc4LjE3NiwxNC4wNTQsODAsMTguODg3LDgwYzQuODM0LDAsOS42NjctMS44MjQsMTMuMzQ4LTUuNDc2ICAgIGw0LjA1MS00LjAyMWMxLjk0Mi0xLjkyOCwxLjk1My01LjA2NiwwLjAyMy03LjAwOUMzNC4zODIsNjEuNTUzLDMxLjI0MSw2MS41NDIsMjkuMjk4LDYzLjQ3MXogTTc0LjQ1NCw2LjA0NCAgICBjLTcuNzMtNy42Ny0xOC41MzgtOC4wODYtMjUuNjk0LTAuOTg2bC01LjA0Niw1LjAwOWMtMS45NDMsMS45MjktMS45NTUsNS4wNjYtMC4wMjUsNy4wMDlzNS4wNjgsMS45NTQsNy4wMTEsMC4wMjVsNS4wNDQtNS4wMDYgICAgYzMuNzA3LTMuNjgxLDguNTYxLTIuMTU1LDExLjcyNywwLjk4NmMxLjY4OCwxLjY3MywyLjYxNSwzLjg5NiwyLjYxNSw2LjI1OGMwLDIuMzYzLTAuOTI4LDQuNTg2LTIuNjEzLDYuMjU5bC0xNS44OTcsMTUuNzcgICAgYy03LjI2OSw3LjIxMi0xMC42NzksMy44MjctMTIuMTM0LDIuMzgzYy0xLjk0My0xLjkyOS01LjA4LTEuOTE3LTcuMDEsMC4wMjVzLTEuOTE4LDUuMDgxLDAuMDI1LDcuMDA5ICAgIGMzLjMzNywzLjMxMiw3LjE0Niw0Ljk1NCwxMS4xMzksNC45NTRjNC44ODksMCwxMC4wNTMtMi40NjIsMTQuOTYzLTcuMzM3bDE1Ljg5Ny0xNS43N0M3OC4wMywyOS4wODMsODAsMjQuMzYyLDgwLDE5LjMzOCAgICBDODAsMTQuMzE2LDc4LjAzLDkuNTk1LDc0LjQ1NCw2LjA0NHoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
-								background-size: contain;
-								-webkit-backface-visibility: hidden;
-								backface-visibility: hidden;
-								opacity: 0;
-								-webkit-transition: opacity 0.2s;
-								transition: opacity 0.2s;
-							}
+							/*.hashAnchor::before {
+					content: "";
+					display: block;
+					position: absolute;
+					right: 100%;
+					top: 4px;
+					margin-right: 10px;
+					width: 24px;
+					height: 24px;
+					background-repeat: no-repeat;
+					background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDgwIDgwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCA4MCA4MDsiIHhtbDpzcGFjZT0icHJlc2VydmUiIHdpZHRoPSIyNHB4IiBoZWlnaHQ9IjI0cHgiPgo8Zz4KCTxnPgoJCTxwYXRoIGQ9Ik0yOS4yOTgsNjMuNDcxbC00LjA0OCw0LjAyYy0zLjUwOSwzLjQ3OC05LjIxNiwzLjQ4MS0xMi43MjMsMCAgICBjLTEuNjg2LTEuNjczLTIuNjEyLTMuODk1LTIuNjEyLTYuMjU3czAuOTI3LTQuNTg1LDIuNjExLTYuMjU4bDE0LjktMTQuNzgzYzMuMDg4LTMuMDYyLDguODk3LTcuNTcxLDEzLjEzMS0zLjM3MiAgICBjMS45NDMsMS45Myw1LjA4MSwxLjkxNyw3LjAxLTAuMDI1YzEuOTMtMS45NDIsMS45MTgtNS4wODEtMC4wMjUtNy4wMDljLTcuMTk3LTcuMTQyLTE3LjgzNC01LjgyMi0yNy4wOTgsMy4zN0w1LjU0Myw0Ny45NDEgICAgQzEuOTY4LDUxLjQ5LDAsNTYuMjEsMCw2MS4yMzRzMS45NjgsOS43NDMsNS41NDQsMTMuMjkyQzkuMjIzLDc4LjE3NiwxNC4wNTQsODAsMTguODg3LDgwYzQuODM0LDAsOS42NjctMS44MjQsMTMuMzQ4LTUuNDc2ICAgIGw0LjA1MS00LjAyMWMxLjk0Mi0xLjkyOCwxLjk1My01LjA2NiwwLjAyMy03LjAwOUMzNC4zODIsNjEuNTUzLDMxLjI0MSw2MS41NDIsMjkuMjk4LDYzLjQ3MXogTTc0LjQ1NCw2LjA0NCAgICBjLTcuNzMtNy42Ny0xOC41MzgtOC4wODYtMjUuNjk0LTAuOTg2bC01LjA0Niw1LjAwOWMtMS45NDMsMS45MjktMS45NTUsNS4wNjYtMC4wMjUsNy4wMDlzNS4wNjgsMS45NTQsNy4wMTEsMC4wMjVsNS4wNDQtNS4wMDYgICAgYzMuNzA3LTMuNjgxLDguNTYxLTIuMTU1LDExLjcyNywwLjk4NmMxLjY4OCwxLjY3MywyLjYxNSwzLjg5NiwyLjYxNSw2LjI1OGMwLDIuMzYzLTAuOTI4LDQuNTg2LTIuNjEzLDYuMjU5bC0xNS44OTcsMTUuNzcgICAgYy03LjI2OSw3LjIxMi0xMC42NzksMy44MjctMTIuMTM0LDIuMzgzYy0xLjk0My0xLjkyOS01LjA4LTEuOTE3LTcuMDEsMC4wMjVzLTEuOTE4LDUuMDgxLDAuMDI1LDcuMDA5ICAgIGMzLjMzNywzLjMxMiw3LjE0Niw0Ljk1NCwxMS4xMzksNC45NTRjNC44ODksMCwxMC4wNTMtMi40NjIsMTQuOTYzLTcuMzM3bDE1Ljg5Ny0xNS43N0M3OC4wMywyOS4wODMsODAsMjQuMzYyLDgwLDE5LjMzOCAgICBDODAsMTQuMzE2LDc4LjAzLDkuNTk1LDc0LjQ1NCw2LjA0NHoiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+					background-size: contain;
+					-webkit-backface-visibility: hidden;
+					backface-visibility: hidden;
+					opacity: 0;
+					-webkit-transition: opacity 0.2s;
+					transition: opacity 0.2s;
+				}*/
 
 							h4 .hashAnchor::before {
 								width: 18px;

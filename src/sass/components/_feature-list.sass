@@ -4,13 +4,16 @@
 
 /*feature list
 .feature-list
-	margin-bottom: $bottom-space--md
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
 
 	&:last-child
 		margin-bottom: 0
 
 .feature-list__item
-	margin-bottom: $bottom-space
+	margin-bottom: $bottom-space--md
 	+clear
 
 	&:last-child
@@ -24,7 +27,7 @@
 	+media("<mob-lg")
 		width: auto
 		float: none
-		margin-right: 0
+		margin: 0 0 $bottom-space--sm
 
 .feature-list__content
 	overflow: hidden

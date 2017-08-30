@@ -22,6 +22,9 @@ $pagination-border-width: 0
 	padding: #{round($grid-space*0.85 - $pagination-vspace)} #{$grid-space - $pagination-hspace}
 	width: 100%
 
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
 	&:last-child
 		margin-bottom: 0
 

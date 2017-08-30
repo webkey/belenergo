@@ -19,6 +19,9 @@ $line-height--less: round-float(2.0rem/$font-size--less, 2) !default
 $font-size-h1: 52px !default
 $line-height-h1: round-float(52px/$font-size-h1, 2) !default
 // md ===
+$font-size-h1--lg: 42px !default
+$line-height-h1--lg: round-float(42px/$font-size-h1--lg, 2) !default
+// md ===
 $font-size-h1--md: 36px !default
 $line-height-h1--md: round-float(36px/$font-size-h1--md, 2) !default
 // sm ===
@@ -30,17 +33,21 @@ $font-size-h2: round-float($font-size-h1*42/52, 1) !default
 $line-height-h2: round-float(42/42, 2) !default
 // md ===
 $font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
-$line-height-h2--md: round-float(($line-height-h1--md*1.02),2) !default
+//$line-height-h2--md: round-float(($line-height-h1--md*1.02),2) !default
+$line-height-h2--md: 1 !default
 // sm ===
 $font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
-$line-height-h2--sm: round-float(($line-height-h1--sm*1.01),2) !default
+$line-height-h2--sm: 1 !default
 
 // =======h3========
 $font-size-h3: round-float($font-size-h1*32/52, 1) !default
 $line-height-h3: round-float(32/32, 2) !default
+// md ===
+$font-size-h3--md: round-float($font-size-h1--md*0.78, 1) !default
+$line-height-h3--md: 1 !default
 // sm ===
 $font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
-$line-height-h3--sm: round-float(($line-height-h1--sm*1.05),2) !default
+$line-height-h3--sm: 1 !default
 
 // =======h4========
 $font-size-h4: round-float($font-size-h1*24/52, 1) !default
@@ -55,9 +62,10 @@ $font-size-h6: round-float($font-size*0.75, 1) !default
 $line-height-h6: round-float($line-height*1.25, 2) !default
 
 $bottom-space: round-float($font-size*$line-height, 1) !default
-$bottom-space--sm: round-float($font-size*$line-height*0.75, 1) !default
-$bottom-space--md: round-float($font-size*$line-height*2.0, 1) !default
 $bottom-space--lg: round-float($font-size*$line-height*3, 1) !default
+$bottom-space--md: round-float($font-size*$line-height*2.0, 1) !default
+$bottom-space--ml: round-float($font-size*$line-height*1.5, 1) !default
+$bottom-space--sm: round-float($font-size*$line-height*0.75, 1) !default
 
 // цвет бренда
 $base-color: #d3ab48 !default
@@ -107,7 +115,8 @@ $layout-spaces--sm: 20px !default // -6px (x3) для компенсации с�
 // минимальные отступы слева и справа у текствого блока
 $text-layout-indent: 160px !default
 $text-layout-space-horizontal: 40px !default
-$text-layout-space-horizontal--md: 30px !default
+$text-layout-space-horizontal--lg: 30px !default
+$text-layout-space-horizontal--md: 20px !default
 $text-layout-space-horizontal--sm: 15px !default
 // максимальная ширина текстового блока
 $text-layout-width: 1200px !default
@@ -129,7 +138,7 @@ $form-error-color: red !default
 $form-success-color: green !default
 $form-bottom-space: 3rem !default
 $form-bottom-space--sm: 1.5em !default
-$form-gap: 60px !default
+$form-gap: 40px !default
 // ==================
 $form-font-size: 16px !default
 $form-line-height: 24px !default
@@ -157,7 +166,7 @@ $btn-text-color: white !default
 
 // datetime
 $datetime-size: 100px
-$datetime-size--sm: 60px
+$datetime-size--sm: 50px
 
 // table color
 $table-text-color: $text-color !default

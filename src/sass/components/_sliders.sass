@@ -234,10 +234,13 @@
 /* images slider
 .images-slider
 	position: relative
-	margin-bottom: $bottom-space
+	margin-bottom: $bottom-space--lg
 
-	+media('<tab-lg')
-		margin-bottom: $bottom-space--lg
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	&:last-child
+		margin-bottom: 0
 
 .images-slider__list, .slick-dotted.images-slider__list
 	padding-bottom: $bottom-space
@@ -348,6 +351,9 @@
 	position: relative
 	margin-bottom: $bottom-space--lg
 	+push-auto
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
 
 	&:last-child
 		margin-bottom: 0
@@ -547,7 +553,7 @@
 	margin-bottom: $bottom-space--lg
 
 	+media('<desk-lg')
-		margin-bottom: 3.2rem
+		margin-bottom: $bottom-space--ml
 
 	&:last-child
 		margin-bottom: 0

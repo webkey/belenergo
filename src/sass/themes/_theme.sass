@@ -37,6 +37,35 @@ $border-color: #3a4165
 	h1, h2, h3, h4, h5, h6
 		color: $title-color
 
+	hr
+		border-color: $border-color
+
+	.layout-article > p:first-of-type
+		&:first-letter
+			color: $text-color-base
+
+	/* list
+	.#{$user-content}
+		ul > li::before
+			border-color: $text-color-base
+
+		ol
+			& > li
+				&::before
+					border-color: $text-color-base
+					color: $text-color-base
+
+		ul, ol
+			ul li
+				&::before
+					background-color: $text-color-base
+
+	/* blockquote
+	.#{$user-content}
+		blockquote
+			q
+				color: $text-color-base
+
 	/* add shadow
 	.add-shadow, .add-shadow--full
 
@@ -56,7 +85,6 @@ $border-color: #3a4165
 	/* caption box end
 
 	/* benefits counter
-
 
 	/* benefits counter end
 
@@ -84,6 +112,18 @@ $border-color: #3a4165
 					border-bottom-color: $base-color
 
 	/* short contacts end
+
+	/* breadcrumbs
+	.breadcrumbs__list
+		a
+			color: $text-color-base
+
+	/* breadcrumbs end
+
+	/* datetime
+	.datetime
+		color: $text-color-base
+	/* datetime end
 
 	//=========== TYPOGRAPHY END ==========
 

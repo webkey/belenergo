@@ -411,10 +411,13 @@ body
 
 		+margin-horizontal(-#{$text-layout-space-horizontal})
 
-		+media('<tab-lg')
+		+media('<desk-lg')
+			+margin-horizontal(-#{$text-layout-space-horizontal--lg})
+
+		//+media('<tab-lg')
 			+margin-horizontal(-#{$text-layout-space-horizontal--md})
 
-		+media('<tab-sm')
+		+media('<mob-lg')
 			+margin-horizontal(-#{$text-layout-space-horizontal--sm})
 
 // максимальная ширина текстовых элементов на внутренней (текстовой) странице
@@ -422,13 +425,16 @@ body
 	max-width: #{$text-layout-width + $text-layout-space-horizontal*2}
 	//max-width: #{$text-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
 
+	+media('<desk-lg')
+		max-width: #{$text-layout-width + $text-layout-space-horizontal--lg*2}
+
 	//+media('<tab-lg')
 		//max-width: #{$text-layout-width + $text-layout-space-horizontal--md*2}
 		max-width: #{$text-layout-width + $text-layout-indent}
 
-	//+media('<tab-sm')
-		//max-width: #{$text-layout-width + $text-layout-space-horizontal--sm*2}
-		max-width: #{$text-layout-width + $text-layout-indent}
+	+media('<mob-lg')
+		max-width: #{$text-layout-width + $text-layout-space-horizontal--sm*2}
+		//max-width: #{$text-layout-width + $text-layout-indent}
 
 // выравнивание текстовых элементов на внутренней (текстовой) странице
 // и их максимальная ширина
@@ -439,11 +445,15 @@ body
 	+padding-horizontal($text-layout-space-horizontal)
 	+push-auto
 
+	+media('<desk-lg')
+		max-width: #{$text-layout-width + $text-layout-space-horizontal--lg*2}
+		+padding-horizontal($text-layout-space-horizontal--lg)
+
 	//+media('<tab-lg')
 		max-width: #{$text-layout-width + $text-layout-space-horizontal--md*2}
 		+padding-horizontal($text-layout-space-horizontal--md)
 
-	//+media('<tab-sm')
+	+media('<mob-lg')
 		max-width: #{$text-layout-width + $text-layout-space-horizontal--sm*2}
 		+padding-horizontal($text-layout-space-horizontal--sm)
 
@@ -452,10 +462,13 @@ body
 	max-width: #{$flood-layout-width + $text-layout-space-horizontal*2}
 	//max-width: #{$flood-layout-width + $text-layout-space-horizontal*2 + $text-layout-indent}
 
+	+media('<desk-lg')
+		max-width: #{$flood-layout-width + $text-layout-space-horizontal--lg*2}
+
 	//+media('<tab-lg')
 		max-width: #{$flood-layout-width + $text-layout-space-horizontal--md*2}
 
-	//+media('<tab-sm')
+	+media('<mob-lg')
 		max-width: #{$flood-layout-width + $text-layout-space-horizontal--sm*2}
 
 // выравнивание альтернативных элементов на внутренней (текстовой) странице
@@ -467,11 +480,15 @@ body
 	//+padding-horizontal(#{$text-layout-indent + $text-layout-space-horizontal}, $text-layout-space-horizontal)
 	+push-auto
 
+	+media('<desk-lg')
+		max-width: #{$flood-layout-width + $text-layout-space-horizontal--lg*2}
+		+padding-horizontal($text-layout-space-horizontal--lg)
+
 	//+media('<tab-lg')
 		max-width: #{$flood-layout-width + $text-layout-space-horizontal--md*2}
 		+padding-horizontal($text-layout-space-horizontal--md)
 
-	//+media('<tab-sm')
+	+media('<mob-lg')
 		max-width: #{$flood-layout-width + $text-layout-space-horizontal--sm*2}
 		+padding-horizontal($text-layout-space-horizontal--sm)
 
@@ -482,10 +499,13 @@ body
 .layout-wide
 	+padding-horizontal($text-layout-space-horizontal)
 
-	+media('<tab-lg')
+	+media('<desk-lg')
+		+padding-horizontal($text-layout-space-horizontal--lg)
+
+	//+media('<tab-lg')
 		+padding-horizontal($text-layout-space-horizontal--md)
 
-	+media('<tab-sm')
+	+media('<mob-lg')
 		+padding-horizontal($text-layout-space-horizontal--sm)
 
 	p, ul, ol, h1, h2, h3, h4, h5, h6, hr, blockquote
@@ -500,6 +520,15 @@ body
 .heading-article
 	&, .layout-article &
 		padding-left: $text-layout-indent
+
+		+media('<desk-lg')
+			padding-left: 130px
+
+		+media('<mob-lg')
+			padding-left: 65px
+
+		//+media('<desk-hd')
+			padding-left: 0
 
 /* footer at bottom
 .spacer

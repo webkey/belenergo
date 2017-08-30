@@ -202,8 +202,6 @@
 				})
 				<!--feature-list end-->
 
-				<div class="user-spacer">&nbsp;</div>
-
 				<!--view-print-->
 				@@include('_tpl_typography_components.html', {
 				"component": "viewPrint"
@@ -378,9 +376,11 @@
 					vertical-align: top;
 					color: inherit;
 					text-decoration: none;
-					border-bottom: 1px solid tomato;
 					-webkit-transition: border-color 0.2s;
 					transition: border-color 0.2s;
+				}
+				h3 a span, h4 a span {
+					text-decoration: underline;
 				}
 				h4 a{
 					border-bottom-color: #909090;
@@ -395,7 +395,7 @@
 					padding-top: 20px;
 					margin-top: -20px;
 				}
-				.hashAnchor::before {
+				/*.hashAnchor::before {
 					content: "";
 					display: block;
 					position: absolute;
@@ -412,7 +412,7 @@
 					opacity: 0;
 					-webkit-transition: opacity 0.2s;
 					transition: opacity 0.2s;
-				}
+				}*/
 				h4 .hashAnchor::before{
 					width: 18px;
 					height: 18px;

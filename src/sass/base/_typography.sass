@@ -38,18 +38,32 @@ h1
 	+font($font-size-h1, $line-height-h1)
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-hd')
+		+font($font-size-h1--lg, $line-height-h1--lg)
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	+media('<desk-md')
+		+font($font-size-h1--md, $line-height-h1--md)
+
 	+media('<mob-lg')
 		+font($font-size-h1--sm, $line-height-h1--sm)
-		margin-bottom: round-float($bottom-space--lg*0.7, 1)
 
 h2
 	+font($font-size-h2, $line-height-h2)
+
+	+media('<desk-md')
+		+font($font-size-h2--md, $line-height-h2--md)
 
 	+media('<mob-lg')
 		+font($font-size-h2--sm, $line-height-h2--sm)
 
 h3
 	+font($font-size-h3, $line-height-h3)
+
+	+media('<desk-md')
+		+font($font-size-h3--md, $line-height-h3--md)
 
 h4
 	+font($font-size-h4, $line-height-h4)
@@ -127,7 +141,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			+position(10px)
 
 .add-shadow--full
-	background-color: white
+	background-color: $bg-color-base
 	border: 2px solid $base-color-alt
 
 /* add shadow end
@@ -137,6 +151,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	position: relative
 	min-height: $datetime-size
 	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
 
 	&:last-child
 		margin-bottom: 0
@@ -158,6 +175,18 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	text-transform: uppercase
 	color: $base-color-alt
 
+	+media('<mob-lg')
+		padding: 5px 2px 0
+		+size($datetime-size--sm)
+		font-size: 10px
+
+		&::after
+			content: none
+
+	//+media('<desk-hd')
+		position: relative
+		margin-bottom: $bottom-space--md
+
 	&:last-child
 		margin-bottom: 0
 
@@ -166,6 +195,10 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		+font-bold
 		+font(60px, 1)
 		margin-bottom: -5px
+
+		+media('<mob-lg')
+			font-size: 22px
+			margin-bottom: 0
 
 /* datetime end
 
@@ -179,7 +212,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		margin-left: -6px
 		margin-bottom: -20px
 		margin-top: -3px
-		color: black
+		color: $text-color-base
 		text-transform: uppercase
 		float: left
 
@@ -196,6 +229,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 .entry-img-wrap
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
 	&:last-child
 		margin-bottom: 0
 
@@ -203,6 +239,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	position: relative
 	overflow: hidden
 	+ratio(1020, 464)
+
+	+media('<mob-md')
+		+ratio(16, 9)
 
 	img
 		position: absolute
@@ -230,9 +269,21 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	transform: translate(-50%, -50%)
 	z-index: 10
 	+font($font-size-h1, $line-height-h1)
-	color: white
+	color: $bg-color-base
 	text-shadow: 0 5px 20px rgba(0, 0, 0, 0.2)
 	text-align: center
+
+	+media('<desk-hd')
+		+font($font-size-h1--lg, $line-height-h1--lg)
+
+	+media('<desk-md')
+		+font($font-size-h1--md, $line-height-h1--md)
+
+	+media('<mob-lg')
+		+font($font-size-h1--sm, $line-height-h1--sm)
+
+	+media('<mob-md')
+		+font(22px, 1)
 
 .mark
 	color: $mark-color
@@ -285,7 +336,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		display: block
 		margin-left: auto
 		margin-right: auto
-		max-width: none
+		max-width: 100%
 
 /*content img end*/
 
@@ -326,7 +377,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		ol + #{$tags}
 			margin-top: round-float($bottom-space--md, 1)
 
-/*list*/
+/* list
 .#{$user-content}
 	//list
 	ul, ol
@@ -420,6 +471,9 @@ table
 .table, .table-auto
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
 	&:last-child
 		margin-bottom: 0
 
@@ -483,8 +537,11 @@ table
 			padding: 0
 			+font-alt
 			+font(36px, round-float(44/36, 2))
-			color: black
+			color: $text-color-base
 			text-align: center
+
+			+media('<mob-lg')
+				font-size: 32px
 
 			&::before, &::after
 				+pseudo()
@@ -531,6 +588,9 @@ table
 	+font(0, 0)
 	+clear
 
+	+media('<desk-lg')
+		height: $bottom-space--ml
+
 /* user spacer end
 
 /* view print
@@ -538,13 +598,22 @@ table
 	display: inline-block
 	vertical-align: top
 	padding: 6px 12px
-	margin-bottom: $bottom-space
+	margin-bottom: $bottom-space--lg
 	background: #f9f9f9
 	line-height: 1
 	color: black
 	text-decoration: none
 	transition-property: background
 	transition-duration: $animation-speed
+
+	+media('<desk-lg')
+		height: $bottom-space--ml
+
+	+media('<tab-lg')
+		display: none
+
+	&:last-child
+		margin-bottom: 0
 
 	.no-touchevents &:hover
 		background-color: #eaeaea
@@ -559,18 +628,6 @@ table
 	span
 		display: inline-block
 		vertical-align: middle
-
-	+media('<tab-lg')
-		font-size: 14px
-
-	+media('<mob-lg')
-		padding: 15px
-
-		& svg
-			margin-right: 0
-
-		& span
-			display: none
 
 /* view print end
 
@@ -780,14 +837,17 @@ table
 	align-items: stretch
 	margin-bottom: $bottom-space--lg
 
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	+media('<desk-md')
+		display: block
+
 	.no-flexbox &
 		+clear-spacing
 
 	&:last-child
 		margin-bottom: 0
-
-	+media('<desk-md')
-		display: block
 
 .caption-box__title
 	width: 54%
@@ -906,7 +966,7 @@ table
 	margin-bottom: $bottom-space--lg
 
 	+media('<desk-lg')
-		margin-bottom: 3.2rem
+		margin-bottom: $bottom-space--ml
 
 	&:last-child
 		margin-bottom: 0
@@ -940,7 +1000,7 @@ table
 	margin-bottom: $bottom-space--md
 
 	+media('<desk-lg')
-		margin-bottom: 3.2rem
+		margin-bottom: $bottom-space--ml
 
 	&:last-child
 		margin-bottom: 0

@@ -263,6 +263,7 @@ input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radi
 	position: relative
 	transition-property: color
 	transition-duration: $animation-speed
+	user-select: none
 
 	// hover
 	.no-touchevents &:hover
@@ -838,7 +839,7 @@ input[type="radio"]
 
 	.select2-results__option--highlighted[aria-selected]
 		background-color: $base-color
-		color: $text-color
+		color: $bg-color-base
 
 .select2-container--open
 	.select2-dropdown--below
