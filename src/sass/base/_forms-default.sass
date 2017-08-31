@@ -47,10 +47,11 @@
 			margin-bottom: $form-bottom-space--sm
 
 label
+	+display-inline-block-top
 	+font($font-size, $line-height)
 	color: $text-color
 
-.label-holder
+.label-holder, label
 	+font-medium
 	+font(14px, 24px)
 	text-transform: uppercase
@@ -58,9 +59,11 @@ label
 	color: $text-color-light
 	margin-bottom: 7px
 
+.label-holder
 	label
 		+font(inherit, inherit)
 		color: inherit
+		margin-bottom: 0
 
 .form-mark
 	display: inline-block
@@ -99,9 +102,11 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	border: #{$form-border-width} solid #{$form-border-color}
 	transition-property: border-color, background-color, box-shadow
 	transition-duration: $animation-speed
-	margin: 0 0 $form-bottom-space
 
-	.input-wrap &
+	@at-root .select2, .#{$user-content} select, .select, &
+		margin: 0 0 $form-bottom-space
+
+	.input-wrap &, &:last-child
 		margin: 0
 
 	//form hover
@@ -112,6 +117,15 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	&:focus
 		border-color: $form-border-focus-color
 		//box-shadow: inset 0 0 0 1px $form-border-focus-color
+
+	//form success
+	.input--has-value &,
+	&.success, .no-touchevents &.success
+		border-color: $base-color
+		//box-shadow: inset 0 0 0 1px transparent
+
+		//&:focus
+			box-shadow: inset 0 0 0 1px $form-error-color
 
 	//form error
 	&.error, .no-touchevents &.error
@@ -129,7 +143,8 @@ textarea
 	resize: vertical
 
 .error-note
-	position: absolute
+	float: left
+	position: relative
 	+size(100%, 22px)
 	+font(12px, 22px)
 	letter-spacing: normal // Важно!
@@ -137,7 +152,16 @@ textarea
 	color: $form-error-color
 	display: none
 
-	form .error ~ &
+	margin-top: -#{$form-bottom-space}
+
+	.input-wrap &
+		float: none
+		position: absolute
+		margin-top: 0
+
+	// нужно выбрать только ближайший элемент ошибки формы (нельзя использовать ~)
+	form .error + &,
+	form .error + .select2 + &
 		display: block
 
 .confirm-note
@@ -147,24 +171,35 @@ textarea
 	$this-icon-lines-height: 2px
 	$this-icon-lines-color: $base-color
 
-	position: absolute
+	float: left
+	position: relative
 	left: 100%
-	top: round($form-input-height*0.5)
-	+font(0, 0)
+	top: round(-$form-input-height*0.5 - $this-icon-size*0.5)
+	margin-top: -#{$form-bottom-space}
+	margin-left: 4px
 	+size($this-icon-size)
-	margin: -8px 0 0 #{round(($text-layout-space-horizontal - $this-icon-size)*0.5)}
+	+font(0, 0)
+	letter-spacing: 0
 	backface-visibility: hidden
 	z-index: -1
 	pointer-events: none
 	display: none
 
+	.input-wrap &
+		float: none
+		position: absolute
+		top: round($form-input-height*0.5)
+		margin: -#{round($this-icon-size*0.5)} 0 0 #{round(($text-layout-space-horizontal - $this-icon-size)*0.1)}
+
 	+media('<tab-lg')
-		margin-left: #{round(($text-layout-space-horizontal--md - $this-icon-size)*0.5)}
+		margin-left: #{round(($text-layout-space-horizontal--md - $this-icon-size)*0.1)}
 
 	+media('<tab-sm')
-		margin-left: #{round(($text-layout-space-horizontal--sm - $this-icon-size)*0.5)}
+		margin-left: #{round(($text-layout-space-horizontal--sm - $this-icon-size)*0.1)}
 
-	form .success ~ &
+	// нужно выбрать тольк ближайший элемент подтверждения формы ((нельзя использовать ~))
+	form .success + .error-note + &,
+	form .success + .select2 + .error-note + &
 		display: block
 
 	&::before, &::after
@@ -256,7 +291,9 @@ input, textarea
 /*form checkbox and radiobutton*/
 input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
 	+display-inline-block-top
+	+font-normal
 	+font(16px, 22px)
+	letter-spacing: 0.025em
 	color: $text-color
 	text-transform: none
 	cursor: pointer
@@ -678,9 +715,13 @@ input[type="radio"]
 
 /*select*/
 // select overall
+.#{$user-content}
+	select
+		display: block
+		width: 100%
+
 .select
 	position: relative
-	margin: 0 0 $form-bottom-space
 	width: 100%
 
 	.input-wrap &
@@ -689,137 +730,124 @@ input[type="radio"]
 	.cselect
 		width: 100%
 
-	select,
-	.select2-container--default .select2-selection
-		display: block
-		position: relative
-		overflow: hidden
-		height: $form-input-height
-		text-overflow: ''
-		cursor: pointer
-		padding: #{$form-input-space-vt} #{$select-arrow-width} #{$form-input-space-vb} #{$form-input-space-h}
-		white-space: nowrap
-		text-indent: 0
-		width: 100%
-		border: #{$form-border-width} solid #{$form-border-color}
-		border-radius: 0
-		background: $form-bg-color
-		box-shadow: none
-		transition-property: background, border, color, box-shadow
-		transition-duration: $animation-speed
-		outline: none
+.#{$user-content} select,
+.select select,
+.select2-container--default .select2-selection
+	display: block
+	position: relative
+	overflow: hidden
+	height: $form-input-height
+	width: 100%
+	cursor: pointer
+	padding: #{$form-input-space-vt} #{$select-arrow-width} #{$form-input-space-vb} #{$form-input-space-h}
+	white-space: nowrap
+	text-indent: 0
+	text-overflow: ''
+	border: #{$form-border-width} solid #{$form-border-color}
+	border-radius: 0
+	background: $form-bg-color
+	box-shadow: none
+	transition:
+		property: background, border, color, box-shadow
+		duration: $animation-speed
+	outline: none
 
-	.select2-container--default .select2-selection--multiple
-		height: auto
+.select select,
+.select2-container--default .select2-selection .select2-selection__rendered
+	+font-normal
+	+font($form-font-size, $form-line-height)
+	text-transform: none
+	color: $form-text-color
 
-	select,
-	.select2-container--default .select2-selection .select2-selection__rendered
-		+font-normal
-		+font($form-font-size, $form-line-height)
-		text-transform: none
-		color: $form-text-color
+.select
+	select, .select2
+		margin-bottom: 0
 
 	select
 		padding-right: 40px
 
-	//&:focus
-		color: $form-text-color
-		border-color: $form-border-focus-color
+//&:focus
+	color: $form-text-color
+	border-color: $form-border-focus-color
 
-	&,
-	.select2-container--default .select2-selection--single .select2-selection__arrow b
-		&::before,
-		&::after
-			content: ''
-			position: absolute
-			right: 22px
-			top: 50%
-			+size(8px, 2px)
-			background-color: $title-color
-			margin-top: -1px
-			z-index: 1
+.select,
+.select2-container--default .select2-selection--single .select2-selection__arrow b
+	&::before, &::after
+		content: ''
+		position: absolute
+		right: 22px
+		top: 50%
+		+size(8px, 2px)
+		background-color: $title-color
+		margin-top: -1px
+		z-index: 1
 
-		&::before
-			transform: rotate(45deg)
+	&::before
+		transform: rotate(45deg)
 
-		&::after
-			transform: rotate(-45deg)
-			right: 17px
-
-	.select2-container--default
-		.select2-selection--single
-			.select2-selection__rendered
-				padding-left: 0
-				padding-right: 0
-
-			.select2-selection__arrow
-				position: absolute
-				right: 0
-				top: 0
-				+size($select-arrow-width, $select-arrow-height)
-				background-color: $form-bg-color
-				z-index: 2
-
-				b
-					border: none
-					+cover()
-					margin: 0
-
-		.select2-search--inline .select2-search__field
-			height: auto
-			margin: 0
-
-		// multiple
-		.select2-selection--multiple
-			padding: #{$form-input-space-vt - $multiple-item-space} #{$select-arrow-width} #{$form-input-space-vb - $multiple-item-space}  #{$select-space-h}
-
-			.select2-selection__rendered
-				padding-left: 0
-				padding-right: 0
-				margin: 0
-				vertical-align: top
-				max-width: none
-
-				li
-					padding: 0 4px
-					margin: #{$multiple-item-space} 8px #{$multiple-item-space} 0
-					border: none
-
-					&::before
-						content: none
-
-			.select2-selection__choice
-				background-color: #f3f3f3
-				border: 1px solid #f3f3f3
-				border-radius: 0
-				color: $text-color
-
-			.select2-selection__choice__remove
-				color: $text-color
-
-				&:hover
-					color: $link-color
-
-.select select.error
-	&,
-	& ~ .select2-container--default .select2-selection--single,
-	& ~ .select2-container--default .select2-selection--multiple
-		border-color: $form-error-color
-
-/*select2 dropdown*/
-.select2-dropdown
-	border-color: $form-border-color
-	border-radius: 0
-	z-index: 9999
-
-.select2-results__options
-	+font-normal
-	+font($form-font-size, $form-line-height)
-
-.select2-results__option
-	padding: 8px #{$select-space-h} 8px #{$select-space-h}
+	&::after
+		transform: rotate(-45deg)
+		right: 17px
 
 .select2-container--default
+	.select2-selection--single
+		.select2-selection__rendered
+			padding-left: 0
+			padding-right: 0
+
+		.select2-selection__arrow
+			position: absolute
+			right: 0
+			top: 0
+			+size($select-arrow-width, $select-arrow-height)
+			background-color: $form-bg-color
+			z-index: 2
+
+			b
+				border: none
+				+cover()
+				margin: 0
+
+	.select2-search--inline .select2-search__field
+		height: auto
+		margin: 0
+
+	// multiple
+	.select2-selection--multiple
+		height: auto
+		padding: #{$form-input-space-vt - $multiple-item-space} #{$select-arrow-width} #{$form-input-space-vb - $multiple-item-space}  #{$select-space-h}
+
+		.select2-selection__rendered
+			padding-left: 0
+			padding-right: 0
+			margin: 0
+			vertical-align: top
+			max-width: none
+
+			li
+				padding: 0 4px
+				margin: #{$multiple-item-space} 8px #{$multiple-item-space} 0
+				border: none
+
+				&::before
+					content: none
+
+		.select2-selection__choice
+			background-color: #f3f3f3
+			border: 1px solid #f3f3f3
+			border-radius: 0
+			color: $text-color
+
+		.select2-selection__choice__remove
+			color: $text-color
+
+			&:hover
+				color: $link-color
+
+	@at-root .input--has-value, &.select2-container--focus, &.select2-container--open
+		.select2-selection--multiple, .select2-selection--single
+			border: #{$form-border-width} solid #{$form-border-focus-color}
+
 	.select2-search--dropdown
 		.select2-search__field
 			border-color: $form-border-color
@@ -841,13 +869,37 @@ input[type="radio"]
 		background-color: $base-color
 		color: $bg-color-base
 
-.select2-container--open
+// dropdown
+.select2-dropdown
+	border: #{$form-border-width} solid #{$form-border-focus-color}
+	border-radius: 0
+	z-index: 9999
+
+.select2-results__options
+	+font-normal
+	+font($form-font-size, $form-line-height)
+
+.select2-results__option
+	padding: 8px #{$select-space-h} 8px #{$select-space-h}
+
+//.select2-container--open
 	.select2-dropdown--below
-		box-shadow: 0 -1px 0 $form-border-color
+		box-shadow: 0 -#{$form-border-width} 0 #{$form-border-color}
 
 	.select2-dropdown--above
-		box-shadow: 0 1px 0 $form-border-color
+		box-shadow: 0 #{$form-border-width} 0 #{$form-border-color}
 
-/*select2 dropdown end*/
+select.error
+	&,
+	& ~ .select2-container--default .select2-selection--single,
+	& ~ .select2-container--default .select2-selection--multiple
+		border-color: $form-error-color
+
+select.success
+	&,
+	& ~ .select2-container--default .select2-selection--single,
+	& ~ .select2-container--default .select2-selection--multiple
+		border-color: $base-color
+
 /*select end*/
 /*FORM STYLE DEFAULT end*/

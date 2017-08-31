@@ -385,6 +385,16 @@
 		@@include('_tpl_forms_form-default.html')
 	</div>
 
+}@@if(context.component === "formClear") {
+
+	@@include('_tpl_title-anchor.html', {
+		"taId": "formElementClearExample",
+		"taText": "Поля форм (без оберток)"
+	})
+	<div class="layout-text">
+		@@include('_tpl_forms_form-clear.html')
+	</div>
+
 }@@if(context.component === "formLight") {
 
 	@@include('_tpl_title-anchor.html', {

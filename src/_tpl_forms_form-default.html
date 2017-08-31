@@ -6,7 +6,7 @@
 		<div class="input-holder">
 			<input type="text" placeholder="Текстовое поле" id="expl-label-01" />
 			<span class="error-note">Поле обязательное для заполнения</span>
-			<span class="confirm-note">&nbsp;</span>
+			<span class="confirm-note">Подтверждено</span>
 		</div>
 	</div>
 	<div class="input-wrap field-effects-js">
@@ -16,7 +16,7 @@
 		<div class="input-holder error">
 			<input class="error" type="text" placeholder="Невалидное поле" id="expl-label-02" />
 			<span class="error-note">Поле обязательное для заполнения</span>
-			<span class="confirm-note">&nbsp;</span>
+			<span class="confirm-note">Подтверждено</span>
 		</div>
 	</div>
 	<div class="form-row">
@@ -27,7 +27,7 @@
 			<div class="input-holder">
 				<input type="text" placeholder="Текстовое поле первое" id="expl-label-03" />
 				<span class="error-note">Поле обязательное для заполнения</span>
-				<span class="confirm-note">&nbsp;</span>
+				<span class="confirm-note">Подтверждено</span>
 			</div>
 		</div>
 		<div class="input-wrap field-effects-js">
@@ -37,19 +37,19 @@
 			<div class="input-holder error">
 				<input class="error" type="text" placeholder="Текстовое поле второе" id="expl-label-04" />
 				<span class="error-note">Поле обязательное для заполнения</span>
-				<span class="confirm-note">&nbsp;</span>
+				<span class="confirm-note">Подтверждено</span>
 			</div>
 		</div>
 	</div>
 	<div class="form-row">
-		<div class="input-wrap field-effects-js">
+		<div class="input-wrap field-effects-js success">
 			<div class="label-holder">
 				<label for="expl-label-05">Текстовое поле третье: <span class="form-mark">*</span></label>
 			</div>
 			<div class="input-holder">
-				<input type="text" placeholder="Текстовое поле третье" id="expl-label-05" />
+				<input type="text" placeholder="Текстовое поле третье" id="expl-label-05" class="success" />
 				<span class="error-note">Поле обязательное для заполнения</span>
-				<span class="confirm-note">&nbsp;</span>
+				<span class="confirm-note">Подтверждено</span>
 			</div>
 		</div>
 		<div class="input-wrap field-effects-js">
@@ -57,7 +57,8 @@
 				<label for="expl-label-06">Пример селекта: <span class="form-mark">*</span></label>
 			</div>
 			<div class="select error">
-				<select class="cselect error" name="filter-type" id="expl-label-06">
+				<select class="cselect error" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-06">
+					<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
 					<option value="1">Размер</option>
 					<option value="2">Вес</option>
 					<option value="3">Цвет</option>
@@ -68,7 +69,7 @@
 					<option value="8">Расстояние</option>
 				</select>
 				<span class="error-note">Обязательное поле</span>
-				<span class="confirm-note">&nbsp;</span>
+				<span class="confirm-note">Подтверждено</span>
 			</div>
 		</div>
 	</div>
@@ -79,7 +80,7 @@
 		<div class="input-holder">
 			<textarea placeholder="Сообщение" id="expl-label-07"></textarea>
 			<span class="error-note">Поле обязательное для заполнения</span>
-			<span class="confirm-note">&nbsp;</span>
+			<span class="confirm-note">Подтверждено</span>
 		</div>
 	</div>
 </form>

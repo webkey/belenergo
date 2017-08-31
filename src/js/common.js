@@ -273,7 +273,9 @@ function inputHasValueClass() {
 			var $currentFieldWrap = $currentField.closest($fieldWrap);
 
 			//first element of the select must have a value empty ("")
-			if ($currentField.val() === '') {
+			console.log("$currentField: ", $currentField);
+			console.log("$currentField.val(): ", $currentField.val().length);
+			if ($currentField.val().length === 0) {
 				$currentFieldWrap.removeClass(classHasValue);
 			} else if (!$currentFieldWrap.hasClass(classHasValue)) {
 				$currentFieldWrap.addClass(classHasValue);

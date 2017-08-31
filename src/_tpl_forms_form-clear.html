@@ -1,0 +1,121 @@
+<form action="#" method="post">
+	<label for="expl-label-clear-01">Пример текстового поля с плейсхолдером: <span class="form-mark">*</span></label>
+	<input type="text" placeholder="Текстовое поле" id="expl-label-clear-01" />
+	<span class="error-note">Поле обязательное для заполнения</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-02">Пример невалидного текстового поля: <span class="form-mark">*</span></label>
+	<input class="error" type="text" placeholder="Невалидное поле" id="expl-label-clear-02" />
+	<span class="error-note">Поле обязательное для заполнения</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-03">Текстовое поле первое: <span class="form-mark">*</span></label>
+	<input type="text" placeholder="Текстовое поле первое" id="expl-label-clear-03" />
+	<span class="error-note">Поле обязательное для заполнения</span>
+	<span class="confirm-note">Подтверждено</span>
+	
+	<label for="expl-label-clear-04">Текстовое поле второе: <span class="form-mark">*</span></label>
+	<input class="error" type="text" placeholder="Текстовое поле второе" id="expl-label-clear-04" />
+	<span class="error-note">Поле обязательное для заполнения</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-05">Текстовое поле третье: <span class="form-mark">*</span></label>
+	<input type="text" placeholder="Текстовое поле третье" id="expl-label-clear-05" class="success" />
+	<span class="error-note">Поле обязательное для заполнения</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-06">Пример селекта: <span class="form-mark">*</span></label>
+	<select name="filter-type" id="expl-label-clear-06">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+	<span class="error-note">Обязательное поле</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-07">Пример селекта кастомного: <span class="form-mark">*</span></label>
+	<select class="cselect" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-clear-07">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+	<span class="error-note">Обязательное поле</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-06-error">Пример селекта (error): <span class="form-mark">*</span></label>
+	<select name="filter-type" class="error" id="expl-label-clear-06-error">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+	<span class="error-note">Обязательное поле</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-07-error">Пример селекта кастомного (error): <span class="form-mark">*</span></label>
+	<select class="cselect error" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-clear-07-error">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+	<span class="error-note">Обязательное поле</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-06-success">Пример селекта (success): <span class="form-mark">*</span></label>
+	<select name="filter-type" class="success" id="expl-label-clear-06-success">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+	<span class="error-note">Обязательное поле</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-07-success">Пример селекта кастомного (success): <span class="form-mark">*</span></label>
+	<select class="cselect success" data-placeholder="- Выбрать -" name="filter-type" id="expl-label-clear-07-success">
+		<option value="">- Выбрать -</option> <!--Важно! У первого опшина value должен быть равен ""-->
+		<option value="1">Размер</option>
+		<option value="2">Вес</option>
+		<option value="3">Цвет</option>
+		<option value="4">Позицию (расположение)</option>
+		<option value="5">Опшин очень-очень-очень-очень длинный</option>
+		<option value="6">Контраст</option>
+		<option value="7">Сочетание</option>
+		<option value="8">Расстояние</option>
+	</select>
+	<span class="error-note">Обязательное поле</span>
+	<span class="confirm-note">Подтверждено</span>
+
+	<label for="expl-label-clear-08">Сообщение:</label>
+	<textarea placeholder="Сообщение" id="expl-label-clear-08"></textarea>
+	<span class="error-note">Поле обязательное для заполнения</span>
+	<span class="confirm-note">Подтверждено</span>
+</form>
