@@ -294,6 +294,10 @@
 	.slick-prev
 		right: 40px
 
+		+media('<mob-md')
+			right: 0
+			transform: translate(0, 30px)
+
 	// slider counter
 	.slider-counter
 		position: absolute
@@ -335,6 +339,12 @@
 /* flashes
 .flashes
 	padding: 0 90px
+
+	+media('<mob-lg')
+		padding-left: 40px
+
+	+media('<mob-md')
+		padding-right: 50px
 
 .flashes__item
 	+font(1.4rem, 1.5)

@@ -14,16 +14,25 @@ $pagination-border-width: 0
 .pagination
 	+font-bold
 	+clear-spacing
-	color: $text-color
-	fill: $text-color
+	color: inherit
+	fill: inherit
 	text-align: center
 	cursor: default
 	margin-bottom: $bottom-space--lg
 	padding: #{round($grid-space*0.85 - $pagination-vspace)} #{$grid-space - $pagination-hspace}
-	width: 100%
 
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
+
+	+media('<mob-lg')
+		+padding-horizontal(0)
+
+	+media('<mob-md')
+		+margin-horizontal(-#{$layout-spaces--sm + 2px})
+
+		&::after
+			left: 0
+			background-position: center bottom
 
 	&:last-child
 		margin-bottom: 0
@@ -122,6 +131,9 @@ $pagination-border-width: 0
 .pg-first, .pg-last
 	width: 33px
 
+	+media('<mob-lg')
+		display: none
+
 .pg-list
 	+display-inline-block-middle
 
@@ -131,6 +143,9 @@ $pagination-border-width: 0
 		li
 			margin: #{$pagination-vspace} 4px
 			padding: 0
+
+			+media('<mob-md')
+				+margin-horizontal(0)
 
 			&:before
 				content: none
@@ -170,5 +185,8 @@ $pagination-border-width: 0
 	letter-spacing: normal
 	@if $pagination-border-width != 0
 		border: #{$pagination-border-width} solid #{$border-color}
+
+	+media('<mob-md')
+		font-size: 14px
 
 /* pagination end

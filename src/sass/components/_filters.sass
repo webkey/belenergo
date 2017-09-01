@@ -11,13 +11,14 @@
 
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
+		padding: #{round($grid-space--lg*0.85)} #{$grid-space--lg}
 
 	&:last-child
 		margin-bottom: 0
 
 	a
 		text-decoration: none
-		color: $text-color
+		color: inherit
 		transition:
 			property: color
 			duration: $animation-speed
@@ -37,6 +38,11 @@
 		&.filters-all
 			float: right
 
+			+media('<mob-lg')
+				float: none
+				+display-inline-block-top
+				margin-bottom: #{round($grid-space*0.5)}
+
 		&.active
 			color: $base-color
 
@@ -45,12 +51,18 @@
 
 .filters-list
 	&, .#{$user-content} &
-		padding: 0
+		padding: 0 20px 0 0
 		margin: 0 0 -#{round($grid-space*0.5)}
+
+		+media('<mob-lg')
+			margin: 0 0 -#{round($grid-space--lg*0.5)}
 
 		li
 			margin: 0 #{$grid-space} #{round($grid-space*0.5)} 0
 			padding: 0
+
+			+media('<mob-lg')
+				margin: 0 #{$grid-space--lg} #{round($grid-space--lg*0.5)} 0
 
 			&::before
 				content: none

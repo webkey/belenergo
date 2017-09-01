@@ -111,6 +111,13 @@ $border-color: #3a4165
 				span
 					border-bottom-color: $base-color
 
+	.fame__item .short-contacts
+		li
+			color: $bg-color-base
+
+		a, & li > div
+			color: $bg-color-base
+
 	/* short contacts end
 
 	/* breadcrumbs
@@ -494,7 +501,30 @@ $border-color: #3a4165
 		border-color: $border-color
 	/* footer end
 
+	/* pagination
+	.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
+		border-color: $text-color-base
 
+		&::before, &::after
+			border-color: $text-color-base
+	/* pagination end
+
+	/* fame
+	.fame__img
+		background-color: $base-color-alt
+	/* fame end
+
+	/* contacts
+	.info-container__title
+		color: $text-color-base
+
+	/* contacts end
+
+	/* divider
+	.divider
+		border-top: 1px solid $border-color
+
+	/* divider end
 
 
 

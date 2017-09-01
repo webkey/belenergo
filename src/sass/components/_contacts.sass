@@ -8,26 +8,41 @@
 
 	.layout-article
 		min-height: calc(100vh - #{$header-height} - #{$layout-spaces})
+		padding-right: 51%
 		+clear
 
-		+media('<tab-lg')
-			min-height: calc(100vh - #{$header-height--sm} - #{$layout-spaces})
+		+media('<desk-lg')
+			min-height: calc(100vh - #{$header-height} - #{$layout-spaces--lg})
+
+		+media('<desk-md')
+			padding-right: 0
 
 	.aside
 		display: none
 
+	.main__holder
+		+media('<desk-md')
+			margin-right: 0
+
 /* contacts info
 .info-container
 	float: left
-	width: 50%
+	padding-bottom: 40px
+
+	+media('<desk-md')
+		float: none
 
 .info-container__list
 	+clear-spacing
+	+clear
+
+	+media('<desk-md')
+		+grid-parent($layout-spaces--lg)
 
 .info-container__item
 	+font($font-size, $line-height)
 	letter-spacing: 0.025em
-	color: $text-color
+	color: inherit
 	margin-bottom: $bottom-space--md
 
 	&:last-child
@@ -39,12 +54,18 @@
 	.short-contacts-wrap
 		text-align: left
 
+	+media('<desk-md')
+		+grid-item(2, $layout-spaces--lg)
+
+	+media('<mob-lg')
+		+grid-item(1, $layout-spaces--lg)
+
 .info-container__title
 	+font-medium
 	+font(16px, 24px)
 	letter-spacing: 0.05em
 	text-transform: uppercase
-	color: black
+	color: $text-color-base
 	margin-bottom: $bottom-space
 
 .info-container__text
@@ -67,12 +88,12 @@
 	+media('<desk-lg')
 		height: calc(100vh - #{$header-height--sm})
 
-	&::after
-		+pseudo()
-		top: 100%
-		right: 0
-		+size(9999px, 0)
-		border-top: 1px solid $border-color
+	+media('<desk-md')
+		height: 320px
+		position: relative
+		top: auto
+		left: auto
+		right: auto
 
 .contacts-map__frame
 	height: 100%

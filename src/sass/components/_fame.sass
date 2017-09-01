@@ -6,7 +6,8 @@
 
 $fame-space: 80px
 $fame-list-space: 60px
-$fame-space--md: 40px
+$fame-space--lg: 30px
+$fame-space--sm: 20px
 
 .fame
 	margin-bottom: $bottom-space--lg
@@ -23,7 +24,7 @@ $fame-space--md: 40px
 	margin-bottom: $bottom-space--md
 
 	+media('<desk-hd')
-		+grid-parent($fame-space--md)
+		+grid-parent($fame-space--lg)
 
 	&:last-child
 		margin-bottom: 0
@@ -35,7 +36,25 @@ $fame-space--md: 40px
 	letter-spacing: normal
 
 	+media('<desk-hd')
-		+grid-item-responsive(3, $fame-space--md)
+		+grid-item-responsive(3, $fame-space--lg)
+
+	+media('<desk-md')
+		+grid-item-responsive(2, $fame-space--lg)
+
+	+media('<desk-sm')
+		+grid-item-responsive(3, $fame-space--lg)
+
+	+media('<1100px')
+		+grid-item-responsive(2, $fame-space--lg)
+
+	+media('<tab-lg')
+		+grid-item-responsive(3, $fame-space--lg)
+
+	+media('<tab-sm')
+		+grid-item-responsive(2, $fame-space--lg)
+
+	+media('<mob-md')
+		+grid-item-responsive(1, $fame-space--lg)
 
 .fame__inner
 	display: block
@@ -44,8 +63,11 @@ $fame-space--md: 40px
 	color: inherit
 
 .fame__card
-	margin: 0 auto 3.8rem
-	max-width: 320px
+	margin: 0 0 3.8rem
+	max-width: 300px
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space
 
 .fame__figure
 	position: relative
@@ -103,7 +125,7 @@ $fame-space--md: 40px
 	+font-medium
 	+font(16px, round-float(20/16, 2))
 	letter-spacing: 0.025em
-	color: $text-color
+	color: inherit
 	margin-bottom: 1rem
 	overflow: hidden
 	max-height: #{5 * 16px * round-float(24/16, 2)}
@@ -128,7 +150,8 @@ $fame-space--md: 40px
 	overflow-y: auto
 	bottom: 0
 	background-color: white
-	padding: #{round($grid-space*0.85)} #{$grid-space}
+	//padding: #{round($grid-space*0.85)} #{$grid-space}
+	padding: 6.5% 7%
 	box-shadow: inset 0 0 0 1px $border-color
 	transform: translate(0, 100%)
 	transition:
@@ -137,6 +160,8 @@ $fame-space--md: 40px
 		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	.short-contacts
+		display: block
+
 		&, .#{$user-content} &
 			li
 				margin: 0 0 12px

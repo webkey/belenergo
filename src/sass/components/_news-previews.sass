@@ -5,9 +5,10 @@
 /* news previews
 
 $news-previews-space: 80px
-$news-previews-list-space: 60px
 $news-previews-space--hd: 40px
 $news-previews-space--lg: 30px
+$news-previews-list-space: 60px
+$news-previews-list-space--lg: 40px
 
 .news-previews
 	margin-bottom: $bottom-space--lg
@@ -194,13 +195,18 @@ $news-previews-space--lg: 30px
 
 .--list-view
 	$news-previews-figure-size: 160px
-	$news-previews-figure-space: 60px
 
 	.news-previews__list
 		+grid-parent($news-previews-list-space)
 
+		+media('<desk-lg')
+			+grid-parent($news-previews-list-space--lg)
+
 	.news-previews__item
 		+grid-item-responsive(1, $news-previews-list-space)
+
+		+media('<desk-lg')
+			+grid-item-responsive(1, $news-previews-list-space--lg)
 
 	.news-previews__link
 		display: inline
@@ -210,14 +216,29 @@ $news-previews-space--lg: 30px
 		width: $news-previews-figure-size
 		margin: 0
 
+		+media('<mob-lg')
+			float: none
+			margin-bottom: $bottom-space
+
 	.news-previews__meta, .news-previews__content, .news-previews__footer
 		float: right
 		width: calc(100% - #{$news-previews-figure-size})
-		padding-left: $news-previews-figure-space
+		padding-left: $layout-spaces--hd
+
+		+media('<desk-lg')
+			padding-left: $layout-spaces--lg
+
+		+media('<mob-lg')
+			float: none
+			width: 100%
+			padding-left: 0
 
 	.news-previews__meta
 		margin-top: -6px
 		margin-bottom: $bottom-space--sm
+
+		+media('<mob-lg')
+			margin-top: 0
 
 	.news-previews__content
 		margin-bottom: $bottom-space--md

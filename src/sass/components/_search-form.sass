@@ -39,6 +39,9 @@
 		+padding-horizontal(30px)
 		opacity: 0
 
+		+media('<mob-lg')
+			+padding-horizontal(15px)
+
 		.form-is-open &
 			opacity: 1
 
@@ -52,6 +55,9 @@
 			box-shadow: none
 			border: none
 			margin: 0
+
+			+media('<mob-lg')
+				font-size: 16px
 
 		+placeholder
 			color: #b2b2b2 !important

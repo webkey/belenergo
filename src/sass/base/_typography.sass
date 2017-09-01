@@ -13,6 +13,7 @@ body
 	+font($font-size, $line-height)
 	letter-spacing: 0.025em
 	color: $text-color
+	fill: $text-color // для svg иконок
 
 	*::selection
 		background-color: $base-color
@@ -1098,3 +1099,12 @@ table
 				border-bottom: 1px solid tint($base-color, 40%)
 
 /* short contacts end
+
+/* divider
+.divider
+	border-top: 1px solid $border-color
+	clear: both
+	margin-top: -1px
+	+font(0, 0)
+
+/* divider end
