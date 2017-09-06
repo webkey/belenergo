@@ -89,7 +89,7 @@ $structure-branch-space-h--sm: 14px
 		+media('<mob-md')
 			width: $structure-branch-space-h--sm
 
-	.no-touchevents &:hover
+	.no-touchevents &:hover, &.is-open
 		background-color: $base-color-alt
 		color: $bg-color-base
 
@@ -149,7 +149,7 @@ $structure-branch-space-h--sm: 14px
 			top: 0
 			transform: rotate(90deg)
 
-	.no-touchevents &:hover
+	.no-touchevents &:hover, &.is-open
 		.angle
 			&::before, &::after
 				background-color: $bg-color-base

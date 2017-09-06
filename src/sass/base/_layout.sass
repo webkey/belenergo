@@ -249,6 +249,9 @@ body
 		+media('<desk-sm')
 			width: $sidebar-width
 
+		+media('<mob-lg')
+			width: 100%
+
 	// в ие 11 не поддерживается flex-direction: column вместе с min-height
 	// для этого браузера исспользуем хак
 	@media all and (-ms-high-contrast: none)
@@ -260,6 +263,9 @@ body
 
 			+media('<desk-sm')
 				width: $sidebar-width
+
+			+media('<mob-lg')
+				width: 100%
 
 .aside, .aside__holder
 	z-index: 999

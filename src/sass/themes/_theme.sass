@@ -26,6 +26,16 @@ $title-color: white
 //$link-color: $base-color
 // цвет линий и границ
 $border-color: #3a4165
+// form
+$form-text-color: $text-color
+$form-placeholder-color: $border-color
+$form-bg-color: $base-color-alt
+$form-border-color: $text-color-base
+//$form-border-focus-color: $base-color
+$form-error-color: #ff3737
+$form-success-color: green
+// ==================
+$checkbox-color: $text-color-base
 
 //========== VARIABLES END =========
 
@@ -60,11 +70,33 @@ $border-color: #3a4165
 				&::before
 					background-color: $text-color-base
 
+	/* table
+	table
+
+		td, th
+			border-color: $border-color
+
+	.#{$user-content}
+
+		.tbl
+
+			td, th
+				background-color: $base-color-alt
+				border-color: $border-color
+
+			th, thead td
+				color: $text-color-base
+				background: $bg-panels-color
+				border-color: $bg-panels-color
+
 	/* blockquote
 	.#{$user-content}
 		blockquote
 			q
 				color: $text-color-base
+
+				&::before
+					background-position: 0 -182px
 
 	/* add shadow
 	.add-shadow, .add-shadow--full
@@ -84,9 +116,23 @@ $border-color: #3a4165
 		
 	/* caption box end
 
-	/* benefits counter
+	/*files links*/
+	.file
+		color: $text-color
 
-	/* benefits counter end
+		path
+			fill: $text-color
+
+		& > em
+			color: $text-color-light
+
+		.no-touchevents &:hover
+			//background-color: $base-color
+
+			& > em
+				color: $text-color-base
+
+	/*files links end*/
 
 	/* short contacts
 	.short-contacts
@@ -145,6 +191,18 @@ $border-color: #3a4165
 
 	/* btn-default end
 
+	/* btn-default-alt
+	.btn-default-alt
+		color: $text-color-base
+		border-color: $text-color-base
+		background: $base-color-alt
+
+		.no-touchevents &:hover
+			border-color: $base-color
+			color: $base-color
+
+	/* btn-default-alt end
+
 	/* button toggle menu
 	.menu-btn
 		background-color: $bg-panels-color
@@ -168,6 +226,308 @@ $border-color: #3a4165
 
 	/* button end
 	//=========== BUTTONS END ==========
+
+	//=========== FORM STYLES DEFAULT ==========
+	/* form common
+	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+		color: $form-text-color
+		background: $form-bg-color
+		border-color: $form-border-color
+
+		//form hover
+		.no-touchevents &:hover
+			border-color: $form-border-focus-color
+
+		//form focus
+		&:focus
+			border-color: $form-border-focus-color
+
+		//form success
+		.input--has-value &,
+		&.success, .no-touchevents &.success
+			border-color: $base-color
+
+		//form error
+		&.error, .no-touchevents &.error
+			color: $form-error-color
+			border-color: $form-error-color
+
+	.error-note
+		color: $form-error-color
+
+	/* form common end
+
+	/* form placeholder
+	input, textarea
+
+		//form error placeholder
+		&.error
+			+placeholder
+				color: $form-error-color
+
+	/* form placeholder end
+
+	/* form checkbox and radiobutton
+	input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
+		color: $text-color
+
+		// hover
+		.no-touchevents &:hover
+			color: $base-color
+
+			input[type="checkbox"]:not(:disabled) ~ i
+				&::before
+					border-color: $base-color
+
+	.no-touchevents .check-label:hover
+
+		input[type="checkbox"]:not(:disabled) ~ i
+			&::before
+				border-color: $base-color
+
+	.no-touchevents .radio-label:hover
+
+		input[type="radio"]:not(:disabled) ~ span
+			&::before
+				border-color: $base-color
+
+	//checkbox
+	input[type="checkbox"]
+
+		& ~ label,
+		& ~ i
+
+			&::before
+				border-color: $checkbox-color
+
+		& ~ label > span,
+		& ~ span
+			&::before,
+			&::after
+				background-color: $text-color-base
+
+		// checkbox checked
+		&:checked
+			& ~ label,
+			& ~ i
+				&::before
+					border-color: $base-color
+					background-color: $base-color
+
+		// checkbox disabled
+		&:disabled
+			& ~ label,
+			& ~ span
+				color: #bdbdbd
+
+			& ~ label,
+			& ~ i
+				&::before
+					border-color: #d6d6d6
+					background-color: #f3f3f3
+
+			& ~ label > span,
+			& ~ span
+				&:before,
+				&:after
+					background: #d6d6d6
+
+	// radio
+	input[type="radio"]
+
+		& ~ label,
+		& ~ span
+
+			&::before
+				border-color: $checkbox-color
+
+			&::after
+				background: none
+
+		& ~ label > span,
+		& ~ i
+			&::after
+				background: $checkbox-color
+
+		// radio checked
+		&:checked
+			& ~ label,
+			& ~ span
+				&::before
+					border-color: $base-color
+
+			& ~ label > span,
+			& ~ i
+				&::after
+					background-color: $base-color
+
+		// radio disabled
+		&:disabled
+			& ~ label,
+			& ~ label > span,
+			& ~ span
+				color: #bdbdbd
+
+				&::before
+					border-color: #d6d6d6
+					background-color: #f3f3f3
+
+			& ~ label > span,
+			& ~ i
+				&::after
+					background: #b9b9b9
+
+	/* form checkbox and radiobutton end
+
+	/* select
+	// select overall
+	.#{$user-content} select,
+	.select select,
+	.select2-container--default .select2-selection
+		border-color: $form-border-color
+		background: $form-bg-color
+
+	.#{$user-content} select,
+	.select select,
+	.select2-container--default .select2-selection .select2-selection__rendered
+		color: $form-text-color
+
+	.select,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b
+		&::before, &::after
+			background-color: $text-color-base
+
+	.select2-container--default
+		.select2-selection--single
+
+			.select2-selection__arrow
+				background-color: $form-bg-color
+
+		// multiple
+		//.select2-selection--multiple
+
+			.select2-selection__choice
+				background-color: #f3f3f3
+				border: 1px solid #f3f3f3
+				color: $text-color
+
+			.select2-selection__choice__remove
+				color: $text-color
+
+				&:hover
+					color: $link-color
+
+		//.select2-selection--single,
+		//.select2-selection--multiple
+			.select2-selection__placeholder
+				color: $form-placeholder-color
+
+		@at-root .input--has-value, &.select2-container--focus, &.select2-container--open
+			.select2-selection--multiple, .select2-selection--single
+				border-color: $form-border-focus-color
+
+		.select2-search--dropdown
+			.select2-search__field
+				border-color: $form-border-color
+
+				&:focus
+					border-color: $form-border-focus-color
+					box-shadow: none
+
+		//.select2-results__option[aria-selected=true]
+			background-color: #f3f3f3
+
+		.select2-results__option--highlighted[aria-selected]
+			background-color: $base-color
+			color: $bg-color-base
+
+	// select2 dropdown
+	.select2-dropdown
+		border-color: $form-border-focus-color
+		background-color: $base-color-alt
+
+	select.error
+		&,
+		& ~ .select2-container--default .select2-selection--single,
+		& ~ .select2-container--default .select2-selection--multiple
+			border-color: $form-error-color
+
+			& ~ .select2-container--default
+				.select2-selection--single, .select2-selection--multiple
+					.select2-selection__placeholder
+						color: $form-error-color
+
+		& ~ .select2-container--default
+			.select2-selection--single, .select2-selection--multiple
+				.select2-selection__placeholder
+					color: $form-error-color
+
+	select.success
+		&,
+		& ~ .select2-container--default .select2-selection--single,
+		& ~ .select2-container--default .select2-selection--multiple
+			border-color: $base-color
+
+	/* select end
+	//=========== FORM STYLES DEFAULT end ==========
+
+	//=========== LIGHT FORM ==========
+	/* light form
+	.light-form
+		input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+			border-color: $form-border-color
+			background-color: $form-bg-color
+
+		//form error
+		input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+			&.error, .no-touchevents &.error
+				color: $form-error-color
+
+		.label-holder
+
+			&:before
+				border-top-color: $form-border-color
+
+			&:after
+				border-top-color: $base-color
+
+		&.input--focus, &.input--has-value
+
+			.label-holder
+				color: $text-color-light
+
+		&.error
+			.label-holder
+				&:before, &:after
+					border-color: $form-error-color
+
+		.select
+			select,
+			.select2-container--default .select2-selection
+				border-color: $form-border-color
+				background-color: $form-bg-color
+
+		.select
+			select
+				&, &.error
+					&,
+					& ~ .select2-container--default .select2-selection
+						border-color: transparent
+
+			.select2-container--default
+				.select2-selection--single
+					.select2-selection__placeholder
+						color: transparent
+
+					.select2-selection__arrow
+						background-color: $form-bg-color
+
+	/* light form end
+	//=========== LIGHT FORM end ==========
+
+	/* user form
+	.form-title
+		color: $title-color
 
 	/* search-form
 	//.search-form
@@ -249,7 +609,7 @@ $border-color: #3a4165
 			box-shadow: 0 5px 25px transparent
 
 			.menu--opened &
-				box-shadow: 0 5px 25px rgba(255, 255, 255, 0.15)
+				box-shadow: 0 5px 25px rgba(black, 0.25)
 
 	/* header end
 
@@ -333,7 +693,7 @@ $border-color: #3a4165
 			box-shadow: 0 -1px 0 #{$border-color}, 0 5px 25px transparent
 
 			.menu--opened &
-				box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(255, 255, 255, 0.15)
+				box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(black, 0.25)
 
 	/* user options
 
@@ -445,7 +805,7 @@ $border-color: #3a4165
 			&::before, &::after
 				background-color: $text-color-base
 
-	.no-touchevents & .structure-hand:hover
+	.no-touchevents & .structure-hand:hover, & .structure-hand.is-open
 		background-color: $text-color-base
 		color: $base-color-alt
 

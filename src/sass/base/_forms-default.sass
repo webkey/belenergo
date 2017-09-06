@@ -70,7 +70,7 @@ label
 	vertical-align: top
 	color: $mark-color
 
-/*form layout end*/
+/* form layout end
 
 /* form footer
 .form-footer
@@ -88,7 +88,7 @@ label
 
 /* form footer end
 
-/*form common*/
+/* form common
 input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 	display: block
 	padding: #{$form-input-space-vt} #{$form-input-space-h} #{$form-input-space-vb}
@@ -222,32 +222,13 @@ textarea
 		transform-origin: bottom left
 		transform: rotate(-55deg)
 
-/*form common end*/
+/* form common end
 
-/*form placeholder*/
+/* form placeholder
 input, textarea
-	&::-webkit-input-placeholder
+	+placeholder
 		color: $form-placeholder-color
 		transition: $animation-speed
-
-	&:-moz-placeholder
-		color: $form-placeholder-color
-		transition: $animation-speed
-
-	&::-moz-placeholder
-		color: $form-placeholder-color
-		transition: $animation-speed
-		opacity: 1
-
-	&:-ms-input-placeholder
-		color: $form-placeholder-color
-		transition: $animation-speed
-		opacity: 1
-
-	&.placeholder
-		color: $form-placeholder-color
-		transition: $animation-speed
-		opacity: 1
 
 	//form placeholder hide
 	&:focus
@@ -268,27 +249,12 @@ input, textarea
 
 	//form error placeholder
 	&.error
-		&::-webkit-input-placeholder
+		+placeholder
 			color: $form-error-color
 
-		&:-moz-placeholder
-			color: $form-error-color
+/* form placeholder end
 
-		&::-moz-placeholder
-			color: $form-error-color
-			opacity: 1
-
-		&:-ms-input-placeholder
-			color: $form-error-color
-			opacity: 1
-
-		&.placeholder
-			color: $form-error-color
-			opacity: 1
-
-/*form placeholder end*/
-
-/*form checkbox and radiobutton*/
+/* form checkbox and radiobutton
 input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
 	+display-inline-block-top
 	+font-normal
@@ -423,7 +389,7 @@ input[type="checkbox"]
 	&:disabled
 		& ~ label,
 		& ~ span
-			color: #bdbdbd
+			color: #bdbdbd !important
 			cursor: default
 
 		& ~ label,
@@ -556,7 +522,7 @@ input[type="radio"]
 			&::before
 				content: none
 
-/*form checkbox and radiobutton end*/
+/* form checkbox and radiobutton end
 
 ///*select*/
 // select overall
@@ -711,9 +677,9 @@ input[type="radio"]
 			content: none
 
 ///*multiselect menu end*/
-///*select end*/
+///* select end
 
-/*select*/
+/* select
 // select overall
 .#{$user-content}
 	select
@@ -778,7 +744,7 @@ input[type="radio"]
 		right: 22px
 		top: 50%
 		+size(8px, 2px)
-		background-color: $title-color
+		background-color: $text-color-base
 		margin-top: -1px
 		z-index: 1
 
@@ -844,6 +810,11 @@ input[type="radio"]
 			&:hover
 				color: $link-color
 
+	.select2-selection--single,
+	.select2-selection--multiple
+		.select2-selection__placeholder
+			color: $form-placeholder-color
+
 	@at-root .input--has-value, &.select2-container--focus, &.select2-container--open
 		.select2-selection--multiple, .select2-selection--single
 			border: #{$form-border-width} solid #{$form-border-focus-color}
@@ -864,6 +835,7 @@ input[type="radio"]
 
 	.select2-results__option[aria-selected=true]
 		background-color: #f3f3f3
+		color: $text-color
 
 	.select2-results__option--highlighted[aria-selected]
 		background-color: $base-color
@@ -895,11 +867,16 @@ select.error
 	& ~ .select2-container--default .select2-selection--multiple
 		border-color: $form-error-color
 
+	& ~ .select2-container--default
+		.select2-selection--single, .select2-selection--multiple
+			.select2-selection__placeholder
+				color: $form-error-color
+
 select.success
 	&,
 	& ~ .select2-container--default .select2-selection--single,
 	& ~ .select2-container--default .select2-selection--multiple
 		border-color: $base-color
 
-/*select end*/
-/*FORM STYLE DEFAULT end*/
+/* select end
+/* FORM STYLE DEFAULT end
