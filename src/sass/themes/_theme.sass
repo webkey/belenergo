@@ -39,7 +39,6 @@ $checkbox-color: $text-color-base
 
 //========== VARIABLES END =========
 
-
 /*=========== Themes dark ===========*/
 .theme-dark
 
@@ -54,7 +53,7 @@ $checkbox-color: $text-color-base
 		&:first-letter
 			color: $text-color-base
 
-	/* list
+	// list
 	.#{$user-content}
 		ul > li::before
 			border-color: $text-color-base
@@ -70,7 +69,7 @@ $checkbox-color: $text-color-base
 				&::before
 					background-color: $text-color-base
 
-	/* table
+	// table
 	table
 
 		td, th
@@ -89,7 +88,7 @@ $checkbox-color: $text-color-base
 				background: $bg-panels-color
 				border-color: $bg-panels-color
 
-	/* blockquote
+	// blockquote
 	.#{$user-content}
 		blockquote
 			q
@@ -98,7 +97,7 @@ $checkbox-color: $text-color-base
 				&::before
 					background-position: 0 -182px
 
-	/* add shadow
+	// add shadow
 	.add-shadow, .add-shadow--full
 
 		&::after
@@ -108,15 +107,15 @@ $checkbox-color: $text-color-base
 		background-color: $base-color-alt
 		border: 2px solid $text-color-base
 
-	/* add shadow end
+	// add shadow end
 
-	/* caption box
+	// caption box
 	.caption-box__title
 		color: $title-color
 		
-	/* caption box end
+	// caption box end
 
-	/*files links*/
+	//files links*/
 	.file
 		color: $text-color
 
@@ -132,9 +131,9 @@ $checkbox-color: $text-color-base
 			& > em
 				color: $text-color-base
 
-	/*files links end*/
+	//files links end*/
 
-	/* short contacts
+	// short contacts
 	.short-contacts
 
 		li
@@ -164,34 +163,34 @@ $checkbox-color: $text-color-base
 		a, & li > div
 			color: $bg-color-base
 
-	/* short contacts end
+	// short contacts end
 
-	/* breadcrumbs
+	// breadcrumbs
 	.breadcrumbs__list
 		a
 			color: $text-color-base
 
-	/* breadcrumbs end
+	// breadcrumbs end
 
-	/* datetime
+	// datetime
 	.datetime
 		color: $text-color-base
-	/* datetime end
+	// datetime end
 
 	//=========== TYPOGRAPHY END ==========
 
 	//=========== BUTTONS ==========
-	/* button
+	// button
 
-	/* btn-default
+	// btn-default
 	[class*="btn-default"]
 		color: $bg-color-base
 		fill: $bg-color-base
 		background: $text-color-base
 
-	/* btn-default end
+	// btn-default end
 
-	/* btn-default-alt
+	// btn-default-alt
 	.btn-default-alt
 		color: $text-color-base
 		border-color: $text-color-base
@@ -201,9 +200,9 @@ $checkbox-color: $text-color-base
 			border-color: $base-color
 			color: $base-color
 
-	/* btn-default-alt end
+	// btn-default-alt end
 
-	/* button toggle menu
+	// button toggle menu
 	.menu-btn
 		background-color: $bg-panels-color
 		box-shadow: inset -1px -1px 0 $border-color
@@ -222,13 +221,13 @@ $checkbox-color: $text-color-base
 		.no-touchevents &:hover
 			background-color: $bg-panels-color
 
-	/* button toggle menu end
+	// button toggle menu end
 
-	/* button end
+	// button end
 	//=========== BUTTONS END ==========
 
 	//=========== FORM STYLES DEFAULT ==========
-	/* form common
+	// form common
 	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 		color: $form-text-color
 		background: $form-bg-color
@@ -255,9 +254,9 @@ $checkbox-color: $text-color-base
 	.error-note
 		color: $form-error-color
 
-	/* form common end
+	// form common end
 
-	/* form placeholder
+	// form placeholder
 	input, textarea
 
 		//form error placeholder
@@ -265,9 +264,9 @@ $checkbox-color: $text-color-base
 			+placeholder
 				color: $form-error-color
 
-	/* form placeholder end
+	// form placeholder end
 
-	/* form checkbox and radiobutton
+	// form checkbox and radiobutton
 	input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
 		color: $text-color
 
@@ -279,13 +278,13 @@ $checkbox-color: $text-color-base
 				&::before
 					border-color: $base-color
 
-	.no-touchevents .check-label:hover
+	.no-touchevents & .check-label:hover
 
 		input[type="checkbox"]:not(:disabled) ~ i
 			&::before
 				border-color: $base-color
 
-	.no-touchevents .radio-label:hover
+	.no-touchevents & .radio-label:hover
 
 		input[type="radio"]:not(:disabled) ~ span
 			&::before
@@ -377,9 +376,9 @@ $checkbox-color: $text-color-base
 				&::after
 					background: #b9b9b9
 
-	/* form checkbox and radiobutton end
+	// form checkbox and radiobutton end
 
-	/* select
+	// select
 	// select overall
 	.#{$user-content} select,
 	.select select,
@@ -468,11 +467,11 @@ $checkbox-color: $text-color-base
 		& ~ .select2-container--default .select2-selection--multiple
 			border-color: $base-color
 
-	/* select end
+	// select end
 	//=========== FORM STYLES DEFAULT end ==========
 
 	//=========== LIGHT FORM ==========
-	/* light form
+	// light form
 	.light-form
 		input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 			border-color: $form-border-color
@@ -522,25 +521,21 @@ $checkbox-color: $text-color-base
 					.select2-selection__arrow
 						background-color: $form-bg-color
 
-	/* light form end
+	// light form end
 	//=========== LIGHT FORM end ==========
 
-	/* user form
+	// user form
 	.form-title
 		color: $title-color
 
-	/* search-form
-	//.search-form
-		box-shadow: inset 0 -1px 0 $border-color
-
 	//=========== SLIDERS ==========
-	/* several slider
+	// several slider
 
 	.slider-arr, .slick-arrow
 		&::before, &::after
 			border-color: $text-color-base
 
-	/* promo slider
+	// promo slider
 	.promo-slide
 		background-color: $text-color-base
 
@@ -549,7 +544,7 @@ $checkbox-color: $text-color-base
 			&::before, &::after
 				border-color: $bg-color-base
 
-	/* promo slider end
+	// promo slider end
 
 	.several-slider__item
 		background-color: $base-color-alt
@@ -572,16 +567,16 @@ $checkbox-color: $text-color-base
 
 	//=========== SLIDERS END ==========
 
-	/* previews-grid
+	// previews-grid
 	.previews-grid, .previews-grid-list, .previews-grid-item, .previews-grid-inner
 
 		&::before, &::after
 			border-color: $text-color-base
 
-	/* grid view end
-	/* previews-grid end
+	// grid view end
+	// previews-grid end
 
-	/* layout
+	// layout
 	&
 		background-color: $bg-color
 		color: $text-color
@@ -597,9 +592,9 @@ $checkbox-color: $text-color-base
 	.wrapper::after
 			opacity: 0.02
 
-	/* layout end
+	// layout end
 
-	/* header
+	// header
 	.header
 		background-color: $bg-panels-color
 		box-shadow: inset 0 -1px 0 $border-color
@@ -611,9 +606,9 @@ $checkbox-color: $text-color-base
 			.menu--opened &
 				box-shadow: 0 5px 25px rgba(black, 0.25)
 
-	/* header end
+	// header end
 
-	/* user options
+	// user options
 
 	.user-options__item
 		& > a
@@ -649,7 +644,7 @@ $checkbox-color: $text-color-base
 	.text-theme--dark, .svg-theme--dark
 		display: none
 
-	/* lang
+	// lang
 	.lang
 
 		& > a
@@ -686,7 +681,7 @@ $checkbox-color: $text-color-base
 				background-color: $text-color-base
 				color: $bg-color-base
 
-	/* lang end
+	// lang end
 
 	.sidebar
 		.user-options
@@ -695,9 +690,9 @@ $checkbox-color: $text-color-base
 			.menu--opened &
 				box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(black, 0.25)
 
-	/* user options
+	// user options
 
-	/* navigation
+	// navigation
 	.nav-list
 
 		li
@@ -712,9 +707,9 @@ $checkbox-color: $text-color-base
 		border-color: $border-color
 		background-color: $base-color-alt
 
-	/* navigation end
+	// navigation end
 
-	/* news previews
+	// news previews
 	.news-previews__date
 		color: $text-color-light
 
@@ -728,7 +723,7 @@ $checkbox-color: $text-color-base
 			background-color: $base-color
 			box-shadow: 0 0 0 1px #{$base-color}, 2px 0 0 1px #{$base-color}, -2px 0 0 1px #{$base-color}
 
-	.news-previews__img
+	.news-previews__figure
 		background-color: $bg-panels-color
 
 	.news-previews__title, .news-previews__text
@@ -745,9 +740,9 @@ $checkbox-color: $text-color-base
 			color: $base-color
 			border-color: $base-color
 
-	/* news previews end
+	// news previews end
 
-	/* subscription form
+	// subscription form
 	.subscription-form
 
 		input[type='text'], input[type='email']
@@ -775,9 +770,9 @@ $checkbox-color: $text-color-base
 		color: $form-error-color
 		background-color: #f2f2f2
 
-	/* subscription form end
+	// subscription form end
 
-	/* popular
+	// popular
 	.popular
 		background-color: $base-color-alt
 
@@ -788,9 +783,9 @@ $checkbox-color: $text-color-base
 			background-color: $text-color-base
 			color: $bg-color-base
 
-	/* popular end
+	// popular end
 
-	/* structure
+	// structure
 	.structure-item, .structure-hand
 		&::before
 			border-color: $text-color-base
@@ -813,9 +808,9 @@ $checkbox-color: $text-color-base
 			&::before, &::after
 				background-color: $base-color-alt
 
-	/* structure end
+	// structure end
 
-	/* sidebar
+	// sidebar
 	.sidebar
 		background-color: $bg-panels-color
 		border-right-color: $border-color
@@ -826,7 +821,7 @@ $checkbox-color: $text-color-base
 	.sidebar-widget
 		border-top-color: $border-color
 
-	/* menu
+	// menu
 	.menu-list
 
 		a
@@ -839,11 +834,11 @@ $checkbox-color: $text-color-base
 			color: $text-color-base !important
 			background-color: $base-color
 
-	/* menu end
-	/* sidebar end
+	// menu end
+	// sidebar end
 
-	/* aside
-	/* actual links
+	// aside
+	// actual links
 	.actual-links
 		a
 			span
@@ -853,38 +848,38 @@ $checkbox-color: $text-color-base
 				span
 					border-color: $base-color
 
-	/* actual links end
-	/* aside end
+	// actual links end
+	// aside end
 
-	/* footer
+	// footer
 	.footer__holder
 		border-color: $border-color
-	/* footer end
+	// footer end
 
-	/* pagination
+	// pagination
 	.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
 		border-color: $text-color-base
 
 		&::before, &::after
 			border-color: $text-color-base
-	/* pagination end
+	// pagination end
 
-	/* fame
+	// fame
 	.fame__img
 		background-color: $base-color-alt
-	/* fame end
+	// fame end
 
-	/* contacts
+	// contacts
 	.info-container__title
 		color: $text-color-base
 
-	/* contacts end
+	// contacts end
 
-	/* divider
+	// divider
 	.divider
 		border-top: 1px solid $border-color
 
-	/* divider end
+	// divider end
 
 
 

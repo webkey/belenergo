@@ -74,9 +74,26 @@ $fame-space--sm: 20px
 	overflow: hidden
 	letter-spacing: normal
 
-	&:before
+	&::before
 		+pseudo-block-relative()
 		+ratio(286, 410)
+
+	&::after
+		+pseudo($content: 'i')
+		right: $grid-space--sm
+		top: $grid-space--sm
+		+size(32px)
+		border-radius: 50%
+		background-color: $bg-color-base
+		+font-extra-bold
+		+font(24px, 32px)
+		text-align: center
+		color: $text-color-base
+		z-index: 10
+		display: none
+
+		.touchevents &
+			display: block
 
 .fame__img
 	position: relative
@@ -107,12 +124,14 @@ $fame-space--sm: 20px
 
 	img
 		display: block
-		height: 100%
-		max-width: none
-		transform: translate(-50%, -50%)
 		position: absolute
+		+position(0)
+		height: 100%
+		width: 100%
+		max-width: none
 		backface-visibility: hidden
-		+position(50%)
+		object-fit: cover
+		font-family: 'object-fit: cover'
 
 .fame__content
 	position: relative
@@ -177,7 +196,7 @@ $fame-space--sm: 20px
 			line-height: 18px
 
 .fame__figure
-	&:hover, &:focus
+	&.hover
 
 		.fame__img
 			transform: translate(0, -12%)

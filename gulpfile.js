@@ -111,6 +111,7 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
 		, 'src/libs/matchHeight/dist/jquery.matchHeight-min.js' // скрипт для выравнивания элементов по максимальному
 		, 'src/libs/sticky-kit/jquery.sticky-kit.min.js' // скрипт для фиксирования блоков
+		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))

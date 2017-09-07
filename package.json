@@ -32,5 +32,8 @@
     "imagemin-pngquant": "^5.0.0",
     "markdown": "^0.5.0",
     "modernizr": "^3.3.1"
+  },
+  "dependencies": {
+    "object-fit-images": "^3.2.3"
   }
 }

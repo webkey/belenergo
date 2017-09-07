@@ -3,34 +3,43 @@
 @import ../../libs/include-media/dist/include-media
 
 .color-scheme-bw
-	// base
-	$font-size: 1.6rem
-	$line-height: round-float(3.0rem/$font-size, 2)
+	//========== VARIABLES =========
 	
 	// color
+	// главные контрастные цвета (обычно, белый и черный)
+	$text-color-base: black
+	$bg-color-base: white
+	// ==============
 	$base-color: black
-	//$bg-color: #c8e5ff
-	$bg-color: white
-	//$text-color: #002d56
+	$base-color-alt: black
 	$text-color: black
 	$text-color-light: black
 	$text-color-alt: black
 	$mark-color: black
-	$mark-color-alt: black
 	$title-color: black
 	$link-color: black
 	$link-color-inverse: white
 	$link-color-disabled: #989898
 	$link-color-visited: #989898
-	$footer-bg-color: white
-	$footer-text-color: black
 	// ===============
 	$border-width: 2px
-	// ===============
-	$animation-speed: 0s
+	// form
+	$form-text-color: black
+	$form-placeholder-color: black
+	$form-bg-color: white
+	$form-border-color: black
+	$form-border-focus-color: black
+	$form-error-color: black
+	$form-success-color: black
+	// ==================
+	$checkbox-color: $text-color-base
 
-	background-color: $bg-color
-	color: $text-color
+	//========== VARIABLES end =========
+
+	//=========== TYPOGRAPHY ==========
+	&
+		background-color: $bg-color-base
+		color: $text-color
 
 	h1, h2, h3, h4, h5, h6
 		color: $title-color
@@ -50,14 +59,8 @@
 			color: $link-color-visited
 
 	.mark
-		color: $bg-color
+		color: $bg-color-base
 		background-color: $mark-color
-
-	.dark-text
-		color: $text-color
-
-	.dark-text-light
-		color: $text-color-light
 
 	.text-color-alt
 		color: $text-color-alt
@@ -72,25 +75,17 @@
 		.tbl
 			td, th, th, thead td, tfoot td
 				color: $text-color
-				background-color: $bg-color
+				background-color: $bg-color-base
 				border: 1px solid $text-color
 
 		blockquote q
 			color: $text-color
 
-	// text warning
-	.text-warning
-		&::before
-			background-color: $mark-color
-			color: $bg-color
-	
-	// rss
-	.rss
-		&, .section__title &
-			background-color: $text-color
-			
-	// buttons
-	// btn-default
+	//=========== TYPOGRAPHY end ==========
+
+	//=========== BUTTONS ==========
+	/* buttons
+	/* btn-default
 	.btn-default, .btn-map-site
 		color: $link-color-inverse
 		background-color: $link-color
@@ -108,7 +103,7 @@
 			.no-touchevents &
 				background-color: $link-color-disabled
 
-	// btn-default-alt
+	/* btn-default-alt
 	.btn-default-alt
 		color: $link-color
 		background-color: $link-color-inverse
@@ -124,87 +119,14 @@
 			border-color: $link-color-disabled
 
 			.no-touchevents &
-				background-color: $bg-color
+				background-color: $bg-color-base
 
 				&:hover
 					color: $link-color-disabled
 
-	// btn-default-light
-	.btn-default-light
-		color: $text-color
+	//=========== BUTTONS end ==========
 
-		&:disabled
-			background-color: $bg-color
-			border-color: $link-color-disabled
-			color: $link-color-disabled
-
-			.no-touchevents &
-				background-color: $bg-color
-
-				&:hover
-					color: $link-color-disabled
-
-	// btn-arrow
-	.btn-arrow
-		color: $link-color-inverse
-		background-color: $link-color
-		border-color: $link-color
-
-		.no-touchevents &:hover
-			background-color: $link-color-inverse
-			color: $link-color
-
-			& > span
-
-				&::before, &::after
-					background-color: $link-color
-
-	// more button
-	.more
-		.btn-more
-			color: $text-color-alt
-			border-color: $link-color
-			background-color: $link-color-inverse
-
-			.no-touchevents &:hover
-				color: $link-color-inverse
-				background-color: $link-color
-
-	// social networks
-	.social-networks__item, .soc-media-share .social-networks__item
-
-		a
-			background: $link-color-inverse // НЕ background-color. Перебить градиент
-			box-shadow: inset 0 0 0 #{$border-width} $link-color
-
-			path
-				fill: $link-color
-
-			.no-touchevents &:hover
-				box-shadow: inset 0 0 0 #{$border-width} $link-color
-				background: $link-color // НЕ background-color. Перебить градиент
-
-				path
-					fill: $link-color-inverse
-
-			&:active, .no-touchevents &:active
-				box-shadow: none
-
-	// tags
-	.article-layout .tags
-		border-top-color: $text-color
-
-	.tags__list, .#{$user-content} .tags__list
-		a
-			color: $link-color
-			border-color: $link-color
-			background: $link-color-inverse
-
-			.no-touchevents &:hover
-				background-color: $link-color
-				color: $link-color-inverse
-
-	// form styles default
+	//=========== FORM STYLES DEFAULT ==========
 	.label-holder, label
 		color: $text-color
 
@@ -213,7 +135,7 @@
 
 	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
 		color: $text-color
-		background: $bg-color
+		background: $bg-color-base
 		border-color: $text-color
 
 		.no-touchevents &:hover
@@ -226,7 +148,7 @@
 			box-shadow: inset 0 0 0 1px $text-color
 
 	.error-note
-		color: $bg-color
+		color: $bg-color-base
 		background-color: $text-color
 
 	.success-text
@@ -264,176 +186,327 @@
 			&.placeholder
 				color: $text-color
 
-	input[type="checkbox"],
-	input[type="radio"]
-		& + label,
-		& + span i
-			&::before
-				border-color: $link-color
+	// form placeholder
+	input, textarea
+		+placeholder
+			columns: $form-placeholder-color
 
-	input[type="checkbox"]
-		& + label span,
-		& + span
-			&::before,
-			&::after
-				background: $link-color
+		//form error placeholder
+		&.error
+			+placeholder
+				color: $form-error-color
 
-		&:checked
-			& + label,
-			& + span i
-				&::before
-					border-color: $link-color
-					background-color: $link-color
+	// form placeholder end
 
-			& + label span,
-			& + span
-				&::before, &::after
-					background-color: $link-color-inverse
-
-		&:disabled
-			& + label,
-			& + span i
-				&::before
-					border-color: $link-color
-					background-color: $link-color-inverse
-
-			& + label span,
-			& + span
-				&::before, &::after
-					background: lighten($link-color, 40%)
-
-	input[type="radio"]
-		& + label span,
-		& + span i
-			&::after
-				background: $link-color-inverse
-
-		&:checked
-
-			& + label,
-			& + span i
-
-				&::before
-					border-color: $link-color
-					background-color: $link-color
-
-		&:disabled
-			& + label,
-			& + span i
-				&::before
-					background-color: $link-color-inverse
-
-			& + label,
-			& + span
-				color: $link-color
-
-				&::before
-					border-color: $link-color
-
-			& + label span,
-			& + span i
-				&::after
-					background-color: $link-color
-
-			& + span i
-				&::before
-					border-color: $link-color
-					background-color: $link-color-inverse
-
-	// select
-	.select
-		select,
-		.select2-container--default .select2-selection--single,
-		.select2-container--default .select2-selection--multiple
-			border-color: $text-color
-			background: $bg-color
-
-		select,
-		.select2-container--default .select2-selection--single .select2-selection__rendered,
-		.select2-container--default .select2-selection--multiple .select2-selection__rendered
-			color: $text-color
-
-		select:focus,
-		.select2-container--default.select2-container--open .select2-selection--single,
-		.select2-container--default.select2-container--open .select2-selection--multiple
-			color: $text-color
-			border-color: $text-color
-			box-shadow: inset 0 0 0 1px $text-color
-
-		.select2-container--default
-			.select2-selection--single
-				.select2-selection__rendered
-					.select2-selection__arrow
-						background-color: $bg-color
-
-		&::before,
-		&::after,
-		.select2-container--default .select2-selection--single .select2-selection__arrow b::before,
-		.select2-container--default .select2-selection--single .select2-selection__arrow b::after
-			background: none
-
-		&::before,
-		.select2-container--default .select2-selection--single .select2-selection__arrow b::before
-			+triangle(bottom, $text-color, 10px, 1.5)
-
-		.select2-container--default .select2-selection--multiple
-
-			.select2-selection__rendered
-				li
-					border-color: transparent
-					background-color: $text-color
-					color: $bg-color
-
-					&.select2-search--inline
-						background-color: $bg-color
-						color: $text-color
-
-			.select2-selection__choice__remove
-				color: $bg-color
-
-	.select2-dropdown
-		border-color: $text-color
-
-	.select2-container--default
-		.select2-search--dropdown
-			.select2-search__field
-				border-color: $text-color
-
-				&:focus
-					border-color: $text-color
-					box-shadow: inset 0 0 0 1px $text-color
-
-	.select2-container--default .select2-results__option[aria-selected=true]
-		background-color: $bg-color
+	// form checkbox and radiobutton
+	input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radio-label
 		color: $text-color
 
-		&::before
-			background-color: $text-color
+		// hover
+		.no-touchevents &:hover
+			color: $base-color
 
-	.select2-container--default .select2-results__option--highlighted[aria-selected]
-		background-color: $text-color
-		color: $bg-color
+			input[type="checkbox"]:not(:disabled) ~ i
+				&::before
+					border-color: $base-color
 
-		&[aria-selected=true]
+	.no-touchevents & .check-label:hover
+
+		input[type="checkbox"]:not(:disabled) ~ i
 			&::before
-				background-color: $bg-color
+				border-color: $base-color
 
-	// LAYOUT
+	.no-touchevents & .radio-label:hover
+
+		input[type="radio"]:not(:disabled) ~ span
+			&::before
+				border-color: $base-color
+
+	//checkbox
+	input[type="checkbox"]
+
+		& ~ label,
+		& ~ i
+
+			&::before
+				border-color: $checkbox-color
+
+		& ~ label > span,
+		& ~ span
+			&::before,
+			&::after
+				background-color: $bg-color-base
+
+		// checkbox checked
+		&:checked
+			& ~ label,
+			& ~ i
+				&::before
+					border-color: $base-color
+					background-color: $base-color
+
+		// checkbox disabled
+		&:disabled
+			& ~ label,
+			& ~ span
+				color: #bdbdbd
+
+			& ~ label,
+			& ~ i
+				&::before
+					border-color: #d6d6d6
+					background-color: #f3f3f3
+
+			& ~ label > span,
+			& ~ span
+				&:before,
+				&:after
+					background: #d6d6d6
+
+	// radio
+	input[type="radio"]
+
+		& ~ label,
+		& ~ span
+
+			&::before
+				border-color: $checkbox-color
+
+			&::after
+				background: none
+
+		& ~ label > span,
+		& ~ i
+			&::after
+				background: $checkbox-color
+
+		// radio checked
+		&:checked
+			& ~ label,
+			& ~ span
+				&::before
+					border-color: $base-color
+
+			& ~ label > span,
+			& ~ i
+				&::after
+					background-color: $base-color
+
+		// radio disabled
+		&:disabled
+			& ~ label,
+			& ~ label > span,
+			& ~ span
+				color: #bdbdbd
+
+				&::before
+					border-color: #d6d6d6
+					background-color: #f3f3f3
+
+			& ~ label > span,
+			& ~ i
+				&::after
+					background: #b9b9b9
+
+	// form checkbox and radiobutton end
+
+	/* select
+	// select overall
+	.#{$user-content} select,
+	.select select,
+	.select2-container--default .select2-selection
+		border-color: $form-border-color
+		background: $form-bg-color
+
+	.#{$user-content} select,
+	.select select,
+	.select2-container--default .select2-selection .select2-selection__rendered
+		color: $form-text-color
+
+	.select,
+	.select2-container--default .select2-selection--single .select2-selection__arrow b
+		&::after
+			content: none
+
+		&::before
+			+triangle(bottom, $text-color, 10px, 1.5)
+			background-color: transparent
+			transform: none
+			right: 10px
+			margin-top: -6px
+
+	.select2-container--default
+		.select2-selection--single
+
+			.select2-selection__arrow
+				background-color: $form-bg-color
+
+		// multiple
+		//.select2-selection--multiple
+
+			.select2-selection__choice
+				background-color: #f3f3f3
+				border: 1px solid #f3f3f3
+				color: $text-color
+
+			.select2-selection__choice__remove
+				color: $text-color
+
+				&:hover
+					color: $link-color
+
+		//.select2-selection--single,
+		//.select2-selection--multiple
+			.select2-selection__placeholder
+				color: $form-placeholder-color
+
+		@at-root .input--has-value, &.select2-container--focus, &.select2-container--open
+			.select2-selection--multiple, .select2-selection--single
+				border-color: $form-border-focus-color
+
+		.select2-search--dropdown
+			.select2-search__field
+				border-color: $form-border-color
+
+				&:focus
+					border-color: $form-border-focus-color
+					box-shadow: none
+
+		//.select2-results__option[aria-selected=true]
+			background-color: #f3f3f3
+
+		.select2-results__option--highlighted[aria-selected]
+			background-color: $base-color
+			color: $bg-color-base
+
+	// select2 dropdown
+	.select2-dropdown
+		border-color: $form-border-focus-color
+		background-color: $base-color-alt
+
+	select.error
+		&,
+		& ~ .select2-container--default .select2-selection--single,
+		& ~ .select2-container--default .select2-selection--multiple
+			border-color: $form-error-color
+
+			& ~ .select2-container--default
+				.select2-selection--single, .select2-selection--multiple
+					.select2-selection__placeholder
+						color: $form-error-color
+
+		& ~ .select2-container--default
+			.select2-selection--single, .select2-selection--multiple
+				.select2-selection__placeholder
+					color: $form-error-color
+
+	select.success
+		&,
+		& ~ .select2-container--default .select2-selection--single,
+		& ~ .select2-container--default .select2-selection--multiple
+			border-color: $base-color
+
+	/* select end
+
+	//=========== FORM STYLES DEFAULT end ==========
+
+	//=========== LIGHT FORM ==========
+	// light form
+	.light-form
+		input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+			border-color: $form-border-color
+			background-color: $form-bg-color
+
+		//form error
+		input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
+			&.error, .no-touchevents &.error
+				color: $form-error-color
+
+		.label-holder
+
+			&:before
+				border-top-color: $form-border-color
+
+			&:after
+				border-top-color: $base-color
+
+		&.input--focus, &.input--has-value
+
+			.label-holder
+				color: $text-color-light
+
+		&.error
+			.label-holder
+				&:before, &:after
+					border-color: $form-error-color
+
+		.select
+			select,
+			.select2-container--default .select2-selection
+				border-color: $form-border-color
+				background-color: $form-bg-color
+
+		.select
+			select
+				&, &.error
+					&,
+					& ~ .select2-container--default .select2-selection
+						border-color: transparent
+
+			&,
+			.select2-container--default .select2-selection--single .select2-selection__arrow b
+				&::before, &::after
+					right: 10px
+
+			.select2-container--default
+				.select2-selection--single
+					.select2-selection__placeholder
+						color: transparent
+
+					.select2-selection__arrow
+						background-color: $form-bg-color
+
+	// light form end
+	//=========== LIGHT FORM end ==========
+
+	// user form
+	.user-form
+		background-color: $bg-color-base
+		border-color: $text-color
+
+	.form-title
+		color: $text-color-alt
+
+	//=========== LAYOUT ==========
 	.wrapper
 		&::before
-			background-color: $bg-color
+			background-color: $bg-color-base
 			border-right-color: $text-color
 
 		&::after
 			background-color: $text-color
 
-	// user form
-	.user-form
-		background-color: $bg-color
-		border-color: $text-color
+	//=========== LAYOUT end ==========
 
-	.form-title
-		color: $text-color-alt
+	/* social networks
+	.social-networks__item, .soc-media-share .social-networks__item
+
+		a
+			background: $link-color-inverse // НЕ background-color. Перебить градиент
+			box-shadow: inset 0 0 0 #{$border-width} $link-color
+
+			path
+				fill: $link-color
+
+			.no-touchevents &:hover
+				box-shadow: inset 0 0 0 #{$border-width} $link-color
+				background: $link-color // НЕ background-color. Перебить градиент
+
+				path
+					fill: $link-color-inverse
+
+			&:active, .no-touchevents &:active
+				box-shadow: none
 
 	// jFiler
 	.jFiler-input-dragDrop
@@ -459,7 +532,7 @@
 	.jFiler-item-assets ul,
 	.#{$user-content} ul .jFiler-item-assets ul
 		li
-			background: $bg-color
+			background: $bg-color-base
 
 	.jFiler-item-trash-action
 		border-color: $link-color

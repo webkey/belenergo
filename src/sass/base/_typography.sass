@@ -257,8 +257,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		height: calc(100% + 4px)
 		transform: translate(-50%, -50%)
 		object-fit: cover
+		font-family: 'object-fit: cover'
 
-		.no-objectfit &
+		//.no-objectfit &
 			width: auto
 			height: 100%
 
@@ -994,14 +995,14 @@ table
 	&:last-child
 		margin-bottom: 0
 
-	.--theme-dark
+	.is-theme-dark
 		display: none
 
 	.theme-dark &
-		.--theme-light
+		.is-theme-light
 			display: none
 
-		.--theme-dark
+		.is-theme-dark
 			display: block
 
 /* visual preview end

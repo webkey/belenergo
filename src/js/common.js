@@ -400,6 +400,8 @@ function customSelect(select) {
 		self.$item = $(options.item, container);
 		self.$drop = $(options.drop, container);
 
+		console.log("self.$item: ", self.$item);
+
 		self.modifiers = {
 			hover: 'hover',
 			hoverNext: 'hover_next',
@@ -507,6 +509,13 @@ function hoverClassInit(){
 		new HoverClass({
 			container: ('.header .nav'),
 			drop: '.js-nav-drop'
+		});
+	}
+	if($('.fame__list').length){
+		new HoverClass({
+			container: ('.fame__list'),
+			item: '.fame__figure',
+			drop: '.fame__info'
 		});
 	}
 }
@@ -1799,8 +1808,8 @@ $(window).on('debouncedresize', function () {
 
 $(document).ready(function () {
 	footerBottom();
-	// switchCecutientVersion();
-	// checkCecutientVersionCookie();
+	switchCecutientVersion();
+	checkCecutientVersionCookie();
 	switchTheme();
 	checkThemeCookie();
 	placeholderInit();
@@ -1821,6 +1830,7 @@ $(document).ready(function () {
 	simpleAccordion();
 	equalHeight();
 	popupsInit();
+	objectFitImages(); // object-fit-images initial
 
 	formSuccessExample();
 
