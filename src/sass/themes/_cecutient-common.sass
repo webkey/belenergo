@@ -7,11 +7,181 @@
 	$font-size: 1.6rem
 	$line-height: round-float(3.0rem/$font-size, 2)
 	// ===============
+	$border-color: black
 	$border-width: 2px
 	// ===============
-	$animation-speed: 0s
+	$animation-speed: 0.0s
 
 	&
 		*::selection
 			background-color: black
 			color: white
+
+	hr
+		border-width: $border-width
+
+	.#{$user-content}
+		a:not(.btn-default):not(.btn-default-alt)
+			padding-top: 0.2em
+			text-decoration: none
+			border-bottom: $border-width solid $border-color
+			box-shadow: -#{$border-width*2} 0 0 transparent, #{$border-width*2} 0 0 transparent
+			transition:
+				property: border-color, background-color, color, box-shadow
+				duration: $animation-speed
+
+	// table
+	.#{$user-content}
+
+		.tbl
+
+			th, thead td
+				border-bottom-width: $border-width
+
+	// blockquote
+	.#{$user-content}
+		blockquote
+			padding: 10px 12px
+			border: #{$border-width} solid $border-color
+
+			q, cite
+				+font-medium
+
+				&::before
+					content: none
+
+	// add shadow
+	.add-shadow, .add-shadow--full
+
+		&::after
+			content: none
+
+	.add-shadow--full
+		border-width: $border-width
+
+	// add shadow end
+
+	// entry
+	.entry-img
+		padding: 0
+		height: auto
+
+		img
+			display: none
+
+	.entry-img__title
+		position: relative
+		+position(0)
+		transform: none
+		text-shadow: none
+
+	// entry end
+
+	// files links
+	.file
+		box-shadow: none
+		padding: 0.5em !important // перебить стили ссылок
+		transition-duration: 0s !important // перебить стили ссылок
+		border: none !important // перебить стили ссылок
+
+		& > span, & > em, path
+			transition-duration: $animation-speed
+
+		.no-touchevents &:hover
+			box-shadow: none
+
+	// files links end
+
+	//=========== BUTTONS ==========
+	// button
+
+	// btn-default
+	[class*="btn-default"]
+		color: $bg-color-base
+		fill: $bg-color-base
+		background: $text-color-base
+
+	// btn-default end
+
+	// btn-default-alt
+	.btn-default-alt
+		color: $text-color-base
+		border-color: $text-color-base
+		background: $base-color-alt
+
+		.no-touchevents &:hover
+			border-color: $base-color
+			color: $base-color
+
+	// btn-default-alt end
+
+	// button toggle menu
+	.menu-btn
+		background-color: $bg-panels-color
+		box-shadow: inset -1px -1px 0 $border-color
+
+		&::before, &::after
+			background-color: $text-color-base
+
+		& > i
+			&, &::before, &::after
+				background-color: $text-color-base
+
+		&.active
+			& > i
+				background-color: transparent
+
+		.no-touchevents &:hover
+			background-color: $bg-panels-color
+
+	// button toggle menu end
+
+	// button end
+	//=========== BUTTONS END ==========
+
+	//=========== FORM STYLES DEFAULT ==========
+	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea,
+	.select select,
+	.select2-container--default .select2-selection .select2-selection__rendered
+		font-size: 18px
+
+	.error-note
+		+padding-horizontal(5px)
+		height: 24px
+		font-size: 16px
+		line-height: 24px
+
+	.confirm-note
+		$this-icon-lines-width: 12px
+		$this-icon-lines-height: 3px
+
+		&::before
+			+size(round($this-icon-lines-width*0.75), $this-icon-lines-height)
+
+		&::after
+			+size(round($this-icon-lines-width*1.3), $this-icon-lines-height)
+
+	// select
+	.select2-container--default
+		.select2-results__option[aria-selected=true]
+			&::before
+				+pseudo-inline-block()
+				vertical-align: top
+				margin: 0.6em 0.5em 0 0
+				+size(10px, 3px)
+				background-color: $text-color-base
+
+			&.select2-results__option--highlighted
+				&::before
+					background-color: $bg-color-base
+
+	// select end
+
+	//=========== FORM STYLES DEFAULT END ==========
+
+	//=========== LAYOUT END ==========
+	.wrapper
+		&::after
+			content: none
+
+	//=========== LAYOUT ==========

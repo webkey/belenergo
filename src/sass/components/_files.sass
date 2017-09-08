@@ -22,19 +22,22 @@
 
 	path
 		fill: $base-color-alt
+		transition:
+			property: fill
+			duration: $animation-speed
 
 	& > span, & > em
 		display: block
 		margin-left: #{$file-icon-size}
 		padding-left: 1em
+		transition:
+			property: color
+			duration: $animation-speed
 
 	& > em
 		display: block
 		font-size: 1.4rem
 		color: $text-color-light
-		transition:
-			property: color
-			duration: $animation-speed
 
 	.no-touchevents &:hover
 		background-color: $base-color

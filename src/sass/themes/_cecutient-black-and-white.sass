@@ -9,18 +9,26 @@
 	// главные контрастные цвета (обычно, белый и черный)
 	$text-color-base: black
 	$bg-color-base: white
+	// цвет панелей отличающихся по цвету фона от основного цвета страницы (хедер, сайдбар и т.д.)
+	$bg-panels-color: white
+	// цвет фона страницы
+	$bg-color: white
 	// ==============
 	$base-color: black
 	$base-color-alt: black
+	// цвет основного текста
 	$text-color: black
 	$text-color-light: black
 	$text-color-alt: black
 	$mark-color: black
+	// цвет основных заголовков заголовков
 	$title-color: black
 	$link-color: black
 	$link-color-inverse: white
 	$link-color-disabled: #989898
 	$link-color-visited: #989898
+	// цвет линий и границ
+	$border-color: black
 	// ===============
 	$border-width: 2px
 	// form
@@ -41,22 +49,29 @@
 		background-color: $bg-color-base
 		color: $text-color
 
+		*::selection
+			background-color: black
+			color: white
+
 	h1, h2, h3, h4, h5, h6
 		color: $title-color
 
-	table
-		td, th
-			color: $text-color
-			border-color: $text-color
-
 	hr
-		border-bottom-color: $text-color
+		border-color: $border-color
 
-	a
-		color: $link-color
+	.layout-article > p:first-of-type
+		&:first-letter
+			color: $text-color-base
 
-		//&:visited
-			color: $link-color-visited
+	.#{$user-content}
+		a:not(.btn-default):not(.btn-default-alt):not(.icon-jfi-trash)
+			color: $link-color
+			border-color: $border-color
+
+			&:hover
+				background-color: $border-color
+				box-shadow: -#{$border-width*2} 0 0 $border-color, #{$border-width*2} 0 0 $border-color
+				color: $bg-color-base
 
 	.mark
 		color: $bg-color-base
@@ -65,27 +80,149 @@
 	.text-color-alt
 		color: $text-color-alt
 
+	// list
 	.#{$user-content}
 		ul > li::before
-			border-left-color: $mark-color
+			border-color: $text-color-base
 
-		ol > li::before
-			color: $mark-color
+		ol
+			& > li
+				&::before
+					border-color: $text-color-base
+					color: $text-color-base
+
+		ul, ol
+			ul li
+				&::before
+					background-color: $text-color-base
+
+	// list end
+
+	// table
+	table
+
+		td, th
+			border-color: $border-color
+			color: $text-color-base
+
+	.#{$user-content}
 
 		.tbl
-			td, th, th, thead td, tfoot td
-				color: $text-color
+
+			td, th
 				background-color: $bg-color-base
-				border: 1px solid $text-color
+				border-color: $border-color
 
-		blockquote q
-			color: $text-color
+			th, thead td, tfoot td
+				color: $text-color-base
+				background: $bg-panels-color
+				border-color: $border-color
 
-	//=========== TYPOGRAPHY end ==========
+	// blockquote
+	.#{$user-content}
+		blockquote
+			border-color: $border-color
+
+			q, cite
+				color: $text-color-base
+
+	// blockquote end
+
+	// add shadow
+	.add-shadow--full
+		background-color: $bg-color-base
+		border-color: $border-color
+
+	// add shadow end
+
+	// caption box
+	.caption-box__title
+		color: $title-color
+
+	// caption box end
+
+	// files links
+	.file
+		color: $text-color
+
+		path
+			fill: $text-color
+
+		& > em
+			color: $text-color-light
+
+		.no-touchevents &:hover
+			background-color: $text-color-base
+
+			path
+				fill: $bg-color-base
+
+			& > span, & > em
+				color: $bg-color-base
+
+	// files links end
+
+	// short contacts
+	.short-contacts
+
+		li
+			color: $text-color-base
+
+		a, & li > div
+			color: $text-color-base
+
+			&[href]
+				span
+					border-bottom-color: tint($text-color-base, 40%)
+
+			&[href^="tel:"], a[href]
+				span
+					border-bottom-color: transparent
+
+			.no-touchevents &[href]:not([href^="tel:"]):hover
+				color: $base-color
+
+				span
+					border-bottom-color: $base-color
+
+	.fame__item .short-contacts
+		li
+			color: $bg-color-base
+
+		a, & li > div
+			color: $bg-color-base
+
+	// short contacts end
+
+	// breadcrumbs
+	.breadcrumbs__list
+		color: $text-color-light
+
+		li
+			&::after
+				color: $base-color
+
+		a
+			color: $text-color-base
+
+	// breadcrumbs end
+
+	// datetime
+	.datetime
+		color: $text-color-base
+	// datetime end
+
+	// entry
+	.entry-img__title
+		color: $text-color-base
+
+	// entry end
+
+	//=========== TYPOGRAPHY END ==========
 
 	//=========== BUTTONS ==========
-	/* buttons
-	/* btn-default
+	// buttons
+	// btn-default
 	.btn-default, .btn-map-site
 		color: $link-color-inverse
 		background-color: $link-color
@@ -94,16 +231,15 @@
 		.no-touchevents &:hover
 			background-color: $link-color-inverse
 			color: $link-color
+			border-color: $link-color
+			fill: $link-color
 
-		&:disabled, .no-touchevents &:disabled:hover
-			color: $link-color-inverse
-			background-color: $link-color-disabled
-			border-color: $link-color-disabled
+		&:disabled, &.disabled, &[data-disabled]
+			color: $link-color-inverse !important
+			background-color: $link-color-disabled !important
+			border-color: $link-color-disabled !important
 
-			.no-touchevents &
-				background-color: $link-color-disabled
-
-	/* btn-default-alt
+	// btn-default-alt
 	.btn-default-alt
 		color: $link-color
 		background-color: $link-color-inverse
@@ -112,17 +248,12 @@
 		.no-touchevents &:hover
 			background: $link-color
 			color: $link-color-inverse
+			border-color: $link-color
 
-		&:disabled, .no-touchevents &:disabled:hover
-			color: $link-color-disabled
-			background-color: $link-color-inverse
-			border-color: $link-color-disabled
-
-			.no-touchevents &
-				background-color: $bg-color-base
-
-				&:hover
-					color: $link-color-disabled
+		&:disabled, &.disabled, &[data-disabled]
+			color: $link-color-disabled !important
+			background-color: $link-color-inverse !important
+			border-color: $link-color-disabled !important
 
 	//=========== BUTTONS end ==========
 
@@ -133,63 +264,42 @@
 	.form-mark
 		color: $mark-color
 
+	// form common
 	input[type="text"], input[type="password"], input[type="email"], input[type="search"], textarea
-		color: $text-color
-		background: $bg-color-base
-		border-color: $text-color
+		color: $form-text-color
+		background: $form-bg-color
+		border-color: $form-border-color
 
+		//form hover
 		.no-touchevents &:hover
-			border-color: $text-color
+			border-color: $form-border-focus-color
 
-		&:focus,
-		&.error, .error > &, .no-touchevents &.error, .no-touchevents .error > &
-			color: $text-color
-			border-color: $text-color
-			box-shadow: inset 0 0 0 1px $text-color
+		//form focus
+		&:focus
+			border-color: $form-border-focus-color
+
+		//form success
+		.input--has-value &,
+		&.success, .no-touchevents &.success
+			border-color: $base-color
+
+		//form error
+		&.error, .no-touchevents &.error
+			color: $form-error-color
+			border-color: $form-error-color
 
 	.error-note
 		color: $bg-color-base
 		background-color: $text-color
 
-	.success-text
-		color: $text-color
-
-	input, textarea
-		&::-webkit-input-placeholder
-			color: $text-color
-
-		&:-moz-placeholder
-			color: $text-color
-
-		&::-moz-placeholder
-			color: $text-color
-
-		&:-ms-input-placeholder
-			color: $text-color
-
-		&.placeholder
-			color: $text-color
-
-		&.error
-			&::-webkit-input-placeholder
-				color: $text-color
-
-			&:-moz-placeholder
-				color: $text-color
-
-			&::-moz-placeholder
-				color: $text-color
-
-			&:-ms-input-placeholder
-				color: $text-color
-
-			&.placeholder
-				color: $text-color
+	.confirm-note
+		&::before, &::after
+			background-color: $text-color
 
 	// form placeholder
 	input, textarea
 		+placeholder
-			columns: $form-placeholder-color
+			color: $form-placeholder-color
 
 		//form error placeholder
 		&.error
@@ -310,7 +420,7 @@
 
 	// form checkbox and radiobutton end
 
-	/* select
+	// select
 	// select overall
 	.#{$user-content} select,
 	.select select,
@@ -342,21 +452,8 @@
 				background-color: $form-bg-color
 
 		// multiple
-		//.select2-selection--multiple
-
-			.select2-selection__choice
-				background-color: #f3f3f3
-				border: 1px solid #f3f3f3
-				color: $text-color
-
-			.select2-selection__choice__remove
-				color: $text-color
-
-				&:hover
-					color: $link-color
-
-		//.select2-selection--single,
-		//.select2-selection--multiple
+		.select2-selection--single,
+		.select2-selection--multiple
 			.select2-selection__placeholder
 				color: $form-placeholder-color
 
@@ -372,8 +469,16 @@
 					border-color: $form-border-focus-color
 					box-shadow: none
 
-		//.select2-results__option[aria-selected=true]
-			background-color: #f3f3f3
+		.select2-results__option[aria-selected=true]
+			background-color: $bg-color-base
+			color: $text-color-base
+
+			&::before
+				background-color: $text-color-base
+
+			&.select2-results__option--highlighted
+				&::before
+					background-color: $bg-color-base
 
 		.select2-results__option--highlighted[aria-selected]
 			background-color: $base-color
@@ -382,7 +487,7 @@
 	// select2 dropdown
 	.select2-dropdown
 		border-color: $form-border-focus-color
-		background-color: $base-color-alt
+		background-color: $bg-color-base
 
 	select.error
 		&,
@@ -406,7 +511,7 @@
 		& ~ .select2-container--default .select2-selection--multiple
 			border-color: $base-color
 
-	/* select end
+	// select end
 
 	//=========== FORM STYLES DEFAULT end ==========
 
@@ -477,18 +582,34 @@
 	.form-title
 		color: $text-color-alt
 
-	//=========== LAYOUT ==========
-	.wrapper
-		&::before
-			background-color: $bg-color-base
-			border-right-color: $text-color
+	// user form end
 
-		&::after
-			background-color: $text-color
+	// jFiler
+	.jFiler-input-dragDrop
+		background-color: $bg-color-base
+		border-color: $base-color-alt
 
-	//=========== LAYOUT end ==========
+		.no-touchevents &:hover
+			border-style: dotted
+			border-color: $form-border-focus-color
 
-	/* social networks
+	.jFiler-input-text strong, .jFiler-item, .jFiler-item-others
+		color: $text-color
+
+	.jFiler-item-trash-action
+		border-bottom: none !important
+		box-shadow: none !important
+		padding-top: 0 !important
+
+		.no-touchevents &:hover
+			background-color: $text-color-base
+
+			&::before, &::after
+				background-color: $bg-color-base
+
+	// jFiler end
+
+	// social networks
 	.social-networks__item, .soc-media-share .social-networks__item
 
 		a
@@ -508,37 +629,11 @@
 			&:active, .no-touchevents &:active
 				box-shadow: none
 
-	// jFiler
-	.jFiler-input-dragDrop
-		border-color: $text-color
+	// social networks end
 
-		.no-touchevents &:hover
-			border-color: $link-color
-			background-color: $link-color
-			color: $link-color-inverse
+	//=========== LAYOUT ==========
+	&.home-page .wrapper
+		&::before
+			background: $bg-color
 
-			.jFiler-input-text strong
-				color: $link-color-inverse
-
-	.jFiler-input-text strong
-		color: $text-color
-
-	.jFiler-item-others
-		color: $text-color
-
-		&::after
-			border-bottom-color: $text-color
-
-	.jFiler-item-assets ul,
-	.#{$user-content} ul .jFiler-item-assets ul
-		li
-			background: $bg-color-base
-
-	.jFiler-item-trash-action
-		border-color: $link-color
-		background-color: $link-color-inverse
-		color: $link-color
-
-		.no-touchevents &:hover
-			background-color: $link-color
-			color: $link-color-inverse
+	//=========== LAYOUT end ==========

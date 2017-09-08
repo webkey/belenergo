@@ -360,6 +360,23 @@
 	</div>
 
 	@@include('_tpl_title-anchor.html', {
+		"taId": "buttonsDefDisabled",
+		"taText": "Дефолтные кнопки (неактивные)",
+		"taTag": "h4"
+	})
+	<div class="layout-text">
+		<div style="padding: 0 0 20px;">
+			<a href="javascript:void(0)" class="btn-default disabled">Link (.disabled)</a>
+			<a href="javascript:void(0)" class="btn-default" data-disabled>Link (data-disabled)</a>
+		</div>
+		<div style="padding: 0 0 20px;">
+			<input class="btn-default" type="submit" value="Type submit" disabled>
+			<input class="btn-default" type="button" value="Type button" disabled>
+			<input class="btn-default" type="reset" value="Type reset" disabled>
+		</div>
+	</div>
+
+	@@include('_tpl_title-anchor.html', {
 		"taId": "buttonsAlt",
 		"taText": "Альтернативные кнопки",
 		"taTag": "h4"
@@ -372,6 +389,23 @@
 			<input class="btn-default-alt" type="submit" value="Type submit">
 			<input class="btn-default-alt" type="button" value="Type button">
 			<input class="btn-default-alt" type="reset" value="Type reset">
+		</div>
+	</div>
+
+	@@include('_tpl_title-anchor.html', {
+		"taId": "buttonsAltDisabled",
+		"taText": "Альтернативные кнопки (неактивные)",
+		"taTag": "h4"
+	})
+	<div class="layout-text">
+		<div style="padding: 0 0 20px;">
+			<a href="javascript:void(0)" class="btn-default-alt disabled">Отправить заявку (.disabled)</a>
+			<a href="javascript:void(0)" class="btn-default-alt" data-disabled>Отправить заявку (data-disabled)</a>
+		</div>
+		<div style="padding: 0 0 20px;">
+			<input class="btn-default-alt" type="submit" value="Type submit" disabled>
+			<input class="btn-default-alt" type="button" value="Type button" disabled>
+			<input class="btn-default-alt" type="reset" value="Type reset" disabled>
 		</div>
 	</div>
 

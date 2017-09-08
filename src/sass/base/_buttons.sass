@@ -56,6 +56,7 @@
 	border: 2px solid transparent
 	background: $btn-bg-color
 	box-shadow: none
+	text-shadow: none
 	transition:
 		property: background-color, color, border-color
 		duration: $animation-speed
@@ -70,6 +71,10 @@
 	//&:active
 		transform: scale(0.95)
 
+	&:disabled, &.disabled, &[data-disabled]
+		cursor: default
+		background-color: $btn-disabled-color !important
+
 /* btn-default end
 
 /* btn-default-alt
@@ -81,6 +86,12 @@
 	.no-touchevents &:hover
 		background: $btn-bg-color
 		color: $btn-text-color
+
+	&:disabled, &.disabled, &[data-disabled]
+		cursor: default
+		background-color: white !important
+		border-color: $btn-disabled-color !important
+		color: $btn-disabled-color !important
 
 /* btn-default-alt end
 
