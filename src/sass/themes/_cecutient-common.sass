@@ -10,8 +10,11 @@
 	$border-color: black
 	$border-width: 2px
 	// ===============
+	$animation-none: true
 	$animation-speed: 0.0s
+	// =======mixin========
 
+	//=========== TYPOGRAPHY ==========
 	&
 		*::selection
 			background-color: black
@@ -21,14 +24,17 @@
 		border-width: $border-width
 
 	.#{$user-content}
-		a:not(.btn-default):not(.btn-default-alt)
+		a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__item):not(.popular__inner):not(.structure-panel-item)
 			padding-top: 0.2em
 			text-decoration: none
 			border-bottom: $border-width solid $border-color
 			box-shadow: -#{$border-width*2} 0 0 transparent, #{$border-width*2} 0 0 transparent
-			transition:
-				property: border-color, background-color, color, box-shadow
-				duration: $animation-speed
+			@if $animation-none
+				transition: none
+			@else
+				transition:
+					property: border-color, background-color, color, box-shadow
+					duration: $animation-speed
 
 	// table
 	.#{$user-content}
@@ -85,12 +91,63 @@
 		border: none !important // перебить стили ссылок
 
 		& > span, & > em, path
-			transition-duration: $animation-speed
+			@if $animation-none
+				transition: none
+			@else
+				transition-duration: $animation-speed
 
 		.no-touchevents &:hover
 			box-shadow: none
 
 	// files links end
+
+	// view print
+	.view-print
+		box-shadow: none !important
+		border: #{$border-width} solid #{$text-color-base}
+		+font-bold
+		font-size: 1.8rem
+		letter-spacing: 0.05em
+		padding: 8px 10px
+
+		&, path
+			@if $animation-none
+				transition: none
+
+	// view print end
+
+	// logo
+	// logo in header
+	.logo
+		a
+			background-image: url(../../img/logo-full-bw.svg)
+	// logo in header end
+
+	// logo in sidebar
+	.logo-side
+		@if $animation-none
+			will-change: none
+			transition: none
+
+		.page-is-scrolled &
+			@if $animation-none
+				transition: none
+
+	.logo-side-inner
+		&::before, &::after
+			@if $animation-none
+				will-change: none
+				transition: none
+
+		&::before
+			background-image: url(../../img/logo-i-bw.svg)
+
+		&::after
+			background-image: url(../../img/logo-t-bw.svg)
+
+	// logo in sidebar end
+	// logo end
+	//=========== TYPOGRAPHY end ==========
 
 	//=========== BUTTONS ==========
 	// button
@@ -100,6 +157,12 @@
 		color: $bg-color-base
 		fill: $bg-color-base
 		background: $text-color-base
+		@if $animation-none
+			transition: none
+
+		path
+			@if $animation-none
+				transition: none
 
 	// btn-default end
 
@@ -179,9 +242,369 @@
 
 	//=========== FORM STYLES DEFAULT END ==========
 
-	//=========== LAYOUT END ==========
-	.wrapper
-		&::after
-			content: none
+	// search form
+	.search-form, .btn-search, .btn-search-close
+		@if $animation-none
+			transition: none
+
+	.search-form
+		input
+			+font-bold
+			font-size: 22px
+
+			+placeholder
+				@if $animation-none
+					transition: none
+
+	.btn-search, .btn-search-close
+		i
+			&::before, &::after
+				@if $animation-none
+				transition: none
+
+		path
+			@if $animation-none
+				transition: none
+
+	// search form end
 
 	//=========== LAYOUT ==========
+	&.home-page
+		&::before
+			content: none
+
+	.bg-img
+		display: none
+
+	.wrapper
+		&::before, &::after
+			content: none
+
+	//=========== LAYOUT END ==========
+
+	// user options
+	.user-options__item
+		& > a, svg, path
+			@if $animation-none
+				transition: none
+
+	.theme-toggle
+		display: none
+
+	// user options end
+
+	// lang
+	.lang
+		& > a
+			& > span
+				&::before, &::after
+					@if $animation-none
+						transition: none
+
+	.lang__list
+		box-shadow: none
+		border-width: 1px
+
+		a
+			border-width: 1px 0 0
+
+			@if $animation-none
+				transition: none
+
+			& > *
+				font-size: 18px
+
+	// lang end
+
+	// divider
+	.divider
+		border-top-width: $border-width
+
+	// divider end
+
+	//=========== SLIDERS ==========
+	// arrows
+	.slick-arrow
+		@if $animation-none
+			transition: none
+
+		&::before, &::after
+			border-color: $text-color-base
+
+		.no-touchevents &:not(.slick-disabled):hover
+			background-color: transparent
+			box-shadow: 0 0 0 2px $text-color
+
+			&::before, &::after
+				border-color: $text-color-base
+
+	// promo-slide
+	.promo
+		.slider-arrows
+			display: none
+
+	.promo-slider
+		opacity: 1
+		visibility: visible
+
+	.promo-slide
+		display: block
+		white-space: normal
+		opacity: 1
+		visibility: visible
+		width: 100%
+		height: auto
+		border-top: #{$border-width} solid #{$border-color}
+		padding: 10px 15px
+
+		&:first-child
+			border-top: none
+
+	.promo-slider__figure
+		display: none
+
+	.promo-slider__text
+		position: relative
+		+position(0)
+		width: auto
+		max-width: none
+		color: $text-color
+		font-size: 22px
+
+		span
+			background: none
+			box-shadow: none
+
+	// promo-slide end
+
+	// several slider
+	.several-slider
+		.slider-arrows
+			display: none
+
+	.several-slider-list
+		white-space: normal
+		overflow: visible
+		opacity: 1
+		visibility: visible
+		border: none
+
+		@if $animation-none
+			transition: none
+
+	.several-slider__item
+		display: block
+		margin-bottom: $bottom-space--sm
+
+		&::before
+			display: none
+
+	.several-slider__item, .several-slider__text, .several-slider__value
+		@if $animation-none
+			transition: none
+
+	.several-slider__inner
+		display: inline-block
+		padding: 0
+
+	.several-slider__figure
+		display: none
+
+	.several-slider__text
+		margin-right: 10px
+
+	.several-slider__text, .several-slider__content, .several-slider__value, .several-slider__unit
+		display: inline
+		padding: 0
+
+	// several slider end
+	//=========== SLIDERS end ==========
+
+	// navigation
+	.nav-list
+		a
+
+			@if $animation-none
+				transition: none
+
+	.nav__drop
+		border-color: $border-color
+		background-color: $bg-color-base
+
+	// navigation end
+
+	// caption box / caption
+	.caption-box, .caption
+		display: block
+
+	.caption::before
+		content: none
+
+	.caption-box__title, .caption__title
+		display: block
+		color: $title-color
+		width: auto
+		padding-right: 0
+		margin-bottom: $bottom-space
+
+		br
+			display: none
+
+	.caption-box__content, .caption__text
+		display: block
+		width: auto
+		padding-left: 0
+
+	// caption box / caption end
+
+	// benefits counter
+	.benefits-counter
+		+margin-horizontal(0)
+
+	.benefits-counter__item
+		display: block
+		width: auto
+		+padding-horizontal(0)
+		margin-top: $bottom-space--sm
+
+		&:first-child
+			margin-top: 0
+
+		.dt, .dd
+			+display-inline-block-top
+			line-height: 52px
+			margin: 0
+
+		.dt
+			margin-right: 15px
+
+	// benefits counter end
+
+	// news previews
+	.news-previews__list
+		+grid-parent($bottom-space--md)
+
+	.news-previews__item
+		display: block
+		+grid-item-responsive(1, $bottom-space--md)
+		width: auto
+
+	.news-previews__meta, .news-previews__link
+		margin-bottom: $bottom-space--sm
+
+	.news-previews__figure
+		display: none
+
+	.news-previews__label, .news-previews__title, .news-previews__text
+		@if $animation-none
+			transition: none
+
+	// news previews end
+
+	// subscription form
+	.subscription-form
+
+		input[type='text'], input[type='email']
+			border-width: $border-width
+			box-shadow: none
+
+			+placeholder
+				color: $text-color-base
+
+		input[type='submit']
+			@if $animation-none
+				transition: none
+
+	.input-holder, .success-text, .error-text
+		font-size: 14px
+		@if $animation-none
+			transition: none
+
+	.success-text
+		span
+			&::before, &::after
+				@if $animation-none
+					transition: none
+
+	// subscription form end
+
+	// popular
+	.popular__inner
+		@if $animation-none
+			transition: none
+
+
+	// popular end
+
+	// visual preview
+	.visual-preview
+		display: none
+
+	// visual preview end
+
+	// structure
+	.structure-hand
+		@if $animation-none
+			transition: none
+
+			.angle
+				&::before, &::after
+					@if $animation-none
+						transition: none
+
+	.structure-panel-item
+		@if $animation-none
+			transition: none
+
+	// structure end
+
+	// info links
+	.info-links__inner
+		&, &::before
+			@if $animation-none
+				transition: none
+
+	// info links end
+
+	//=========== SIDEBAR ==========
+	// menu
+	.menu-list
+
+		a
+			border: #{$border-width} solid transparent
+
+	// menu end
+	//=========== SIDEBAR END ==========
+
+	//=========== ASIDE ==========
+	// actual links
+	.actual-links
+		a
+			display: block
+			padding: 3px
+
+			&, & span
+				@if $animation-none
+					transition: none
+
+	// actual links end
+	//=========== ASIDE END ==========
+
+	//=========== FOOTER ==========
+	// footer gov
+	.gov__item, .gov__inner
+		@if $animation-none
+			transition: none
+
+	.gov__inner
+		border-width: $border-width
+
+	// footer gov end
+	// footer common
+	.footer-common
+		a
+			@if $animation-none
+				transition: none
+
+	// footer common end
+	//=========== FOOTER END ==========

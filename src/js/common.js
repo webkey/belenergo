@@ -400,8 +400,6 @@ function customSelect(select) {
 		self.$item = $(options.item, container);
 		self.$drop = $(options.drop, container);
 
-		console.log("self.$item: ", self.$item);
-
 		self.modifiers = {
 			hover: 'hover',
 			hoverNext: 'hover_next',

@@ -585,16 +585,16 @@ table
 
 /* view print
 .view-print
-	display: inline-block
-	vertical-align: top
+	+display-inline-block-top
 	padding: 6px 12px
 	margin-bottom: $bottom-space--lg
 	background: #f9f9f9
 	line-height: 1
 	color: black
 	text-decoration: none
-	transition-property: background
-	transition-duration: $animation-speed
+	transition:
+		property: background-color
+		duration: $animation-speed
 
 	+media('<desk-lg')
 		height: $bottom-space--ml
@@ -615,6 +615,11 @@ table
 		height: 20px
 		margin-right: 5px
 
+	path
+		transition:
+			property: fill
+			duration: $animation-speed
+
 	span
 		display: inline-block
 		vertical-align: middle
@@ -632,7 +637,8 @@ table
 		overflow: hidden
 		display: block
 		height: 100%
-		background: url(../../img/logo-full.svg) no-repeat center
+		background: no-repeat center
+		background-image: url(../../img/logo-full.svg)
 		background-size: 86%
 
 	+media('<desk-sm')
@@ -695,12 +701,12 @@ table
 	&::before, &::after
 		+pseudo()
 		left: 50%
+		backface-visibility: hidden
 		will-change: transform
 		transition:
 			property: transform
 			duration: 0.4s
 			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
-		backface-visibility: hidden
 
 	&::before
 		top: 65px

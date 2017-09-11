@@ -2,7 +2,7 @@
 @import ../utils/mixins
 @import ../../libs/include-media/dist/include-media
 
-/* search-form
+/* search form
 .search-form
 	background-color: #fff
 	opacity: 0
@@ -11,7 +11,8 @@
 		property: opacity, visibility
 		duration: $animation-speed
 	z-index: 100
-	box-shadow: inset 0 -1px 0 $border-color
+	//box-shadow: inset 0 -1px 0 $border-color
+	border-bottom: 1px solid $border-color
 
 	.form-is-open &
 		opacity: 1
@@ -69,9 +70,10 @@
 		right: 100%
 		top: 0
 		+size($header-height)
-		box-shadow: 1px 0 0 $border-color
+		//box-shadow: 1px 0 0 $border-color
+		border-right: 1px solid #{$border-color}
 		transition:
-			property: background-color
+			property: background-color, border-color
 			duration: $animation-speed
 
 		+media('<tab-lg')
@@ -112,15 +114,15 @@
 				transform-origin: right bottom
 				transform: rotate(38deg)
 
-			svg
-				+display-inline-block-top
-				+size(20px)
+		svg
+			+display-inline-block-top
+			+size(20px)
 
-			path
-				fill: black
-				transition:
-					property: fill
-					duration: $animation-speed
+		path
+			fill: black
+			transition:
+				property: fill
+				duration: $animation-speed
 
 		input[type="submit"]
 			padding: 0
@@ -131,23 +133,24 @@
 		.no-touchevents &:hover
 			background-color: $base-color-alt
 
-			i
-				//&:before
+			//i
+				&:before
 					border-color: white
 
-				//&:after
+				&:after
 					background-color: white
 
-				path
-					fill: white
+			path
+				fill: white
 
 .btn-search-close
 	position: absolute
 	+position(0, 100%)
 	+size($header-height)
-	box-shadow: -1px 0 0 $border-color
+	//box-shadow: -1px 0 0 $border-color
+	border-left: 1px solid #{$border-color}
 	transition:
-		property: background-color
+		property: background-color, border-color
 		duration: $animation-speed
 
 	+media('<tab-lg')
@@ -192,4 +195,4 @@
 			&::before, &::after
 				background-color: white
 
-/* search-form end
+/* search form end

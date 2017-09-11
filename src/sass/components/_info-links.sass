@@ -55,8 +55,9 @@
 		+size(220px, 0)
 		margin-left: -110px
 		border-top: 2px solid $border-color
-		transition-property: opacity
-		transition-duration: $animation-speed
+		transition:
+			property: opacity
+			duration: $animation-speed
 
 		+media('<desk-lg')
 			width: 186px
@@ -68,7 +69,7 @@
 
 	.no-touchevents &:hover
 		background-color: $base-color-alt
-		color: white
+		color: $bg-color-base
 
 	.no-touchevents .hover-next &, .no-touchevents &:hover
 		&::before

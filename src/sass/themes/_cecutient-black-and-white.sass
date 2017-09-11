@@ -11,6 +11,8 @@
 	$bg-color-base: white
 	// цвет панелей отличающихся по цвету фона от основного цвета страницы (хедер, сайдбар и т.д.)
 	$bg-panels-color: white
+	// цвет фона выделенных элементов
+	$bg-color-selected: black
 	// цвет фона страницы
 	$bg-color: white
 	// ==============
@@ -41,6 +43,11 @@
 	$form-success-color: black
 	// ==================
 	$checkbox-color: $text-color-base
+	// btn
+	$btn-bg-color: black
+	$btn-bg-hover-color: white
+	$btn-text-color: white
+	$btn-disabled-color: #ccc
 
 	//========== VARIABLES end =========
 
@@ -64,7 +71,7 @@
 			color: $text-color-base
 
 	.#{$user-content}
-		a:not(.btn-default):not(.btn-default-alt):not(.icon-jfi-trash)
+		a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__item):not(.popular__inner):not(.structure-panel-item)
 			color: $link-color
 			border-color: $border-color
 
@@ -135,11 +142,19 @@
 
 	// add shadow end
 
-	// caption box
-	.caption-box__title
+	// caption box / caption
+	.caption-box__title, .caption-box__title
 		color: $title-color
 
-	// caption box end
+	// caption box / caption end
+
+	// benefits counter
+	.benefits-counter__item
+		.dd
+			+display-inline-block-top
+			color: $text-color
+
+	// benefits counter end
 
 	// files links
 	.file
@@ -167,6 +182,9 @@
 
 		li
 			color: $text-color-base
+
+		path, use
+			fill: $base-color
 
 		a, & li > div
 			color: $text-color-base
@@ -217,6 +235,28 @@
 		color: $text-color-base
 
 	// entry end
+
+	// view print
+	.view-print
+		background-color: $bg-color-base
+		color: $text-color-base
+		border-color: $text-color-base
+
+		.no-touchevents &:hover path
+			fill: $bg-color-base
+
+	// view print end
+
+	// logo
+	// logo in header
+	.logo
+		a
+			background-image: url(../../img/logo-full-bw.svg)
+	// logo in header end
+
+	// logo in sidebar
+	// logo in sidebar end
+	// logo end
 
 	//=========== TYPOGRAPHY END ==========
 
@@ -584,6 +624,30 @@
 
 	// user form end
 
+	// search form
+	.search-form
+		border-color: $border-color
+
+		input
+			color: $text-color
+
+			+placeholder
+				color: $text-color !important
+
+	.btn-search, .btn-search-close
+		border-color: $border-color
+
+		path
+			fill: $text-color
+
+		.no-touchevents &:hover
+			background-color: $text-color
+
+			path
+				fill: $bg-color-base
+
+	// search form end
+
 	// jFiler
 	.jFiler-input-dragDrop
 		background-color: $bg-color-base
@@ -637,3 +701,466 @@
 			background: $bg-color
 
 	//=========== LAYOUT end ==========
+
+	//=========== SLIDERS ==========
+	// promo-slide
+	.promo-slide
+		border-color: $border-color
+		background-color: $bg-color-base
+		color: $text-color-base
+
+		.no-touchevents &:hover
+			border-color: #000
+			background-color: $text-color-base
+			color: $bg-color-base
+
+	.promo-slider__text
+		color: inherit
+
+	// promo-slide end
+
+	// several slider
+	.several-slider__item
+		background-color: $bg-color-base
+
+		.no-touchevents &:hover
+			background-color: $text-color-base
+			color: $bg-color-base
+
+		+media('<mob-md')
+			border-color: $text-color-base
+
+	.several-slider__text, .several-slider__value, .several-slider__unit
+		color: $text-color-base
+
+	.no-touchevents & .several-slider__item:hover
+		background-color: $bg-color-base
+
+		.several-slider__inner
+			background-color: $text-color-base
+
+		.several-slider__text, .several-slider__value, .several-slider__unit
+			color: $bg-color-base
+
+	// several slider end
+
+	//=========== SLIDERS end ==========
+
+	//=========== HEADER ==========
+	.header
+		background-color: $bg-panels-color
+		box-shadow: inset 0 -1px 0 $border-color
+
+	.header__holder
+		+media('<mob-lg')
+			box-shadow: 0 5px 25px transparent
+
+			.menu--opened &
+				box-shadow: 0 5px 25px rgba(black, 0.25)
+
+	//=========== HEADER end ==========
+
+	// user options
+	.user-options__item
+		& > a
+			color: $text-color-base
+			fill: $text-color-base
+			box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
+			background-color: $bg-panels-color
+
+		.no-touchevents & > a:hover
+			background-color: $text-color-base
+			color: $bg-color-base
+			fill: $bg-color-base
+			box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
+
+	.theme-toggle
+		a
+			background-color: $text-color-base
+			color: $bg-color-base
+			fill: $bg-color-base
+			box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
+
+			.no-touchevents &:hover
+				color: $base-color
+				fill: $base-color
+
+	+media('<mob-lg')
+		.sidebar .theme-toggle a
+			box-shadow: -1px 0 0 $border-color
+
+	.text-theme--light, .svg-theme--light
+		display: inline-block
+
+	.text-theme--dark, .svg-theme--dark
+		display: none
+
+	// lang
+	.lang
+
+		& > a
+			& > span
+				$this-icon-lines-color: $text-color-base
+
+				&::before, &::after
+					background-color: $this-icon-lines-color
+
+		.no-touchevents & > a:hover > span
+			&::before, &::after
+				background-color: $bg-color-base
+
+		&.choice-opened > a
+			background-color: $bg-color-selected
+			color: $bg-color-base
+			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 rgba($bg-color-base, 0.15)
+
+			& > span
+				&::before, &::after
+					background-color: $bg-color-base
+
+	.lang__list
+		background-color: $text-color-base
+		border-color: $text-color-base
+
+		a
+			color: $bg-color-base
+			border-color: rgba($bg-color-base, 0.15)
+
+			.no-touchevents &:hover
+				color: $text-color-base
+				background-color: $bg-color-base
+
+	// lang end
+	.sidebar
+		.user-options
+			box-shadow: 0 -1px 0 #{$border-color}, 0 5px 25px transparent
+
+			.menu--opened &
+				box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(black, 0.25)
+
+	// user options
+
+	// navigation
+	.nav-list
+
+		li
+			&.hover > .nav__tab a
+				background-color: $text-color-base
+				color: $bg-color-base
+
+		a
+			color: $text-color-base
+
+	.nav__drop
+		border-color: $border-color
+		background-color: $bg-color-base
+
+	// navigation end
+
+	// news previews
+	.news-previews__date
+		color: $text-color-light
+
+	.news-previews__label
+		color: $bg-color-base
+		background-color: $text-color-base
+		box-shadow: none
+
+		.no-touchevents &:hover
+			color: white
+			background-color: $base-color
+			box-shadow: 0 0 0 2px $text-color
+
+	.news-previews__figure
+		background-color: $bg-panels-color
+
+	.news-previews__title, .news-previews__text
+		+display-inline-block-top
+		color: $text-color
+
+	.no-touchevents & .news-previews__link:hover
+		.news-previews__title, .news-previews__text
+			color: $bg-color-base
+			background-color: $text-color-base
+
+	.btn-read
+		color: $text-color-base
+		border-bottom-color: $text-color-base
+
+		.no-touchevents &:hover
+			color: $base-color
+			border-color: $base-color
+
+	// news previews end
+
+	// subscription form
+	.subscription-form
+
+		input[type='text'], input[type='email']
+			background-color: $bg-color-base
+			border: 2px solid #{$text-color-base}
+			box-shadow: none
+
+		input[type='submit']
+			color: $btn-text-color
+			fill: $btn-text-color
+			background: $btn-bg-color
+			border: 2px solid $btn-bg-color
+
+			.no-touchevents &:hover
+				background: $btn-text-color
+				color: $btn-bg-color
+
+	.error-text
+		background-color: $text-color-base
+		color: $bg-color-base
+
+	.success-text
+		background-color: $text-color-base
+
+		span
+			&::before, &::after
+				background-color: $bg-color-base
+
+	// subscription form end
+
+	//span
+
+		&::before, &::after
+			background-color: $form-success-color
+
+	//.error-text
+		color: $form-error-color
+		background-color: #f2f2f2
+
+	// subscription form end
+
+	// popular
+	.popular
+		background: none
+
+	.popular__icon
+		path
+			fill: $text-color-base
+
+	.popular__inner
+		color: $text-color-base
+
+		.no-touchevents &:hover
+			background-color: $text-color-base
+			color: $bg-color-base
+
+			path
+				fill: $bg-color-base
+
+	// popular end
+
+	// structure
+	.structure-item, .structure-hand
+		&::before
+			border-color: $text-color-base
+
+	.structure-hand, .structure-panel-item
+		border-color: $text-color-base
+		background-color: $bg-color-base
+		color: $text-color-base
+
+	.structure-hand
+		.angle
+			&::before, &::after
+				background-color: $text-color-base
+
+		.counter
+			color: $text-color-base
+
+	.no-touchevents & .structure-hand:hover, & .structure-hand.is-open
+		background-color: $text-color-base
+		color: $bg-color-base
+
+		.counter
+			color: $bg-color-base
+
+		.angle
+			&::before, &::after
+				background-color: $bg-color-base
+
+	.structure-panel-item
+		.no-touchevents &:hover
+			color: $text-color-base
+
+	.structure-panel-label
+		color: $text-color-base
+
+	// structure end
+
+	// sidebar
+	.sidebar
+		background-color: $bg-panels-color
+		border-right-color: $border-color
+
+	.sidebar__holder
+		background-image: none
+
+	.sidebar-widget
+		border-top-color: $border-color
+
+	// menu
+	.menu-list
+
+		a
+			color: $text-color-base
+
+		.no-touchevents & a:hover
+			color: $text-color-base
+			background-color: $bg-color-base
+			border-color: $border-color
+
+		.current a
+			color: $bg-color-base !important
+			background-color: $base-color !important
+			border-color: $border-color
+
+	// menu end
+	// sidebar end
+
+	// aside
+	// actual links
+	.actual-links
+		a
+			span
+				border-color: tint($text-color, 40%)
+
+			.no-touchevents &:hover
+				span
+					border-color: $base-color
+
+	// actual links end
+	// aside end
+
+	// footer
+	.footer__holder
+		border-color: $border-color
+	// footer end
+
+	// pagination
+	.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
+		border-color: $text-color-base
+
+		&::before, &::after
+			border-color: $text-color-base
+	// pagination end
+
+	// fame
+	.fame__img
+		background-color: $base-color-alt
+	// fame end
+
+	// contacts
+	.info-container__title
+		color: $text-color-base
+
+	// contacts end
+
+	// divider
+	.divider
+		border-top-color: $border-color
+
+	// divider end
+
+	// info links
+	.info-links__inner
+		color: $base-color-alt
+		background-color: $bg-color-base
+
+		&::before
+			border-top-color: $border-color
+
+	.info-links__icon
+		path
+			fill: $base-color
+
+	.no-touchevents & .info-links__inner:hover
+		background-color: $base-color-alt
+		color: $bg-color-base
+
+		.info-links__icon
+			path
+				fill: $bg-color-base
+
+	// info links end
+
+	//=========== ASIDE ==========
+	// actual links
+	.actual-links
+		a
+			color: $link-color
+
+			span
+				border-bottom-color: transparent !important
+
+	.no-touchevents & .actual-links
+		a:hover
+			color: $link-color-inverse
+			background-color: $link-color
+
+	// actual links end
+
+	// banner inner
+	.banner-inner__figure
+
+		path
+			fill: $base-color
+
+	// banner inner end
+
+	/* banner
+	.banner
+		color: $text-color
+
+	/* banner end
+	//=========== ASIDE END ==========
+
+	//=========== FOOTER ==========
+	// footer gov
+	.gov__inner
+		border-color: $border-color
+
+		.no-touchevents &:hover
+			background-color: $border-color
+			border-color: $border-color
+
+	.banner-inner__title
+		color: $base-color-alt
+
+	// footer gov end
+
+	// footer common
+	.footer-common
+		a
+			color: $link-color
+
+			.no-touchevents &:hover
+				color: $link-color-inverse
+				background-color: $link-color
+
+	// footer common end
+
+	// developer
+	.developer a
+		border: none !important
+		box-shadow: none !important
+		padding-top: 0 !important
+
+		.no-touchevents &:hover
+			background: none
+
+	.developer__logo
+		&::before
+			background: $text-color-base
+
+		&::after
+			border: 1px solid $text-color-base
+			background-color: $bg-color-base
+
+	// developer end
+	//=========== FOOTER END ==========
