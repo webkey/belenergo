@@ -54,12 +54,39 @@
 		font-size: 10pt !important
 		line-height: 1.5 !important
 
-	h1, h2, h3, h4, h5, h6, b, strong, th, i, em, blockquote, q, cite
+	h1, h2, h3, h4, h5, h6, p,
+	b, strong, th, i, em,
+	blockquote, q, cite,
+	table td, table th, table,
+	.datetime, .datetime > strong,
+	.layout-article > p:first-of-type:first-letter,
+	.entry-text,
+	ol li::before,
+	.caption-box__subtitle,
+	.benefits-counter__item,
+	.benefits-counter__item .dd,
+	.p-nav-title,
+	.info-container__title,
+	.map-popup__title,
+	.fame__figure::after,
+	.fame__title, .fame__text,
+	.filters,
+	.info-links__text,
+	.main-scheme-description ul,
+	.news-previews__date, .news-previews__label, .news-previews__title, .news-previews__text,
+	.popular__text,
+	.promo-slider__text,
+	.several-slider__text,
+	.several-slider__value,
+	.several-slider__unit,
+	.structure-hand,
+	.counter,
+	.class
 		font-family: Arial, Helvetica, sans-serif !important
 		font-weight: normal !important
 		font-style: normal !important
 
-	h1
+	h1, .entry-img__title
 		font-size: 20pt !important
 		line-height: 1.3 !important
 
@@ -67,9 +94,10 @@
 		font-size: 18pt !important
 		line-height: 1.4 !important
 
-	h3, .main-slider-title__item
+	h3, .main-slider-title__item, .datetime, .datetime > strong, .entry-text
 		font-size: 16pt !important
 		line-height: 1.5 !important
+		text-transform: none !important
 
 	h4, blockquote q
 		font-size: 14pt !important
@@ -100,22 +128,67 @@
 		padding: 3pt !important
 
 		& > *
-			padding: 0!important
+			padding: 0 !important
 
-	.sidebar, .aside, .print-hidden, .view-print, .nav, .nav-list, .breadcrumbs, .breadcrumbs__list, form, .footer, .spacer, [class*="btn-"], .logo
+	.sidebar, .aside, .print-hidden, .view-print,
+	.nav, .nav-list,
+	.breadcrumbs, .breadcrumbs__list, form, .search-form, .subscription-form, .user-form,
+	.spacer, .footer-gov,
+	.footer a::after,
+	.logo, .navigationByTypographyElements,
+	[class*="btn-"],
+	.user-options,
+	.pagination, .filters-list,
+	.news-previews__figure::before,
+	.news-previews__label,
+	.developer,
+	.entry-img img,
+	.class
 		display: none !important
 
-	.main, .content, .layout, .layout-text, .layout-flood, .header, .header__holder, .blockquote, .blockquote *, blockquote, .imgl, .imgr, .imgc, table, blockquote, q, cite
+	.wrapper, .main, .main__holder, .content,
+	.header, .header__holder, .content-head,
+	.footer, .footer__holder,
+	.footer-common, .footer-common-holder,
+	.footer-nav, .footer-nav__col,
+	.layout, .layout-text, .layout-flood,
+	.blockquote, .blockquote *, blockquote, .imgl, .imgr, .imgc, table, blockquote, q, cite,
+	.heading-article,
+	.datetime, .datetime > strong,
+	.filters, .filters .active,
+	[class*="news-previews"],
+	.news-previews__figure img,
+	.entry-img-wrap, .entry-img, .entry-img__title,
+	.entry-text,
+	[class*="feature-list"],
+	.class
 		+print-reset
 
-	h1, h2, h3, h4, h5, h6, p, ul, ol, .table-auto, table, .imgl, .imgr, .imgc, .datetime, blockquote, q
+	.wrapper
+		overflow: hidden !important
+
+	h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote, q,
+	.table-auto, table, .imgl, .imgr, .imgc, .datetime,
+	.entry-img-wrap,
+	.entry-text,
+	.table,
+	.feature-list__item,
+	.feature-list__img,
+	.filters,
+	.news-previews,
+	.news-previews__date,
+	.news-previews__meta,
+	.news-previews__figure,
+	.class
 		+prints-space-bottom-sm
 
-	.header, .blockquote, hr, blockquote
+	.header, .blockquote, hr, blockquote,
+	.news-previews__item,
+	.class
 		+prints-space-bottom-md
 
 	.logo-for-print
-		display: block
+		display: block !important
 
 	blockquote q::before, blockquote q::after
 		padding: 0 !important
@@ -125,3 +198,73 @@
 
 	table
 		width: 100% !important
+
+	.entry-text
+		padding: 0.3cm !important
+		border: 2px solid #000 !important
+
+		p
+			margin-bottom: 0 !important
+
+	.table .table-auto,
+	.table table,
+	.table-auto table
+		margin-bottom: 0 !important
+
+	// sliders
+	.slick-slider, .slick-list, .slick-track, .slick-slide,
+	.images-slider__item img
+		+print-reset
+		will-change: transform !important
+
+	.slick-arrow, .slick-cloned, .slick-slide::before, .slick-dots,
+	.slider-counter
+		display: none !important
+
+	.slick-slide
+		+prints-space-bottom-sm
+
+	.slick-slide img
+		display: block !important
+		width: 5cm !important
+		object-fit: none !important
+		font-family: 'object-fit: none' !important
+
+		&[data-lazy]
+			display: none !important
+
+	// sliders end
+
+	.layout-article
+		& > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote, & > .layout-text
+			max-width: none !important
+
+	.datetime > strong
+		display: inline !important
+
+	.add-shadow, .add-shadow--full
+		border: none !important
+		background: none !important
+
+		&::after
+			content: none !important
+
+	.filters .active
+		font-weight: bold !important
+
+		&::before
+			display: inline-block
+			vertical-align: top
+			content: "Filter: "
+			font-weight: normal !important
+			margin-right: 0.3cm !important
+
+	img,
+	.imgl, .imgr, .imgc,
+	.news-previews__figure img,
+	.class
+		width: 5cm !important
+		max-width: none !important
+
+	.news-previews__label
+		display: none !important
