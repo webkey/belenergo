@@ -15,6 +15,9 @@
 .main-scheme-visual
 	margin-bottom: $bottom-space--md
 
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
 	+media('<tab-lg')
 		margin-bottom: $bottom-space
 
@@ -34,6 +37,13 @@
 
 		.is-theme-dark
 			display: block
+
+	.theme-dark.cecutient-version &
+		.is-theme-light
+			display: block
+
+		.is-theme-dark
+			display: none
 
 .main-scheme-description
 	+clear
@@ -65,35 +75,42 @@
 			&:first-child
 				margin-top: 0
 
-		.ico
-			float: left
-			margin-right: 14px
-			line-height: 0
-			white-space: normal
-			+clear-spacing
-
-			&::before
-				content: ""
-				+display-inline-block-middle
-				height: 24px
-
-			img
-				+display-inline-block-middle
-				font-size: $font-size
-				letter-spacing: normal
-
-			.is-theme-dark
-				display: none
-
-			.theme-dark &
-				.is-theme-light
-					display: none
-
-				.is-theme-dark
-					display: inline-block
-
 		li > span
 			display: block
 			overflow: hidden
+
+	.ico
+		float: left
+		margin-right: 14px
+		line-height: 0
+		white-space: normal
+		+clear-spacing
+
+		&::before
+			content: ""
+			+display-inline-block-middle
+			height: 24px
+
+		img
+			+display-inline-block-middle
+			font-size: $font-size
+			letter-spacing: normal
+
+		.is-theme-dark
+			display: none
+
+		.theme-dark &
+			.is-theme-light
+				display: none
+
+			.is-theme-dark
+				display: inline-block
+
+		.theme-dark.cecutient-version &
+			.is-theme-light
+				display: inline-block
+
+			.is-theme-dark
+				display: none
 
 /* main scheme end

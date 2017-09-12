@@ -17,6 +17,8 @@
 		margin-bottom: 0
 
 	a
+		display: inline-block
+		vertical-align: top
 		text-decoration: none
 		color: inherit
 		transition:
@@ -34,6 +36,10 @@
 
 			span
 				border-bottom-color: tint($base-color, 40%)
+
+		@at-root .filter-list li, &.filters-all
+			+font($font-size, $line-height)
+			letter-spacing: 0.025em
 
 		&.filters-all
 			float: right
@@ -74,7 +80,5 @@
 
 		li
 			+display-inline-block-top
-			+font($font-size, $line-height)
-			letter-spacing: 0.025em
 
 /* filters end

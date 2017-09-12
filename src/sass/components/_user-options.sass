@@ -98,9 +98,18 @@
 		width: auto
 		height: $header-height
 
+		.cecutient-link--norm
+			display: none
+
+			.cecutient-version &
+				display: inline
+
+		.cecutient-version & .cecutient-link--cec
+			display: none
+
 		+media('<desk-hd')
 			a > span
-				display: none
+				display: none !important
 
 		+media('<tab-lg')
 			height: $header-height--sm

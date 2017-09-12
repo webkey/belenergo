@@ -597,7 +597,7 @@ table
 		duration: $animation-speed
 
 	+media('<desk-lg')
-		height: $bottom-space--ml
+		margin-bottom: $bottom-space--ml
 
 	+media('<tab-lg')
 		display: none
@@ -781,6 +781,15 @@ table
 	color: $title-color
 	text-transform: uppercase
 
+	&::before
+		+pseudo()
+		left: 0
+		bottom: 0
+		width: 90px
+		border-top: solid $base-color
+		border-width: 2px 0 0
+		display: none
+
 	+media('<desk-hd')
 		font-size: 28px
 
@@ -793,12 +802,7 @@ table
 		position: relative
 
 		&::before
-			+pseudo()
-			left: 0
-			bottom: 0
-			width: 90px
-			border-top: solid $base-color
-			border-width: 2px 0 0
+			display: block
 
 	+media('<mob-md')
 		font-size: 24px
@@ -1060,7 +1064,7 @@ table
 		margin-left: #{$icon-size + $icon-space}
 		color: inherit
 		text-decoration: none
-		transition:
+		//transition:
 			property: color
 			duration: $animation-speed
 

@@ -516,7 +516,7 @@
 	width: 650px
 	max-width: calc(80% - #{$promo-slider-space}*2)
 	+font-bold
-	+font(36px, 48px)
+	+font(36px, round-float(48/36, 2))
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	color: white
@@ -542,10 +542,12 @@
 	+media('<desk-hd')
 		+position(#{$promo-slider-space--md})
 		max-width: calc(80% - #{$promo-slider-space--md}*2)
-		+font(30px, 44px)
+		//+font(30px, 44px)
+		font-size: 30px
 
 	+media('<desk-md')
-		+font(26px, 40px)
+		//+font(26px, 40px)
+		font-size: 26px
 		+position(auto)
 		+size(auto)
 		max-width: none
@@ -637,10 +639,6 @@
 		&::before
 			content: none
 
-	.no-touchevents &:hover
-		background-color: $base-color-alt
-		color: $bg-color-base
-
 	.no-touchevents &:hover, .no-touchevents &.hover-prev
 		&::before
 			opacity: 0
@@ -649,10 +647,18 @@
 	padding: $grid-space
 	color: inherit
 	height: 100%
+	text-decoration: none
 	display: flex
 	justify-content: space-between
 	flex-direction: column
 	text-align: center
+	transition:
+		property: opacity, background-color
+		duration: $animation-speed
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+		color: $bg-color-base
 
 	+media('<mob-md')
 		padding: $grid-space--lg
@@ -697,7 +703,7 @@
 	text-transform: uppercase
 	margin-bottom: 2px
 
-	.no-touchevents .several-slider__item:hover &
+	.no-touchevents .several-slider__inner:hover &
 		color: $bg-color-base
 
 	&:last-child

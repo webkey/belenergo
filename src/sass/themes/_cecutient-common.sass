@@ -23,12 +23,12 @@
 	hr
 		border-width: $border-width
 
-	.#{$user-content}
-		a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__item):not(.popular__inner):not(.structure-panel-item)
+	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item)
 			padding-top: 0.2em
 			text-decoration: none
 			border-bottom: $border-width solid $border-color
 			box-shadow: -#{$border-width*2} 0 0 transparent, #{$border-width*2} 0 0 transparent
+
 			@if $animation-none
 				transition: none
 			@else
@@ -147,6 +147,20 @@
 
 	// logo in sidebar end
 	// logo end
+
+	// short contacts
+	.short-contacts
+		a
+			border-bottom: none !important
+			box-shadow: none !important
+			background: none !important
+
+			&[href]
+				span
+					@if $animation-none
+						transition: none
+
+	// short contacts end
 	//=========== TYPOGRAPHY end ==========
 
 	//=========== BUTTONS ==========
@@ -180,25 +194,16 @@
 
 	// button toggle menu
 	.menu-btn
-		background-color: $bg-panels-color
-		box-shadow: inset -1px -1px 0 $border-color
-
-		&::before, &::after
-			background-color: $text-color-base
+		&, &::before, &::after
+			@if $animation-none
+				transition: none
 
 		& > i
 			&, &::before, &::after
-				background-color: $text-color-base
-
-		&.active
-			& > i
-				background-color: transparent
-
-		.no-touchevents &:hover
-			background-color: $bg-panels-color
+				@if $animation-none
+					transition: none
 
 	// button toggle menu end
-
 	// button end
 	//=========== BUTTONS END ==========
 
@@ -268,6 +273,65 @@
 
 	// search form end
 
+	// jFiler
+	.jFiler-input-dragDrop
+		@if $animation-none
+			transition: none
+
+	.jFiler-item-trash-action
+		border-bottom: none !important
+		box-shadow: none !important
+		padding-top: 0 !important
+
+		&::before, &::after
+			@if $animation-none
+				transition: none
+
+	// jFiler end
+
+	// social networks
+	.social-networks__item
+		a
+			&, & path
+				@if $animation-none
+					transition: none
+
+	// social networks end
+
+	// filters
+	.filters
+		a
+			padding-top: 0 !important
+
+			&, & span
+				@if $animation-none
+					transition: none
+
+			span
+				border-bottom: none
+
+	// filters end
+
+	// pagination
+	.pg-first, .pg-last, .pg-prev, .pg-next, .pg-list a
+		background: none !important
+		box-shadow: none !important
+		border-bottom: none !important
+		padding-top: 0 !important
+
+	.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
+		&, &::before, &::after
+			@if $animation-none
+				transition: none
+
+	.pg-list
+		li
+			a, & > span
+				@if $animation-none
+					transition: none
+
+	// pagination end
+
 	//=========== LAYOUT ==========
 	&.home-page
 		&::before
@@ -280,9 +344,19 @@
 		&::before, &::after
 			content: none
 
+	// content head
+	.content-head
+		border-bottom: 1px solid $border-color
+
+	// content head end
+
 	//=========== LAYOUT END ==========
 
 	// user options
+	.user-options
+		@if $animation-none
+			transition: none
+
 	.user-options__item
 		& > a, svg, path
 			@if $animation-none
@@ -304,6 +378,8 @@
 	.lang__list
 		box-shadow: none
 		border-width: 1px
+		@if $animation-none
+			transition: none
 
 		a
 			border-width: 1px 0 0
@@ -346,6 +422,7 @@
 	.promo-slider
 		opacity: 1
 		visibility: visible
+		padding-bottom: 0
 
 	.promo-slide
 		display: block
@@ -354,6 +431,7 @@
 		visibility: visible
 		width: 100%
 		height: auto
+		min-height: 0
 		border-top: #{$border-width} solid #{$border-color}
 		padding: 10px 15px
 
@@ -370,6 +448,10 @@
 		max-width: none
 		color: $text-color
 		font-size: 22px
+		padding: 0
+
+		+media('<desk-md')
+			font-size: 18px
 
 		span
 			background: none
@@ -399,23 +481,31 @@
 		&::before
 			display: none
 
-	.several-slider__item, .several-slider__text, .several-slider__value
+	.several-slider__item, .several-slider__inner, .several-slider__text, .several-slider__value
 		@if $animation-none
 			transition: none
 
 	.several-slider__inner
-		display: inline-block
+		+display-inline-block-top
 		padding: 0
 
-	.several-slider__figure
+	.several-slider__figure,
+	.duplicate .info-links__icon
 		display: none
 
 	.several-slider__text
 		margin-right: 10px
 
-	.several-slider__text, .several-slider__content, .several-slider__value, .several-slider__unit
+	.several-slider__text,
+	.several-slider__content,
+	.several-slider__value,
+	.several-slider__unit,
+	.duplicate .info-links__text
 		display: inline
 		padding: 0
+
+	.duplicate .info-links__text
+		border-bottom: 2px solid #{$border-color}
 
 	// several slider end
 	//=========== SLIDERS end ==========
@@ -465,32 +555,35 @@
 		display: block
 		width: auto
 		+padding-horizontal(0)
-		margin-top: $bottom-space--sm
+		padding-bottom: $bottom-space--sm
 
-		&:first-child
-			margin-top: 0
+		&:last-child
+			padding-bottom: 0
 
 		.dt, .dd
 			+display-inline-block-top
 			line-height: 52px
 			margin: 0
+			min-width: 0
 
 		.dt
-			margin-right: 15px
+			padding-right: 15px
 
 	// benefits counter end
 
 	// news previews
-	.news-previews__list
+	.news-previews__list, .list-view .news-previews__list
 		+grid-parent($bottom-space--md)
 
-	.news-previews__item
+	.news-previews__item, .list-view .news-previews__item
 		display: block
 		+grid-item-responsive(1, $bottom-space--md)
 		width: auto
 
-	.news-previews__meta, .news-previews__link
+	.news-previews__meta, .news-previews__link, .list-view .news-previews__meta, .list-view .news-previews__link
 		margin-bottom: $bottom-space--sm
+		margin-top: 0
+		padding-left: 0
 
 	.news-previews__figure
 		display: none
@@ -499,7 +592,54 @@
 		@if $animation-none
 			transition: none
 
+	.list-view
+		.news-previews__meta, .news-previews__content, .news-previews__footer
+			float: none
+			width: auto
+			padding-left: 0
+			margin-top: 0
+
+		.news-previews__content
+			margin-bottom: $bottom-space--sm
+
 	// news previews end
+
+	// fame
+	.fame__figure
+		&::before
+			content: none
+
+	.fame__img
+		position: relative
+		top: auto
+		left: auto
+		width: auto
+		height: auto
+		transition: none !important
+		transform: none !important
+
+		&::before
+			+pseudo-block-relative()
+			+ratio(286, 410)
+
+		&::after
+			content: none
+
+	.fame__info
+		position: relative
+		transition: none !important
+		transform: none !important
+		border: none
+		box-shadow: none
+		+padding-horizontal(0)
+
+		a
+			border-bottom: none !important
+			padding-top: 0 !important
+			box-shadow: none !important
+			background: none !important
+
+	// fame end
 
 	// subscription form
 	.subscription-form
@@ -564,23 +704,33 @@
 			@if $animation-none
 				transition: none
 
+		+media('<tab-lg')
+
+
 	// info links end
 
 	//=========== SIDEBAR ==========
 	// menu
-	.menu-list
+	.menu-list, .sidebar .nav-list
 
 		a
 			border: #{$border-width} solid transparent
 
 	// menu end
+
+	// nav in sidebar
+	.sidebar .nav::before
+		border-color: $border-color
+
+	// nav in sidebar end
+
 	//=========== SIDEBAR END ==========
 
 	//=========== ASIDE ==========
 	// actual links
 	.actual-links
 		a
-			display: block
+			+display-inline-block-top
 			padding: 3px
 
 			&, & span
@@ -592,14 +742,36 @@
 
 	//=========== FOOTER ==========
 	// footer gov
+	.gov__list
+		border: none
+		padding: 0
+
 	.gov__item, .gov__inner
 		@if $animation-none
 			transition: none
 
+	.gov__item
+		display: block
+		padding: 0
+		margin-top: $bottom-space--sm
+
+		&:first-child
+			margin-top: 0
+
 	.gov__inner
-		border-width: $border-width
+		display: inline
+		border: none
+		border-bottom: #{$border-width} solid #{$border-color}
+		padding: 0
+
+		&::before
+			content: attr(title)
+
+	.gov__figure
+		display: none
 
 	// footer gov end
+
 	// footer common
 	.footer-common
 		a
@@ -607,4 +779,12 @@
 				transition: none
 
 	// footer common end
+
+	// developer
+	.developer__logo
+		&::before, &::after
+			@if $animation-none
+				transition: none
+
+	// developer end
 	//=========== FOOTER END ==========

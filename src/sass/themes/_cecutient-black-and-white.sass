@@ -70,8 +70,7 @@
 		&:first-letter
 			color: $text-color-base
 
-	.#{$user-content}
-		a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__item):not(.popular__inner):not(.structure-panel-item)
+	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item)
 			color: $link-color
 			border-color: $border-color
 
@@ -142,12 +141,6 @@
 
 	// add shadow end
 
-	// caption box / caption
-	.caption-box__title, .caption-box__title
-		color: $title-color
-
-	// caption box / caption end
-
 	// benefits counter
 	.benefits-counter__item
 		.dd
@@ -186,6 +179,9 @@
 		path, use
 			fill: $base-color
 
+		a
+			color: $text-color-base !important
+
 		a, & li > div
 			color: $text-color-base
 
@@ -198,7 +194,8 @@
 					border-bottom-color: transparent
 
 			.no-touchevents &[href]:not([href^="tel:"]):hover
-				color: $base-color
+				color: $bg-color-base
+				background-color: $base-color
 
 				span
 					border-bottom-color: $base-color
@@ -242,8 +239,12 @@
 		color: $text-color-base
 		border-color: $text-color-base
 
-		.no-touchevents &:hover path
-			fill: $bg-color-base
+		.no-touchevents &:hover
+			background-color: $text-color-base
+			color: $bg-color-base
+
+			path
+				fill: $bg-color-base
 
 	// view print end
 
@@ -295,6 +296,29 @@
 			background-color: $link-color-inverse !important
 			border-color: $link-color-disabled !important
 
+
+	// button toggle menu
+	.menu-btn
+		box-shadow: inset -1px -1px 0 $border-color
+
+		.no-touchevents &:hover
+			background-color: $base-color-alt
+
+			& > i
+				background-color: $bg-color-base
+
+				&::before, &::after
+					background-color: $bg-color-base
+
+		.no-touchevents &.active:hover
+
+			& > i
+				background-color: transparent
+
+			&::before, &::after
+				background-color: $bg-color-base
+
+	// button toggle menu end
 	//=========== BUTTONS end ==========
 
 	//=========== FORM STYLES DEFAULT ==========
@@ -661,9 +685,6 @@
 		color: $text-color
 
 	.jFiler-item-trash-action
-		border-bottom: none !important
-		box-shadow: none !important
-		padding-top: 0 !important
 
 		.no-touchevents &:hover
 			background-color: $text-color-base
@@ -674,7 +695,7 @@
 	// jFiler end
 
 	// social networks
-	.social-networks__item, .soc-media-share .social-networks__item
+	.social-networks__item
 
 		a
 			background: $link-color-inverse // НЕ background-color. Перебить градиент
@@ -695,10 +716,57 @@
 
 	// social networks end
 
+	// filters
+	.filters
+		a
+			&.active
+				box-shadow: none !important
+				background-color: $link-color !important
+				color: $link-color-inverse !important
+
+	// filters end
+
+	// pagination
+	.pg-first, .pg-last, .pg-prev, .pg-next
+		.no-touchevents &:not(.disabled):hover
+			[class*="-arr"]
+				&, &::before, &::after
+					border-color: $text-color-base
+
+	.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
+		&, &::before, &::after
+			border-color: $text-color-base
+
+	.pg-first, .pg-last, .pg-prev, .pg-next, .pg-list a
+		color: $text-color-base !important
+
+	.pg-list .active a
+		background-color: $text-color-base !important
+		color: $bg-color-base !important
+
+	// pagination end
+
 	//=========== LAYOUT ==========
 	&.home-page .wrapper
 		&::before
 			background: $bg-color
+
+	// content head
+	.content-head
+		background: $bg-color-base !important
+		border-color: $border-color
+
+		&::before
+			content: none
+
+	// content head end
+
+	// previews-grid
+	.previews-grid, .previews-grid-list, .previews-grid-item, .previews-grid-inner
+		&::before, &::after
+			border-color: $border-color
+
+	// previews-grid end
 
 	//=========== LAYOUT end ==========
 
@@ -723,21 +791,14 @@
 	.several-slider__item
 		background-color: $bg-color-base
 
-		.no-touchevents &:hover
-			background-color: $text-color-base
-			color: $bg-color-base
-
 		+media('<mob-md')
 			border-color: $text-color-base
 
 	.several-slider__text, .several-slider__value, .several-slider__unit
 		color: $text-color-base
 
-	.no-touchevents & .several-slider__item:hover
-		background-color: $bg-color-base
-
-		.several-slider__inner
-			background-color: $text-color-base
+	.no-touchevents & .several-slider__inner:hover
+		background-color: $text-color-base
 
 		.several-slider__text, .several-slider__value, .several-slider__unit
 			color: $bg-color-base
@@ -753,14 +814,12 @@
 
 	.header__holder
 		+media('<mob-lg')
-			box-shadow: 0 5px 25px transparent
-
-			.menu--opened &
-				box-shadow: 0 5px 25px rgba(black, 0.25)
+			box-shadow: none
 
 	//=========== HEADER end ==========
 
 	// user options
+
 	.user-options__item
 		& > a
 			color: $text-color-base
@@ -833,10 +892,8 @@
 	// lang end
 	.sidebar
 		.user-options
-			box-shadow: 0 -1px 0 #{$border-color}, 0 5px 25px transparent
-
-			.menu--opened &
-				box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(black, 0.25)
+			box-shadow: none
+			border-top: 1px solid #{$border-color}
 
 	// user options
 
@@ -856,6 +913,17 @@
 		background-color: $bg-color-base
 
 	// navigation end
+
+	// caption box / caption
+	.caption-box__title,
+	.caption-box__title
+		color: $title-color
+
+	.caption__title
+		&::before
+			border-color: $border-color
+
+	// caption box / caption end
 
 	// news previews
 	.news-previews__date
@@ -893,6 +961,12 @@
 
 	// news previews end
 
+	// fame
+	.fame__info
+		a
+			color: $text-color-base !important
+	// fame end
+
 	// subscription form
 	.subscription-form
 
@@ -921,17 +995,6 @@
 		span
 			&::before, &::after
 				background-color: $bg-color-base
-
-	// subscription form end
-
-	//span
-
-		&::before, &::after
-			background-color: $form-success-color
-
-	//.error-text
-		color: $form-error-color
-		background-color: #f2f2f2
 
 	// subscription form end
 
@@ -993,62 +1056,10 @@
 
 	// structure end
 
-	// sidebar
-	.sidebar
-		background-color: $bg-panels-color
-		border-right-color: $border-color
-
-	.sidebar__holder
-		background-image: none
-
-	.sidebar-widget
-		border-top-color: $border-color
-
-	// menu
-	.menu-list
-
-		a
-			color: $text-color-base
-
-		.no-touchevents & a:hover
-			color: $text-color-base
-			background-color: $bg-color-base
-			border-color: $border-color
-
-		.current a
-			color: $bg-color-base !important
-			background-color: $base-color !important
-			border-color: $border-color
-
-	// menu end
-	// sidebar end
-
-	// aside
-	// actual links
-	.actual-links
-		a
-			span
-				border-color: tint($text-color, 40%)
-
-			.no-touchevents &:hover
-				span
-					border-color: $base-color
-
-	// actual links end
-	// aside end
-
 	// footer
 	.footer__holder
 		border-color: $border-color
 	// footer end
-
-	// pagination
-	.pg-first-arr, .pg-last-arr, .pg-prev-arr, .pg-next-arr
-		border-color: $text-color-base
-
-		&::before, &::after
-			border-color: $text-color-base
-	// pagination end
 
 	// fame
 	.fame__img
@@ -1079,6 +1090,9 @@
 		path
 			fill: $base-color
 
+	.info-links__text
+		border-bottom-color: $link-color
+
 	.no-touchevents & .info-links__inner:hover
 		background-color: $base-color-alt
 		color: $bg-color-base
@@ -1087,7 +1101,40 @@
 			path
 				fill: $bg-color-base
 
+		.info-links__text
+			border-bottom-color: transparent
+
 	// info links end
+
+	//=========== SIDEBAR ==========
+	.sidebar
+		background-color: $bg-panels-color
+		border-right-color: $border-color
+
+	.sidebar__holder
+		background-image: none
+
+	.sidebar-widget
+		border-top-color: $border-color
+
+	// menu
+	.menu-list, .sidebar .nav-list
+
+		a
+			color: $text-color-base
+
+		.no-touchevents & a:hover
+			color: $text-color-base
+			background-color: $bg-color-base
+			border-color: $border-color
+
+		.current a
+			color: $bg-color-base !important
+			background-color: $base-color !important
+			border-color: $border-color
+
+	// menu end
+	//=========== SIDEBAR END ==========
 
 	//=========== ASIDE ==========
 	// actual links
@@ -1097,6 +1144,10 @@
 
 			span
 				border-bottom-color: transparent !important
+
+			.no-touchevents &:hover
+				span
+					border-color: $base-color
 
 	.no-touchevents & .actual-links
 		a:hover
@@ -1122,11 +1173,16 @@
 
 	//=========== FOOTER ==========
 	// footer gov
+	.gov__list
+		margin-bottom: $bottom-space
+
 	.gov__inner
+		color: $text-color-base
 		border-color: $border-color
 
 		.no-touchevents &:hover
 			background-color: $border-color
+			color: $bg-color-base
 			border-color: $border-color
 
 	.banner-inner__title

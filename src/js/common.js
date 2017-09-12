@@ -783,7 +783,7 @@ function slidersInit() {
 	/*gov slider*/
 	var $govSlider = $('.slider-gov-js');
 
-	if ($govSlider.length) {
+	if ($govSlider.length && getCookie('cecutientVersion') !== 'true') {
 
 		$govSlider.each(function () {
 			var $currentSlider = $(this);
@@ -1715,7 +1715,7 @@ function footerBottom() {
 
 		setTimeout(function () {
 			layoutFooter();
-		}, 50);
+		}, 200);
 
 		$(window).on('resizeByWidth', function () {
 			layoutFooter();
@@ -1805,7 +1805,6 @@ $(window).on('debouncedresize', function () {
 });
 
 $(document).ready(function () {
-	footerBottom();
 	switchCecutientVersion();
 	checkCecutientVersionCookie();
 	switchTheme();
@@ -1831,6 +1830,7 @@ $(document).ready(function () {
 	objectFitImages(); // object-fit-images initial
 
 	formSuccessExample();
+	footerBottom();
 
 	contactsMap();
 });

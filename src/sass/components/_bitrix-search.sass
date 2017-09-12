@@ -47,9 +47,10 @@
 			width: 16px
 			height: 16px
 			+margin($top: -(round(16px/2)), $left: -(round(16px/2)))
-			background-repeat: no-repeat
-			background-position: center center
-			background-size: contain
+			background:
+				repeat: no-repeat
+				position: center center
+				size: contain
 				
 			&.icon-angle-left
 				background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABYAAAAoCAYAAAD6xArmAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyhpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUuNSAoV2luZG93cykiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6MzE1MTVGRjAxNDVFMTFFN0FERkZCNzNGOTg3QzA3QkQiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6MzE1MTVGRjExNDVFMTFFN0FERkZCNzNGOTg3QzA3QkQiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDozMTUxNUZFRTE0NUUxMUU3QURGRkI3M0Y5ODdDMDdCRCIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDozMTUxNUZFRjE0NUUxMUU3QURGRkI3M0Y5ODdDMDdCRCIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/Pj0voocAAAFPSURBVHjatNdPK0RxFMbxSZowMxFqFjIpCzXlVXkDNlZSFkppMgtNDRkLUqNsUBY2UsrCn6ZpIjSEiIWFbLDhWcwt6T6/xXmOX303s/h0u9177plEwu+U0CM6QENe6Bb6/tWJB7r5B42SzgZBtxW0StA66rKiqwQ9R51WdIWg1yhjRZcCaI8VXSTojYIuEPQe9VnRIkGfUNaKzgfQAStaIOiLgs4Q9BXlrOg0Qd/QsBWdCqAjVnSSoO8KOkHQD5S3omMBdFQZf58x6BUaVNA21B7z+xd6UL8C44E50K/i7IW4U4ZMdGYJfutx5XMBvFfF2Zhsom4VZ4P9EqVVvBz4EmdUfJngFyil4hWCN1CHirMFpYaSKr5O8FMPnO1rZ2TmuKytx62h5rpoRx15LNw7BD/0uOe7BK96XPnef/xViM5+zExxO2voufV05H8EGABd2PB1TJvhSAAAAABJRU5ErkJggg==')
@@ -99,8 +100,9 @@
 			letter-spacing: 0.025em
 			padding: 0 4px
 			border-radius: 0
-			transition-property: color, background-color
-			transition-duration: $animation-speed
+			transition:
+				property: color, background-color
+				duration: $animation-speed
 
 		.active
 			cursor: default
