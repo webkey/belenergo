@@ -3,7 +3,7 @@
 	"pageClass": "home-page"
 })
 
-<div class="bg-img"><div class="bg-img-inner">&nbsp;</div></div>
+<div class="bg-img wow"><div class="bg-img-inner">&nbsp;</div></div>
 
 @@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
 
@@ -83,7 +83,7 @@
 					<div class="news-previews__list">
 						@@loop("_tpl_news-previews-items.html", "includes-json/news-previews-items.json")
 					</div>
-					<div class="section-footer">
+					<div class="section-footer wow">
 						<div class="section-footer__holder">
 							<a href="#" class="btn-default">Все новости</a>
 						</div>
@@ -147,7 +147,7 @@
 
 				<!--popular-->
 				<div class="popular add-shadow">
-					<div class="previews-grid ">
+					<div class="previews-grid">
 						<section class="popular-list previews-grid-list">
 							@@loop("_tpl_popular-items.html", "includes-json/popular-items.json")
 						</section>

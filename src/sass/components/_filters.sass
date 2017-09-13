@@ -21,15 +21,19 @@
 		vertical-align: top
 		text-decoration: none
 		color: inherit
-		transition:
-			property: color
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: color
+				duration: $animation-speed
 
 		span
 			border-bottom: 1px dotted tint($text-color, 40%)
-			transition:
-				property: border-color
-				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: border-color
+					duration: $animation-speed
 
 		.no-touchevents &:hover
 			color: $base-color

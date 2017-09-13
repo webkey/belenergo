@@ -1704,6 +1704,25 @@ function popupsInit(){
 }
 
 /**
+ * !extra popup initial
+ * */
+function initWow() {
+
+	new WOW({
+		// boxClass: 'wow', // default
+		// animateClass: 'animated', // default
+		offset: 50, // 0 default
+		// mobile: true, // default
+		// live: true // default
+		callback: function(box) {
+			console.log("box: ", $(box));
+			$(box).css('will-change', 'auto');
+		}
+	}).init();
+
+}
+
+/**
  * !Always place the footer at the bottom of the page
  * */
 function footerBottom() {
@@ -1828,6 +1847,7 @@ $(document).ready(function () {
 	equalHeight();
 	popupsInit();
 	objectFitImages(); // object-fit-images initial
+	initWow();
 
 	formSuccessExample();
 	footerBottom();

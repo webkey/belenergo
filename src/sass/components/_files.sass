@@ -11,9 +11,12 @@
 	+font(16px, 20px)
 	color: $base-color-alt
 	text-decoration: none
-	transition:
-		property: background-color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color
+			duration: $animation-speed
+
 	+clear
 
 	svg
@@ -22,17 +25,21 @@
 
 	path
 		fill: $base-color-alt
-		transition:
-			property: fill
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: fill
+				duration: $animation-speed
 
 	& > span, & > em
 		display: block
 		margin-left: #{$file-icon-size}
 		padding-left: 1em
-		transition:
-			property: color
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: color
+				duration: $animation-speed
 
 	& > em
 		display: block

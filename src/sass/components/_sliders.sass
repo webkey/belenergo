@@ -19,8 +19,11 @@
 	box-shadow: none
 	opacity: 1
 	z-index: 6
-	transition-property: background, opacity, visibility
-	transition-duration: 0.2s
+
+	@if $has-animation
+		transition:
+			property: background, opacity, visibility
+			duration: 0.2s
 
 	.no-touchevents &:not(.slick-disabled):hover
 		opacity: 1
@@ -39,10 +42,12 @@
 		+pseudo()
 		+position(50%)
 		border: 0 solid $base-color-alt
-		transition:
-			property: border-color
-			duration: $animation-speed
 		transform: none
+
+		@if $has-animation
+			transition:
+				property: border-color
+				duration: $animation-speed
 
 	&::before
 		+size(26px, 2px)
@@ -129,8 +134,10 @@
 			position: relative
 			background-color: transparent
 			border: 1px solid $base-color-alt
-			transition-property: background, border, box-shadow, transform
-			transition-duration: 0.4s
+
+			transition:
+				property: background, border, box-shadow, transform
+				duration: 0.4s
 
 			&::before
 				+pseudo()
@@ -140,9 +147,11 @@
 				border-radius: 50%
 				border: 1px solid $base-color-alt
 				opacity: 0
-				transition-property: opacity, transform
-				transition-duration: 0.2s
 				transform: scale(0.2)
+
+				transition:
+					property: opacity, transform
+					duration: 0.2s
 
 		&.slick-active button
 			background: $base-color-alt
@@ -190,16 +199,22 @@
 	text-indent: -9999px
 	overflow: hidden
 	cursor: pointer
-	transition-property: background-color
-	transition-duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color
+			duration: $animation-speed
 
 	&::before, &::after
 		+pseudo()
 		+position(50%)
 		border: 0 solid $base-color-alt
-		transition-property: border-color
-		transition-duration: $animation-speed
 		transform: none
+
+		@if $has-animation
+			transition:
+				property: border-color
+				duration: $animation-speed
 
 	&::before
 		+size(26px, 2px)
@@ -326,8 +341,9 @@
 				border-radius: 50%
 				background-color: white
 				opacity: 0.5
-				transition-property: opacity, transform
-				transition-duration: $animation-speed
+				transition:
+					property: opacity, transform
+					duration: $animation-speed
 
 				&::before
 					content: none
@@ -386,9 +402,6 @@
 			display: none
 
 .promo-slider
-	transition:
-		property: opacity, visibility
-		duration: $animation-speed
 	// before slide load
 	white-space: nowrap
 	overflow: hidden
@@ -397,6 +410,10 @@
 	// before slide load end
 	+push-auto
 	margin-bottom: 0
+
+	transition:
+		property: opacity, visibility
+		duration: $animation-speed
 
 	&.slick-initialized, .no-js &
 		// after slide load
@@ -491,15 +508,15 @@
 	position: absolute
 	+position(50%, 0)
 	+size(100%)
-	background:
+	transform: scale(1.15)
+	//background:
 		position: center
 		repeat: no-repeat
 		size: cover
+
 	transition:
 		property: opacity, transform
 		duration: 1.2s
-	backface-visibility: hidden
-	transform: scale(1.15)
 
 	.slick-active &
 		transform: scale(1)
@@ -509,6 +526,13 @@
 		background:
 			position: center top
 		transform: scale(1)
+
+	img
+		display: block
+		+size(100%)
+		max-width: none
+		+object-fit(cover)
+		backface-visibility: hidden
 
 .promo-slider__text
 	position: absolute
@@ -579,11 +603,12 @@
 	// before slide load
 	white-space: nowrap
 	overflow: hidden
+	opacity: 0
+	visibility: hidden
+
 	transition:
 		property: opacity, visibility
 		duration: $animation-speed
-	opacity: 0
-	visibility: hidden
 	// before slide load end
 	+push-auto
 	margin-bottom: $bottom-space--md
@@ -614,9 +639,6 @@
 	color: inherit
 	text-decoration: none
 	background-color: $bg-color-base
-	transition:
-		property: background-color
-		duration: $animation-speed
 
 	.slick-initialized &
 		// after slide load
@@ -631,9 +653,11 @@
 		bottom: 40px
 		border: 0 solid $border-color
 			width: 0 0 0 2px
-		transition:
-			property: opacity
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: opacity
+				duration: $animation-speed
 
 	&:last-child
 		&::before
@@ -652,9 +676,11 @@
 	justify-content: space-between
 	flex-direction: column
 	text-align: center
-	transition:
-		property: opacity, background-color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: opacity, background-color
+			duration: $animation-speed
 
 	.no-touchevents &:hover
 		background-color: $base-color-alt
@@ -721,9 +747,11 @@
 		margin-bottom: 0
 
 .several-slider__text, .several-slider__value
-	transition:
-		property: color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: color
+			duration: $animation-speed
 
 /* several slider end
 

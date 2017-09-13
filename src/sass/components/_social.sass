@@ -37,8 +37,11 @@ $social-space: 18px !default
 		display: block
 		position: relative
 		+size(40px)
-		transition-property: transform, border-color, background-color
-		transition-duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: transform, border-color, background-color
+				duration: $animation-speed
 
 		+media('<desk-lg')
 			+size(30px)
@@ -55,7 +58,9 @@ $social-space: 18px !default
 
 		path
 			fill: $text-color-light
-			transition: fill $animation-speed
+
+			@if $has-animation
+				transition: fill $animation-speed
 
 		.no-touchevents &:hover
 			&.fb

@@ -20,12 +20,14 @@
 	text-decoration: none
 	text-align: center
 	padding: #{round($grid-space*1.5)} #{$grid-space}
-	transition:
-		property: background-color, color
-		duration: $animation-speed
 	display: flex
 	justify-content: space-between
 	flex-direction: column
+
+	@if $has-animation
+		transition:
+			property: background-color, color
+			duration: $animation-speed
 
 	.no-touchevents &:hover
 		background-color: $base-color-alt

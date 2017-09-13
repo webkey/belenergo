@@ -50,9 +50,10 @@
 		+font(16px, 20px)
 		text-decoration: none
 		color: $text-color-base
-		transition:
-			property: background-color, color
-			duration: $animation-speed
+		@if $has-animation
+			transition:
+				property: background-color, color
+				duration: $animation-speed
 
 		+media('<desk-hd')
 			+padding-horizontal(#{round($nav-item-space--sm*0.5)})

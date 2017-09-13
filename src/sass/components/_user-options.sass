@@ -17,6 +17,12 @@
 	+size(auto, $header-height)
 	min-width: $header-height
 
+	&:first-child ~ &
+		margin-left: -1px
+
+	.no-touchevents &:hover
+		z-index: 1
+
 	+media('<tab-lg')
 		height: $header-height--sm
 		min-width: $header-height--sm
@@ -29,15 +35,22 @@
 		// для svg
 		text-decoration: none
 		text-align: center
-		box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
-		background-color: $bg-panels-color
-		transition:
-			property: background-color, color, box-shadow
-			duration: $animation-speed
+		//box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
+		border: solid #{$border-color}
+		border-width: 0 1px
+		//background-color: $bg-panels-color
 
-		+media('<mob-lg')
-			.sidebar &
-				box-shadow: -1px 0 0 $border-color
+		@if $has-animation
+			transition:
+				property: background-color, color, box-shadow
+				duration: $animation-speed
+
+		.no-touchevents &:hover
+			color: $bg-color-base
+			fill: $bg-color-base
+			border-color: $base-color-alt
+			background-color: $base-color-alt
+			//box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
 
 		& > *
 			+display-inline-block-middle
@@ -53,9 +66,11 @@
 		svg
 			+size(24px)
 			display: inline-block
-			transition:
-				property: background-color, color
-				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color, color
+					duration: $animation-speed
 
 			&.svg-visually-impaired
 				+size(38px, 21px)
@@ -68,15 +83,11 @@
 
 		path
 			fill: inherit
-			transition:
-				property: fill
-				duration: $animation-speed
 
-		.no-touchevents &:hover
-			background-color: $base-color-alt
-			color: $bg-color-base
-			fill: $bg-color-base
-			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
+			@if $has-animation
+				transition:
+					property: fill
+					duration: $animation-speed
 
 		& > span
 			display: inline-block
@@ -118,12 +129,20 @@
 		width: auto
 		min-width: 155px
 		height: $header-height
+		z-index: 2
 
 		a
 			background-color: $base-color-alt
 			color: white
 			fill: white
-			box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
+			//box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
+			border-width: 0 1px
+			border-color: rgba($border-color, 0.2)
+
+			.no-touchevents &:hover
+				color: $base-color
+				fill: $base-color
+				border-color: rgba($border-color, 0.2)
 
 			+media('<tab-lg')
 				span

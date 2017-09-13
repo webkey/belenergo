@@ -33,7 +33,7 @@
 	thead
 		display: table-header-group
 
-	tr, img
+	tr, img, .footer
 		page-break-inside: avoid
 
 	img
@@ -90,11 +90,13 @@
 		font-size: 20pt !important
 		line-height: 1.3 !important
 
-	h2
+	h2, .caption-box__title, .caption__title
 		font-size: 18pt !important
 		line-height: 1.4 !important
+		text-transform: none
 
-	h3, .main-slider-title__item, .datetime, .datetime > strong, .entry-text
+	h3, .main-slider-title__item, .datetime, .datetime > strong, .entry-text,
+	.promo-slider__text, .info-container__title
 		font-size: 16pt !important
 		line-height: 1.5 !important
 		text-transform: none !important
@@ -135,6 +137,7 @@
 	.breadcrumbs, .breadcrumbs__list, form, .search-form, .subscription-form, .user-form,
 	.spacer, .footer-gov,
 	.footer a::after,
+	.wrapper::after,
 	.logo, .navigationByTypographyElements,
 	[class*="btn-"],
 	.user-options,
@@ -143,6 +146,18 @@
 	.news-previews__label,
 	.developer,
 	.entry-img img,
+	.caption::before,
+	.caption__title br,
+	.caption__title::before,
+	.several-slider.duplicate,
+	.is-theme-dark,
+	.previews-grid::before, .previews-grid-list::before, .previews-grid-item::before, .previews-grid-inner::before,
+	.previews-grid::after, .previews-grid-list::after, .previews-grid-item::after, .previews-grid-inner::after,
+	.fame__figure::before,
+	.fame__figure::after,
+	.short-contacts a::after,
+	.contacts-map__frame,
+	.divider,
 	.class
 		display: none !important
 
@@ -161,6 +176,25 @@
 	.entry-img-wrap, .entry-img, .entry-img__title,
 	.entry-text,
 	[class*="feature-list"],
+	[class*="caption"],
+	[class*="benefits-counter"],
+	.main-section,
+	.several-slider__inner,
+	[class*="structure"],
+	[class*="main-scheme"],
+	.main-scheme-description ul,
+	.main-scheme-description li,
+	[class*="popular"],
+	[class*="fame"],
+	.fame__img img,
+	.map-for-print,
+	.contacts-page .layout-article,
+	[class*="info-container"],
+	.contacts-map,
+	.contacts-map::after,
+	.short-contacts,
+	.short-contacts ul,
+	.short-contacts li,
 	.class
 		+print-reset
 
@@ -176,16 +210,44 @@
 	.feature-list__img,
 	.filters,
 	.news-previews,
+	.news-previews__item,
 	.news-previews__date,
 	.news-previews__meta,
 	.news-previews__figure,
+	.caption-box__title,
+	.caption-box__subtitle,
+	.caption__title,
+	.caption__text,
+	.structure-item,
+	.structure-hand,
+	.structure-panel,
+	.main-scheme-description li,
+	.popular,
+	.popular__item,
+	.fame__item,
+	.fame__figure,
+	.fame__img,
+	.fame__content,
+	.contacts-map,
+	.info-container__item,
+	.info-container__title,
+	.info-container__text,
+	.short-contacts li,
 	.class
 		+prints-space-bottom-sm
 
 	.header, .blockquote, hr, blockquote,
-	.news-previews__item,
+	.main-section,
 	.class
 		+prints-space-bottom-md
+
+	.imgl, .imgr, .imgc,
+	.news-previews__figure img,
+	.feature-list__img img,
+	.fame__img img,
+	.class
+		width: 5cm !important
+		max-width: none !important
 
 	.logo-for-print
 		display: block !important
@@ -213,18 +275,29 @@
 
 	// sliders
 	.slick-slider, .slick-list, .slick-track, .slick-slide,
-	.images-slider__item img
+	.images-slider__item img,
+	.promo-slider__figure, .promo-slider__img, .promo-slider__text,
+	.several-slider__text,
+	.class
 		+print-reset
 		will-change: transform !important
 
 	.slick-arrow, .slick-cloned, .slick-slide::before, .slick-dots,
-	.slider-counter
+	.slider-arrows,
+	.slider-counter,
+	.promo-slider__figure::before,
+	.several-slider__figure,
+	.class
 		display: none !important
 
-	.slick-slide
+	.slick-slide,
+	.promo-slider__figure,
+	.class
 		+prints-space-bottom-sm
 
-	.slick-slide img
+	.slick-slide img,
+	.promo-slider__figure img,
+	.class
 		display: block !important
 		width: 5cm !important
 		object-fit: none !important
@@ -232,6 +305,9 @@
 
 		&[data-lazy]
 			display: none !important
+
+	.several-slider__text, .several-slider__content, .several-slider__value, .several-slider__unit
+		display: inline !important
 
 	// sliders end
 
@@ -259,12 +335,29 @@
 			font-weight: normal !important
 			margin-right: 0.3cm !important
 
-	img,
-	.imgl, .imgr, .imgc,
-	.news-previews__figure img,
-	.class
-		width: 5cm !important
-		max-width: none !important
-
 	.news-previews__label
 		display: none !important
+
+	.benefits-counter
+		.dt, .dd
+			display: inline !important
+
+		.dt
+			margin-right: 5px
+
+	.is-theme-light
+		display: inline-block !important
+
+	.structure-hand .counter
+		display: none !important
+
+	.popular__text, .popular__icon
+		display: inline-block !important
+		vertical-align: middle !important
+
+	.popular__icon
+		path, svg
+			fill: black !important
+
+	.map-for-print
+		width: 12cm !important

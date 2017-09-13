@@ -71,9 +71,11 @@ $structure-branch-space-h--sm: 14px
 	color: $base-color-alt
 	text-transform: uppercase
 	user-select: none
-	transition:
-		property: background-color, color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, color
+			duration: $animation-speed
 
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*0.5)} #{round($grid-space--lg*2 + $this-angle-lines-width)} #{round($grid-space--lg*0.5)} #{$grid-space--lg}
@@ -139,15 +141,20 @@ $structure-branch-space-h--sm: 14px
 			+size($this-angle-lines-width, $this-angle-lines-height)
 			background-color: $this-icon-lines-color
 			transition:
-				property: background-color, transform
+				property: transform
 				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color, transform
+					duration: $animation-speed
 
 		&::before
 			top: 0
 
 		&::after
 			top: 0
-			transform: rotate(90deg)
+			transform: rotate(90deg) translateZ(0)
 
 	.no-touchevents &:hover, &.is-open
 		.angle
@@ -157,7 +164,7 @@ $structure-branch-space-h--sm: 14px
 	&.is-open
 		.angle
 			&::after
-				transform: rotate(0)
+				transform: rotate(0) translateZ(0)
 
 .structure-panel
 	display: none
@@ -177,9 +184,11 @@ $structure-branch-space-h--sm: 14px
 	//display: flex
 	//justify-content: space-between
 	//align-items: center
-	transition:
-		property: background-color, color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, color
+			duration: $animation-speed
 
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*0.5)} #{$grid-space--lg} #{round($grid-space--lg*0.5)}

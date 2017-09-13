@@ -53,9 +53,10 @@
 		letter-spacing: 0.05em
 		text-decoration: none
 		text-transform: uppercase
-		transition:
-			property: color, background-color
-			duration: $animation-speed
+		@if $has-animation
+			transition:
+				property: color, background-color
+				duration: $animation-speed
 
 	.no-touchevents & a:hover
 		color: $base-color
@@ -95,16 +96,16 @@
 	.user-options
 		display: none
 		position: fixed
-		left: 0
+		left: -1px
 		bottom: 0
-		width: 100%
-		box-shadow: 0 -1px 0 #{$border-color}, 0 5px 25px transparent
+		width: calc(100% + 2px)
+		box-shadow: inset 0 1px 0 #{$border-color}, 0 5px 25px transparent
 		transition:
 			property: box-shadow
 			duration: $animation-speed
 
 		.menu--opened &
-			box-shadow: 0 -1px 0 #{$border-color}, 0 -5px 25px rgba(0, 0, 0, 0.05)
+			box-shadow: inset 0 1px 0 #{$border-color}, 0 -5px 25px rgba(0, 0, 0, 0.05)
 
 		.search-link
 			display: none

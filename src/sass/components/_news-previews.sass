@@ -9,6 +9,7 @@ $news-previews-space--hd: 40px
 $news-previews-space--lg: 30px
 $news-previews-list-space: 60px
 $news-previews-list-space--lg: 40px
+$delay: 0.2s
 
 .news-previews
 	margin-bottom: $bottom-space--lg
@@ -35,10 +36,27 @@ $news-previews-list-space--lg: 40px
 		margin-bottom: 0
 
 .news-previews__item
+
 	position: relative
 	+grid-item(3, $news-previews-space, round($news-previews-space*0.5))
 	+font(1.5rem, round-float(18px/15px, 2))
 	letter-spacing: normal
+
+	&.wow
+		transform: translate3d(0, 50px, 0)
+		transition:
+			delay: $delay
+
+		&:nth-child(3n-1)
+			transition:
+				delay: $delay*2
+
+		&:nth-child(3n)
+			transition:
+				delay: $delay*3
+
+		&.animated
+			transform: translate3d(0, 0, 0)
 
 	+media('<desk-hd')
 		+grid-item-responsive(3, $news-previews-space--hd)
@@ -49,14 +67,51 @@ $news-previews-list-space--lg: 40px
 	+media('<1280px')
 		+grid-item-responsive(2, $news-previews-space--lg)
 
+		&.wow
+
+			&:nth-child(3n-1), &:nth-child(3n)
+				transition:
+					delay: $delay
+
+			&:nth-child(2n)
+				transition:
+					delay: $delay*2
+
 	+media('<tab-lg')
 		+grid-item-responsive(3, $news-previews-space--lg)
+
+		&.wow
+			&:nth-child(2n)
+				transition:
+					delay: $delay
+
+			&:nth-child(3n-1)
+				transition:
+					delay: $delay*2
+
+			&:nth-child(3n)
+				transition:
+					delay: $delay*3
 
 	+media('<tab-sm')
 		+grid-item-responsive(2, $news-previews-space--lg)
 
+		&.wow
+			&:nth-child(3n-1), &:nth-child(3n)
+				transition:
+					delay: $delay
+
+			&:nth-child(2n)
+				transition:
+					delay: $delay*2
+
 	+media('<mob-md')
 		+grid-item-responsive(1, $news-previews-space--lg)
+
+		&.wow
+			&:nth-child(3n-1), &:nth-child(3n), &:nth-child(2n)
+				transition:
+					delay: $delay
 
 .news-previews__inner
 	display: block
@@ -92,9 +147,11 @@ $news-previews-list-space--lg: 40px
 	color: white
 	background-color: $text-color-light
 	box-shadow: 0 0 0 1px #{$text-color-light}, 2px 0 0 1px #{$text-color-light}, -2px 0 0 1px #{$text-color-light}
-	transition:
-		property: background-color, box-shadow, color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, box-shadow, color
+			duration: $animation-speed
 
 	+media('<desk-hd')
 		font-size: 14px
@@ -138,7 +195,7 @@ $news-previews-list-space--lg: 40px
 		position: absolute
 		+position(0)
 		object-fit: cover
-		font-family: 'object-fit: cover' // form non-support browsers
+		font-family: 'object-fit: cover' // for non-support browsers
 		backface-visibility: hidden
 
 .news-previews__content
@@ -155,9 +212,11 @@ $news-previews-list-space--lg: 40px
 	margin-bottom: $bottom-space
 	overflow: hidden
 	max-height: #{5 * 16px * round-float(24/16, 2)}
-	transition:
-		property: color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: color
+			duration: $animation-speed
 	
 	&:last-child
 		margin-bottom: 0
@@ -179,9 +238,11 @@ $news-previews-list-space--lg: 40px
 	color: $text-color-base
 	text-transform: uppercase
 	border-bottom: 2px solid $text-color-base
-	transition:
-		property: border-color, color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: border-color, color
+			duration: $animation-speed
 
 	.no-touchevents &:hover
 		color: $base-color
@@ -200,14 +261,29 @@ $news-previews-list-space--lg: 40px
 	.news-previews__item
 		+grid-item-responsive(1, $news-previews-list-space)
 
+		&.wow
+			&:nth-child(3n-1), &:nth-child(3n), &:nth-child(2n)
+				transition:
+					delay: $delay
+
 		+media('<desk-lg')
 			+grid-item-responsive(1, $news-previews-list-space--lg)
 
 		+media('<mob-lg')
 			+grid-item-responsive(2, $news-previews-space--lg)
 
+			&.wow
+				&:nth-child(2n)
+					transition:
+						delay: $delay*2
+
 		+media('<mob-md')
 			+grid-item-responsive(1, $news-previews-space--lg)
+
+			&.wow
+				&:nth-child(2n)
+					transition:
+						delay: $delay
 
 	.news-previews__link
 		display: inline

@@ -7,6 +7,9 @@
 	position: relative
 
 	& > a
+		display: block
+		position: relative
+
 		& > span
 			$this-icon-lines-width: 8px
 			$this-icon-lines-height: 2px
@@ -24,9 +27,11 @@
 				+size($this-icon-lines-width, $this-icon-lines-height)
 				margin-top: -1px
 				background-color: $this-icon-lines-color
-				transition:
-					property: background-color
-					duration: $animation-speed
+
+				@if $has-animation
+					transition:
+						property: background-color
+						duration: $animation-speed
 
 			&::before
 				transform: rotate(-45deg)
@@ -35,14 +40,17 @@
 				right: round(get-catheter($this-icon-lines-width) - $this-icon-lines-height*0.5)
 				transform: rotate(45deg)
 
-		.no-touchevents &:hover > span
+		.no-touchevents &:hover
+			z-index: 1
+
+			&> span
 				&::before, &::after
 					background-color: $bg-color-base
 
 	&.choice-opened > a
 		background-color: $bg-color-selected
 		color: $text-color-base
-		box-shadow: -1px 0 0 rgba($text-color-base, 0.15), inset 0 -1px 0 $border-color
+		//box-shadow: -1px 0 0 rgba($text-color-base, 0.15), inset 0 -1px 0 $border-color
 
 	&.choice-opened > a, .sidebar & > a
 		& > span
@@ -54,7 +62,6 @@
 				transform: rotate(-45deg)
 
 	.sidebar &.choice-opened > a
-		box-shadow: -1px 0 0 rgba($text-color-base, 0.15)
 
 		& > span
 			&::before
@@ -68,25 +75,26 @@
 	position: absolute
 	top: 100%
 	left: 0
-	margin: 0
+	margin: -1px 0 0
 	padding: 0
 	font-size: 16px
 	width: 100%
 	opacity: 0
 	visibility: hidden
 	background-color: $bg-panels-color
-	border: solid $border-color
-	border-width: 0 1px 1px 0
-	box-shadow: -1px 0 0 $border-color
-	transition:
-		property: opacity, visibility
-		duration: $animation-speed
-		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+	border: 1px solid $border-color
+	//box-shadow: -1px 0 0 $border-color
+
+	@if $has-animation
+		transition:
+			property: opacity, visibility
+			duration: $animation-speed
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	.sidebar &
 		top: auto
 		bottom: 100%
-		border-width: 1px 1px 1px 0
+		margin: 0 0 -1px
 
 	.choice-opened &
 		opacity: 1
@@ -109,9 +117,11 @@
 		letter-spacing: normal
 		border: solid $border-color
 		border-width: 1px 0 0
-		transition:
-			property: background-color, color
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: background-color, color
+				duration: $animation-speed
 
 		.no-touchevents &:hover
 			background-color: $base-color-alt

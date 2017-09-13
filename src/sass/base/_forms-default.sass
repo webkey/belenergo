@@ -101,8 +101,11 @@ input[type="text"], input[type="password"], input[type="email"], input[type="sea
 	//box-shadow: inset 0 0 0 1px transparent
 	box-shadow: none
 	border: #{$form-border-width} solid #{$form-border-color}
-	transition-property: border-color, background-color, box-shadow
-	transition-duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: border-color, background-color, box-shadow
+			duration: $animation-speed
 
 	@at-root .select2, .#{$user-content} select, .select, &
 		margin: 0 0 $form-bottom-space
@@ -208,8 +211,11 @@ textarea
 		bottom: 0
 		backface-visibility: hidden
 		background-color: $this-icon-lines-color
-		transition-property: background-color
-		transition-duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: background-color
+				duration: $animation-speed
 
 	&::before
 		+size(round($this-icon-lines-width*0.75), $this-icon-lines-height)
@@ -229,24 +235,26 @@ textarea
 input, textarea
 	+placeholder
 		color: $form-placeholder-color
-		transition: $animation-speed opacity
+
+		@if $has-animation
+			transition: $animation-speed opacity
 
 	//form placeholder hide
 	&:focus
 		&::-webkit-input-placeholder
-			color: transparent !important
+			opacity: 0 !important
 
 		&:-moz-placeholder
-			color: transparent !important
+			opacity: 0 !important
 
 		&::-moz-placeholder
-			color: transparent !important
+			opacity: 0 !important
 
 		&:-ms-input-placeholder
-			color: transparent !important
+			opacity: 0 !important
 
 	&.placeholder:focus
-		color: transparent !important
+		opacity: 0 !important
 
 	//form error placeholder
 	&.error
@@ -265,9 +273,12 @@ input[type="checkbox"] ~ label, input[type="radio"] ~ label, .check-label, .radi
 	text-transform: none
 	cursor: pointer
 	position: relative
-	transition-property: color
-	transition-duration: $animation-speed
 	user-select: none
+
+	@if $has-animation
+		transition:
+			property: color
+			duration: $animation-speed
 
 	// hover
 	.no-touchevents &:hover
@@ -325,9 +336,11 @@ input[type="checkbox"]
 			top: 50%
 			margin-top: -11px
 			border-radius: 0
-			transition:
-				property: background-color, border-color
-				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color, border-color
+					duration: $animation-speed
 
 		&::before
 			border: 2px solid $checkbox-color
@@ -347,9 +360,12 @@ input[type="checkbox"]
 			top: 50%
 			border-radius: 0
 			background: white
-			transition-property: opacity
-			transition-duration: $animation-speed
-			transition-timing-function: linear
+
+			@if $has-animation
+				transition:
+					property: opacity
+					duration: $animation-speed
+					timing-function: linear
 
 		&::before
 			transform: rotate(45deg)
@@ -374,17 +390,23 @@ input[type="checkbox"]
 			&::before
 				width: 7px
 				margin: -5px 0 0 0
-				transition-property: width
-				transition-duration: 0.1s
 				backface-visibility: hidden
+
+				@if $has-animation
+					transition:
+						property: width
+						duration: 0.1s
 
 			&::after
 				width: 11px
 				margin: 0 0 0 -7px
-				transition-property: width
-				transition-duration: 0.1s
-				transition-delay: 0.1s
 				backface-visibility: hidden
+
+				@if $has-animation
+					transition:
+						property: width
+						duration: 0.1s
+						delay: 0.1s
 
 	// checkbox disabled
 	&:disabled
@@ -421,15 +443,19 @@ input[type="radio"]
 
 		&::before
 			border: 2px solid $checkbox-color
-			transition:
-				property: background-color, border-color
-				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color, border-color
+					duration: $animation-speed
 
 		&::after
 			background: none
-			transition:
-				property: opacity
-				duration: 0.2s
+
+			@if $has-animation
+				transition:
+					property: opacity
+					duration: 0.2s
 
 	& ~ label > span,
 	& ~ i
@@ -714,10 +740,12 @@ input[type="radio"]
 	border-radius: 0
 	background: $form-bg-color
 	box-shadow: none
-	transition:
-		property: background, border, color, box-shadow
-		duration: $animation-speed
 	outline: none
+
+	@if $has-animation
+		transition:
+			property: background, border, color, box-shadow
+			duration: $animation-speed
 
 .select select,
 .select2-container--default .select2-selection .select2-selection__rendered

@@ -52,9 +52,11 @@ $pagination-border-width: 0
 	+font(0, 0)
 	letter-spacing: 0
 	border-top: 2px solid $base-color-alt
-	transition:
-		property: border-color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: border-color
+			duration: $animation-speed
 
 	&::before, &::after
 		+pseudo()
@@ -63,9 +65,11 @@ $pagination-border-width: 0
 		margin-top: -1px
 		border: 0 solid $base-color-alt
 		backface-visibility: hidden
-		transition:
-			property: border-color
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: border-color
+				duration: $animation-speed
 
 .pg-first-arr, .pg-prev-arr
 	&::before, &::after
@@ -158,9 +162,11 @@ $pagination-border-width: 0
 			background: transparent
 			min-width: $pagination-width
 			padding: 0 2px
-			transition:
-				property: color
-				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: color
+					duration: $animation-speed
 
 		a
 			text-decoration: none

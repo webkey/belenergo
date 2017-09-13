@@ -792,7 +792,7 @@
 		background-color: $bg-color-base
 
 		+media('<mob-md')
-			border-color: $text-color-base
+			border-color: transparent
 
 	.several-slider__text, .several-slider__value, .several-slider__unit
 		color: $text-color-base
@@ -824,25 +824,29 @@
 		& > a
 			color: $text-color-base
 			fill: $text-color-base
-			box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
-			background-color: $bg-panels-color
+			//box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
+			border-color: $border-color
+			//background-color: $bg-panels-color
 
 		.no-touchevents & > a:hover
-			background-color: $text-color-base
 			color: $bg-color-base
 			fill: $bg-color-base
-			box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
+			//box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
+			border-color: $text-color-base
+			background-color: $text-color-base
 
 	.theme-toggle
 		a
-			background-color: $text-color-base
 			color: $bg-color-base
 			fill: $bg-color-base
-			box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
+			border-color: rgba($border-color, 0.2)
+			//background-color: $text-color-base
+			//box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
 
 			.no-touchevents &:hover
 				color: $base-color
 				fill: $base-color
+				border-color: rgba($border-color, 0.2)
 
 	+media('<mob-lg')
 		.sidebar .theme-toggle a

@@ -48,9 +48,11 @@
 	.input-holder
 		position: relative
 		height: 50px
-		transition:
-			property: opacity, visibility, transform
-			duration: 0.25s
+
+		@if $has-animation
+			transition:
+				property: opacity, visibility, transform
+				duration: 0.25s
 		+clear
 
 		+media('<mob-md')
@@ -76,9 +78,11 @@
 		border: 2px solid #{$base-color-alt}
 		border-radius: 0
 		box-shadow: none
-		transition:
-			property: background, color
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: background, color
+				duration: $animation-speed
 
 		+placeholder()
 			color: $text-color-light
@@ -104,9 +108,11 @@
 		border: none
 		cursor: pointer
 		background: $btn-bg-color
-		transition:
-			property: background-color
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: background-color
+				duration: $animation-speed
 
 		.no-touchevents &:hover
 			background: $btn-bg-hover-color
@@ -125,9 +131,11 @@
 	visibility: hidden
 	background-color: $base-color-alt
 	transform: scale(0.76, 0.76)
-	transition:
-		property: opacity, visibility, transform
-		duration: 0.25s
+
+	@if $has-animation
+		transition:
+			property: opacity, visibility, transform
+			duration: 0.25s
 
 	.subscription-form.success-form &
 		opacity: 1
@@ -146,11 +154,12 @@
 			+position(50%)
 			border-radius: 2px
 			background-color: $form-success-color
+			backface-visibility: hidden
+
 			transition:
 				property: width
 				duration: 0.12s
 				timing-function: linear
-			backface-visibility: hidden
 
 		&::before
 			margin: -7px 0 0 -19px
@@ -187,9 +196,11 @@
 	opacity: 0
 	visibility: hidden
 	transform: scale(0.76, 0.76)
-	transition:
-		property: opacity, visibility, transform
-		duration: 0.1s
+
+	@if $has-animation
+		transition:
+			property: opacity, visibility, transform
+			duration: 0.1s
 
 	.subscription-form.error-form &
 		opacity: 1

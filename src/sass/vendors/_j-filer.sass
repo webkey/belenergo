@@ -14,9 +14,11 @@
 	padding: $grid-space
 	background: $bg-color-alt
 	border: 2px dashed $base-color-alt
-	transition:
-		property: background-color, border-color, transform
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, border-color, transform
+			duration: $animation-speed
 
 	.no-touchevents &:hover
 		border-color: $form-border-focus-color
@@ -35,9 +37,11 @@
 			background: url(../../img/attach.svg) no-repeat
 			background-size: contain
 			+size(50px, 37px)
-			transition:
-				property: background-color, border-color, transform
-				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color, border-color, transform
+					duration: $animation-speed
 
 	.jFiler-input-text strong
 		display: block
@@ -125,10 +129,12 @@
 		+size(20px, 2px)
 		border-radius: 0
 		background: $base-color-alt
-		transition:
-			property: background
-			duration: $animation-speed
 		margin: -1px 0 0 -10px
+
+		@if $has-animation
+			transition:
+				property: background
+				duration: $animation-speed
 
 	&::before
 		transform: rotate(-45deg)

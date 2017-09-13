@@ -60,9 +60,11 @@
 	+display-inline-block-top
 	// before slide load end
 	padding: 0 #{round($grid-space/2)}
-	transition:
-		property: background-color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color
+			duration: $animation-speed
 
 	.slick-initialized &
 		// after slide load
@@ -76,9 +78,11 @@
 	text-decoration: none
 	padding: 20px
 	border: 1px solid $border-color
-	transition:
-		property: background-color, border-color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, border-color
+			duration: $animation-speed
 
 	.no-touchevents &:hover
 		background-color: $base-color
@@ -126,10 +130,12 @@
 	a
 		color: $link-color
 		text-decoration: none
-		transition:
-			property: color
-			duration: $animation-speed
 		cursor: pointer !important
+
+		@if $has-animation
+			transition:
+				property: color
+				duration: $animation-speed
 
 		.no-touchevents &:hover
 			color: $link-color
@@ -222,8 +228,11 @@
 		+pseudo()
 		+position(0, 0)
 		+size(149px, 16px)
-		transition-property: opacity, transform, filter
-		transition-duration: 0.2s
+
+		@if $has-animation
+			transition:
+				property: opacity, transform, filter
+				duration: 0.2s
 
 	&::before
 		+pseudo()

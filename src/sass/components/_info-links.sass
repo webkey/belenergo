@@ -36,9 +36,11 @@
 	text-align: center
 	padding: 30px 40px
 	background-color: $bg-color-base
-	transition:
-		property: background-color, color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, color
+			duration: $animation-speed
 
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*0.9)} #{$grid-space--lg}
@@ -55,9 +57,11 @@
 		+size(220px, 0)
 		margin-left: -110px
 		border-top: 2px solid $border-color
-		transition:
-			property: opacity
-			duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: opacity
+				duration: $animation-speed
 
 		+media('<desk-lg')
 			width: 186px

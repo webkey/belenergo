@@ -26,6 +26,7 @@ $title-color: white
 //$link-color: $base-color
 // цвет линий и границ
 $border-color: #3a4165
+//$border-color: green
 // form
 $form-text-color: $text-color
 $form-placeholder-color: $border-color
@@ -552,7 +553,7 @@ $checkbox-color: $text-color-base
 
 	// promo slider end
 
-	.several-slider__item
+	.several-slider__inner
 		background-color: $base-color-alt
 
 		&::before
@@ -568,7 +569,7 @@ $checkbox-color: $text-color-base
 	.several-slider__value
 		color: $text-color-base
 
-	.no-touchevents & .several-slider__item:hover .several-slider__value
+	.no-touchevents & .several-slider__inner:hover .several-slider__value
 		color: $bg-color-base
 
 	//=========== SLIDERS END ==========
@@ -620,25 +621,29 @@ $checkbox-color: $text-color-base
 		& > a
 			color: $text-color-base
 			fill: $text-color-base
-			box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
-			background-color: $bg-panels-color
+			//box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
+			border-color: $border-color
+			//background-color: $bg-panels-color
 
 		.no-touchevents & > a:hover
-				background-color: $text-color-base
 				color: $bg-color-base
 				fill: $bg-color-base
-				box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
+				border-color: $text-color-base
+				background-color: $text-color-base
+				//box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
 
 	.theme-toggle
 		a
 			background-color: $text-color-base
 			color: $bg-color-base
 			fill: $bg-color-base
-			box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
+			//box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
+			border-color: rgba($border-color, 0.2)
 
 			.no-touchevents &:hover
 				color: $base-color
 				fill: $base-color
+				border-color: rgba($border-color, 0.2)
 
 	+media('<mob-lg')
 		.sidebar .theme-toggle a
@@ -673,14 +678,11 @@ $checkbox-color: $text-color-base
 				&::before, &::after
 					background-color: $bg-color-base
 
-	//.lang__list
-		background-color: $bg-panels-color
+	.lang__list
 		border-color: $border-color
-		box-shadow: -1px 0 0 $border-color
 
 		a
-			color: $text-color-base
-			border-top: 1px solid $border-color
+			border-color: $border-color
 
 		.no-touchevents &
 			a:hover

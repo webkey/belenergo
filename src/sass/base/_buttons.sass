@@ -57,10 +57,12 @@
 	background: $btn-bg-color
 	box-shadow: none
 	text-shadow: none
-	transition:
-		property: background-color, color, border-color
-		duration: $animation-speed
 	margin: 0
+
+	@if $has-animation
+		transition:
+			property: background-color, color, border-color
+			duration: $animation-speed
 
 	path
 		fill: inherit
@@ -109,10 +111,11 @@
 		+display-inline-block-top
 		+size(24px)
 
-	path
-		transition:
-			property: fill
-			duration: $animation-speed
+	@if $has-animation
+		path
+			transition:
+				property: fill
+				duration: $animation-speed
 
 	& > span
 		text-align: left
@@ -158,9 +161,11 @@
 	+size($header-height)
 	background-color: $bg-color-base
 	box-shadow: inset -1px -1px 0 $border-color
-	transition:
-		property: background-color
-		duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color
+			duration: $animation-speed
 
 	+media('<desk-sm')
 		display: block
@@ -175,10 +180,12 @@
 		top: 50%
 		+margin($top: -#{round($user-options-cross-height*0.5)}, $left: -#{round($user-options-cross-width*0.5)})
 		opacity: 0
-		transition:
-			property: transform, opacity
-			duration: $animation-speed
-			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+		@if $has-animation
+			transition:
+				property: transform, opacity
+				duration: $animation-speed
+				timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	// active
 	&.active
@@ -206,16 +213,22 @@
 		+menu-btn-line
 		+margin($top: -#{round($btn-menu-lines-height*0.5)}, $left: -#{round($btn-menu-lines-width*0.5)})
 		backface-visibility: hidden
-		transition-property: background-color
-		transition-duration: $animation-speed
+
+		@if $has-animation
+			transition:
+				property: background-color
+				duration: $animation-speed
 
 		&::before, &::after
 			+pseudo()
 			left: 0
 			+menu-btn-line
 			backface-visibility: hidden
-			transition-property: transform, opacity, background-color
-			transition-duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: transform, opacity, background-color
+					duration: $animation-speed
 
 		//first line menu
 		&::before
@@ -281,8 +294,11 @@
 	text-decoration: none
 	+clear-spacing
 	white-space: nowrap
-	transition-property: background-color, opacity, visibility
-	transition-duration: $animation-speed
+
+	@if $has-animation
+		transition:
+			property: background-color, opacity, visibility
+			duration: $animation-speed
 
 	+media('<mob-lg')
 		+size(45px)
@@ -311,8 +327,11 @@
 			backface-visibility: hidden
 			+line-style
 			background: $btn-lines-color
-			transition-property: background-color
-			transition-duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color
+					duration: $animation-speed
 
 		//first line menu
 		&::before

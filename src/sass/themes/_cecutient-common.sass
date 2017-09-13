@@ -487,7 +487,11 @@
 
 	.several-slider__inner
 		+display-inline-block-top
+		text-align: left
 		padding: 0
+		
+		+media('<tab-lg')
+			display: inline
 
 	.several-slider__figure,
 	.duplicate .info-links__icon
@@ -499,12 +503,13 @@
 	.several-slider__text,
 	.several-slider__content,
 	.several-slider__value,
-	.several-slider__unit,
-	.duplicate .info-links__text
-		display: inline
+	.several-slider__unit
+		display: inline-block
 		padding: 0
 
 	.duplicate .info-links__text
+		display: inline
+		padding: 0
 		border-bottom: 2px solid #{$border-color}
 
 	// several slider end
@@ -761,11 +766,13 @@
 	.gov__inner
 		display: inline
 		border: none
-		border-bottom: #{$border-width} solid #{$border-color}
 		padding: 0
 
 		&::before
+			display: inline
 			content: attr(title)
+			white-space: normal
+			border-bottom: #{$border-width} solid #{$border-color}
 
 	.gov__figure
 		display: none
