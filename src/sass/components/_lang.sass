@@ -28,10 +28,10 @@
 				margin-top: -1px
 				background-color: $this-icon-lines-color
 
-				@if $has-animation
-					transition:
-						property: background-color
-						duration: $animation-speed
+				//@if $has-animation
+				transition:
+					property: background-color
+					duration: $filling-speed-mouseleave
 
 			&::before
 				transform: rotate(-45deg)
@@ -40,12 +40,14 @@
 				right: round(get-catheter($this-icon-lines-width) - $this-icon-lines-height*0.5)
 				transform: rotate(45deg)
 
-		.no-touchevents &:hover
+		.no-touchevents &:hover, .no-touchevents &:focus
 			z-index: 1
 
 			&> span
 				&::before, &::after
 					background-color: $bg-color-base
+					transition:
+						duration: $filling-speed
 
 	&.choice-opened > a
 		background-color: $bg-color-selected

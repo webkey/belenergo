@@ -65,17 +65,25 @@
 		+placeholder
 			color: #b2b2b2 !important
 
+		+placeholder-focus
+			opacity: 1
+
 	.btn-search
 		$magnifier-color: black
 
+		overflow: hidden
 		position: absolute
 		right: 100%
 		top: 0
 		+size($header-height)
-		//box-shadow: 1px 0 0 $border-color
 		border-right: 1px solid #{$border-color}
+		cursor: pointer
 
-		@if $has-animation
+		&::after
+			content: ''
+			+animation-filling
+
+		//@if $has-animation
 			transition:
 				property: background-color, border-color
 				duration: $animation-speed
@@ -128,10 +136,10 @@
 		path
 			fill: black
 
-			@if $has-animation
-				transition:
-					property: fill
-					duration: $animation-speed
+			//@if $has-animation
+			transition:
+				property: fill
+				duration: $filling-speed
 
 		input[type="submit"]
 			padding: 0
@@ -139,8 +147,11 @@
 			background: none
 			margin: 0
 
-		.no-touchevents &:hover
-			background-color: $base-color-alt
+		.no-touchevents &:hover, .no-touchevents &:hover
+			//background-color: $base-color-alt
+
+			&::after
+				+animation-filling-active
 
 			//i
 				&:before
@@ -151,18 +162,23 @@
 
 			path
 				fill: white
+				transition:
+					duration: $filling-speed
 
 .btn-search-close
 	position: absolute
 	+position(0, 100%)
 	+size($header-height)
-	//box-shadow: -1px 0 0 $border-color
 	border-left: 1px solid #{$border-color}
 
-	@if $has-animation
+	//@if $has-animation
 		transition:
 			property: background-color, border-color
 			duration: $animation-speed
+
+	&::after
+		content: ''
+		+animation-filling
 
 	+media('<tab-lg')
 		+size($header-height--sm)
@@ -190,10 +206,10 @@
 			border-radius: 2px
 			background-color: black
 
-		@if $has-animation
+			//@if $has-animation
 			transition:
 				property: background-color
-				duration: $animation-speed
+				duration: $filling-speed-mouseleave
 
 		&::before
 			transform: rotate(-45deg)
@@ -201,11 +217,16 @@
 		&::after
 			transform: rotate(45deg)
 
-	.no-touchevents &:hover
-		background-color: $base-color-alt
+	.no-touchevents &:hover, .no-touchevents &:focus
+		//background-color: $base-color-alt
+		&::after
+			+animation-filling-active
 
 		i
 			&::before, &::after
 				background-color: white
+
+				transition:
+					duration: $filling-speed
 
 /* search form end

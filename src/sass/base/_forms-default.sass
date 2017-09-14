@@ -236,11 +236,14 @@ input, textarea
 	+placeholder
 		color: $form-placeholder-color
 
-		@if $has-animation
-			transition: $animation-speed opacity
+		//@if $has-animation
+		transition: $animation-speed opacity
 
-	//form placeholder hide
-	&:focus
+	//form placeholder hide on focus
+	+placeholder-focus
+		opacity: 0
+
+	//&:focus
 		&::-webkit-input-placeholder
 			opacity: 0 !important
 
@@ -253,7 +256,7 @@ input, textarea
 		&:-ms-input-placeholder
 			opacity: 0 !important
 
-	&.placeholder:focus
+	//&.placeholder:focus
 		opacity: 0 !important
 
 	//form error placeholder

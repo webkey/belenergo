@@ -171,6 +171,13 @@
 		color: $bg-color-base
 		fill: $bg-color-base
 		background: $text-color-base
+
+		&:not(.btn-default-alt):not(.disabled):not([data-disabled]):not([disabled])
+			box-shadow: inset 0 0 0 2px $text-color-base
+
+		&::before, &::after
+			display: none
+
 		@if $animation-none
 			transition: none
 
@@ -249,6 +256,9 @@
 
 	// search form
 	.search-form, .btn-search, .btn-search-close
+		&::after
+			display: none
+
 		@if $animation-none
 			transition: none
 
@@ -489,6 +499,9 @@
 		+display-inline-block-top
 		text-align: left
 		padding: 0
+
+		&::after
+			display: none
 		
 		+media('<tab-lg')
 			display: inline
@@ -584,6 +597,11 @@
 		display: block
 		+grid-item-responsive(1, $bottom-space--md)
 		width: auto
+
+		&.wow
+			&, &:nth-child(3n-1), &:nth-child(3n), &:nth-child(2n)
+				transition:
+					delay: 0s
 
 	.news-previews__meta, .news-previews__link, .list-view .news-previews__meta, .list-view .news-previews__link
 		margin-bottom: $bottom-space--sm
@@ -708,6 +726,9 @@
 		&, &::before
 			@if $animation-none
 				transition: none
+
+		&::after
+			display: none
 
 		+media('<tab-lg')
 

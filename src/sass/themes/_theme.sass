@@ -193,7 +193,13 @@ $checkbox-color: $text-color-base
 	[class*="btn-default"]
 		color: $bg-color-base
 		fill: $bg-color-base
-		background: $text-color-base
+
+		&::before
+			background: $text-color-base
+
+		// input buttons
+		&[type="submit"], &[type="button"], &[type="reset"]
+			background-color: $text-color-base
 
 	// btn-default end
 
@@ -201,10 +207,21 @@ $checkbox-color: $text-color-base
 	.btn-default-alt
 		color: $text-color-base
 		border-color: $text-color-base
-		background: $base-color-alt
+
+		&::before
+			background: none
+
+		&::after
+			background-color: $text-color-base
+
+		// input buttons
+		&[type="submit"], &[type="button"], &[type="reset"]
+			background: $base-color-alt
+
+			.no-touchevents &:hover, .no-touchevents &:focus
+				background-color: $text-color-base
 
 		.no-touchevents &:hover
-			border-color: $base-color
 			color: $base-color
 
 	// btn-default-alt end
@@ -535,6 +552,12 @@ $checkbox-color: $text-color-base
 	.form-title
 		color: $title-color
 
+	// search form
+	.search-form
+		input
+			&[type="search"], &[type="text"]
+				background-color: $text-color-base
+
 	//=========== SLIDERS ==========
 	// several slider
 
@@ -559,8 +582,10 @@ $checkbox-color: $text-color-base
 		&::before
 			border-color: $text-color-base
 
-		.no-touchevents &:hover
+		&::after
 			background-color: $text-color-base
+
+		.no-touchevents &:hover
 			color: $bg-color-base
 
 		+media('<mob-md')
@@ -621,23 +646,20 @@ $checkbox-color: $text-color-base
 		& > a
 			color: $text-color-base
 			fill: $text-color-base
-			//box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
 			border-color: $border-color
-			//background-color: $bg-panels-color
 
-		.no-touchevents & > a:hover
-				color: $bg-color-base
-				fill: $bg-color-base
-				border-color: $text-color-base
+			&::after
 				background-color: $text-color-base
-				//box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
+
+			.no-touchevents &:hover, .no-touchevents &:focus
+					color: $bg-color-base
+					fill: $bg-color-base
 
 	.theme-toggle
 		a
 			background-color: $text-color-base
 			color: $bg-color-base
 			fill: $bg-color-base
-			//box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
 			border-color: rgba($border-color, 0.2)
 
 			.no-touchevents &:hover

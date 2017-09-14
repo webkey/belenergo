@@ -527,14 +527,14 @@ function toggleSiblingClasses() {
 	var prevClass = 'hover-prev';
 	var nextClass = 'hover-next';
 
-	$container.on('mouseenter', elem, function () {
+	$container.on('mouseenter focusin', elem, function () {
 		var $currentElem = $(this);
 		var $parentCurrentElem = $currentElem.parent();
 		$currentElem.prev().addClass(prevClass);
 		$currentElem.next().addClass(nextClass);
 		$parentCurrentElem.prev().addClass(prevClass);
 		$parentCurrentElem.next().addClass(nextClass);
-	}).on('mouseleave', elem, function () {
+	}).on('mouseleave focusout', elem, function () {
 		var $currentElem = $(this);
 		var $parentCurrentElem = $currentElem.parent();
 		$currentElem.prev().removeClass(prevClass);

@@ -269,7 +269,7 @@
 		background-color: $link-color
 		border-color: $link-color
 
-		.no-touchevents &:hover
+		.no-touchevents &:hover, .no-touchevents &:focus
 			background-color: $link-color-inverse
 			color: $link-color
 			border-color: $link-color
@@ -656,7 +656,7 @@
 			color: $text-color
 
 			+placeholder
-				color: $text-color !important
+				color: $text-color
 
 	.btn-search, .btn-search-close
 		border-color: $border-color
@@ -664,7 +664,7 @@
 		path
 			fill: $text-color
 
-		.no-touchevents &:hover
+		.no-touchevents &:hover, .no-touchevents &:focus
 			background-color: $text-color
 
 			path
@@ -824,24 +824,22 @@
 		& > a
 			color: $text-color-base
 			fill: $text-color-base
-			//box-shadow: -1px 0 0 #{$border-color}, inset 0 -1px 0 #{$border-color}
 			border-color: $border-color
-			//background-color: $bg-panels-color
 
-		.no-touchevents & > a:hover
-			color: $bg-color-base
-			fill: $bg-color-base
-			//box-shadow: -1px 0 0 rgba($bg-panels-color, 0.15), inset 0 -1px 0 #{$border-color}
-			border-color: $text-color-base
-			background-color: $text-color-base
+			&::after
+				display: none
+
+			.no-touchevents &:hover, .no-touchevents &:focus
+				color: $bg-color-base
+				fill: $bg-color-base
+				border-color: $text-color-base
+				background-color: $text-color-base
 
 	.theme-toggle
 		a
 			color: $bg-color-base
 			fill: $bg-color-base
 			border-color: rgba($border-color, 0.2)
-			//background-color: $text-color-base
-			//box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
 
 			.no-touchevents &:hover
 				color: $base-color
@@ -882,16 +880,16 @@
 					background-color: $bg-color-base
 
 	.lang__list
-		background-color: $text-color-base
+		background-color: $bg-color-base
 		border-color: $text-color-base
 
 		a
-			color: $bg-color-base
-			border-color: rgba($bg-color-base, 0.15)
+			color: $text-color-base
+			border-color: $text-color-base
 
-			.no-touchevents &:hover
-				color: $text-color-base
-				background-color: $bg-color-base
+			.no-touchevents &:hover, .no-touchevents &:hover
+				color: $bg-color-base
+				background-color: $text-color-base
 
 	// lang end
 	.sidebar
@@ -1097,7 +1095,7 @@
 	.info-links__text
 		border-bottom-color: $link-color
 
-	.no-touchevents & .info-links__inner:hover
+	.no-touchevents & .info-links__inner:hover, .no-touchevents & .info-links__inner:focus
 		background-color: $base-color-alt
 		color: $bg-color-base
 

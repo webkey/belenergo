@@ -29,23 +29,23 @@
 
 	& > a
 		display: block
+		overflow: hidden
+		position: relative
 		height: 100%
 		color: $text-color-base
-		fill: $text-color-base
 		// для svg
+		fill: $text-color-base
 		text-decoration: none
 		text-align: center
-		//box-shadow: -1px 0 0 $border-color, inset 0 -1px 0 $border-color
 		border: solid #{$border-color}
 		border-width: 0 1px
-		//background-color: $bg-panels-color
 
-		@if $has-animation
-			transition:
-				property: background-color, color, box-shadow
-				duration: $animation-speed
+		//@if $has-animation
+		transition:
+			property: background-color, color, box-shadow
+			duration: $filling-speed-mouseleave
 
-		.no-touchevents &:hover
+		//.no-touchevents &:hover
 			color: $bg-color-base
 			fill: $bg-color-base
 			border-color: $base-color-alt
@@ -63,14 +63,13 @@
 			vertical-align: middle
 			height: 100%
 
+		&::after
+			content: ""
+			+animation-filling
+
 		svg
 			+size(24px)
 			display: inline-block
-
-			@if $has-animation
-				transition:
-					property: background-color, color
-					duration: $animation-speed
 
 			&.svg-visually-impaired
 				+size(38px, 21px)
@@ -84,16 +83,30 @@
 		path
 			fill: inherit
 
-			@if $has-animation
-				transition:
-					property: fill
-					duration: $animation-speed
+			//@if $has-animation
+			transition:
+				property: fill
+				duration: $filling-speed-mouseleave
 
 		& > span
 			display: inline-block
 
 		.hide-text
 			+hide-text
+
+		// hover and focus
+		.no-touchevents &:hover, .no-touchevents &:focus
+			color: $bg-color-base
+			fill: $bg-color-base
+			transition:
+				duration: $filling-speed
+
+			&::after
+				+animation-filling-active
+
+			path
+				transition:
+					duration: $filling-speed
 
 	&.width-auto
 		a
@@ -131,18 +144,26 @@
 		height: $header-height
 		z-index: 2
 
-		a
+		a, .no-touchevents &:active
 			background-color: $base-color-alt
 			color: white
 			fill: white
 			//box-shadow: -1px 0 0 rgba($bg-color-base, 0.15), inset 0 -1px 0 $border-color
 			border-width: 0 1px
 			border-color: rgba($border-color, 0.2)
+			transition-duration: $animation-speed
 
-			.no-touchevents &:hover
+			&::after
+				display: none
+
+			.no-touchevents &:hover, .no-touchevents &:focus
 				color: $base-color
 				fill: $base-color
 				border-color: rgba($border-color, 0.2)
+				transition-duration: $animation-speed
+
+				path
+					transition-duration: $animation-speed
 
 			+media('<tab-lg')
 				span
@@ -157,6 +178,9 @@
 
 			&.svg-theme--light
 				+size(30px)
+
+		path
+			transition-duration: $animation-speed
 
 		+media('<desk-hd')
 			min-width: 130px

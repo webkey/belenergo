@@ -97,25 +97,10 @@
 			width: 100%
 
 
-	input[type='submit']
+	input[type='submit'], button
 		height: 100%
 		width: round-float(100%/2, 3)
-		+font-medium
-		+font(16px, 24px)
-		letter-spacing: 0.05em
-		text-transform: uppercase
-		color: $bg-color-base
-		border: none
 		cursor: pointer
-		background: $btn-bg-color
-
-		@if $has-animation
-			transition:
-				property: background-color
-				duration: $animation-speed
-
-		.no-touchevents &:hover
-			background: $btn-bg-hover-color
 
 		+media('<mob-md')
 			float: none

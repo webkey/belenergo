@@ -646,28 +646,9 @@
 		display: block
 		// after slide load end
 
-	&::before
-		+pseudo()
-		right: 0
-		top: 40px
-		bottom: 40px
-		border: 0 solid $border-color
-			width: 0 0 0 2px
-
-		@if $has-animation
-			transition:
-				property: opacity
-				duration: $animation-speed
-
-	&:last-child
-		&::before
-			content: none
-
-	.no-touchevents &:hover, .no-touchevents &.hover-prev
-		&::before
-			opacity: 0
-
 .several-slider__inner
+	position: relative
+	overflow: hidden
 	padding: $grid-space
 	color: inherit
 	height: 100%
@@ -676,18 +657,47 @@
 	justify-content: space-between
 	flex-direction: column
 	text-align: center
+	z-index: 1
 
-	@if $has-animation
+	transition:
+		property: color
+		duration: $filling-speed-mouseleave
+
+	&::before
+		+pseudo()
+		right: 0
+		top: 40px
+		bottom: 40px
+		border: 0 solid $border-color
+			width: 0 0 0 2px
+
 		transition:
-			property: opacity, background-color
-			duration: $animation-speed
+			property: opacity
+			duration: $filling-speed-mouseleave
+
+	&::after
+		content: ''
+		+animation-filling()
 
 	.no-touchevents &:hover
-		background-color: $base-color-alt
 		color: $bg-color-base
+
+		&::after
+			+animation-filling-active
 
 	+media('<mob-md')
 		padding: $grid-space--lg
+
+.several-slider__item
+	&:last-child
+		.several-slider__inner
+			&::before
+				content: none
+
+	.no-touchevents & .several-slider__inner:hover, .no-touchevents &.hover-prev .several-slider__inner
+		&::before
+			opacity: 0
+			transition-duration: $filling-speed
 
 .several-slider__text
 	+font-normal
@@ -731,6 +741,7 @@
 
 	.no-touchevents .several-slider__inner:hover &
 		color: $bg-color-base
+		transition-duration: $filling-speed
 
 	&:last-child
 		margin-bottom: 0
@@ -748,10 +759,13 @@
 
 .several-slider__text, .several-slider__value
 
-	@if $has-animation
-		transition:
-			property: color
-			duration: $animation-speed
+	//@if $has-animation
+	transition:
+		property: color
+		duration: $filling-speed-mouseleave
+
+	.no-touchevents .several-slider__inner:hover &
+		text-decoration: $filling-speed
 
 /* several slider end
 
