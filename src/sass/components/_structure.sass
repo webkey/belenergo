@@ -6,7 +6,8 @@
 $structure-item-bottom-space: 40px
 $structure-item-bottom-space--sm: 30px
 $structure-branch-weight: 2px
-$structure-branch-space-v: 29px
+$structure-branch-space-v: 27px
+$structure-branch-space-v--sm: 21px
 $structure-branch-space-h: 28px
 $structure-branch-space-h--sm: 14px
 
@@ -50,10 +51,16 @@ $structure-branch-space-h--sm: 14px
 		&::before
 			top: $structure-branch-space-v
 
+			+media('<desk-lg')
+				top: $structure-branch-space-v--sm
+
 	&:last-child
 		&::before
 			top: 0
 			height: #{$structure-branch-space-v + $structure-branch-weight}
+
+			+media('<desk-lg')
+				height: #{$structure-branch-space-v--sm + $structure-branch-weight}
 
 .structure-hand
 	$this-angle-lines-width: 13px
@@ -82,11 +89,16 @@ $structure-branch-space-h--sm: 14px
 
 	+media('<mob-md')
 		font-size: 14px
+		padding-right: #{round($grid-space--sm*2 + $this-angle-lines-width)}
+		padding-left: #{$grid-space--sm}
 
 	&::before
 		top: #{$structure-branch-space-v - $structure-branch-weight} // минус бордер
 		+size(#{$structure-branch-space-h}, 0)
 		border-width: $structure-branch-weight 0 0
+
+		+media('<desk-lg')
+			top: #{$structure-branch-space-v--sm - $structure-branch-weight} // минус бордер
 
 		+media('<mob-md')
 			width: $structure-branch-space-h--sm
@@ -155,6 +167,12 @@ $structure-branch-space-h--sm: 14px
 		&::after
 			top: 0
 			transform: rotate(90deg) translateZ(0)
+
+		+media('<desk-lg')
+			right: $grid-space--lg
+
+		+media('<mob-md')
+			right: $grid-space--sm
 
 	.no-touchevents &:hover, &.is-open
 		.angle

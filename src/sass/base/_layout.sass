@@ -22,6 +22,9 @@ body
 			+linear-gradient(to top, $bg-color 0, $bg-color 10%, rgba($bg-color, 0) 35%, rgba($bg-color, 0) 100%)
 			z-index: -2
 
+			+media('<tab-lg')
+				display: none !important
+
 .bg-img
 	display: none
 	position: fixed
@@ -61,6 +64,9 @@ body
 		background-size: cover
 		opacity: 0.25
 
+	+media('<tab-lg')
+		display: none !important
+
 .wrapper
 	margin: 0 auto
 	min-height: 100vh
@@ -75,6 +81,9 @@ body
 	&::after
 		+pseudo()
 		z-index: -1
+
+		+media('<tab-lg')
+			display: none !important
 
 	&::before
 		.home-page &

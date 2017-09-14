@@ -300,6 +300,16 @@
 	// button toggle menu
 	.menu-btn
 		box-shadow: inset -1px -1px 0 $border-color
+		background-color: $bg-color-base
+
+		&::before, &::after
+			background-color: $base-color-alt
+
+		& > i
+			background-color: $base-color-alt
+
+			&::before, &::after
+				background-color: $base-color-alt
 
 		.no-touchevents &:hover
 			background-color: $base-color-alt
@@ -788,12 +798,6 @@
 	// promo-slide end
 
 	// several slider
-	.several-slider__item
-		background-color: $bg-color-base
-
-		+media('<mob-md')
-			border-color: transparent
-
 	.several-slider__text, .several-slider__value, .several-slider__unit
 		color: $text-color-base
 
@@ -811,10 +815,6 @@
 	.header
 		background-color: $bg-panels-color
 		box-shadow: inset 0 -1px 0 $border-color
-
-	.header__holder
-		+media('<mob-lg')
-			box-shadow: none
 
 	//=========== HEADER end ==========
 
@@ -894,7 +894,6 @@
 	// lang end
 	.sidebar
 		.user-options
-			box-shadow: none
 			border-top: 1px solid #{$border-color}
 
 	// user options

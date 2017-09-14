@@ -402,6 +402,10 @@
 
 	// lang end
 
+	.sidebar
+		.user-options
+			box-shadow: none !important
+
 	// divider
 	.divider
 		border-top-width: $border-width
@@ -486,7 +490,11 @@
 
 	.several-slider__item
 		display: block
+		background: none
 		margin-bottom: $bottom-space--sm
+
+		+media('<mob-md')
+			border-color: transparent
 
 		&::before
 			display: none
@@ -499,6 +507,7 @@
 		+display-inline-block-top
 		text-align: left
 		padding: 0
+		background: none
 
 		&::after
 			display: none
@@ -629,7 +638,7 @@
 
 	// fame
 	.fame__figure
-		&::before
+		&::before, &::after
 			content: none
 
 	.fame__img
@@ -735,6 +744,13 @@
 
 	// info links end
 
+	//=========== HEADER ==========
+
+	.header__holder
+		+media('<mob-lg')
+			box-shadow: none !important
+
+	//=========== HEADER END ==========
 	//=========== SIDEBAR ==========
 	// menu
 	.menu-list, .sidebar .nav-list
