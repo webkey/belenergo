@@ -1715,11 +1715,88 @@ function initWow() {
 		// mobile: true, // default
 		// live: true // default
 		callback: function(box) {
-			console.log("box: ", $(box));
 			$(box).css('will-change', 'auto');
 		}
 	}).init();
 
+}
+
+/**
+ * light gallery initial
+ * */
+function lightGalleryInit() {
+	var $lightGallery = $('.lg-js');
+	var $lightGalleryVideo = $('.lg-video-js');
+
+	if ($lightGallery.length) {
+		$.each($lightGallery, function () {
+			var $thisGallery = $(this);
+			lightGalleryImages($thisGallery);
+		})
+	}
+
+	if ($lightGalleryVideo.length) {
+		$.each($lightGalleryVideo, function () {
+			var $thisGallery = $(this);
+			lightGalleryVideos($thisGallery);
+		})
+	}
+
+	function lightGalleryImages($thisGallery) {
+		$thisGallery.lightGallery({
+			thumbnail: true,
+			animateThumb: true,
+			showThumbByDefault: false,
+			download: false,
+			counter: true,
+			share: false,
+			hash: false
+		});
+	}
+
+	function lightGalleryVideos($thisGallery) {
+		$thisGallery.lightGallery({
+			thumbnail: true,
+			animateThumb: true,
+			showThumbByDefault: false,
+			download: false,
+			counter: true,
+			share: false,
+			hash: false,
+			autoplayControls: false,
+			zoom: false
+		});
+	}
+
+	var $imagesSlider = $('.images-slider');
+	if ($imagesSlider.length) {
+		$imagesSlider.lightGallery({
+			thumbnail: false,
+			animateThumb: false,
+			showThumbByDefault: false,
+			download: false,
+			counter: false,
+			share: false,
+			hash: false,
+			selector: '.images-slider__item'
+		});
+	}
+
+	var $contentImg = $('.img-zoom');
+	if ($contentImg.length) {
+		$contentImg.lightGallery({
+			thumbnail: false,
+			animateThumb: false,
+			showThumbByDefault: false,
+			download: false,
+			counter: false,
+			share: false,
+			hash: false,
+			selector: 'this',
+			addClass: 'zoom-img-popup',
+			backdropDuration: 0.5
+		});
+	}
 }
 
 /**
@@ -1848,6 +1925,7 @@ $(document).ready(function () {
 	popupsInit();
 	objectFitImages(); // object-fit-images initial
 	initWow();
+	lightGalleryInit();
 
 	formSuccessExample();
 	footerBottom();

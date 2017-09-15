@@ -1,0 +1,72 @@
+@@include('_tpl_layout_head.html', {
+	"title": "В Могилевской области проведена совместная противоаварийная тренировка ГПО «Белэнерго»",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
+
+<!--HEADER-->
+@@include('_tpl_layout_header.html', {
+	"currentItem": ""
+})
+<!--HEADER end-->
+
+<!--CONTENT HEAD-->
+<div class="content-head" style="background-image: url(img/bg-content-head-gallery.jpg);">
+	@@include('_tpl_breadcrumbs.html', {
+		"last": "В Могилевской области проведена совместная противоаварийная тренировка ГПО «Белэнерго» и ПАО «Россети»"
+	})
+	<h1>инфоцентр</h1>
+</div>
+<!--CONTENT HEAD END-->
+
+<!--MAIN-->
+<div class="main">
+	<div class="main__holder">
+
+		<!--CONTENT-->
+		<div class="content user-content">
+
+			<div class="pages-nav add-shadow">
+				<a href="#" class="btn-default-alt btn-with-arrow"><i>&nbsp;</i><span>Вернуться к каталогу</span></a>
+			</div>
+
+			<section class="section">
+				<!--date simple-->
+				<div class="date-simple">2017 / сентябрь / 18</div>
+				<!--date simple end-->
+				<h2><a href="gallery-inner.html">В Могилевской области проведена совместная противоаварийная тренировка ГПО «Белэнерго» и ПАО «Россети»</a></h2>
+				<p>В Мстиславском районе Могилевской области завершилась совместная противоаварийная тренировка ГПО «Белэнерго» и ПАО «Россети» по ликвидации массовых отключений электросетевых объектов распределительных сетей.</p>
+				<p>В ней приняли участие РУП «Могилевэнерго», РУП «Гомельэнерго», РУП «Витебскэнерго» ОАО «Белсельэлектросетьстрой». В качестве наблюдателей на тренировке присутствовали представители других энергоснабжающих организаций, входящих в состав ГПО «Белэнерго». ПАО «Россети» было представлено мобильной бригадой Смоленского филиала ее дочернего общества ПАО «МРСК Центра». Представители МЧС так же приняли участие в тренировке.</p>
+
+				<div class="ph-gallery">
+					<div class="ph-gallery__list lg-js">
+						@@loop('_tpl_ph-gallery-items.html', 'includes-json/ph-gallery-items.json')
+					</div>
+				</div>
+			</section>
+
+			<div class="pages-nav add-shadow">
+				<a href="#" class="btn-default-alt btn-with-arrow"><i>&nbsp;</i><span>Вернуться к каталогу</span></a>
+			</div>
+
+		</div>
+		<!--CONTENT end-->
+
+	</div>
+</div>
+<!--MAIN end-->
+
+<!--SIDEBAR-->
+@@include('_tpl_layout_sidebar.html', {
+	"currentItem": "Инфоцентр"
+})
+<!--SIDEBAR-->
+
+<!--ASIDE-->
+@@include('_tpl_layout_aside.html')
+<!--ASIDE end-->
+
+@@include('_tpl_PAGE_WRAP.html', { "pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html')

@@ -1,6 +1,11 @@
 <div class="filters add-shadow--full">
-	<a href="#" class="filters-all active"><span>Все рубрики</span></a>
+	@@if(context.all === "true"){
+		<a href="#" class="filters-all active"><span>Все рубрики</span></a>
+	}
 	<ul class="filters-list">
+		@@if(context.first){
+		<li><a href="#" class="active"><span>@@first</span></a></li>
+		}
 		@@for (var i = 0; i < filters.length; i++) {
 			<li><a href="#"><span>`+filters[i]+`</span></a></li>
 		}

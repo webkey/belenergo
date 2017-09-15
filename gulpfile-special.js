@@ -27,23 +27,37 @@ gulp.task('changePath', function () {
 
 gulp.task('copyFilesFromLibs', function () {
 
+	// SLICK GALLERY
 	// add fonts for slick slider
 	gulp.src([
 		'src/libs/slick-carousel/slick/fonts/*'
 	])
-	.pipe(gulp.dest('src/fonts/slick'));
+		.pipe(gulp.dest('src/fonts/slick'));
 
 	// add ajax-loader.gif for slick slider
 	gulp.src([
 		'src/libs/slick-carousel/slick/ajax-loader.gif'
 	])
-	.pipe(gulp.dest('src/img'));
+		.pipe(gulp.dest('src/img'));
 
 	// add classList.js for ie 9 and older
 	gulp.src([
 		'src/libs/classlist/classList.min.js'
 	])
-	.pipe(gulp.dest('src/js'));
+		.pipe(gulp.dest('src/js'));
+
+	// LIGHTGALLERY
+	// add fonts for lightgallery
+	gulp.src([
+		'src/libs/lightgallery/dist/fonts/**/*'
+	])
+		.pipe(gulp.dest('src/fonts'));
+
+	// add images and icons for lightgallery
+	gulp.src([
+		'src/libs/lightgallery/dist/img/**/*'
+	])
+		.pipe(gulp.dest('src/img'));
 
 });
 

@@ -4,8 +4,6 @@
 
 /* info links
 .info-links
-	//display: table
-	//width: 100%
 	background:
 		image: url(../../img/bg-logo-right-bottom.png)
 		position: right bottom
@@ -24,15 +22,10 @@
 		&:last-child
 			margin-bottom: 0
 
-.info-links__item
-	//display: table-row-group
-
 .info-links__inner
-	//display: table-cell
 	display: block
 	overflow: hidden
 	position: relative
-	//vertical-align: middle
 	color: $base-color-alt
 	text-decoration: none
 	text-align: center
@@ -43,11 +36,6 @@
 	&::after
 		content: ''
 		+animation-filling
-
-	//@if $has-animation
-	transition:
-		property: color
-		duration: $filling-speed-mouseleave
 
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*0.9)} #{$grid-space--lg}
@@ -65,7 +53,6 @@
 		margin-left: -110px
 		border-top: 2px solid $border-color
 
-		//@if $has-animation
 		will-change: opacity
 		transition:
 			property: opacity
@@ -82,11 +69,13 @@
 	.no-touchevents &:hover, .no-touchevents &:focus
 		//background-color: $base-color-alt
 		color: $bg-color-base
-		transition:
-			duration: $filling-speed
 
 		&::after
 			+animation-filling-active
+
+		.info-links__text
+			transition:
+				duration: $filling-speed
 
 	.no-touchevents .hover-next &, .no-touchevents &:hover, .no-touchevents &:focus
 		&::before
@@ -100,6 +89,10 @@
 	letter-spacing: 0.05em
 	text-transform: uppercase
 	margin-bottom: 20px
+
+	transition:
+		property: color
+		duration: $filling-speed-mouseleave
 
 	+media('<desk-lg')
 		+font(15px, round-float(19/15, 2))

@@ -1,0 +1,190 @@
+@@include('_tpl_layout_head.html', {
+	"title": "Фотогалерея",
+	"pageClass": ""
+})
+
+@@include('_tpl_PAGE_WRAP.html', {"pageWrap": "START" })
+
+<!--HEADER-->
+@@include('_tpl_layout_header.html', {
+	"currentItem": ""
+})
+<!--HEADER end-->
+
+<!--CONTENT HEAD-->
+<div class="content-head" style="background-image: url(img/bg-content-head-gallery.jpg);">
+	@@include('_tpl_breadcrumbs.html', {
+		"last": "Фотогалерея"
+	})
+	<h1>Фотогалерея</h1>
+</div>
+<!--CONTENT HEAD END-->
+
+<!--MAIN-->
+<div class="main">
+	<div class="main__holder">
+
+		<!--CONTENT-->
+		<div class="content user-content">
+
+			<!--filters-->
+			<div class="filters-group">
+				@@include('_tpl_filters.html', {
+					"first": "2017",
+					"filters": ["2016","2015","2014","2013"],
+					"all": "false"
+				})
+				@@include('_tpl_filters.html', {
+					"first": "Все месяца",
+					"filters": ["Сентябрь","Август","Июль","Июнь","Май","Апрель","Февраль","Январь"],
+					"all": "false"
+				})
+			</div>
+			<!--filters end-->
+			<section class="section">
+				<!--date simple-->
+				<div class="date-simple">2017 / сентябрь</div>
+				<!--date simple end-->
+				<h2><a href="gallery-inner.html">В рамках Международных соревнований прошло заседание Рабочей группы ЭС СНГ по надежности работы оборудования и охране труда</a></h2>
+				<p>12 сентября в рамках XIV Международных соревнований бригад по ремонту и обслуживанию распределительных сетей в Пензе прошло заседание Рабочей группы Электроэнергетического совета СНГ по надежности работы оборудования и охране труда.</p>
+
+				<div class="ph-gallery-preview">
+					<div class="ph-gallery-preview__list">
+						@@loop('_tpl_ph-gallery-preview-items.html', 'includes-json/ph-gallery-preview-items.json')
+						<div class="ph-gallery-preview__item">
+							<div class="ph-gallery-preview__inner">
+								<div class="ph-gallery__figure add-shadow">
+									<a href="gallery-inner.html" class="ph-gallery-all">
+										<div class="ph-gallery-all__holder">
+											<i class="depict-all-photos">&nbsp;</i>
+											<span>Все 25 фото</span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<h2><a href="gallery-inner.html">Команда ГПО «Белэнерго» заняла второе место в футбольном турнире</a></h2>
+
+				<div class="ph-gallery-preview">
+					<div class="ph-gallery-preview__list">
+						@@loop('_tpl_ph-gallery-preview-items.html', 'includes-json/ph-gallery-preview-items-02.json')
+						<div class="ph-gallery-preview__item">
+							<div class="ph-gallery-preview__inner">
+								<div class="ph-gallery__figure add-shadow">
+									<a href="gallery-inner.html" class="ph-gallery-all">
+										<div class="ph-gallery-all__holder">
+											<i class="depict-all-photos">&nbsp;</i>
+											<span>Все 25 фото</span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<!--date simple-->
+				<div class="date-simple">2017 / август</div>
+				<!--date simple end-->
+				<h2><a href="gallery-inner.html">Молодые специалисты встретились с руководством РУП «Гродноэнерго»</a></h2>
+				<p>В селекторном зале аппарата управления 8 сентября перед начинающими энергетиками выступили генеральный директор В.В. Шатерник, главный инженер РУП «Гродноэнерго» Ю.А. Шмаков, ведущий юрисконсульт юридического отдела А.А. Солодуха и председатель областного комитета профсоюза Н.А. Шулейко.</p>
+
+				<div class="ph-gallery-preview">
+					<div class="ph-gallery-preview__list">
+						@@loop('_tpl_ph-gallery-preview-items.html', 'includes-json/ph-gallery-preview-items-03.json')
+						<div class="ph-gallery-preview__item">
+							<div class="ph-gallery-preview__inner">
+								<div class="ph-gallery__figure add-shadow">
+									<a href="gallery-inner.html" class="ph-gallery-all">
+										<div class="ph-gallery-all__holder">
+											<i class="depict-all-photos">&nbsp;</i>
+											<span>Все 25 фото</span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<!--date simple-->
+				<div class="date-simple">2017 / июль</div>
+				<!--date simple end-->
+				<h2><a href="gallery-inner.html">В Пензе дан официальный старт XIV Международным соревнованиям профмастерства энергетиков</a></h2>
+
+				<div class="ph-gallery-preview">
+					<div class="ph-gallery-preview__list">
+						@@loop('_tpl_ph-gallery-preview-items.html', 'includes-json/ph-gallery-preview-items.json')
+						<div class="ph-gallery-preview__item">
+							<div class="ph-gallery-preview__inner">
+								<div class="ph-gallery__figure add-shadow">
+									<a href="gallery-inner.html" class="ph-gallery-all">
+										<div class="ph-gallery-all__holder">
+											<i class="depict-all-photos">&nbsp;</i>
+											<span>Все 25 фото</span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="section">
+				<!--date simple-->
+				<div class="date-simple">2017 / май</div>
+				<!--date simple end-->
+				<h2><a href="gallery-inner.html">Команды участников Международных соревнований приступили к тренировкам на этапах</a></h2>
+				<p>Команды участников XIV Международных соревнований бригад по ремонту и обслуживанию распределительных сетей 0,4-10 кВ государств-участников СНГ приступили к плановым тренировкам на соревновательных этапах полигона филиала ПАО «МРСК Волги» - «Пензаэнерго». В программе соревнований на это отведено три дня. За это время каждая из шести бригад пройдет каждый из 8 этапов по одному разу.</p>
+
+				<div class="ph-gallery-preview">
+					<div class="ph-gallery-preview__list">
+						@@loop('_tpl_ph-gallery-preview-items.html', 'includes-json/ph-gallery-preview-items-02.json')
+						<div class="ph-gallery-preview__item">
+							<div class="ph-gallery-preview__inner">
+								<div class="ph-gallery__figure add-shadow">
+									<a href="gallery-inner.html" class="ph-gallery-all">
+										<div class="ph-gallery-all__holder">
+											<i class="depict-all-photos">&nbsp;</i>
+											<span>Все 25 фото</span>
+										</div>
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--pagination-->
+			@@include('_tpl_pagination.html')
+			<!--pagination end-->
+
+		</div>
+		<!--CONTENT end-->
+
+	</div>
+</div>
+<!--MAIN end-->
+
+<!--SIDEBAR-->
+@@include('_tpl_layout_sidebar.html', {
+	"currentItem": "Инфоцентр"
+})
+<!--SIDEBAR-->
+
+<!--ASIDE-->
+@@include('_tpl_layout_aside.html')
+<!--ASIDE end-->
+
+@@include('_tpl_PAGE_WRAP.html', { "pageWrap": "END" })
+
+@@include('_tpl_layout_foot.html')

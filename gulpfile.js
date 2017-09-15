@@ -82,6 +82,9 @@ gulp.task('mergeCssLibs', function () { // Таск для мержа css биб
 	return gulp.src([
 		'src/css/temp/*.css' // see gulpfile-special.js
 		, 'src/libs/select2/dist/css/select2.min.css'
+		, 'src/libs/lightgallery/dist/css/lightgallery.min.css'
+		, 'src/libs/lightgallery/dist/css/lg-fb-comment-box.min.css'
+		, 'src/libs/lightgallery/dist/css/lg-transitions.min.css'
 		// , 'src/lib/plugin/file.css'
 	]) // Выбираем файлы для конкатенации
 		.pipe(concatCss("src/css/libs.css", {
@@ -112,7 +115,17 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/matchHeight/dist/jquery.matchHeight-min.js' // скрипт для выравнивания элементов по максимальному
 		, 'src/libs/sticky-kit/jquery.sticky-kit.min.js' // скрипт для фиксирования блоков
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers
-		, 'src/libs/wow/dist/wow.min.js' // анимация элементов на скролл
+		, 'src/libs/wow/dist/wow.min.js' // анимация элементов на скролл,
+		, 'src/libs/lightgallery/dist/js/lightgallery.min.js'
+		, 'src/libs/lg-autoplay/dist/lg-autoplay.min.js'
+		, 'src/libs/lg-autoplay/dist/lg-autoplay.min.js'
+		, 'src/libs/lg-fullscreen/dist/lg-fullscreen.min.js'
+		, 'src/libs/lg-hash/dist/lg-hash.min.js'
+		, 'src/libs/lg-pager/dist/lg-pager.min.js'
+		, 'src/libs/lg-share/dist/lg-share.min.js'
+		, 'src/libs/lg-thumbnail/dist/lg-thumbnail.min.js'
+		, 'src/libs/lg-video/dist/lg-video.min.js'
+		, 'src/libs/lg-zoom/dist/lg-zoom.min.js'
 	])
 		.pipe(concat('libs.js')) // Собираем их в кучу в новом файле libs.min.js
 		.pipe(gulp.dest('src/js'))

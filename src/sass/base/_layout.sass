@@ -98,11 +98,19 @@ body
 		left: $page-layout-width
 		bottom: 0
 		background: url(../../img/bg-page-bottom.png) no-repeat left bottom
-		//+size(1468px, 737px)
-		+size(734px, 737px)
+		+size(734px)
 		transform: translate(-100%, 0)
 		background-size: auto 100%
 		backface-visibility: hidden
+
+		+media('<desk-hd')
+			left: 100%
+
+		+media('<desk-lg')
+			+size(634px)
+
+		+media('<desk-md')
+			+size(500px)
 
 	& > .layout
 		+clear

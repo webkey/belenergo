@@ -27,13 +27,17 @@
 		<!--CONTENT-->
 		<div class="content user-content">
 
-			<div class="layout-article">
+			<!--<div class="layout-article">-->
 
 				<!--filters-->
-				@@include('_tpl_filters.html', {
-					"filters": ["Подключение","Ремонт","Энергетика","Подведены"]
-				})
+				<div class="filters-group">
+					@@include('_tpl_filters.html', {
+						"filters": ["Подключение","Ремонт","Энергетика","Подведены"],
+						"all": "true"
+					})
+				</div>
 				<!--filters end-->
+
 				<!--news previews-->
 				<div class="news-previews list-view">
 					<div class="news-previews__list">
@@ -41,10 +45,12 @@
 					</div>
 				</div>
 				<!--news previews end-->
+
 				<!--pagination-->
 				@@include('_tpl_pagination.html')
 				<!--pagination end-->
-			</div>
+
+			<!--</div>-->
 
 		</div>
 		<!--CONTENT end-->

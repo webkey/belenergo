@@ -21,7 +21,7 @@ body
 
 h1, h2, h3, h4, h5, h6
 	padding: 0
-	+font-bold
+	+font-medium
 	color: $title-color
 	margin: 0 0 $bottom-space
 
@@ -33,6 +33,14 @@ h1, h2, h3, h4, h5, h6
 
 		&:last-child
 			margin-bottom: 0
+
+	a
+		text-decoration: none
+		color: inherit
+
+		.no-touchevents &:hover
+			color: $base-color
+			text-decoration: underline
 
 h1
 	+font-extra-bold
@@ -202,6 +210,18 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			margin-bottom: 0
 
 /* datetime end
+
+/* date simple
+.date-simple
+	display: block
+	margin-bottom: $bottom-space
+	+font-medium
+	font-size: 16px
+	letter-spacing: 0.05em
+	text-transform: uppercase
+	color: $text-color-light
+
+/* date simple end
 
 .layout-article > p:first-of-type
 	&:first-letter
@@ -977,6 +997,18 @@ table
 
 /* main section end
 
+/* section
+.section
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	&:last-child
+		margin-bottom: 0
+
+/* section end
+
 /* section footer
 .section-footer
 	text-align: center
@@ -1113,6 +1145,19 @@ table
 				border-bottom: 1px solid tint($base-color, 40%)
 
 /* short contacts end
+
+/* pages navigation
+.pages-nav
+	+display-inline-block-top
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	&:last-child
+		margin-bottom: 0
+
+/* pages navigation end
 
 /* divider
 .divider

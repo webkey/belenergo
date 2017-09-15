@@ -1,0 +1,177 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* photo gallery
+.ph-gallery
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+.ph-gallery__list
+	+grid-parent(40px)
+	+clear-spacing
+
+	+media('<desk-lg')
+		+grid-parent($grid-space--lg)
+
+.ph-gallery__item
+	+grid-item(3, 40px)
+	letter-spacing: 0.025em
+
+	+media('<desk-lg')
+		+grid-item-responsive(3, $grid-space--lg)
+
+	+media('<mob-lg')
+		+grid-item-responsive(2, $grid-space--lg)
+
+	+media('<mob-md')
+		+grid-item-responsive(2, $grid-space--lg)
+
+.ph-gallery__inner
+	text-decoration: none
+	display: block
+	user-select: none
+
+.ph-gallery__figure
+	position: relative
+
+.ph-gallery__img
+	position: relative
+	overflow: hidden
+	margin: 0 0 3.8rem
+	font-size: $font-size
+	letter-spacing: normal
+	background-color: $border-color
+
+	&:last-child
+		margin-bottom: 0
+
+	&::before
+		+pseudo-block-relative()
+		+ratio(225, 170)
+
+	&::after
+		+pseudo()
+		+position()
+		+size(100%)
+		background-color: transparentize($base-color-alt, 0.5)
+		opacity: 0
+		visibility: hidden
+		transition:
+			property: opacity, visibility
+			duration: 0.4s
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+	img
+		display: block
+		width: 100%
+		height: 100%
+		position: absolute
+		+position(0)
+		+object-fit(cover)
+		will-change: transform
+		backface-visibility: hidden
+		transition:
+			property: transform
+			duration: 0.5s
+
+	.ph-gallery-all
+		+display-inline-block-top
+		letter-spacing: 0.025em
+
+.no-touchevents a.ph-gallery__inner:hover
+
+	.ph-gallery__img
+
+		&::after
+			opacity: 1
+			visibility: visible
+
+		img
+			transform: scale3d(1.1, 1.1, 1)
+
+/* photo gallery end
+
+/* photo gallery preview
+.ph-gallery-preview
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+.ph-gallery-preview__list
+	+grid-parent(40px)
+	+clear-spacing
+
+	+media('<desk-lg')
+		+grid-parent($grid-space--lg)
+
+.ph-gallery-preview__item
+	+grid-item(4, 40px)
+	letter-spacing: 0.025em
+
+	+media('<desk-lg')
+		+grid-item-responsive(4, $grid-space--lg)
+
+	+media('<desk-md')
+		+grid-item-responsive(2, $grid-space--lg)
+
+	+media('<mob-md')
+		+grid-item-responsive(1, $grid-space--lg)
+
+.ph-gallery-preview__inner
+	text-decoration: none
+
+.ph-gallery-all
+	+size(225px, 170px)
+	overflow: hidden
+	position: relative
+	text-decoration: none
+	color: $bg-color-base
+	padding: 15px 10px 10px
+	text-align: center
+	background-color: $base-color-alt
+	cursor: pointer
+	z-index: 1
+
+	.ph-gallery__figure &
+		position: absolute
+		+size(100%)
+		+position(0)
+
+	&::after
+		+pseudo-content()
+		+animation-filling($base-color)
+
+	&::before
+		+pseudo-content()
+		+display-inline-block-middle
+		height: 100%
+
+	.no-touchevents &:hover
+		&::after
+			+animation-filling-active
+
+	.ph-gallery-all__holder
+		+display-inline-block-middle
+		width: calc(100% - 6px)
+
+		& > i
+			margin-bottom: 20px
+
+			&:last-child
+				margin-bottom: 0
+
+		& > span
+			display: block
+			margin-bottom: 20px
+			+font-medium
+			font-size: 16px
+			text-transform: uppercase
+
+			&:last-child
+				margin-bottom: 0
+
+/* photo gallery preview end

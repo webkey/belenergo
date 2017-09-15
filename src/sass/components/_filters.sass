@@ -3,14 +3,20 @@
 @import ../../libs/include-media/dist/include-media
 
 /* filters
-.filters
+.filters-group
 	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+.filters
+	margin-bottom: $bottom-space--md
 	padding: #{round($grid-space*0.85)} #{$grid-space}
 	width: 100% // clear layout
 	+font-medium
 
 	+media('<desk-lg')
-		margin-bottom: $bottom-space--ml
+		margin-bottom: $bottom-space--sm
 		padding: #{round($grid-space--lg*0.85)} #{$grid-space--lg}
 
 	&:last-child

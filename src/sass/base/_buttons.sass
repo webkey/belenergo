@@ -22,6 +22,9 @@
 		opacity: 0
 
 /* depicts
+[class*="depict-"]
+	+font(0, 0)
+
 .depict-send
 	svg
 		+size(40px, 16px)
@@ -40,6 +43,12 @@
 	+display-inline-block-top
 	background: url(../../img/depict-time.svg) no-repeat
 	+size(16px)
+
+.depict-all-photos
+	+display-inline-block-top
+	background: url(../../img/depict-all-photos.svg) no-repeat 0 0
+	background-size: 100%
+	+size(63px, 50px)
 
 /* depicts end
 
@@ -146,8 +155,7 @@
 /* btn-with-icon
 .btn-with-icon
 	& > i, & > span
-		display: inline-block
-		vertical-align: baseline
+		+display-inline-block-top
 
 	& > i
 		margin-right: 10px
@@ -170,11 +178,92 @@
 	.depict-send
 		svg
 			+size(40px, 16px)
+			margin-top: 4px
+			margin-bottom: -4px
 
 		& + span
 			max-width: calc(100% - 5px - 40px - 10px)
 
 /* btn-with-icon end
+
+/* btn-with-arrow
+.btn-with-arrow
+	$arrow-width: 30px
+	$arrow-space: 10px
+
+	& > i, & > span
+		+display-inline-block-middle
+
+	& > i
+		position: relative
+		margin-right: $arrow-space
+		+font(0, 0)
+		width: $arrow-width
+		height: 2px
+		background-color: $btn-text-color
+		transition:
+			property: background-color
+			duration: $filling-speed-mouseleave
+
+		&::after
+			content: ""
+			position: absolute
+			left: 0
+			top: 50%
+			margin: -6px 0 0 -2px
+			+triangle(left, #{$btn-text-color}, 6px, 1)
+			transition:
+				property: border-color
+				duration: $filling-speed-mouseleave
+
+	& > span
+		text-align: left
+		white-space: normal
+		max-width: calc(100% - #{$arrow-width} - #{$arrow-space})
+
+		& ~ i
+			margin-right: 0
+			margin-left: $arrow-space
+
+			&::after
+				left: 100%
+				margin-left: -4px
+				+triangle(right, #{$btn-text-color}, 6px, 1)
+				border-right-width: 0
+
+	// alt button
+	&.btn-default-alt
+
+
+		& > i
+			background-color: $btn-bg-color
+
+			&::after
+				border-right-color: $btn-bg-color
+
+		& > span ~ i
+
+			&::after
+				border-left-color: $btn-bg-color
+
+	// hover
+	.no-touchevents &.btn-default-alt:hover, .no-touchevents &.btn-default-alt:focus
+
+
+		& > i
+			background-color: $btn-text-color
+			transition-duration: $filling-speed
+
+			&::after
+				border-right-color: $btn-text-color
+				transition-duration: $filling-speed
+
+		& > span ~ i
+
+			&::after
+				border-left-color: $btn-text-color
+
+/* btn-with-arrow end
 /* button end
 
 /* button toggle menu
