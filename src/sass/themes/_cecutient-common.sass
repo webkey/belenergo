@@ -23,7 +23,7 @@
 	hr
 		border-width: $border-width
 
-	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item)
+	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner)
 			padding-top: 0.2em
 			text-decoration: none
 			border-bottom: $border-width solid $border-color
@@ -198,6 +198,21 @@
 			color: $base-color
 
 	// btn-default-alt end
+
+	// btn-with-arrow
+	.btn-with-arrow
+
+		& > i
+			&::before, &::after
+
+				@if $animation-none
+					transition: none
+
+				path
+					@if $animation-none
+						transition: none
+
+	// btn-with-arrow end
 
 	// button toggle menu
 	.menu-btn
@@ -741,8 +756,24 @@
 
 		+media('<tab-lg')
 
-
 	// info links end
+
+	// photo gallery
+	.ph-gallery__img
+
+		img, .ph-gallery__zoom
+			transform: none !important
+
+			@if $animation-none
+				transition: none
+
+		&::after
+			display: none !important
+
+	.ph-gallery__zoom
+		background-color: $text-color-base
+
+	// photo gallery end
 
 	//=========== HEADER ==========
 
@@ -751,6 +782,7 @@
 			box-shadow: none !important
 
 	//=========== HEADER END ==========
+
 	//=========== SIDEBAR ==========
 	// menu
 	.menu-list, .sidebar .nav-list

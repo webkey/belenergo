@@ -81,6 +81,27 @@
 		+display-inline-block-top
 		letter-spacing: 0.025em
 
+.ph-gallery__zoom
+	will-change: transform, opacity
+	position: absolute
+	+position(50%)
+	z-index: 5
+	opacity: 0
+	transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1)
+	backface-visibility: hidden
+	transition:
+		property: transform, opacity
+		duration: 0.5s
+
+	.touchevents &
+		+size(24px)
+		left: auto
+		right: 10px
+		top: 10px
+		transform: none
+		opacity: 1
+		filter: drop-shadow(1px 1px 1px black)
+
 .no-touchevents a.ph-gallery__inner:hover
 
 	.ph-gallery__img
@@ -91,6 +112,10 @@
 
 		img
 			transform: scale3d(1.1, 1.1, 1)
+
+	.ph-gallery__zoom
+		opacity: 1
+		transform: translate(-50%, -50%) scale3d(1, 1, 1)
 
 /* photo gallery end
 

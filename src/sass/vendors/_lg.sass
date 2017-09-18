@@ -10,4 +10,79 @@
 .lg-outer
 	z-index: 9999
 
+#lg-zoom-in, #lg-zoom-out, #lg-actual-size
+	display: none
+
+.lg-sub-html, .lg-toolbar
+	background: rgba($bg-color-base, 0.5)
+	border: 0 solid $border-color
+
+.lg-sub-html
+	border-width: 1px 0 0
+	padding: 27px 40px
+	+font-normal
+	color: $text-color
+	+font(16px, round-float(24/16, 2))
+	+truncate(100%)
+
+.lg-toolbar
+	border-width: 0 0 1px
+
+	.lg-icon
+		+size($header-height)
+		border: 0 solid $border-color
+		border-width: 0 1px
+		margin-left: -1px
+
+		+media('<tab-lg')
+			+size($header-height--sm)
+
+.lg-close
+	padding: 0
+
+	&::before
+		+pseudo-inline-block()
+		vertical-align: middle
+		height: 100%
+
+	&::after
+		+display-inline-block-middle
+		vertical-align: middle
+		color: $text-color-base
+
+	.no-touchevents &:hover
+		background-color: $base-color-alt
+
+		&::after
+			color: $bg-color-base
+
+#lg-counter
+	padding-left: 40px
+	padding-top: 27px
+	+font-medium
+	+font(16px, round-float(24/16, 2))
+	color: $text-color-light
+
+#lg-counter-current
+	color: $text-color
+
+.lg-actions
+	.lg-next, .lg-prev
+		background: rgba($bg-color-base, 0.5)
+		border: 2px solid $base-color-alt
+		border-radius: 0
+		+size(60px)
+
+		@if not $has-animation
+			transition: none
+
+		&::before, &::after
+			color: $base-color-alt
+
+		.no-touchevents &:hover
+			background-color: $base-color-alt
+
+			&::before, &::after
+				color: $bg-color-base
+
 /* lg end

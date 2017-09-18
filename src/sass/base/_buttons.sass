@@ -50,6 +50,12 @@
 	background-size: 100%
 	+size(63px, 50px)
 
+.depict-zoom
+	+display-inline-block-top
+	background: url(../../img/depict-zoom.svg) no-repeat 0 0
+	background-size: 100%
+	+size(32px, 32px)
+
 /* depicts end
 
 /* btn-default
@@ -188,7 +194,7 @@
 
 /* btn-with-arrow
 .btn-with-arrow
-	$arrow-width: 30px
+	$arrow-width: 26px
 	$arrow-space: 10px
 
 	& > i, & > span
@@ -198,23 +204,29 @@
 		position: relative
 		margin-right: $arrow-space
 		+font(0, 0)
-		width: $arrow-width
-		height: 2px
-		background-color: $btn-text-color
-		transition:
-			property: background-color
-			duration: $filling-speed-mouseleave
+		+size($arrow-width, 18px)
+		//background-color: coral
 
-		&::after
-			content: ""
-			position: absolute
-			left: 0
-			top: 50%
-			margin: -6px 0 0 -2px
-			+triangle(left, #{$btn-text-color}, 6px, 1)
+		&::before, &::after
+			+pseudo()
+			+position(50%)
+			border: 0 solid $bg-color-base
+			transform: none
 			transition:
 				property: border-color
 				duration: $filling-speed-mouseleave
+
+		&::before
+			+size(26px, 2px)
+			border-top-width: 2px
+			margin: -1px 0 0 round(-$arrow-width/2)
+
+		&::after
+			top: 0
+			+size(12px)
+			border-width: 2px 0 0 2px
+			transform: rotate(-45deg)
+			margin: 3px 0 0 round(-$arrow-width/2)
 
 	& > span
 		text-align: left
@@ -226,42 +238,24 @@
 			margin-left: $arrow-space
 
 			&::after
-				left: 100%
-				margin-left: -4px
-				+triangle(right, #{$btn-text-color}, 6px, 1)
-				border-right-width: 0
+				border-width: 0 2px 2px 0
+				margin: 3px 0 0 1px
 
 	// alt button
 	&.btn-default-alt
 
-
 		& > i
-			background-color: $btn-bg-color
-
-			&::after
-				border-right-color: $btn-bg-color
-
-		& > span ~ i
-
-			&::after
-				border-left-color: $btn-bg-color
+			&::before, &::after
+				border-color: $base-color-alt
 
 	// hover
 	.no-touchevents &.btn-default-alt:hover, .no-touchevents &.btn-default-alt:focus
 
-
 		& > i
-			background-color: $btn-text-color
-			transition-duration: $filling-speed
 
-			&::after
-				border-right-color: $btn-text-color
+			&::before, &::after
+				border-color: $btn-text-color
 				transition-duration: $filling-speed
-
-		& > span ~ i
-
-			&::after
-				border-left-color: $btn-text-color
 
 /* btn-with-arrow end
 /* button end

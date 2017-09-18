@@ -209,7 +209,7 @@ $checkbox-color: $text-color-base
 		border-color: $text-color-base
 
 		&::before
-			background: none
+			background: $base-color-alt
 
 		&::after
 			background-color: $text-color-base
@@ -225,6 +225,27 @@ $checkbox-color: $text-color-base
 			color: $base-color
 
 	// btn-default-alt end
+	
+	// btn-with-arrow
+	.btn-with-arrow
+		
+		& > i
+			&::before, &::after
+				border-color: $base-color-alt
+
+		&.btn-default-alt
+
+			& > i
+				&::before, &::after
+					border-color: $text-color-base
+
+			.no-touchevents &:hover
+
+				& > i
+					&::before, &::after
+						border-color: $base-color
+
+	// btn-with-arrow end
 
 	// button toggle menu
 	.menu-btn

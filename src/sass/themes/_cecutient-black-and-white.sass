@@ -70,7 +70,7 @@
 		&:first-letter
 			color: $text-color-base
 
-	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item)
+	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner)
 			color: $link-color
 			border-color: $border-color
 
@@ -269,6 +269,10 @@
 		background-color: $link-color
 		border-color: $link-color
 
+		// input buttons
+		&[type="submit"], &[type="button"], &[type="reset"]
+			background-color: $text-color-base
+
 		.no-touchevents &:hover, .no-touchevents &:focus
 			background-color: $link-color-inverse
 			color: $link-color
@@ -286,8 +290,15 @@
 		background-color: $link-color-inverse
 		border-color: $link-color
 
+		// input buttons
+		&[type="submit"], &[type="button"], &[type="reset"]
+			background-color: $link-color-inverse
+
+			.no-touchevents &:hover
+				background-color: $link-color
+
 		.no-touchevents &:hover
-			background: $link-color
+			background-color: $link-color
 			color: $link-color-inverse
 			border-color: $link-color
 
@@ -296,6 +307,32 @@
 			background-color: $link-color-inverse !important
 			border-color: $link-color-disabled !important
 
+	// btn-with-arrow
+	.btn-with-arrow
+
+		& > i
+			&::before, &::after
+				border-color: $bg-color-base
+
+		.no-touchevents &:hover
+
+			& > i
+					&::before, &::after
+						border-color: $text-color-base
+
+		&.btn-default-alt
+
+			& > i
+				&::before, &::after
+					border-color: $text-color-base
+
+			.no-touchevents &:hover
+
+				& > i
+					&::before, &::after
+						border-color: $bg-color-base
+
+	// btn-with-arrow end
 
 	// button toggle menu
 	.menu-btn

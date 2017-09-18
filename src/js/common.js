@@ -1744,13 +1744,17 @@ function lightGalleryInit() {
 
 	function lightGalleryImages($thisGallery) {
 		$thisGallery.lightGallery({
-			thumbnail: true,
-			animateThumb: true,
+			thumbnail: false,
+			animateThumb: false,
 			showThumbByDefault: false,
 			download: false,
 			counter: true,
 			share: false,
-			hash: false
+			hash: true,
+			fullScreen: false,
+			zoom: true,
+			autoplay: false,
+			autoplayControls: false
 		});
 	}
 
