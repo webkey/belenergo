@@ -1,0 +1,78 @@
+<!--(1) START @@bsKey FIRST level-->
+<ul class="@@bsKey-list @@bsKey-js">
+	<!--@@bsKey item start-->
+	<li class="has-drop@@if(currentItem === 'О компании'){ current}">
+		@@include('_tpl_submenu-LINK--full.html', { "txt": "О компании", "href": "typography.html", "key": "@@bsKey" })
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "start", "key": "@@bsKey"})
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Основные сведения", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Руководство", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Структура аппарата объединения", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Состав объединения", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Совет ГПО", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "История объединения", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Доска почёта", "href": "#", "key": "@@bsKey" })</li>
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "end", "key": "@@bsKey"})
+
+	</li>
+	<!--@@bsKey item end-->
+
+	<!--@@bsKey item start-->
+	<li class="@@if(currentItem === 'Состав объединения'){current}">
+		@@include('_tpl_submenu-LINK--full.html', { "txt": "Состав объединения", "txtShort": "", "href": "fame.html", "key": "@@bsKey" })
+	</li>
+	<!--@@bsKey item end-->
+
+	<!--@@bsKey item start-->
+	<li class="has-drop@@if(currentItem === 'Деятельность'){ current}">
+		@@include('_tpl_submenu-LINK--full.html', { "txt": "Деятельность", "href": "news.html", "key": "@@bsKey" })
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "start", "key": "@@bsKey"})
+
+	<li class="has-drop">@@include('_tpl_submenu-LINK--full.html', { "txt": "Основные показатели", "href": "#", "key": "@@bsKey" })
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "start", "key": "@@bsKey"})
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Установленная мощность", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Объекты электроэнергетики планируемые к реализации", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Ремонтная кампания", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Информация о наличии передвижных дизельных электростанций ", "href": "#", "key": "@@bsKey" })</li>
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "end", "key": "@@bsKey"})
+
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Производство электрической энергии ", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Производство тепловой энергии ", "href": "#", "key": "@@bsKey" })</li>
+	<li class="has-drop current">@@include('_tpl_submenu-LINK--full.html', { "txt": "Сбытовая деятельность", "href": "#", "key": "@@bsKey" })
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "start", "key": "@@bsKey"})
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Тарифная политика", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Рынок электрической и тепловой энергии", "href": "#", "key": "@@bsKey" })</li>
+	<li class="current">@@include('_tpl_submenu-LINK--full.html', { "txt": "Нормативные документы", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Основные направления деятельности по сбыту электрической и тепловой энергии", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Информация для бытовых потребителей", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Системы расчета за электроэнергию и пути экономии для бытовых потребителей", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Информация для юридических лиц", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Совершенствование учета отпускаемой потребителям электрической энергии", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Работа энергоснабжающих организаций по выявлению и пресечению безучетного потребления энергии", "href": "#", "key": "@@bsKey" })</li>
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "end", "key": "@@bsKey"})
+
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Лицензии, сертификаты, аттестаты, патенты", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Инвестиционная деятельность", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Энергетический надзор", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Социальная сфера", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Экология", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Работа с персоналом", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Соревнования профессионального мастерства", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Закупки", "href": "#", "key": "@@bsKey" })</li>
+
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "end", "key": "@@bsKey"})
+	</li>
+	<!--@@bsKey item end-->
+
+	<!--@@bsKey item start-->
+	<li class="@@if(currentItem === 'Инфоцентр'){current}">
+		@@include('_tpl_submenu-LINK--full.html', { "txt": "Инфоцентр", "txtShort": "", "href": "gallery.html", "key": "@@bsKey" })
+	</li>
+	<!--@@bsKey item end-->
+
+	<!--@@bsKey item start-->
+	<li class="@@if(currentItem === 'Контакты'){current}">
+		@@include('_tpl_submenu-LINK--full.html', { "txt": "Контакты", "txtShort": "", "href": "contacts.html", "key": "@@bsKey" })
+	</li>
+	<!--@@bsKey item end-->
+</ul>
+<!--(1) END @@bsKey FIRST level-->

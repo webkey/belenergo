@@ -62,33 +62,35 @@
 		display: none
 
 // первый уровень навигации
-.nav-list > li
-	float: left
+.nav-list
+	& > li
+		float: left
 
-	& > .nav__tab
-		a
-			height: $header-height
-			+clear-spacing
+		& > .nav__tab
+			a
+				height: $header-height
+				+clear-spacing
 
-			&::before
-				+pseudo-inline-block()
-				height: 100%
-				vertical-align: middle
+				&::before
+					+pseudo-inline-block()
+					height: 100%
+					vertical-align: middle
 
-			span
-				+display-inline-block-middle
-				+font($font-size, $line-height)
-				letter-spacing: 0.05em
+				span
+					+display-inline-block-middle
+					+font($font-size, $line-height)
+					letter-spacing: 0.05em
 
-				&.short-text
-					display: none
+.nav__tab
+	& .short-text
+		display: none !important
 
-				+media('<desk-lg')
-					&.full-text
-						display: none
+	+media('<desk-lg')
+		.header & .full-text
+			display: none !important
 
-					&.short-text
-						display: inline-block
+		.header & .short-text
+			display: inline-block !important
 
 //.nav__angle i
 	display: inline-block

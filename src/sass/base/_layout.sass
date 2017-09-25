@@ -232,6 +232,17 @@ body
 		width: 100%
 		padding-bottom: $header-height--sm // для нижней панели настроек
 
+	.v-middle--center .v-middle__cell
+		vertical-align: top
+		+padding-vertical(round($sidebar-inside-space*0.5), $sidebar-inside-space)
+
+		+media('<desk-lg')
+			+padding-vertical(round($sidebar-inside-space--lg*0.5), $sidebar-inside-space)
+
+		.home-page &
+			padding: 0
+			vertical-align: middle
+
 .sidebar__align
 	width: #{$sidebar-width + 100px}
 	background-color: inherit
@@ -260,35 +271,6 @@ body
 
 	+media('<mob-lg')
 		width: 100%
-
-
-	// для браузеров не поддерживающих display: flex
-	.no-flexbox &
-		width: $sidebar-width
-
-		+media('<desk-lg')
-			width: $sidebar-width--lg
-
-		+media('<desk-sm')
-			width: $sidebar-width
-
-		+media('<mob-lg')
-			width: 100%
-
-	// в ие 11 не поддерживается flex-direction: column вместе с min-height
-	// для этого браузера исспользуем хак
-	@media all and (-ms-high-contrast: none)
-		&::-ms-backdrop, &
-			width: $sidebar-width
-
-			+media('<desk-lg')
-				width: $sidebar-width--lg
-
-			+media('<desk-sm')
-				width: $sidebar-width
-
-			+media('<mob-lg')
-				width: 100%
 
 .aside, .aside__holder
 	z-index: 999

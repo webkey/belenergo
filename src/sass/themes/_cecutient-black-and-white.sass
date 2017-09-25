@@ -339,6 +339,8 @@
 		box-shadow: inset -1px -1px 0 $border-color
 		background-color: $bg-color-base
 
+	.menu-btn, .btn-main-menu
+
 		&::before, &::after
 			background-color: $base-color-alt
 
@@ -350,6 +352,9 @@
 
 		.no-touchevents &:hover
 			background-color: $base-color-alt
+
+			&::before, &::after
+				background-color: $bg-color-base
 
 			& > i
 				background-color: $bg-color-base
@@ -363,6 +368,8 @@
 				background-color: transparent
 
 		.no-touchevents &.active:hover
+			&::before, &::after
+				background-color: $base-color
 
 			& > i
 				background-color: transparent
@@ -853,6 +860,43 @@
 
 	//=========== SLIDERS end ==========
 
+	// submenu
+	.submenu-list
+		border-color: $border-color
+
+		a
+			color: $text-color-base
+
+		// стрелка
+		.submenu__angle
+			& > i
+				&::before, &::after
+					background-color: $text-color-base
+
+		// ховер общий
+		a:hover
+			color: $bg-color-base !important
+			background-color: $text-color-base !important
+			box-shadow: -4px 0 0 $text-color-base, 4px 0 0 $text-color-base !important
+
+			& + .submenu__angle
+				& > i
+					&::before, &::after
+						background-color: $bg-color-base !important
+
+		// текущий пункт
+		li.current
+			& > .submenu__tab
+				a
+					color: $base-color
+
+				.submenu__angle
+					& > i
+						&::before, &::after
+							background-color: $base-color
+
+	// submenu end
+
 	//=========== HEADER ==========
 	.header
 		background-color: $bg-panels-color
@@ -1177,6 +1221,27 @@
 			border-color: $border-color
 
 	// menu end
+
+	// menu switcher
+	.menu-switcher
+
+		.btn-main-menu
+
+			& + a
+				color: $text-color-base
+
+				&::before
+					border-left-color: $border-color
+
+				&:hover
+					color: $bg-color-base
+					background-color: $text-color-base
+
+			&.active + a
+				color: $text-color-base
+				background-color: $bg-color-base
+
+	// menu switcher end
 	//=========== SIDEBAR END ==========
 
 	//=========== ASIDE ==========

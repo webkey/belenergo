@@ -1,0 +1,153 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* submenu
+.submenu
+	position: relative
+	padding-top: 15px
+
+	.sidebar &
+		+padding-horizontal($sidebar-inside-space-alt)
+
+		+media('<desk-lg')
+			+padding-horizontal($sidebar-inside-space-alt--lg)
+
+.submenu-list
+	position: relative
+	border: 1px solid $base-color
+	padding: round($grid-space*0.85) $grid-space
+
+	+triangle-pretty(top, (right: 50%, bottom: 100%), $bg-color-base, 14px, 22px, $base-color, 1px)
+
+	li
+		position: relative
+
+	a
+		display: block
+		+padding-vertical(8px)
+		+font(16px, round-float(24/16, 2))
+		letter-spacing: 0.025em
+		text-decoration: none
+		color: $text-color-base
+
+		@if $has-animation
+			transition:
+				property: background-color, color
+				duration: $animation-speed
+
+	// контейнер с ссылкой и стрелкой
+	.submenu__tab
+		position: relative
+
+	// стрелка
+	.submenu__angle
+		display: none
+		position: absolute
+		right: 0
+		top: 50%
+		+size(16px, 10px)
+		transform: translate(0, -50%)
+		line-height: 0
+		pointer-events: none
+
+		& > i
+			$this-icon-lines-width: 10px
+			$this-icon-lines-height: 2px
+			$this-icon-lines-color: $text-color-base
+
+			display: block
+			position: relative
+			+size(100%)
+
+			&::before, &::after
+				+pseudo()
+				right: 0
+				top: 50%
+				backface-visibility: hidden
+				+size($this-icon-lines-width, $this-icon-lines-height)
+				margin-top: -1px
+				background-color: $this-icon-lines-color
+
+				@if $has-animation
+					transition:
+						property: background-color
+						duration: $filling-speed-mouseleave
+
+			&::before
+				transform: rotate(-45deg)
+
+			&::after
+				right: round(get-catheter($this-icon-lines-width) - $this-icon-lines-height*0.5)
+				transform: rotate(45deg)
+
+	// ховер общий
+	a:hover
+		color: $base-color
+
+		& + .submenu__angle
+			& > i
+				&::before, &::after
+					background-color: $base-color
+
+	// текущий пункт
+	li.current
+		& > .submenu__tab
+			a
+				color: $base-color
+				+font-bold
+
+			.submenu__angle
+				& > i
+					transform: rotate(0.5turn)
+
+					&::before, &::after
+						background-color: $base-color
+
+	// если есть дроп
+	li.has-drop
+		& > .submenu__tab
+			a
+				padding-right: 20px
+
+			.submenu__angle
+				display: block
+
+// первый уровень навигации
+.submenu-list
+	& > li
+		& > .submenu__tab
+			a
+				+font-medium
+				letter-spacing: 0.05em
+
+.submenu__drop
+	display: none
+
+	li.current > &
+		display: block
+
+	a
+		+padding-horizontal(20px)
+
+	.submenu__angle
+		display: none !important
+
+	// текущий пункт (второй уровень)
+	//li.current
+		& > .submenu__tab
+			a
+				color: $bg-color-base
+				background-color: $base-color
+
+	.submenu__drop
+		top: 0
+		left: 100%
+
+		a
+			font-size: 14px
+			+padding-horizontal(30px)
+
+/* submenu overlay end
+/* submenu end
+

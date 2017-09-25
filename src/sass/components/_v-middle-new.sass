@@ -1,0 +1,32 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* v-middle
+.v-middle
+	 overflow: hidden // необходим для скрытия скролла, если нет overflow: hidden на родительских элементах
+
+.v-middle__align
+	// width: calc(100% + 100px)
+	overflow-x: hidden
+	overflow-y: auto
+	height: 100%
+
+.v-middle__holder
+	display: table
+	table-layout: fixed
+	height: 100%
+	width: 100%
+
+.v-middle__row
+	display: table-row
+
+	&.v-middle--top,
+	&.v-middle--bottom
+		height: 1%
+
+.v-middle__cell
+	display: table-cell
+	vertical-align: middle
+
+/* v-middle end

@@ -268,22 +268,21 @@
 	$btn-menu-lines-height: 2px
 	$btn-menu-lines-space: 5px
 	$btn-menu-lines-color: $base-color-alt
-
-	$user-options-cross-width: $btn-menu-lines-width
-	$user-options-cross-height: $btn-menu-lines-height
-	$user-options-cross-color: $btn-menu-lines-color
+	// =========================
+	$btn-menu-cross-width: $btn-menu-lines-width
+	$btn-menu-cross-height: $btn-menu-lines-height
+	$btn-menu-cross-color: $btn-menu-lines-color
 
 	=menu-btn-line()
 		+size($btn-menu-lines-width, $btn-menu-lines-height)
 		background-color: $btn-menu-lines-color
 
 	=menu-btn-cross-line()
-		+size($user-options-cross-width, $user-options-cross-height)
-		background-color: $user-options-cross-color
+		+size($btn-menu-cross-width, $btn-menu-cross-height)
+		background-color: $btn-menu-cross-color
 
 	float: left
 	display: none
-	vertical-align: top
 	position: relative
 	text-decoration: none
 	color: $text-color
@@ -307,29 +306,14 @@
 		+menu-btn-cross-line
 		left: 50%
 		top: 50%
-		+margin($top: -#{round($user-options-cross-height*0.5)}, $left: -#{round($user-options-cross-width*0.5)})
+		+margin($top: -#{round($btn-menu-cross-height*0.5)}, $left: -#{round($btn-menu-cross-width*0.5)})
 		opacity: 0
+		transform: rotate(0deg) translateZ(0)
 
-		@if $has-animation
-			transition:
-				property: transform, opacity
-				duration: $animation-speed
-				timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
-
-	// active
-	&.active
-		&::before
-			transform: rotate(45deg)
-			opacity: 1
-
-		&::after
-			transform: rotate(-45deg)
-			opacity: 1
-
-	// hover
-	.no-touchevents a:hover &
-		&::before, &::after
-			background-color: $base-color
+		transition:
+			property: transform, opacity
+			duration: $animation-speed
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	& > span
 		+hide-text
@@ -342,22 +326,25 @@
 		+menu-btn-line
 		+margin($top: -#{round($btn-menu-lines-height*0.5)}, $left: -#{round($btn-menu-lines-width*0.5)})
 		backface-visibility: hidden
+		transition-duration: $animation-speed
 
 		@if $has-animation
-			transition:
-				property: background-color
-				duration: $animation-speed
+			transition-property: background-color
+		@else
+			transition-property: opacity
 
 		&::before, &::after
 			+pseudo()
 			left: 0
 			+menu-btn-line
 			backface-visibility: hidden
+			transform: translateZ(0)
+			transition-duration: $animation-speed
 
 			@if $has-animation
-				transition:
-					property: transform, opacity, background-color
-					duration: $animation-speed
+				transition-property: background-color
+			@else
+				transition-property: opacity, transform
 
 		//first line menu
 		&::before
@@ -367,22 +354,33 @@
 		&::after
 			top: #{$btn-menu-lines-height + $btn-menu-lines-space}
 
+	// active
 	&.active
 
-		& > i
-			background-color: transparent
+		&::before, &::after
+			opacity: 1
 
-			&::before, &::after
-				opacity: 0
+		&::before
+			transform: rotate(45deg) translateZ(0)
+
+		&::after
+			transform: rotate(-45deg) translateZ(0)
+
+		& > i
+			opacity: 0
 
 			&::before
-				transform: translate(0, #{$btn-menu-lines-height + $btn-menu-lines-space})
+				transform: translateZ(0) translate(0, #{$btn-menu-lines-height + $btn-menu-lines-space})
 
 			&::after
-				transform: translate(0, -#{$btn-menu-lines-height + $btn-menu-lines-space})
+				transform: translateZ(0) translate(0, -#{$btn-menu-lines-height + $btn-menu-lines-space})
 
+	// hover
 	.no-touchevents &:hover
 		background-color: $base-color-alt
+
+		&::before, &::after
+			background-color: $bg-color-base
 
 		& > i
 			background-color: $bg-color-base
@@ -390,15 +388,122 @@
 			&::before, &::after
 				background-color: $bg-color-base
 
-	.no-touchevents &.active:hover
+/* button toggle menu end
 
-		& > i
-			background-color: transparent
+/* button toggle main menu
+.btn-main-menu
+	$btn-mmenu-bg: $bg-color-base
+	$btn-mmenu-color: $text-color-base
+	$btn-mmenu-lines-width: 22px
+	$btn-mmenu-lines-height: 3px
+	$btn-mmenu-lines-space: 4px
+	$btn-mmenu-lines-color: $text-color-base
+	// =========================
+	$btn-mmenu-cross-width: $btn-mmenu-lines-width
+	$btn-mmenu-cross-height: $btn-mmenu-lines-height
+	$btn-mmenu-cross-color: $btn-mmenu-lines-color
+
+	=mmenu-btn-line()
+		+size($btn-mmenu-lines-width, $btn-mmenu-lines-height)
+		background-color: $btn-mmenu-lines-color
+
+	=mmenu-btn-cross-line()
+		+size($btn-mmenu-cross-width, $btn-mmenu-cross-height)
+		background-color: $btn-mmenu-cross-color
+
+	display: block
+	position: relative
+	text-decoration: none
+	color: $text-color
+	+size(62px)
+
+	&::before, &::after
+		+pseudo()
+		+mmenu-btn-cross-line
+		left: 50%
+		top: 50%
+		+margin($top: -#{round($btn-mmenu-cross-height*0.5)}, $left: -#{round($btn-mmenu-cross-width*0.5)})
+		opacity: 0
+		transform: rotate(0deg) translateZ(0)
+
+		transition:
+			property: transform, opacity
+			duration: $animation-speed
+			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+
+	& > span
+		+hide-text
+		white-space: normal
+
+	& > i
+		position: absolute
+		left: 50%
+		top: 50%
+		+mmenu-btn-line
+		+margin($top: -#{round($btn-mmenu-lines-height*0.5)}, $left: -#{round($btn-mmenu-lines-width*0.5)})
+		backface-visibility: hidden
+		transition-duration: $animation-speed
+
+		@if $has-animation
+			transition-property: background-color
+		@else
+			transition-property: opacity
 
 		&::before, &::after
-			background-color: $bg-color-base
+			+pseudo()
+			left: 0
+			+mmenu-btn-line
+			backface-visibility: hidden
+			transform: translateZ(0)
+			transition-duration: $animation-speed
 
-/* button toggle menu end
+			@if $has-animation
+				transition-property: background-color
+			@else
+				transition-property: opacity, transform
+
+		//first line menu
+		&::before
+			top: -#{$btn-mmenu-lines-height + $btn-mmenu-lines-space}
+
+		//third line menu
+		&::after
+			top: #{$btn-mmenu-lines-height + $btn-mmenu-lines-space}
+
+	// active
+	&.active
+
+		&::before, &::after
+			opacity: 1
+
+		&::before
+			transform: rotate(45deg) translateZ(0)
+
+		&::after
+			transform: rotate(-45deg) translateZ(0)
+
+		& > i
+			opacity: 0
+
+			&::before
+				transform: translateZ(0) translate(0, #{$btn-mmenu-lines-height + $btn-mmenu-lines-space})
+
+			&::after
+				transform: translateZ(0) translate(0, -#{$btn-mmenu-lines-height + $btn-mmenu-lines-space})
+
+	// hover
+	.no-touchevents &:hover
+
+		&::before, &::after
+			background-color: $base-color
+
+		& > i
+			background-color: $base-color
+
+			&::before, &::after
+				background-color: $base-color
+
+/* button toggle main menu end
 
 /*button popup close*/
 .btn-popup-close

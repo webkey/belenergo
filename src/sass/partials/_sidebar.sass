@@ -27,6 +27,71 @@
 
 /* social networks (in sidebar) end
 
+/* menu switcher
+.menu-switcher
+	margin-bottom: -5px
+	+padding-horizontal($sidebar-inside-space-alt)
+	+clear-spacing
+	+clear
+
+	.home-page &
+		display: none
+
+	+media('<desk-lg')
+		+padding-horizontal($sidebar-inside-space-alt--lg)
+
+	.btn-main-menu
+		+display-inline-block-middle
+		letter-spacing: normal
+		+font($font-size, $line-height)
+
+		& + a
+			+display-inline-block-middle
+			position: relative
+			+padding-horizontal(20px)
+			+font-medium
+			+font(16px, 20px)
+			letter-spacing: 0.05em
+			color: $text-color-base
+			text-transform: uppercase
+			text-decoration: none
+			transition:
+				property: transform, opacity
+				duration: $animation-speed
+
+			&::before
+				+pseudo()
+				left: 0
+				top: 2px
+				bottom: 2px
+				+size(0, auto)
+				border-left: 1px solid $border-color
+
+			&:hover
+				color: $base-color
+
+		&.active + a
+			opacity: 0.3
+			color: $text-color-base
+
+#sub-menu
+
+	.home-page &
+		display: none !important
+
+#main-menu
+
+	.home-page &
+		display: block !important
+		position: relative !important
+		left: auto !important
+		top: auto !important
+		visibility: visible !important
+		opacity: 1 !important
+		z-index: 2 !important
+
+/* menu switcher end
+
 /* menu
 .menu-list, .sidebar .nav-list
 	list-style: none
@@ -40,9 +105,12 @@
 	$item-space-v: 14px
 
 	li
-		+padding-vertical(round($item-space-v - (40px - 24px)/2))
 		+margin-horizontal(-#{$item-space-h})
+		padding: round($item-space-v - (40px - 24px)/2) 20px
 		text-align: center
+
+		+media('<desk-lg')
+			+padding-horizontal(10px)
 
 	a
 		+display-inline-block-top

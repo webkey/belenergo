@@ -13,21 +13,40 @@
 				</div>
 			</div>
 			<div class="v-middle__row v-middle--center">
-				<div class="v-middle__cell">
-					<ul class="menu-list">
-						<li @@if(context.currentItem === "О компании"){class="current"}><a href="typography.html"><span>О компании</span></a></li>
-						<li @@if(context.currentItem === "Состав объединения"){class="current"}><a href="fame.html"><span>Состав объединения</span></a></li>
-						<li @@if(context.currentItem === "Деятельность"){class="current"}><a href="news.html"><span>Деятельность</span></a></li>
-						<li @@if(context.currentItem === "Инфоцентр"){class="current"}><a href="gallery.html"><span>Инфоцентр</span></a></li>
-						<li @@if(context.currentItem === "Контакты"){class="current"}><a href="contacts.html"><span>Контакты</span></a></li>
-					</ul>
-					<div class="nav-wrap">
-						<nav class="nav">
-							@@include('_tpl_nav-constructor.html', {
-								"currentItem": "@@currentItem",
-								"bsKey": "nav"
-							})
-						</nav>
+				<div class="v-middle__cell js-mm-switcher">
+					<div class="menu-switcher">
+						<a href="#" class="btn-main-menu js-mm-anchor" title="Главное меню">
+							<span>Главное меню</span>
+							<i>&nbsp;</i>
+						</a>
+						<a href="#"><span>@@currentItem</span></a>
+					</div>
+					<div class="menu-container js-mm-container">
+						<div class="menu-content js-mm-content" id="main-menu">
+							<ul class="menu-list">
+								<li @@if(context.currentItem === "О компании"){class="current"}><a href="typography.html"><span>О компании</span></a></li>
+								<li @@if(context.currentItem === "Состав объединения"){class="current"}><a href="fame.html"><span>Состав объединения</span></a></li>
+								<li @@if(context.currentItem === "Деятельность"){class="current"}><a href="news.html"><span>Деятельность</span></a></li>
+								<li @@if(context.currentItem === "Инфоцентр"){class="current"}><a href="gallery.html"><span>Инфоцентр</span></a></li>
+								<li @@if(context.currentItem === "Контакты"){class="current"}><a href="contacts.html"><span>Контакты</span></a></li>
+							</ul>
+							<div class="nav-wrap">
+								<nav class="nav">
+									@@include('_tpl_nav-constructor.html', {
+										"currentItem": "@@currentItem",
+										"bsKey": "nav"
+									})
+								</nav>
+							</div>
+						</div>
+						<div class="menu-content js-mm-content" id="sub-menu">
+							<div class="submenu">
+								@@include('_tpl_submenu-constructor.html', {
+									"currentItem": "@@currentItem",
+									"bsKey": "submenu"
+								})
+							</div>
+						</div>
 					</div>
 				</div>
 			</div>

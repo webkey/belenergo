@@ -259,14 +259,24 @@ $checkbox-color: $text-color-base
 			&, &::before, &::after
 				background-color: $text-color-base
 
-		&.active
-			& > i
-				background-color: transparent
-
 		.no-touchevents &:hover
 			background-color: $bg-panels-color
 
 	// button toggle menu end
+
+	// button toggle main menu
+	.btn-main-menu
+		&::before, &::after
+			background-color: $text-color-base
+
+		& > i
+			&, &::before, &::after
+				background-color: $text-color-base
+
+		.no-touchevents &:hover
+			background-color: $bg-panels-color
+
+	// button toggle main menu end
 
 	// button end
 	//=========== BUTTONS END ==========
@@ -626,6 +636,42 @@ $checkbox-color: $text-color-base
 
 	//=========== SLIDERS END ==========
 
+	// submenu
+	.submenu-list
+		&::after
+			border-bottom-color: $bg-panels-color
+
+		a
+			color: $text-color-base
+
+		// стрелка
+		.submenu__angle
+			& > i
+				&::before, &::after
+					background-color: $text-color-base
+
+		// ховер общий
+		a:hover
+			color: $base-color
+
+			& + .submenu__angle
+				& > i
+					&::before, &::after
+						background-color: $base-color
+
+		// текущий пункт
+		li.current
+			& > .submenu__tab
+				a
+					color: $base-color
+
+				.submenu__angle
+					& > i
+						&::before, &::after
+							background-color: $base-color
+
+	// submenu end
+
 	// previews-grid
 	.previews-grid, .previews-grid-list, .previews-grid-item, .previews-grid-inner
 
@@ -892,6 +938,25 @@ $checkbox-color: $text-color-base
 			background-color: $base-color
 
 	// menu end
+
+	// menu switcher
+	.menu-switcher
+
+		.btn-main-menu
+
+			& + a
+				color: $text-color-base
+
+				&::before
+					border-left-color: $border-color
+
+				&:hover
+					color: $base-color
+
+			&.active + a
+				color: $text-color-base
+
+	// menu switcher end
 	// sidebar end
 
 	// aside
