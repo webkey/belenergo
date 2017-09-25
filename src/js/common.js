@@ -1167,10 +1167,20 @@ function mainMenuSwitcher() {
  * !Equal height of blocks by maximum height of them
  */
 function equalHeight() {
+	// popular
 	var $popular = $('.popular-list');
 
 	if($popular) {
 		$popular.children().matchHeight({
+			byRow: true, property: 'height', target: null, remove: false
+		});
+	}
+
+	// navigation
+	var $navDrop = $('.nav__drop ul');
+
+	if($navDrop) {
+		$navDrop.children().matchHeight({
 			byRow: true, property: 'height', target: null, remove: false
 		});
 	}

@@ -3,6 +3,9 @@
 @import ../../libs/include-media/dist/include-media
 
 /* navigation
+$nav-drop-item-width: 320px
+$nav-drop-item-width--sm: 240px
+
 .nav-wrap
 	.header &
 		float: left
@@ -29,24 +32,13 @@
 	li
 		position: relative
 
-		//&.has-drop
-			padding-right: 2rem
-
-			//.nav__angle
-				position: absolute
-				right: 0
-				top: 50%
-				transform: translate(0, -50%)
-				line-height: 0
-				pointer-events: none
-
 		&.hover > .nav__tab a
-			background-color: $bg-color-selected
+			background-color: $base-color-alt
+			color: $bg-color-base
 
 	a
 		display: block
 		+padding-horizontal(#{round($nav-item-space*0.5)})
-		+font-medium
 		+font(16px, 20px)
 		text-decoration: none
 		color: $text-color-base
@@ -61,6 +53,17 @@
 	.nav__angle
 		display: none
 
+.nav__tab
+	& .short-text
+		display: none !important
+
+	+media('<desk-lg')
+		.header & .full-text
+			display: none !important
+
+		.header & .short-text
+			display: inline-block !important
+
 // первый уровень навигации
 .nav-list
 	& > li
@@ -69,6 +72,7 @@
 		& > .nav__tab
 			a
 				height: $header-height
+				+font-medium
 				+clear-spacing
 
 				&::before
@@ -81,33 +85,19 @@
 					+font($font-size, $line-height)
 					letter-spacing: 0.05em
 
-.nav__tab
-	& .short-text
-		display: none !important
-
-	+media('<desk-lg')
-		.header & .full-text
-			display: none !important
-
-		.header & .short-text
-			display: inline-block !important
-
-//.nav__angle i
-	display: inline-block
-	vertical-align: top
-	+triangle(bottom, black, 5px, 2)
-
 .nav__drop
 	position: absolute
 	left: 0
 	top: 100%
-	background-color: $bg-color-base
-	border: 1px solid $border-color
+	background-color: $base-color-alt
+	border: 1px solid $border-color-light
 	margin-top: -1px
-	width: 320px
+	width: round($nav-drop-item-width*2)
 	opacity: 0
 	visibility: hidden
 	z-index: 10
+	+clear-spacing
+	overflow: hidden
 
 	+media('<desk-sm')
 		display: none
@@ -116,13 +106,37 @@
 		opacity: 1
 		visibility: visible
 
-		//&.has-drop > .nav__tab .nav__angle i
-			display: inline-block
-			vertical-align: top
-			+triangle(right, black, 5px, 2)
+	li
+		+display-inline-block-top
+		position: relative
+		width: calc(100%/2)
+		letter-spacing: 0.025em
+
+		&::before, &::after
+			+pseudo()
+			border: 0 solid $border-color-light
+
+		&::before
+			+position(100%, 0)
+			+size(9999px, 0)
+			border-top-width: 1px
+
+		&::after
+			+position(0, 100%)
+			+size(0, 9999px)
+			border-right-width: 1px
+
+	.nav__tab
+		height: 100%
 
 	a
-		+padding-vertical(round($nav-item-space*0.25))
+		padding: round($nav-item-space*0.5) round($nav-item-space*0.5)
+		color: $bg-color-base
+		height: 100%
+
+	li.hover > .nav__tab a
+		background-color: $base-color
+		color: $bg-color-base
 
 	.nav__drop
 		top: 0
