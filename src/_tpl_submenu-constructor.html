@@ -1,10 +1,10 @@
 <!--(1) START @@bsKey FIRST level-->
 <ul class="@@bsKey-list @@bsKey-js">
 	<!--@@bsKey item start-->
-	<li class="has-drop@@if(currentItem === 'О компании'){ current}">
+	<li class="has-drop@@if(currentItem === 'О компании'){ open current}">
 		@@include('_tpl_submenu-LINK--full.html', { "txt": "О компании", "href": "typography.html", "key": "@@bsKey" })
 		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "start", "key": "@@bsKey"})
-	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Основные сведения", "href": "#", "key": "@@bsKey" })</li>
+	<li class="current">@@include('_tpl_submenu-LINK--full.html', { "txt": "Основные сведения", "href": "#", "key": "@@bsKey" })</li>
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Руководство", "href": "#", "key": "@@bsKey" })</li>
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Структура аппарата объединения", "href": "#", "key": "@@bsKey" })</li>
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Состав объединения", "href": "#", "key": "@@bsKey" })</li>
@@ -23,7 +23,7 @@
 	<!--@@bsKey item end-->
 
 	<!--@@bsKey item start-->
-	<li class="has-drop@@if(currentItem === 'Деятельность'){ current}">
+	<li class="has-drop@@if(currentItem === 'Деятельность'){ open}">
 		@@include('_tpl_submenu-LINK--full.html', { "txt": "Деятельность", "href": "news.html", "key": "@@bsKey" })
 		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "start", "key": "@@bsKey"})
 
@@ -37,7 +37,7 @@
 
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Производство электрической энергии ", "href": "#", "key": "@@bsKey" })</li>
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Производство тепловой энергии ", "href": "#", "key": "@@bsKey" })</li>
-	<li class="has-drop current">@@include('_tpl_submenu-LINK--full.html', { "txt": "Сбытовая деятельность", "href": "#", "key": "@@bsKey" })
+	<li class="has-drop open">@@include('_tpl_submenu-LINK--full.html', { "txt": "Сбытовая деятельность", "href": "#", "key": "@@bsKey" })
 		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========3==========)", "pos": "start", "key": "@@bsKey"})
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Тарифная политика", "href": "#", "key": "@@bsKey" })</li>
 	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Рынок электрической и тепловой энергии", "href": "#", "key": "@@bsKey" })</li>
@@ -64,8 +64,13 @@
 	<!--@@bsKey item end-->
 
 	<!--@@bsKey item start-->
-	<li class="@@if(currentItem === 'Инфоцентр'){current}">
+	<li class="has-drop@@if(currentItem === 'Инфоцентр'){ current}">
 		@@include('_tpl_submenu-LINK--full.html', { "txt": "Инфоцентр", "txtShort": "", "href": "gallery.html", "key": "@@bsKey" })
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "start", "key": "@@bsKey"})
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Состав объединения", "href": "#", "key": "@@bsKey" })</li>
+	<li>@@include('_tpl_submenu-LINK--full.html', { "txt": "Совет ГПО", "href": "#", "key": "@@bsKey" })</li>
+		@@include('_tpl_submenu-DROP-WRAP.html', { "dropLevel": "(==========2==========)", "pos": "end", "key": "@@bsKey"})
+
 	</li>
 	<!--@@bsKey item end-->
 

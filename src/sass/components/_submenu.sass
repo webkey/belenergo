@@ -90,12 +90,11 @@
 				&::before, &::after
 					background-color: $base-color
 
-	// текущий пункт
-	li.current
+	// пункт с открытым дропом
+	li.open
 		& > .submenu__tab
 			a
 				color: $base-color
-				+font-bold
 
 			.submenu__angle
 				& > i
@@ -103,6 +102,19 @@
 
 					&::before, &::after
 						background-color: $base-color
+
+	// текущий пункт
+	li.current
+		& > .submenu__tab
+			a
+				color: $bg-color-base
+				background-color: $base-color
+
+			.submenu__angle
+				& > i
+
+					&::before, &::after
+						background-color: $bg-color-base
 
 	// если есть дроп
 	li.has-drop
@@ -121,10 +133,22 @@
 				+font-medium
 				letter-spacing: 0.05em
 
+	& > li.current
+		& > .submenu__tab
+			a
+				color: $base-color
+				background: none
+
+			.submenu__angle
+				& > i
+
+					&::before, &::after
+						background-color: $base-color
+
 .submenu__drop
 	display: none
 
-	li.current > &
+	li.open > &
 		display: block
 
 	a

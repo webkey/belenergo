@@ -1057,6 +1057,7 @@ function mainMenuSwitcher() {
 			idMainMenu = '#main-menu',
 			idSubMenu = '#sub-menu',
 			activeClass = 'active',
+			xSlide = 100,
 			animationSpeed = 0.2,
 			animationHeightSpeed = 0.08;
 
@@ -1114,21 +1115,28 @@ function mainMenuSwitcher() {
 					'top': 0
 				});
 
-				TweenMax.to($currentContent, animationSpeed, {
-					autoAlpha: 0
-				});
-
-				var $initialContent;
+				var $initialContent, xPos;
 
 				if(activeId === idMainMenu) {
 					$initialContent = $(idSubMenu);
+					$toggler.attr('title', $toggler.data('title'));
 				} else {
 					$initialContent = $(idMainMenu);
+					$toggler.attr('title', $toggler.data('title-alt'));
 				}
 
-				$initialContent.css('z-index', 2);
+				TweenMax.to($currentContent, animationSpeed, {
+					autoAlpha: 0,
+					x: xSlide
+				});
+
 				TweenMax.to($initialContent, animationSpeed, {
-					autoAlpha: 1
+					autoAlpha: 1,
+					x: 0
+				});
+
+				$initialContent.css({
+					'z-index': 2
 				});
 
 				TweenMax.to($currentContainer, animationHeightSpeed, {
@@ -1136,7 +1144,17 @@ function mainMenuSwitcher() {
 
 					onComplete: function () {
 
-						$currentContainer.css('height', 'auto');
+						$currentContainer.css({
+							'height': 'auto'
+						});
+
+						$currentContent.not($initialContent).css({
+							'z-index': -1
+						});
+
+						TweenMax.set($currentContent.not($initialContent), {
+							x: -xSlide
+						});
 
 						$initialContent.css({
 							'position': 'relative',
@@ -1154,7 +1172,10 @@ function mainMenuSwitcher() {
 				$currentToggler.removeClass(activeClass);
 				$currentContent.removeClass(activeClass);
 
-				if (activeId !== idMainMenu) {
+				if (activeId === idMainMenu) {
+					$currentToggler.removeClass(activeClass);
+					$(idSubMenu).addClass(activeClass);
+				} else {
 					$currentToggler.addClass(activeClass);
 					$(idMainMenu).addClass(activeClass);
 				}

@@ -884,17 +884,46 @@
 					&::before, &::after
 						background-color: $bg-color-base !important
 
-		// текущий пункт
-		li.current
+		// пункт с открытым дропом
+		li.open
 			& > .submenu__tab
 				a
+					+font-bold
 					color: $base-color
+					text-decoration: underline
 
 				.submenu__angle
 					& > i
 						&::before, &::after
 							background-color: $base-color
 
+		// текущий пункт
+		li.current
+			& > .submenu__tab
+				a
+					color: $bg-color-base
+					background-color: $text-color-base
+
+				.submenu__angle
+					& > i
+						&::before, &::after
+							background-color: $bg-color-base
+
+	// первый уровень навигации
+	.submenu-list
+
+		& > li.current
+			& > .submenu__tab
+				a
+					color: $base-color
+					background: none
+					text-decoration: underline
+
+				.submenu__angle
+					& > i
+
+						&::before, &::after
+							background-color: $base-color
 	// submenu end
 
 	//=========== HEADER ==========

@@ -267,7 +267,7 @@
 						<div class="v-middle__row v-middle--center">
 							<div class="v-middle__cell js-mm-switcher">
 								<div class="menu-switcher">
-									<a href="#" class="btn-main-menu js-mm-anchor" title="Главное меню">
+									<a href="#" class="btn-main-menu js-mm-anchor" data-title="Открыть главное меню" data-title-alt="Закрыть главное меню">
 							<span>Главное меню</span>
 							<i>&nbsp;</i>
 						</a>
@@ -394,7 +394,7 @@
 													<!--(2) START submenu SECOND level-->
 													<div class="submenu__drop submenu-drop-js">
 														<ul class="sub-submenu__list">
-															<li>
+															<li class="current">
 																<div class="submenu__tab">
 																	<a href="#"><span>Основные сведения</span></a>
 																	<span class="submenu__angle"><i>&nbsp;</i></span>
@@ -506,7 +506,7 @@
 																	<span class="submenu__angle"><i>&nbsp;</i></span>
 																</div>
 															</li>
-															<li class="has-drop current">
+															<li class="has-drop open">
 																<div class="submenu__tab">
 																	<a href="#"><span>Сбытовая деятельность</span></a>
 																	<span class="submenu__angle"><i>&nbsp;</i></span>
@@ -626,11 +626,29 @@
 												</li>
 												<!--submenu item end-->
 												<!--submenu item start-->
-												<li class="">
+												<li class="has-drop">
 													<div class="submenu__tab">
 														<a href="gallery.html"><span>Инфоцентр</span></a>
 														<span class="submenu__angle"><i>&nbsp;</i></span>
 													</div>
+													<!--(2) START submenu SECOND level-->
+													<div class="submenu__drop submenu-drop-js">
+														<ul class="sub-submenu__list">
+															<li>
+																<div class="submenu__tab">
+																	<a href="#"><span>Состав объединения</span></a>
+																	<span class="submenu__angle"><i>&nbsp;</i></span>
+																</div>
+															</li>
+															<li>
+																<div class="submenu__tab">
+																	<a href="#"><span>Совет ГПО</span></a>
+																	<span class="submenu__angle"><i>&nbsp;</i></span>
+																</div>
+															</li>
+														</ul>
+													</div>
+													<!--(2) END submenu SECOND level-->
 												</li>
 												<!--submenu item end-->
 												<!--submenu item start-->

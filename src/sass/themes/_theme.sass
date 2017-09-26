@@ -659,14 +659,41 @@ $checkbox-color: $text-color-base
 					&::before, &::after
 						background-color: $base-color
 
-		// текущий пункт
-		li.current
+		// пункт с открытым дропом
+		li.open
 			& > .submenu__tab
 				a
 					color: $base-color
 
 				.submenu__angle
 					& > i
+						&::before, &::after
+							background-color: $base-color
+
+		// текущий пункт
+		li.current
+			& > .submenu__tab
+				a
+					color: $text-color-base
+					background-color: $base-color
+
+				.submenu__angle
+					& > i
+						&::before, &::after
+							background-color: $text-color-base
+
+	// первый уровень навигации
+	.submenu-list
+
+		& > li.current
+			& > .submenu__tab
+				a
+					color: $base-color
+					background: none
+
+				.submenu__angle
+					& > i
+
 						&::before, &::after
 							background-color: $base-color
 
