@@ -70,7 +70,7 @@
 		&:first-letter
 			color: $text-color-base
 
-	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner)
+	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all)
 			color: $link-color
 			border-color: $border-color
 
@@ -1135,6 +1135,12 @@
 	// popular end
 
 	// structure
+	.structure-panel
+		background-color: $bg-color-base
+
+	.structure-panel__content
+		border-color: $text-color-base
+
 	.structure-item, .structure-hand
 		&::before
 			border-color: $text-color-base

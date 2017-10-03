@@ -23,7 +23,7 @@
 	hr
 		border-width: $border-width
 
-	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner)
+	.breadcrumbs__list a, .#{$user-content} a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all)
 			padding-top: 0.2em
 			text-decoration: none
 			border-bottom: $border-width solid $border-color
@@ -154,6 +154,7 @@
 			border-bottom: none !important
 			box-shadow: none !important
 			background: none !important
+			padding-top: 0 !important
 
 			&[href]
 				span
@@ -778,6 +779,12 @@
 
 		&::after
 			display: none !important
+
+	.ph-gallery-all
+		background-color: $text-color-base
+
+		&::after
+			content: none
 
 	.ph-gallery__zoom
 		background-color: $text-color-base
