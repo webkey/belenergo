@@ -30,7 +30,7 @@
 /* menu switcher
 .menu-switcher
 	margin-bottom: -5px
-	+padding-horizontal($sidebar-inside-space-alt)
+	+padding-horizontal($sidebar-inside-space-alt, 20px)
 	+clear-spacing
 	+clear
 
@@ -38,7 +38,7 @@
 		display: none
 
 	+media('<desk-lg')
-		+padding-horizontal($sidebar-inside-space-alt--lg)
+		+padding-horizontal($sidebar-inside-space-alt--lg, 10px)
 
 	.btn-main-menu
 		+display-inline-block-middle
@@ -49,7 +49,7 @@
 			+display-inline-block-middle
 			width: calc(100% - 70px)
 			position: relative
-			+padding-horizontal(20px)
+			+padding-horizontal(20px, 0)
 			+font-medium
 			+font(16px, 20px)
 			letter-spacing: 0.05em
