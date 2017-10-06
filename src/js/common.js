@@ -1114,8 +1114,6 @@ function simpleAccordion() {
 		self.$accordionHand.on('click', function (e) {
 			e.preventDefault();
 
-			console.log("modifiers: ", modifiers);
-
 			var $currentHand = $(this),
 				$currentHeader = $currentHand.closest(self.$accordionHeader),
 				$currentItem = $currentHand.closest(self.$accordionItem),
@@ -1326,13 +1324,12 @@ function initMultiAccordion() {
 			accordionItem: '.js-accordion__item',
 			accordionHeader: '.js-accordion__header',
 			accordionHand: '.js-accordion__hand',
-			scrollToTop: true,
-			scrollToTopSpeed: 300,
-			scrollToTopOffset: $('.header').outerHeight(),
-			// accordionContent: '.accordion-panel',
+			// scrollToTop: true,
+			// scrollToTopSpeed: 300,
+			// scrollToTopOffset: $('.header').outerHeight(),
 			indexInit: false,
 			clickOutside: false,
-			animateSpeed: 300
+			animateSpeed: 200
 		});
 	}
 }
@@ -2261,6 +2258,110 @@ function lightGalleryInit() {
 }
 
 /**
+ * filter structure
+ * */
+function filterStructure() {
+	var $filtersContainer = $('.filters-js');
+
+	if($filtersContainer.length) {
+
+		var classNoItem = 'filter-no-item',
+			classCounter = 'filter-counter',
+			classHideElements = 'filters--hide',
+			noItemText = 'Извините, организаций соответствующих запросу не найдено. Попробуйте изменить фильтр.';
+
+		var $noItemTemplate = $('<div />', {
+			class: classNoItem,
+			text: noItemText
+		});
+
+		var $counterTemplate = $('<div />', {
+			class: classCounter
+		});
+
+		$filtersContainer.on('change', ':checkbox', function () {
+
+			var $filterItem = $('[data-tags]');
+
+			if(!$filterItem.length) return false;
+
+			var tags = checkedFilters($(this).closest('.filters-js'));
+
+			var selector = createSelectorTypeAnd(tags);
+
+			$filtersContainer.parent().find('.'+ classNoItem).remove();
+			$filtersContainer.parent().find('.'+ classCounter).remove();
+
+			$filterItem.removeClass(classHideElements).show(0);
+
+			if ($filterItem.filter(selector).length) {
+				$counterTemplate.clone().appendTo($('.filters-js').parent()).end().text('Количество организаций: ' + $filterItem.filter(selector).length);
+			}
+
+			if (selector) {
+
+				$filterItem.addClass(classHideElements).hide(0);
+				$filterItem.filter(selector).removeClass(classHideElements).show(0);
+
+				if (!$filterItem.filter(selector).length) {
+					$filtersContainer.parent().append($noItemTemplate.clone());
+				}
+			}
+
+			console.log(".filter(selector).find('.structure-item').length: ", $('.structure-item').filter().length);
+		});
+	}
+
+	// формируем массив из значений тэгов отмеченных фильтров
+	function checkedFilters($container) {
+		var $input = $container.find(':checkbox');
+
+		var hasCheckedInput = false;
+
+		var arr = [];
+
+		$.each($input, function () {
+
+			var $currentInput = $(this);
+
+			if ($currentInput.prop('checked')) {
+				hasCheckedInput = true;
+
+				arr.push($currentInput.data('tag'));
+			}
+		});
+
+		return arr;
+	}
+
+	// Создаем селектор собирающий в себе все теги.
+	// Нужно показать все элементы которые имеют хотя бы один совпадающий тег.
+	// Возвращает массив в виде набора селекторов: [data-tags*="значение-1"], [data-tags*="значение-2"], ... , [data-tags*="значение-n"]
+	function createSelectorTypeAnd(arr) {
+		var newArr = [];
+
+		arr.forEach(function(item, i, arr) {
+			newArr.push('[data-tags*="' + item + '"]');
+		});
+
+		return newArr.join(', ');
+	}
+}
+
+/**
+ * !Scroll to the anchor on load page if has hash tag in url
+ */
+function scrollToHashTag() {
+	var hashTag = window.location.hash;
+	if (hashTag.length > 0) {
+		var $doc = $('html, body');
+		if (!$doc.is('animated')) {
+			$doc.animate({scrollTop: $('[id=' + hashTag.substring(1) + ']').offset().top - $('.header').outerHeight()}, 200);
+		}
+	}
+}
+
+/**
  * !Always place the footer at the bottom of the page
  * */
 function footerBottom() {
@@ -2355,6 +2456,7 @@ function formSuccessExample() {
 $(window).on('load', function () {
 	addClassesOnScrollPage();
 	stickyLayout();
+	scrollToHashTag();
 });
 
 $(window).on('debouncedresize', function () {
@@ -2387,8 +2489,9 @@ $(document).ready(function () {
 	equalHeight();
 	popupsInit();
 	objectFitImages(); // object-fit-images initial
-	initWow();
+	// initWow();
 	lightGalleryInit();
+	filterStructure();
 
 	formSuccessExample();
 	footerBottom();

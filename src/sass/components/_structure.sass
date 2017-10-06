@@ -37,6 +37,9 @@ $structure-branch-space-h--sm: 14px
 	+media('<mob-md')
 		margin-left: $structure-branch-space-h--sm
 
+	&.filters--hide
+		opacity: 0.3
+
 	&:last-child
 		margin-bottom: 0
 
@@ -219,17 +222,11 @@ $structure-branch-space-h--sm: 14px
 		+clear-spacing
 
 		&.two-col
-			+grid-parent($grid-space)
-
-			+media('<desk-lg')
-				+grid-parent($grid-space--lg)
+			+grid-parent($grid-space--lg)
 
 			& > li
 				padding-bottom: 0
-				+grid-item(2, $grid-space)
-
-				+media('<desk-lg')
-					+grid-item-responsive(2, $grid-space--lg)
+				+grid-item(2, $grid-space--lg)
 
 				+media('<mob-lg')
 					+grid-item-responsive(1, $grid-space--lg)

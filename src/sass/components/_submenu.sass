@@ -20,6 +20,9 @@
 
 	+triangle-pretty(top, (right: 50%, bottom: 100%), $bg-color-base, 14px, 22px, $base-color, 1px)
 
+	+media('<desk-lg')
+		padding: round($grid-space--lg*0.6) $grid-space--lg
+
 	li
 		position: relative
 
@@ -27,9 +30,12 @@
 		display: block
 		+padding-vertical(8px)
 		+font(16px, round-float(24/16, 2))
-		letter-spacing: 0.025em
+		letter-spacing: normal
 		text-decoration: none
 		color: $text-color-base
+
+		+media('<desk-lg')
+			line-height: round-float(20/16, 2)
 
 		@if $has-animation
 			transition:
@@ -131,7 +137,6 @@
 		& > .submenu__tab
 			a
 				+font-medium
-				letter-spacing: 0.05em
 
 	& > li.current
 		& > .submenu__tab
