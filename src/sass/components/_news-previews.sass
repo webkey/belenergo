@@ -42,7 +42,7 @@ $delay: 0.2s
 	+font(1.5rem, round-float(18px/15px, 2))
 	letter-spacing: normal
 
-	&.wow
+	//&.wow
 		transform: translate3d(0, 50px, 0)
 		transition:
 			delay: $delay
@@ -67,7 +67,7 @@ $delay: 0.2s
 	+media('<1280px')
 		+grid-item-responsive(2, $news-previews-space--lg)
 
-		&.wow
+		//&.wow
 
 			&:nth-child(3n-1), &:nth-child(3n)
 				transition:
@@ -80,7 +80,7 @@ $delay: 0.2s
 	+media('<tab-lg')
 		+grid-item-responsive(3, $news-previews-space--lg)
 
-		&.wow
+		//&.wow
 			&:nth-child(2n)
 				transition:
 					delay: $delay
@@ -96,7 +96,7 @@ $delay: 0.2s
 	+media('<tab-sm')
 		+grid-item-responsive(2, $news-previews-space--lg)
 
-		&.wow
+		//&.wow
 			&:nth-child(3n-1), &:nth-child(3n)
 				transition:
 					delay: $delay
@@ -108,7 +108,7 @@ $delay: 0.2s
 	+media('<mob-md')
 		+grid-item-responsive(1, $news-previews-space--lg)
 
-		&.wow
+		//&.wow
 			&:nth-child(3n-1), &:nth-child(3n), &:nth-child(2n)
 				transition:
 					delay: $delay
@@ -259,7 +259,7 @@ $delay: 0.2s
 	.news-previews__item
 		+grid-item-responsive(1, $news-previews-list-space)
 
-		&.wow
+		//&.wow
 			&:nth-child(3n-1), &:nth-child(3n), &:nth-child(2n)
 				transition:
 					delay: $delay
@@ -270,7 +270,7 @@ $delay: 0.2s
 		+media('<mob-lg')
 			+grid-item-responsive(2, $news-previews-space--lg)
 
-			&.wow
+			//&.wow
 				&:nth-child(2n)
 					transition:
 						delay: $delay*2
@@ -278,7 +278,7 @@ $delay: 0.2s
 		+media('<mob-md')
 			+grid-item-responsive(1, $news-previews-space--lg)
 
-			&.wow
+			//&.wow
 				&:nth-child(2n)
 					transition:
 						delay: $delay
