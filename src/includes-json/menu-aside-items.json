@@ -1,0 +1,28 @@
+[
+	{
+		"name": "menuAside",
+		"text": "Программа",
+		"icon": ""
+	},
+	{
+		"current": "true",
+		"name": "menuAside",
+		"text": "Участники",
+		"icon": ""
+	},
+	{
+		"name": "menuAside",
+		"text": "Экран соревнований",
+		"icon": ""
+	},
+	{
+		"name": "menuAside",
+		"text": "Этапы",
+		"icon": ""
+	},
+	{
+		"name": "menuAside",
+		"text": "Судейство",
+		"icon": ""
+	}
+]

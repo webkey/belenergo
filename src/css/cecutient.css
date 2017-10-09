@@ -15,7 +15,7 @@
 	border-width: 2px;
 }
 
-.cecutient-version .breadcrumbs__list a, .cecutient-version .user-content a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all) {
+.cecutient-version .breadcrumbs__list a, .cecutient-version .user-content a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all):not(.info-links__inner) {
 	padding-top: 0.2em;
 	text-decoration: none;
 	border-bottom: 2px solid black;
@@ -863,12 +863,12 @@
 	color: black;
 }
 
-.color-scheme-bw .breadcrumbs__list a, .color-scheme-bw .user-content a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all) {
+.color-scheme-bw .breadcrumbs__list a, .color-scheme-bw .user-content a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all):not(.info-links__inner) {
 	color: black;
 	border-color: black;
 }
 
-.color-scheme-bw .breadcrumbs__list a:hover, .color-scheme-bw .user-content a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all):hover {
+.color-scheme-bw .breadcrumbs__list a:hover, .color-scheme-bw .user-content a:not(.btn-default):not(.btn-default-alt):not(.view-print):not(.icon-jfi-trash):not(.promo-slide):not(.news-previews__link):not(.news-previews__label):not(.several-slider__inner):not(.popular__inner):not(.structure-panel-item):not(.ph-gallery__inner):not(.ph-gallery-all):not(.info-links__inner):hover {
 	background-color: black;
 	box-shadow: -4px 0 0 black, 4px 0 0 black;
 	color: white;
@@ -2015,18 +2015,19 @@
 
 .color-scheme-bw .info-links__text {
 	border-bottom-color: black;
+	transition: none;
 }
 
-.no-touchevents .color-scheme-bw .info-links__inner:hover, .no-touchevents .color-scheme-bw .info-links__inner:focus {
+.no-touchevents .color-scheme-bw .info-links__inner:hover, .color-scheme-bw .current .info-links__inner {
 	background-color: black;
 	color: white;
 }
 
-.no-touchevents .color-scheme-bw .info-links__inner:hover .info-links__icon path, .no-touchevents .color-scheme-bw .info-links__inner:focus .info-links__icon path {
+.no-touchevents .color-scheme-bw .info-links__inner:hover .info-links__icon path, .color-scheme-bw .current .info-links__inner .info-links__icon path {
 	fill: white;
 }
 
-.no-touchevents .color-scheme-bw .info-links__inner:hover .info-links__text, .no-touchevents .color-scheme-bw .info-links__inner:focus .info-links__text {
+.no-touchevents .color-scheme-bw .info-links__inner:hover .info-links__text, .color-scheme-bw .current .info-links__inner .info-links__text {
 	border-bottom-color: transparent;
 }
 

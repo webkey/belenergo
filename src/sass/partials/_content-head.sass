@@ -23,6 +23,17 @@
 	h1, h2, h3
 		color: white
 		text-transform: uppercase
+		margin-right: $aside-width
+		line-height: 1.3
+
+		+media('<desk-hd')
+			margin-right: $aside-width--hd
+
+		+media('<desk-lg')
+			margin-right: $aside-width--lg
+
+		+media('<tab-lg')
+			margin-right: 0
 
 	.breadcrumbs__list a
 		color: white

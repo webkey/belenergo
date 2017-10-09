@@ -26,6 +26,10 @@
 
 		<!--CONTENT-->
 		<div class="content user-content">
+			<div class="menu-aside add-shadow--full sibling-classes-js">
+				@@loop('_tpl_menu-aside-items.html', 'includes-json/menu-aside-items.json')
+			</div>
+
 			<div class="filters-container-js" data-no-filters-test="Извините, организаций соответствующих запросу не найдено. Попробуйте изменить фильтр." data-counter-text="Количество совпадений:">
 				<!--filters-->
 				<div class="filters-group">

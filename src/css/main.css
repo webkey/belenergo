@@ -1033,6 +1033,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 	height: 13px;
 	border-radius: 50%;
 	border: 2px solid #242b53;
+	background-color: #242b53;
 }
 
 .user-content ol {
@@ -1071,7 +1072,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em {
 }
 
 .user-content ul ul li::before, .user-content ol ul li::before {
-	background-color: #242b53;
+	background-color: transparent;
 }
 
 /*list reset */
@@ -4913,6 +4914,26 @@ li.hover > .nav__drop {
 .content-head h1, .content-head h2, .content-head h3 {
 	color: white;
 	text-transform: uppercase;
+	margin-right: 394px;
+	line-height: 1.3;
+}
+
+@media (max-width: 1919px) {
+	.content-head h1, .content-head h2, .content-head h3 {
+		margin-right: 374px;
+	}
+}
+
+@media (max-width: 1599px) {
+	.content-head h1, .content-head h2, .content-head h3 {
+		margin-right: 275px;
+	}
+}
+
+@media (max-width: 959px) {
+	.content-head h1, .content-head h2, .content-head h3 {
+		margin-right: 0;
+	}
 }
 
 .content-head .breadcrumbs__list a {
@@ -5047,8 +5068,8 @@ li.hover > .nav__drop {
 .social-networks__list {
 	position: relative;
 	float: left;
-	width: calc(100% + 18px);
-	margin: 0 -9px -9px;
+	width: calc(100% + 10px);
+	margin: 0 -5px -5px;
 	font-size: 0;
 	letter-spacing: -4px;
 }
@@ -5056,7 +5077,7 @@ li.hover > .nav__drop {
 .social-networks__item {
 	display: inline-block;
 	vertical-align: top;
-	margin: 0 9px 9px;
+	margin: 0 5px 5px;
 	font-size: 14px;
 	line-height: 1.29;
 	letter-spacing: normal;
@@ -5136,6 +5157,10 @@ li.hover > .nav__drop {
 
 .no-touchevents .social-networks__item a:hover.youtube path {
 	fill: #e62117;
+}
+
+.no-touchevents .social-networks__item a:hover.telegram path {
+	fill: #0088cc;
 }
 
 .no-touchevents .social-networks__item a:hover.instagram path {
@@ -8483,11 +8508,11 @@ li.open > .submenu__drop {
 	content: none;
 }
 
-.no-touchevents .info-links__inner:hover, .no-touchevents .info-links__inner:focus {
+.no-touchevents .info-links__inner:hover, .current .info-links__inner {
 	color: white;
 }
 
-.no-touchevents .info-links__inner:hover::after, .no-touchevents .info-links__inner:focus::after {
+.no-touchevents .info-links__inner:hover::after, .current .info-links__inner::after {
 	-webkit-transform-origin: 0 50%;
 	    -ms-transform-origin: 0 50%;
 	        transform-origin: 0 50%;
@@ -8496,11 +8521,11 @@ li.open > .submenu__drop {
 	transition-duration: 0.2s;
 }
 
-.no-touchevents .info-links__inner:hover .info-links__text, .no-touchevents .info-links__inner:focus .info-links__text {
+.no-touchevents .info-links__inner:hover .info-links__text, .current .info-links__inner .info-links__text {
 	transition-duration: 0.2s;
 }
 
-.no-touchevents .hover-next .info-links__inner::before, .no-touchevents .info-links__inner:hover::before, .no-touchevents .info-links__inner:focus::before {
+.no-touchevents .hover-next .info-links__inner::before, .no-touchevents .info-links__inner:hover::before, .current .info-links__inner::before, .current + .info-links__item .info-links__inner::before {
 	opacity: 0;
 	transition-duration: 0.2s;
 }
@@ -8537,6 +8562,10 @@ li.open > .submenu__drop {
 	}
 }
 
+.info-links__text:last-child {
+	margin-bottom: 0;
+}
+
 .info-links__icon svg {
 	display: inline-block;
 	vertical-align: top;
@@ -8562,6 +8591,55 @@ li.open > .submenu__drop {
 }
 
 /* info links end */
+/* menu aside */
+.menu-aside {
+	display: none;
+	margin-bottom: 3.6rem;
+}
+
+@media (max-width: 959px) {
+	.menu-aside {
+		display: block;
+	}
+}
+
+.aside .menu-aside {
+	display: block;
+	margin-bottom: 60px;
+}
+
+@media (max-width: 1599px) {
+	.aside .menu-aside {
+		margin-bottom: 30px;
+	}
+}
+
+@media (max-width: 959px) {
+	.aside .menu-aside {
+		display: none;
+	}
+}
+
+.aside .menu-aside:last-child {
+	margin-bottom: 0;
+}
+
+@media (max-width: 479px) {
+	.menu-aside .info-links__inner {
+		padding: 10px;
+		text-align: center;
+		direction: ltr;
+	}
+}
+
+@media (max-width: 479px) {
+	.menu-aside .info-links__text {
+		width: 100%;
+		padding-left: 0;
+	}
+}
+
+/* menu aside end */
 /* popular */
 .popular {
 	margin-bottom: 7.2rem;

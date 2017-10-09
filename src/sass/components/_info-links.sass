@@ -66,7 +66,7 @@
 		&::before
 			content: none
 
-	.no-touchevents &:hover, .no-touchevents &:focus
+	.no-touchevents &:hover, .current &
 		//background-color: $base-color-alt
 		color: $bg-color-base
 
@@ -77,7 +77,7 @@
 			transition:
 				duration: $filling-speed
 
-	.no-touchevents .hover-next &, .no-touchevents &:hover, .no-touchevents &:focus
+	.no-touchevents .hover-next &, .no-touchevents &:hover, .current &, .current + .info-links__item &
 		&::before
 			opacity: 0
 			transition-duration: $filling-speed
@@ -104,6 +104,9 @@
 		padding-left: $grid-space--lg
 		direction: ltr
 
+	&:last-child
+		margin-bottom: 0
+
 .info-links__icon
 	svg
 		+display-inline-block-top
@@ -120,3 +123,39 @@
 			+size(36px)
 
 /* info links end
+
+/* menu aside
+.menu-aside
+	display: none
+	margin-bottom: $bottom-space--ml
+
+	+media('<tab-lg')
+		display: block
+
+	.aside &
+		display: block
+		margin-bottom: $aside-widget-bottom-space
+
+		+media('<desk-lg')
+			margin-bottom: $layout-spaces--lg
+
+		+media('<tab-lg')
+			display: none
+
+		&:last-child
+			margin-bottom: 0
+
+	.info-links__inner
+
+		+media('<mob-md')
+			padding: #{$grid-space--sm}
+			text-align: center
+			direction: ltr
+
+	.info-links__text
+
+		+media('<mob-md')
+			width: 100%
+			padding-left: 0
+
+/* menu aside end
