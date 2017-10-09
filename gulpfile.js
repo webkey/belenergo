@@ -70,8 +70,8 @@ gulp.task('sassCompilation', ['compressNormalizeCss'], function () { // Созд
 		// .pipe(cleanCSS({
 		// 	compatibility: 'ie9',
 		// 	minify: false
-		// }))
-		.pipe(sourcemaps.write())
+		// })) // Минифицируем css
+		.pipe(sourcemaps.write('./'))
 		.pipe(gulp.dest('./src/css')) // Выгружаем результата в папку src/css
 		.pipe(browserSync.reload({
 			stream: true

@@ -26,10 +26,16 @@ $structure-branch-space-h--sm: 14px
 		right: 100%
 		border: 0 solid $base-color-alt
 
+		.structure-no-branches &
+			content: none
+
 .structure-item
 	position: relative
 	margin-bottom: $structure-item-bottom-space
 	margin-left: $structure-branch-space-h
+
+	.structure-no-branches &
+		margin-left: 0
 
 	+media('<desk-lg')
 		margin-bottom: $structure-item-bottom-space--sm
@@ -67,6 +73,14 @@ $structure-branch-space-h--sm: 14px
 
 			+media('<desk-lg')
 				height: #{$structure-branch-space-v--sm + $structure-branch-weight}
+
+.structure-header
+	position: relative
+	box-shadow: 0 3px 0 -2px white
+	z-index: 2
+
+	.structure-panel &
+		z-index: 1
 
 .structure-hand
 	$this-angle-lines-width: 13px
@@ -217,6 +231,10 @@ $structure-branch-space-h--sm: 14px
 		font-size: 14px
 		+padding-horizontal(#{$grid-space--sm})
 
+	p
+		a
+			word-wrap: break-word
+
 	.short-contacts
 		display: block
 		+clear-spacing
@@ -231,13 +249,14 @@ $structure-branch-space-h--sm: 14px
 				+media('<mob-lg')
 					+grid-item-responsive(1, $grid-space--lg)
 
-				+media('<mob-md')
-					a, & > div
-							font-size: 14px
-							line-height: 18px
+		& > li
+			+media('<mob-md')
+				a, & > div
+						font-size: 14px
+						line-height: 18px
 
-					& > i
-						+size(18px)
+				& > i
+					+size(18px)
 
 .structure-panel-item
 	padding: #{round($grid-space*0.5)} #{$grid-space} #{round($grid-space*0.5)}

@@ -785,6 +785,31 @@
 
 	// filters end
 
+	// filters reset button
+	.filters-reset
+		padding-left: 25px !important
+
+		&::before, &::after
+			display: block !important
+
+		span
+			border-bottom-color: $text-color-base
+
+		// hover
+		&:hover:not(:disabled)
+			color: $base-color
+
+			&::before
+				opacity: 1
+
+			&::after
+				opacity: 0
+
+			span
+				border-bottom-color: $text-color-base
+
+	// filters reset button end
+
 	// pagination
 	.pg-first, .pg-last, .pg-prev, .pg-next
 		.no-touchevents &:not(.disabled):hover

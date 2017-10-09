@@ -4,7 +4,7 @@
 
 /* filters
 .filters-group
-	margin-bottom: $bottom-space--lg
+	margin-bottom: $bottom-space--md
 
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
@@ -16,7 +16,7 @@
 	+font-medium
 
 	+media('<desk-lg')
-		margin-bottom: $bottom-space--sm
+		margin-bottom: $bottom-space--ml
 		padding: #{round($grid-space--lg*0.85)} #{$grid-space--lg}
 
 	&:last-child
@@ -95,3 +95,110 @@
 			+display-inline-block-top
 
 /* filters end
+
+/* filters alt
+.filters-alt-list
+	&, .#{$user-content} &
+		+grid-parent($grid-space)
+		margin-bottom: $bottom-space--ml
+		padding: 0 0 $bottom-space--ml
+		+clear-spacing
+
+		&::before
+			+pseudo()
+			bottom: 0
+			left: round($grid-space/2)
+			right: round($grid-space/2)
+			border-bottom: 1px solid $border-color
+
+		+media('<desk-lg')
+			margin-bottom: $bottom-space
+			padding: 0 0 $bottom-space
+			+grid-parent($grid-space--lg)
+
+		+media('<mob-lg')
+			+grid-parent($grid-space--sm)
+
+		&:last-child
+			margin-bottom: 0
+
+		li
+			+grid-item(4, $grid-space)
+			margin: 0
+
+			+media('<desk-lg')
+				+grid-item-responsive(3, $grid-space--lg)
+
+			+media('<tab-sm')
+				+grid-item-responsive(2, $grid-space--lg)
+
+			+media('<mob-md')
+				+grid-item-responsive(1, $grid-space--lg)
+
+			&::before
+				content: none
+
+	&
+		display: block
+		position: relative
+		overflow: hidden
+
+		label
+			margin-bottom: 0
+
+/* filters alt end
+
+/* filters reset button
+.filters-reset
+	position: relative
+	+display-inline-block-top
+	padding: 0 0 0 24px
+	margin: 0 0 $bottom-space
+	background: none
+	box-shadow: none
+	border: none
+	+font-medium
+	color: inherit
+	letter-spacing: 0.025em
+
+	// add icon
+	&::before, &::after
+		+pseudo()
+		+position(50%, 0)
+		+size(16px)
+		margin-top: -8px
+
+	&::before
+		background: url(../../img/depict-clear.svg) no-repeat
+
+	&::after
+		opacity: 0
+		background: url(../../img/depict-clear-h.svg) no-repeat
+
+	// add underline
+	span
+		border-bottom: 1px dotted $text-color
+
+	// last child
+	&:last-child
+		margin-bottom: 0
+
+	// disabled
+	&:disabled
+		cursor: default
+		opacity: 0.4
+
+	// hover
+	&:hover:not(:disabled)
+		color: $base-color
+
+		&::before
+			opacity: 0
+
+		&::after
+			opacity: 1
+
+		span
+			border-bottom-color: $base-color
+
+/* filters reset button end
