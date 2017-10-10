@@ -45,6 +45,9 @@
 .depict-email
 	background-image: url(../../img/depict-email.svg)
 
+.depict-globe
+	background-image: url(../../img/depict-globe.svg)
+
 .depict-all-photos
 	background: url(../../img/depict-all-photos.svg) no-repeat 0 0
 	background-size: 100%
@@ -93,7 +96,7 @@
 		fill: inherit
 
 	// hover
-	.no-touchevents &:hover, .no-touchevents &:focus
+	.no-touchevents &:hover
 		transition-duration: $filling-speed
 
 		&::after
@@ -110,7 +113,7 @@
 		@else
 			transition: none
 
-		.no-touchevents &:hover, .no-touchevents &:focus
+		.no-touchevents &:hover
 			background-color: $base-color
 
 	// disabled
@@ -133,7 +136,7 @@
 	&[type="submit"], &[type="button"], &[type="reset"]
 		background: $btn-text-color
 
-		.no-touchevents &:hover, .no-touchevents &:focus
+		.no-touchevents &:hover
 			background-color: $base-color-alt
 			color: $btn-text-color
 
@@ -198,11 +201,12 @@
 	$arrow-space: 10px
 
 	& > i, & > span
-		+display-inline-block-middle
+		+display-inline-block-top
 
 	& > i
 		position: relative
 		margin-right: $arrow-space
+		margin-top: 2px
 		+font(0, 0)
 		+size($arrow-width, 18px)
 		//background-color: coral
@@ -249,7 +253,7 @@
 				border-color: $base-color-alt
 
 	// hover
-	.no-touchevents &.btn-default-alt:hover, .no-touchevents &.btn-default-alt:focus
+	.no-touchevents &.btn-default-alt:hover
 
 		& > i
 

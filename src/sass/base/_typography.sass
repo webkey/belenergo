@@ -503,7 +503,80 @@ table
 		width: auto
 		min-width: 100%
 
-.table, .table-auto
+.tbl-thumbs
+	text-align: right
+	margin-bottom: $bottom-space
+
+	&:last-child
+		margin-bottom: 0
+
+	.tbl-thumbs-item
+		text-align: left
+
+	.tbl-toggle-view
+		+display-inline-block-top
+		color: $base-color-alt
+		border-bottom: 1px dotted $base-color-alt
+		cursor: pointer
+
+		&:hover
+			color: $base-color
+			border-bottom-color: $base-color
+
+		&::before
+			content: attr(data-full)
+
+		&.tbl-full-view
+			&::before
+				content: attr(data-short)
+
+.tbl
+	.td-auto
+		position: relative
+		max-height: round(15px*1.3*8)
+		overflow-x: hidden
+		overflow-y: auto
+
+		&::-webkit-scrollbar
+			width: 0.4em
+
+		&::-webkit-scrollbar-track
+			background: $bg-color-base
+			display: none
+
+		&::-webkit-scrollbar-thumb
+			background-color: $base-color
+			outline: 1px solid slategrey
+			display: none
+
+		&:hover
+			&::-webkit-scrollbar-track
+				display: block
+
+			&::-webkit-scrollbar-thumb
+				display: block
+
+	.tbl-full-view &
+		.td-auto
+			max-height: none
+			overflow-y: visible
+
+.table-auto-wrap
+	position: relative
+
+	.topscroll
+		width: 100%
+		height: 17px
+		overflow-y: auto
+		z-index: 5
+
+		.touchevents &
+			display: none
+
+	.topscroll-hand
+		height: 1px
+
+.table, .table-auto, .table-auto-wrap
 	margin-bottom: $bottom-space--lg
 
 	+media('<desk-lg')
@@ -523,9 +596,11 @@ table
 		border: none
 
 		td, th
+			+font(15px, 1.3)
 			background-color: $bg-color-base
 			border: 0 solid $border-color
 			padding: 14px 10px
+			vertical-align: top
 
 		tr:last-child
 			td
@@ -534,14 +609,14 @@ table
 		td
 			border-top-width: 1px
 
+		tr:hover td
+			background-color: $bg-color-selected
+
 		tbody tr:first-child td
 			border-top-width: 0
 
 		th, thead td, tfoot td
-			+font-bold
-			font-size: 1.6rem
-			text-transform: uppercase
-			letter-spacing: 0.05em
+			+font-medium
 			text-align: left
 
 		th, thead td
@@ -553,6 +628,18 @@ table
 		tfoot td
 			color: $base-color
 			border-top-width: 2px
+
+		.tbl-col-lg
+			$width: 420px
+
+			min-width: $width
+			width: $width
+
+		.tbl-col-md
+			$width: 320px
+
+			min-width: $width
+			width: $width
 
 /* table end
 
@@ -1196,3 +1283,9 @@ table
 		display: block
 
 /* js tab end
+
+/* image zoom
+.img-zoom
+	cursor: zoom-in
+
+/* image zoom end

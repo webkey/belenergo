@@ -100,13 +100,21 @@
 				})
 				<!--blockquote end-->
 
+				<p>Обычный стандарт для интерлиньяжа — это около 1,4em, хотя очень часто он слишком плотный для экранов: одна из ключевых характеристик для шрифта, который будет хорошо работать на экранах — это большие контура, которые будут требовать увеличить интерлиньяж, чтобы соответствовать иерархии пространства.</p>
+
 				<!--table styling-->
 				@@include('_tpl_typography_components.html', {
-				"component": "tableStyling"
+					"component": "tableStyling"
 				})
 				<!--table styling end-->
 
 				<p>Обычный стандарт для интерлиньяжа — это около 1,4em, хотя очень часто он слишком плотный для экранов: одна из ключевых характеристик для шрифта, который будет хорошо работать на экранах — это большие контура, которые будут требовать увеличить интерлиньяж, чтобы соответствовать иерархии пространства.</p>
+
+				<!--table inferno-->
+				@@include('_tpl_typography_components.html', {
+					"component": "infernoTable"
+				})
+				<!--table inferno end-->
 
 				<!--table default-->
 				@@include('_tpl_typography_components.html', {
@@ -170,6 +178,12 @@
 				})
 				<!--images-align end-->
 
+				<!--images-zoom-->
+				@@include('_tpl_typography_components.html', {
+				"component": "imageZoom"
+				})
+				<!--images-zoom end-->
+
 				<p>Обычный стандарт для интерлиньяжа — это около 1,4em, хотя очень часто он слишком плотный для экранов: одна из ключевых характеристик для шрифта, который будет хорошо работать на экранах — это большие контура, которые будут требовать увеличить интерлиньяж, чтобы соответствовать иерархии пространства.</p>
 				<!--separator--><hr>
 
@@ -192,6 +206,12 @@
 				"component": "viewPrint"
 				})
 				<!--view-print end-->
+
+				<!--article-footer-->
+				@@include('_tpl_typography_components.html', {
+					"component": "articleFooter"
+				})
+				<!--article-footer end-->
 			</div>
 
 			<script>
@@ -466,6 +486,18 @@
 				}
 				[data-to-left] .navigationByTypographyToLeft:before{
 					content: '>';
+				}
+
+				#hash-infernoTable span::after{
+					content: '';
+					display: inline-block;
+					vertical-align: top;
+					width: 32px;
+					height: 32px;
+					background-image: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDE4LjA1MSAxOC4wNTEiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDE4LjA1MSAxOC4wNTE7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8Zz4KCQk8cGF0aCBkPSJNMTYuNTQ4LDMuODM1YzAuNzQxLDEuMjM0LDEuMTcyLDIuNzQ4LDEuMTcyLDQuNTI1YzAsNS4zMjktMy44MSw5LjY2Ni04LjQ5NSw5LjY2NiAgICBTMC43MywxMy42OSwwLjczLDguMzZjMC0xLjYwNSwwLjM1Mi0yLjk5MiwwLjk2Mi00LjE1N0wwLDAuODE3bDUuNDI0LDIuNjg3TDUuNDA1LDMuNjNDNS4wNjEsNS44MzMsMi44NTIsNi4yMDIsMi44Myw2LjIwNSAgICBsLTAuMTI3LDAuMDJsLTAuMTg1LTAuMzdDMi4yNyw2LjYxMywyLjEzMiw3LjQ0OCwyLjEzMiw4LjM2YzAsNC41NTgsMy4xOCw4LjI2NSw3LjA5MSw4LjI2NXM3LjA5NC0zLjcwNyw3LjA5NC04LjI2NSAgICBjMC0xLjA5OC0wLjE5My0yLjA5MS0wLjU0OS0yLjk2NkwxNi41NDgsMy44MzV6IE05LjIyNSwxLjQyNmMxLjg4MSwwLDMuNDY5LDAuNTE5LDQuNjY0LDEuNDUybC0xLjI2MywwLjYyNmwwLjAxOSwwLjEyNiAgICBjMC4zNDMsMi4yMDMsMi41NTUsMi41NzIsMi41NzcsMi41NzVsMC4xMjYsMC4wMmwyLjcwNC01LjQwOGwtMi44MDksMS4zOTFjLTEuNTQxLTEuNDI3LTMuNjY4LTIuMTgzLTYuMDE3LTIuMTgzICAgIGMtMi40MTUsMC00LjU5NCwwLjgwNi02LjE0MSwyLjMxbDEuMzM5LDAuNjY0QzUuNjMxLDEuOTkyLDcuMjY4LDEuNDI2LDkuMjI1LDEuNDI2eiBNNS4zMjQsMTAuNjI2ICAgIGMwLDAuNjEyLDAuNDk3LDEuMTA5LDEuMTA4LDEuMTA5YzAuNjEzLDAsMS4xMDktMC40OTcsMS4xMDktMS4xMDljMC0wLjE5LTAuMDUyLTAuMzY0LTAuMTM1LTAuNTJsLTEuNTUzLTAuNDIgICAgQzUuNTM2LDkuODgxLDUuMzI0LDEwLjIyOCw1LjMyNCwxMC42MjZ6IE0xMS44OTgsMTQuMzY4SDYuNTUydjAuNTIzaDUuMzQ2VjE0LjM2OHogTTguMTg5LDEwLjMxOUw0LjUxLDguMzI2djAuOTk2bDEuMzQyLDAuMzY1ICAgIGwxLjU1MywwLjQxOUw4LjE4OSwxMC4zMTl6IE0xMy45NjcsOC4zMjZsLTMuNjc4LDEuOTkzbDAuODgxLTAuMjRjLTAuMDkzLDAuMTY0LTAuMTQ5LDAuMzQ3LTAuMTQ5LDAuNTQ3ICAgIGMwLDAuNjEyLDAuNDk1LDEuMTA5LDEuMTA5LDEuMTA5YzAuNjEsMCwxLjEwNy0wLjQ5NywxLjEwNy0xLjEwOWMtMC4wMDEtMC40MS0wLjIyNS0wLjc2NC0wLjU1Ny0wLjk1NmwxLjI4OC0wLjM0OVY4LjMyNnoiIGZpbGw9IiNEODAwMjciLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K);
+					-webkit-background-size: contain;
+					background-size: contain;
+					margin-left: 20px;
 				}
 			</style>
 		</div>

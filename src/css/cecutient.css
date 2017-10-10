@@ -901,6 +901,24 @@
 	color: black;
 }
 
+.color-scheme-bw .tbl .td-auto::-webkit-scrollbar-track {
+	background: white;
+}
+
+.color-scheme-bw .tbl .td-auto::-webkit-scrollbar-thumb {
+	background-color: black;
+}
+
+.color-scheme-bw .tbl-thumbs .tbl-toggle-view {
+	color: black;
+	border-bottom-color: black;
+}
+
+.color-scheme-bw .tbl-thumbs .tbl-toggle-view:hover {
+	background-color: black;
+	color: white;
+}
+
 .color-scheme-bw .user-content .tbl td, .color-scheme-bw .user-content .tbl th {
 	background-color: white;
 	border-color: black;
@@ -1561,26 +1579,46 @@
 	background-color: white;
 }
 
+.color-scheme-bw .lg-sub-html, .color-scheme-bw .lg-toolbar {
+	border-color: black;
+}
+
+.color-scheme-bw .lg-toolbar .lg-icon {
+	border: solid black;
+	border-width: 0 1px;
+	color: black;
+}
+
+.color-scheme-bw .lg-toolbar .lg-icon:hover {
+	background-color: black;
+	color: white;
+}
+
 .color-scheme-bw .social-networks__item a {
-	background: white;
-	box-shadow: inset 0 0 0 2px black;
+	padding: 0 !important;
+	background: white !important;
+	box-shadow: none !important;
 }
 
 .color-scheme-bw .social-networks__item a path {
-	fill: black;
+	fill: black !important;
 }
 
-.no-touchevents .color-scheme-bw .social-networks__item a:hover {
-	box-shadow: inset 0 0 0 2px black;
-	background: black;
+.color-scheme-bw .social-networks__item a:hover {
+	box-shadow: inset 0 0 0 2px black !important;
+	background: black !important;
 }
 
-.no-touchevents .color-scheme-bw .social-networks__item a:hover path {
-	fill: white;
+.color-scheme-bw .social-networks__item a:hover path {
+	fill: white !important;
 }
 
 .color-scheme-bw .social-networks__item a:active, .no-touchevents .color-scheme-bw .social-networks__item a:active {
-	box-shadow: none;
+	box-shadow: none !important;
+}
+
+.color-scheme-bw .share-box__label {
+	color: black !important;
 }
 
 .color-scheme-bw .filters a.active {

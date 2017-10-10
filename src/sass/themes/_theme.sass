@@ -79,6 +79,15 @@ $checkbox-color: $text-color-base
 			border-color: $border-color
 			color: $text-color-base
 
+	.tbl-thumbs
+		.tbl-toggle-view
+			color: $text-color-base
+			border-bottom-color: $text-color-base
+
+			&:hover
+				color: $base-color
+				border-bottom-color: $base-color
+
 	.#{$user-content}
 
 		.tbl
@@ -86,6 +95,9 @@ $checkbox-color: $text-color-base
 			td, th
 				background-color: $base-color-alt
 				border-color: $border-color
+
+			tr:hover td
+				background-color: $bg-panels-color
 
 			th, thead td
 				color: $text-color-base
@@ -1011,6 +1023,26 @@ $checkbox-color: $text-color-base
 	.footer__holder
 		border-color: $border-color
 	// footer end
+
+	// share box
+	.share-box
+		.share-box__label
+			color: $text-color-base
+
+		.social-networks__item
+			a
+				border-color: $text-color-base
+
+				path
+					fill: $text-color-base
+
+				&:hover
+					background-color: $text-color-base
+
+					path
+						fill: $base-color-alt
+
+	// share box end
 
 	// filters reset button
 	.filters-reset

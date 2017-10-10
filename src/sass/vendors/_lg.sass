@@ -13,6 +13,9 @@
 #lg-zoom-in, #lg-zoom-out, #lg-actual-size
 	display: none
 
+	.zoom-img-popup &
+			display: block
+
 .lg-sub-html, .lg-toolbar
 	background: rgba($bg-color-base, 0.5)
 	border: 0 solid $border-color
@@ -29,10 +32,21 @@
 	border-width: 0 0 1px
 
 	.lg-icon
+		position: relative
 		+size($header-height)
-		border: 0 solid $border-color
+		border: solid $border-color
 		border-width: 0 1px
 		margin-left: -1px
+		transition: none
+		color: $text-color
+
+		&::after
+			position: absolute
+			+position(50%)
+			transform: translate(-50%, -50%)
+
+		&:hover
+			background-color: $base-color-alt
 
 		+media('<tab-lg')
 			+size($header-height--sm)
@@ -84,5 +98,16 @@
 
 			&::before, &::after
 				color: $bg-color-base
+
+
+.zoom-img-popup.lg-grab img.lg-object
+	cursor: zoom-in
+
+.zoom-img-popup.lg-zoomed img.lg-object
+	cursor: zoom-out
+
+.zoom-img-popup.lg-grabbing img.lg-object
+	cursor: move
+	cursor: grabbing
 
 /* lg end

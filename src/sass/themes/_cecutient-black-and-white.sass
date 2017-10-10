@@ -111,6 +111,24 @@
 			border-color: $border-color
 			color: $text-color-base
 
+	.tbl
+		.td-auto
+
+			&::-webkit-scrollbar-track
+				background: $bg-color-base
+
+			&::-webkit-scrollbar-thumb
+				background-color: $base-color
+
+	.tbl-thumbs
+		.tbl-toggle-view
+			color: $text-color-base
+			border-bottom-color: $text-color-base
+
+			&:hover
+				background-color: $text-color-base
+				color: $bg-color-base
+
 	.#{$user-content}
 
 		.tbl
@@ -753,27 +771,51 @@
 
 	// jFiler end
 
+	// lg
+	.lg-sub-html, .lg-toolbar
+		border-color: $border-color
+
+	.lg-toolbar
+
+		.lg-icon
+			border: solid $border-color
+			border-width: 0 1px
+			color: $text-color
+
+			&:hover
+				background-color: $base-color-alt
+				color: $bg-color-base
+
+	// lg end
+
 	// social networks
 	.social-networks__item
 
 		a
-			background: $link-color-inverse // НЕ background-color. Перебить градиент
-			box-shadow: inset 0 0 0 #{$border-width} $link-color
+			padding: 0 !important
+			background: $link-color-inverse !important // НЕ background-color. Перебить градиент
+			box-shadow: none !important
 
 			path
-				fill: $link-color
+				fill: $link-color !important
 
-			.no-touchevents &:hover
-				box-shadow: inset 0 0 0 #{$border-width} $link-color
-				background: $link-color // НЕ background-color. Перебить градиент
+			&:hover
+				box-shadow: inset 0 0 0 #{$border-width} $link-color !important
+				background: $link-color !important // НЕ background-color. Перебить градиент
 
 				path
-					fill: $link-color-inverse
+					fill: $link-color-inverse !important
 
 			&:active, .no-touchevents &:active
-				box-shadow: none
+				box-shadow: none !important
 
 	// social networks end
+
+	// share box
+	.share-box__label
+		color: $text-color-base !important
+
+	// share box end
 
 	// filters
 	.filters

@@ -406,14 +406,14 @@ body
 	//+media('<tab-sm')
 		padding: round($text-layout-space-horizontal--sm*1.5) #{$text-layout-space-horizontal--sm} round($text-layout-space-horizontal--sm*2)
 
-	& > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote, & > .layout-text
+	& > p, & > ul, & > ol, & > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > hr, & > blockquote
 		//max-width: $text-layout-width + $text-layout-indent
 		//+padding-horizontal($text-layout-indent, 0)
 		max-width: $text-layout-width
 		+padding-horizontal(0)
 		+push-auto
 
-	.layout-flood
+	.layout-flood, .layout-text
 		//max-width: $flood-layout-width + $text-layout-indent
 		//+padding-horizontal($text-layout-indent, 0)
 		max-width: $text-layout-width

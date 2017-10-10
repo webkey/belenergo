@@ -1,0 +1,62 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/*share box
+.share-box
+	+clear-spacing
+
+	.article-footer &
+		//+display-inline-block-top
+		float: right
+		min-height: 50px
+
+	.share-box__label
+		+display-inline-block-middle
+		+font-medium
+		+font(16px, 24px)
+		color: $base-color-alt
+		letter-spacing: 0.05em
+		text-transform: uppercase
+		max-width: 120px
+		+margin-horizontal($grid-space)
+
+	.social-networks
+		+display-inline-block-middle
+		overflow: hidden
+
+	.social-networks__list
+		margin: -2px
+		width: auto
+		text-align: right
+		padding-left: 4px
+		padding-bottom: 2px
+
+	.social-networks__item
+		margin: 0 0 -2px -2px
+		text-align: left
+
+		a
+			+size(50px)
+			border: 2px solid $base-color-alt
+
+			path
+				fill: $base-color-alt
+
+			&:hover
+				background-color: $base-color-alt
+
+				path
+					fill: $bg-color-base
+
+	+media('<mob-lg')
+		.share-box__label
+			display: none
+
+		.social-networks
+			display: block
+
+		.social-networks__list
+			padding-left: 2px
+
+/*share box end

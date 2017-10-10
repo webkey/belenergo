@@ -1,0 +1,23 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* article
+/* article footer
+.article-footer
+	position: relative
+	margin-top: round($bottom-space--md*0.5)
+
+	.layout-text > *
+		margin-top: round($bottom-space--md*0.5)
+
+		+media('<mob-md')
+			+display-inline-block-top
+			float: none !important
+
+	.pages-nav
+		margin-bottom: 0
+		margin-right: $grid-space
+
+/* article footer end
+/* article end
