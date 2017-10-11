@@ -9,7 +9,7 @@
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
 
-.filters
+.filters, .tape-slider
 	margin-bottom: $bottom-space--md
 	padding: #{round($grid-space*0.85)} #{$grid-space}
 	width: 100% // clear layout
@@ -22,11 +22,12 @@
 	&:last-child
 		margin-bottom: 0
 
-	a
+	a, .tape-slider__anchor
 		display: inline-block
 		vertical-align: top
 		text-decoration: none
 		color: inherit
+		cursor: pointer
 
 		@if $has-animation
 			transition:
@@ -65,7 +66,7 @@
 			span
 				border-bottom-color: transparent !important
 
-.filters-list
+.filters-list, .tape-slider__list
 	&, .#{$user-content} &
 		padding: 0 20px 0 0
 		margin-bottom: 10px
@@ -79,6 +80,8 @@
 		li
 			margin: 0 #{$grid-space} #{round($grid-space*0.5)} 0
 			padding: 0
+			width: auto
+			height: auto
 
 			+media('<mob-lg')
 				margin: 0 #{$grid-space--lg} #{round($grid-space--lg*0.5)} 0
@@ -86,13 +89,14 @@
 			&::before
 				content: none
 
-	&
-		display: block
-		overflow: hidden
-		+clear
+.filters-list
+	display: block
+	overflow: hidden
+	cursor: default
+	+clear
 
-		li
-			+display-inline-block-top
+	li
+		+display-inline-block-top
 
 /* filters end
 

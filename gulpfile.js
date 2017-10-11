@@ -85,6 +85,7 @@ gulp.task('mergeCssLibs', function () { // Таск для мержа css биб
 		, 'src/libs/lightgallery/dist/css/lightgallery.min.css'
 		, 'src/libs/lightgallery/dist/css/lg-fb-comment-box.min.css'
 		, 'src/libs/lightgallery/dist/css/lg-transitions.min.css'
+		, 'src/libs/swiper/dist/css/swiper.min.css' // стили для swiper slider
 		// , 'src/lib/plugin/file.css'
 	]) // Выбираем файлы для конкатенации
 		.pipe(concatCss("src/css/libs.css", {
@@ -112,6 +113,7 @@ gulp.task('copyLibsScriptsToJs', ['copyJqueryToJs'], function () { // Таск �
 		, 'src/libs/select2/dist/js/i18n/ru.js' // локализация для кастомного селекта
 		, 'src/js/temp/filer.min.js' // инпут файл
 		, 'src/libs/slick-carousel/slick/slick.min.js' // slick slider
+		, 'src/libs/swiper/dist/js/swiper.min.js' // swiper slider
 		, 'src/libs/matchHeight/dist/jquery.matchHeight-min.js' // скрипт для выравнивания элементов по максимальному
 		, 'src/libs/sticky-kit/jquery.sticky-kit.min.js' // скрипт для фиксирования блоков
 		, 'node_modules/object-fit-images/dist/ofi.min.js' // object-fit fix for a non-support browsers

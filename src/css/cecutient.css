@@ -924,6 +924,10 @@
 	border-color: black;
 }
 
+.color-scheme-bw .user-content .tbl thead tr:hover td {
+	background-color: white;
+}
+
 .color-scheme-bw .user-content .tbl th, .color-scheme-bw .user-content .tbl thead td, .color-scheme-bw .user-content .tbl tfoot td {
 	color: black;
 	background: white;

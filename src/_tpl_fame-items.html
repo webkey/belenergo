@@ -1,11 +1,19 @@
-<article class="fame__item">
+<article class="fame__item@@if (context.hasInfo) { fame--has-info}">
 	<div class="fame__inner">
 
 		<div class="fame__card add-shadow">
 			<div class="fame__figure">
+				@@if (context.hasInfo) {
 				<a href="#" class="fame__img">
 					<img src="img/@@src" alt="@@title" />
 				</a>
+				}
+				@@if (!context.hasInfo) {
+				<div class="fame__img">
+					<img src="img/@@src" alt="@@title" />
+				</div>
+				}
+				@@if (context.hasInfo) {
 				<div class="fame__info">
 					<ul class="short-contacts">
 						@@if (context.phone) {
@@ -45,6 +53,7 @@
 						}
 					</ul>
 				</div>
+				}
 			</div>
 		</div>
 

@@ -8,10 +8,12 @@
 	user-select: none
 
 // arrows
-.slick-arrow
+.slick-arrow, .swiper-arrow
 	+size(46px, 30px)
 	display: block
 	position: absolute
+	margin-top: 0
+	+font(0, 0)
 	border: none
 	border-radius: 0
 	background: none
@@ -25,15 +27,17 @@
 			property: background, opacity, visibility
 			duration: 0.2s
 
-	.no-touchevents &:not(.slick-disabled):hover
+	.no-touchevents &:not(.slick-disabled):not(.swiper-button-disabled):hover
 		opacity: 1
 		background: #e6e6e6
 
-	&.slick-disabled, .no-touchevents &.slick-disabled
+	&.slick-disabled, .no-touchevents &.slick-disabled,
+	&.swiper-button-disabled, .no-touchevents &.swiper-button-disabled
 		opacity: 0.25
 		-ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
 		filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=25)
 		cursor: default
+		pointer-events: auto
 
 		&::before
 			opacity: 1
@@ -61,20 +65,20 @@
 		transform: rotate(-45deg)
 		margin: 9px 0 0 -13px
 
-	.no-touchevents &:not(.slick-disabled):hover
+	.no-touchevents &:not(.slick-disabled):not(.swiper-button-disabled):hover
 		background-color: transparent
 
 		&::before, &::after
 			border-color: $base-color
 
-	&:not(.slick-disabled):active
+	&:not(.slick-disabled):not(.swiper-button-disabled):active
 		margin-top: 1px
 		margin-bottom: -1px
 
 .slick-prev
 	left: 0
 
-.slick-next
+.slick-next, .swiper-button-next
 	right: 0
 
 	&::after
@@ -809,3 +813,151 @@
 			display: none
 
 /* info links slider (for mobile) end
+
+/*tape slider*/
+.tape-slider
+	margin-bottom: $bottom-space--lg
+	+padding-horizontal(50px)
+	position: relative
+
+	//.tape-slider__list, .#{$user-content} .tape-slider__list
+		margin: 0
+
+		li
+			padding: 0
+			margin: 0
+
+			&::before
+				content: none
+
+	//.tape-slider__list
+		li
+			display: inline-block
+			vertical-align: top
+
+			&.swiper-slide
+				width: auto
+				float: left
+
+//.tape-slider__anchor
+	+display-inline-block-top
+	padding: 14px 15px
+	text-decoration: none
+	font-family: $font-alt
+	font-weight: normal
+	+font(1.2rem, 30px)
+	color: $text-color
+	cursor: pointer
+	text-transform: uppercase
+	transition-property: color
+	transition-duration: $animation-speed
+
+	.no-touchevents &:hover, .no-touchevents .current &, .current &
+		color: $text-color-alt
+
+// swiper slider
+.swiper-container
+	position: relative
+
+	&::before, &::after
+		content: ''
+		position: absolute
+		top: 0
+		height: 100%
+		width: 15px
+		z-index: 2
+		pointer-events: none
+
+	&::before
+		left: 0
+		+linear-gradient(to right, $bg-color-base 0%, transparentize($bg-color-base, 0.4) 50%, transparentize($bg-color-base, 0.9) 100%)
+
+	&::after
+		right: 0
+		+linear-gradient(to left, $bg-color-base 0%, transparentize($bg-color-base, 0.4) 50%, transparentize($bg-color-base, 0.9) 100%)
+
+.tape-slider
+	position: relative
+	+padding-horizontal(round($grid-space--lg*0.5))
+
+	+media('<desk-lg')
+		+padding-horizontal(round($grid-space--lg*0.5))
+
+.tape-slider__list
+	&, .#{$user-content} &
+		padding: 0 !important
+		margin: 0 !important
+
+		li
+			float: left
+			margin: 0
+
+			.tape-slider__anchor
+				user-select: none
+				padding: 0 #{round($grid-space*0.5)}
+
+			+media('<mob-lg')
+				margin: 0
+
+				.tape-slider__anchor
+					padding: 0 #{round($grid-space--lg*0.5)}
+
+.tape-slider
+	$tape-arrow-space: 5px
+
+	.swiper-button-prev,
+	.swiper-button-next
+		transform: translate(0, -50%)
+
+	.swiper-button-prev
+		left: $tape-arrow-space
+
+	.swiper-button-next
+		right: $tape-arrow-space
+
+
+/*tape slider end*/
+
+/*history pages
+.history-pages
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+.history-pages-list
+	// before slide load
+	white-space: nowrap
+	overflow: hidden
+	opacity: 0
+	visibility: hidden
+	// before slide load end
+
+	&.slick-initialized, .no-js &
+		// after slide load
+		white-space: normal
+		overflow: visible
+		opacity: 1
+		visibility: visible
+		// after slide load end
+
+.history-pages__item
+	// before slide load
+	float: none
+	display: inline-block
+	vertical-align: top
+	// before slide load end
+
+	.slick-initialized &
+		// after slide load
+		float: left
+		display: block
+		// after slide load end
+
+.history-pages__img
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+/*history pages end

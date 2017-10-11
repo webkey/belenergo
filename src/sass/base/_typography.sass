@@ -159,6 +159,9 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	background-color: $bg-color-base
 	border: 2px solid $base-color-alt
 
+	&::after
+		+position(17px)
+
 /* add shadow end
 
 /* heading
@@ -420,15 +423,15 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 			margin-bottom: 0
 
 		li
-			padding-left: 40px
+			padding-left: 30px
 			margin: 0 0 round($bottom-space*0.5)
 			position: relative
 
 	ul > li::before
 		+pseudo()
 		left: 0
-		top: 0.3em
-		+size(13px)
+		top: 0.5em
+		+size(8px)
 		border-radius: 50%
 		border: 2px solid $text-color-alt
 		background-color: $text-color-alt
@@ -447,7 +450,7 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 				content: counter(section)
 				padding: 0
 				+size(25px)
-				margin-left: -40px
+				margin-left: -30px
 				margin-right: 15px
 				border: 2px solid $text-color-alt
 				border-radius: 50%
@@ -565,10 +568,17 @@ table
 	position: relative
 
 	.topscroll
+		position: absolute
+		left: 0
+		top: 0
 		width: 100%
 		height: 17px
 		overflow-y: auto
 		z-index: 5
+
+		&.is_stuck
+			left: auto
+			top: auto
 
 		.touchevents &
 			display: none
@@ -612,6 +622,9 @@ table
 		tr:hover td
 			background-color: $bg-color-selected
 
+		thead tr:hover td
+			background-color: $base-color-alt
+
 		tbody tr:first-child td
 			border-top-width: 0
 
@@ -624,6 +637,7 @@ table
 			background: $base-color-alt
 			border-color: $base-color-alt
 			border-top-width: 0
+			padding-top: 25px
 
 		tfoot td
 			color: $base-color
@@ -1289,3 +1303,30 @@ table
 	cursor: zoom-in
 
 /* image zoom end
+
+/* history
+.history-heading
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	&:last-child
+		margin-bottom: 0
+
+	h2
+		margin-bottom: $bottom-space--lg
+
+		+media('<desk-lg')
+			margin-bottom: $bottom-space--ml
+
+		&:last-child
+			margin-bottom: 0
+
+.periods-title
+	color: $base-color
+	+font-medium
+	+font(32px, round-float(36/32, 2))
+	margin-bottom: $bottom-space
+
+/* history end

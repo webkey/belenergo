@@ -1,0 +1,138 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* periods
+
+.periods
+	margin-bottom: $bottom-space--lg
+
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
+
+	&:last-child
+		margin-bottom: 0
+
+.periods-item
+	position: relative
+
+	&:last-child
+		margin-bottom: 0
+
+.periods-header
+	position: relative
+	z-index: 2
+
+	.periods-panel &
+		z-index: 1
+
+.periods-hand
+	$this-angle-lines-width: 13px
+	$this-angle-lines-height: 3px
+	$this-icon-lines-color: $base-color-alt
+	
+	position: relative
+	border: 2px solid $base-color-alt
+	padding: #{round($grid-space*0.5)} #{round($grid-space*2 + $this-angle-lines-width)} #{round($grid-space*0.5)} #{$grid-space}
+	cursor: pointer
+	+font-medium
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.05em
+	color: $base-color-alt
+	text-transform: uppercase
+	user-select: none
+
+	@if $has-animation
+		transition:
+			property: background-color, color
+			duration: $animation-speed
+
+	+media('<desk-lg')
+		padding: #{round($grid-space--lg*0.5)} #{round($grid-space--lg*2 + $this-angle-lines-width)} #{round($grid-space--lg*0.5)} #{$grid-space--lg}
+
+	+media('<mob-md')
+		font-size: 14px
+		padding-right: #{round($grid-space--sm*2 + $this-angle-lines-width)}
+		padding-left: #{$grid-space--sm}
+
+	.no-touchevents &:hover, &.is-open
+		background-color: $base-color-alt
+		color: $bg-color-base
+
+	.text
+		+display-inline-block-top
+
+	.angle
+		position: absolute
+		right: $grid-space
+		top: 50%
+		+size($this-angle-lines-width, $this-angle-lines-height)
+		margin-top: -#{round($this-angle-lines-height*0.5)}
+		backface-visibility: hidden
+
+		&::before, &::after
+			+pseudo()
+			left: 0
+			backface-visibility: hidden
+			+size($this-angle-lines-width, $this-angle-lines-height)
+			background-color: $this-icon-lines-color
+			transition:
+				property: transform
+				duration: $animation-speed
+
+			@if $has-animation
+				transition:
+					property: background-color, transform
+					duration: $animation-speed
+
+		&::before
+			top: 0
+
+		&::after
+			top: 0
+			transform: rotate(90deg) translateZ(0)
+
+		+media('<desk-lg')
+			right: $grid-space--lg
+
+		+media('<mob-md')
+			right: $grid-space--sm
+
+	.no-touchevents &:hover, &.is-open
+		.angle
+			&::before, &::after
+				background-color: $bg-color-base
+
+	&.is-open
+		.angle
+			&::after
+				transform: rotate(0) translateZ(0)
+
+.periods-panel
+	background-color: $bg-color-base
+	display: none
+
+.periods-panel__frame
+	position: relative
+	opacity: 0
+	transition:
+		property: opacity
+		duration: $animation-speed
+
+	.is-open > &
+		opacity: 1
+		transition-delay: 0.08s
+
+.periods-panel__content
+	border: solid $base-color-alt
+	border-width: 0 2px 2px
+	padding: #{round($grid-space*0.9)} #{$grid-space}
+
+	+media('<desk-lg')
+		padding: #{round($grid-space--lg*0.9)} #{$grid-space--lg}
+
+	+media('<mob-md')
+		font-size: 14px
+		+padding-horizontal(#{$grid-space--sm})
+
+/* periods end

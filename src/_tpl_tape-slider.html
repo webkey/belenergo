@@ -1,0 +1,8 @@
+<ul class="tape-slider__list swiper-wrapper">
+	@@if(context.first){
+	<li class="tape-slider__item swiper-slide"><div class="tape-slider__anchor active"><span>@@first</span></div></li>
+	}
+	@@for (var i = 0; i < slides.length; i++) {
+	<li class="tape-slider__item swiper-slide"><div class="tape-slider__anchor"><span>`+slides[i]+`</span></div></li>
+	}
+</ul>

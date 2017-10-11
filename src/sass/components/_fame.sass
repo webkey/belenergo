@@ -78,22 +78,23 @@ $fame-space--sm: 20px
 		+pseudo-block-relative()
 		+ratio(286, 410)
 
-	&::after
-		+pseudo($content: 'i')
-		right: $grid-space--sm
-		top: $grid-space--sm
-		+size(32px)
-		border-radius: 50%
-		background-color: $bg-color-base
-		+font-extra-bold
-		+font(24px, 32px)
-		text-align: center
-		color: $text-color-base
-		z-index: 10
-		display: none
+	.fame--has-info &
+		&::after
+			+pseudo($content: 'i')
+			right: $grid-space--sm
+			top: $grid-space--sm
+			+size(32px)
+			border-radius: 50%
+			background-color: $bg-color-base
+			+font-extra-bold
+			+font(24px, 32px)
+			text-align: center
+			color: $text-color-base
+			z-index: 10
+			display: none
 
-		.touchevents &
-			display: block
+			.touchevents &
+				display: block
 
 .fame__img
 	display: block
@@ -114,17 +115,18 @@ $fame-space--sm: 20px
 		duration: 0.4s
 		timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
-	&::after
-		+pseudo()
-		+position()
-		+size(100%)
-		background-color: transparentize($base-color-alt, 0.5)
-		opacity: 0
-		visibility: hidden
-		transition:
-			property: opacity, visibility
-			duration: 0.4s
-			timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
+	.fame--has-info &
+		&::after
+			+pseudo()
+			+position()
+			+size(100%)
+			background-color: transparentize($base-color-alt, 0.5)
+			opacity: 0
+			visibility: hidden
+			transition:
+				property: opacity, visibility
+				duration: 0.4s
+				timing-function: cubic-bezier(0.65, 0.05, 0.36, 1)
 
 	img
 		display: block
@@ -200,18 +202,19 @@ $fame-space--sm: 20px
 			line-height: 18px
 
 // hover
-.fame__figure
-	&.hover
+.fame--has-info
+	.fame__figure
+		&.hover
 
-		.fame__img
-			transform: translate(0, -12%) translateZ(0)
+			.fame__img
+				transform: translate(0, -12%) translateZ(0)
 
-			&::after
-				opacity: 1
-				visibility: visible
+				&::after
+					opacity: 1
+					visibility: visible
 
-		.fame__info
-			transform: translate(0, 0) translateZ(0)
+			.fame__info
+				transform: translate(0, 0) translateZ(0)
 
 
 /* fame end
