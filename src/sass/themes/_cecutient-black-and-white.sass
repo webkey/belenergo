@@ -821,8 +821,19 @@
 	// share box end
 
 	// filters
-	.filters
-		a
+
+	.tape-slider .tape-slider__anchor
+		span
+			border-bottom: 2px solid $link-color
+
+		&:hover
+			color: $link-color !important
+
+			span
+				border-bottom-color: $link-color
+
+	.filters, .tape-slider__list
+		a, .tape-slider__anchor
 			&.active
 				box-shadow: none !important
 				background-color: $link-color !important
@@ -927,6 +938,23 @@
 			color: $bg-color-base
 
 	// several slider end
+
+	// tape slider
+	// swiper slider
+	.swiper-container
+		&::before, &::after
+			content: none !important
+
+	// tape slider end
+
+	.history-gallery-open
+		border-color: $text-color-base !important
+
+		span
+			background-color: $text-color-base !important
+
+	.history-gallery
+		display: none
 
 	//=========== SLIDERS end ==========
 
@@ -1433,4 +1461,28 @@
 			background-color: $bg-color-base
 
 	// developer end
+
+	// periods
+	.periods-title
+		color: $text-color-base
+
+	.periods-item
+		border-color: $text-color-base
+
+	.periods-hand
+		color: $text-color-base
+
+		.angle
+			&::before, &::after
+				background-color: $text-color-base
+
+	// hover
+	.no-touchevents & .periods-hand:hover, .periods-hand.is-open
+		color: $base-color !important
+
+		.angle
+			&::before, &::after
+				background-color: $base-color !important
+
+	// periods end
 	//=========== FOOTER END ==========

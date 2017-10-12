@@ -647,6 +647,21 @@ $checkbox-color: $text-color-base
 	.no-touchevents & .several-slider__inner:hover .several-slider__value
 		color: $bg-color-base
 
+	// tape slider
+	// swiper slider
+	.swiper-container
+		$sw-grad: $base-color-alt
+
+		&::before
+			left: 0
+			+linear-gradient(to right, $sw-grad 0%, transparentize($sw-grad, 0.4) 50%, transparentize($sw-grad, 0.9) 100%)
+
+		&::after
+			right: 0
+			+linear-gradient(to left, $sw-grad 0%, transparentize($sw-grad, 0.4) 50%, transparentize($sw-grad, 0.9) 100%)
+
+	// tape slider end
+
 	//=========== SLIDERS END ==========
 
 	// submenu
@@ -1084,5 +1099,17 @@ $checkbox-color: $text-color-base
 	.sidebar .nav::before
 		border-color: $border-color
 
+	// periods
+	.periods-item
+		border-color: $text-color-base
+
+	.periods-hand
+		color: $text-color-base
+
+		.angle
+			&::before, &::after
+				background-color: $text-color-base
+
+	// periods end
 
 /*=========== Themes dark end ===========*/

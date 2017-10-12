@@ -1625,7 +1625,19 @@
 	color: black !important;
 }
 
-.color-scheme-bw .filters a.active {
+.color-scheme-bw .tape-slider .tape-slider__anchor span {
+	border-bottom: 2px solid black;
+}
+
+.color-scheme-bw .tape-slider .tape-slider__anchor:hover {
+	color: black !important;
+}
+
+.color-scheme-bw .tape-slider .tape-slider__anchor:hover span {
+	border-bottom-color: black;
+}
+
+.color-scheme-bw .filters a.active, .color-scheme-bw .filters .tape-slider__anchor.active, .color-scheme-bw .tape-slider__list a.active, .color-scheme-bw .tape-slider__list .tape-slider__anchor.active {
 	box-shadow: none !important;
 	background-color: black !important;
 	color: white !important;
@@ -1719,6 +1731,22 @@
 
 .no-touchevents .color-scheme-bw .several-slider__inner:hover .several-slider__text, .no-touchevents .color-scheme-bw .several-slider__inner:hover .several-slider__value, .no-touchevents .color-scheme-bw .several-slider__inner:hover .several-slider__unit {
 	color: white;
+}
+
+.color-scheme-bw .swiper-container::before, .color-scheme-bw .swiper-container::after {
+	content: none !important;
+}
+
+.color-scheme-bw .history-gallery-open {
+	border-color: black !important;
+}
+
+.color-scheme-bw .history-gallery-open span {
+	background-color: black !important;
+}
+
+.color-scheme-bw .history-gallery {
+	display: none;
 }
 
 .color-scheme-bw .submenu-list {
@@ -2190,6 +2218,30 @@
 .color-scheme-bw .developer__logo::after {
 	border: 1px solid black;
 	background-color: white;
+}
+
+.color-scheme-bw .periods-title {
+	color: black;
+}
+
+.color-scheme-bw .periods-item {
+	border-color: black;
+}
+
+.color-scheme-bw .periods-hand {
+	color: black;
+}
+
+.color-scheme-bw .periods-hand .angle::before, .color-scheme-bw .periods-hand .angle::after {
+	background-color: black;
+}
+
+.no-touchevents .color-scheme-bw .periods-hand:hover, .color-scheme-bw .periods-hand.is-open {
+	color: black !important;
+}
+
+.no-touchevents .color-scheme-bw .periods-hand:hover .angle::before, .no-touchevents .color-scheme-bw .periods-hand:hover .angle::after, .color-scheme-bw .periods-hand.is-open .angle::before, .color-scheme-bw .periods-hand.is-open .angle::after {
+	background-color: black !important;
 }
 
 /*=========== BLACK AND WHITE scheme end ===========*/

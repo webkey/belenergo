@@ -2289,7 +2289,7 @@ function lightGalleryInit() {
 			download: false,
 			counter: true,
 			share: false,
-			hash: true,
+			hash: false,
 			fullScreen: false,
 			zoom: true,
 			autoplay: false,
@@ -2346,6 +2346,14 @@ function lightGalleryInit() {
 			backdropDuration: 0.5
 		});
 	}
+
+	$('.history-gallery-open-js').on('click', function(e) {
+
+		e.preventDefault();
+
+		$(this).parent().find('.lg-js').children().eq(1).trigger('click');
+
+	});
 }
 
 /**

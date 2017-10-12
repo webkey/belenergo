@@ -1,8 +1,18 @@
 <article class="popular__item previews-grid-item">
 	<a href="#" class="popular__inner previews-grid-inner">
+		@@if(context.text){
 		<strong class="popular__text">@@text</strong>
-		<div class="popular__icon">
-			@@icon
+		}
+		@@if(context.title){
+		<strong class="popular__title">@@title</strong>
+		}
+		<div class="popular__content">
+			<div class="popular__icon">
+				@@icon
+			</div>
+			@@if(context.value){
+				<strong class="popular__value">@@value</strong>
+			}
 		</div>
 	</a>
 </article>

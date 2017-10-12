@@ -26,6 +26,13 @@ $fame-space--sm: 20px
 	+media('<desk-hd')
 		+grid-parent($fame-space--lg)
 
+	&.compact-view
+		+media('<desk-hd')
+			+grid-parent($fame-space)
+
+		+media('<desk-lg')
+			+grid-parent($fame-space--lg)
+
 	&:last-child
 		margin-bottom: 0
 
@@ -56,6 +63,24 @@ $fame-space--sm: 20px
 	+media('<mob-md')
 		+grid-item-responsive(1, $fame-space--lg)
 
+	.compact-view &
+		+grid-item(4, $fame-space, round($fame-space*0.5))
+
+		+media('<desk-hd')
+			+grid-item-responsive(3, $fame-space)
+
+		+media('<desk-lg')
+			+grid-item-responsive(4, $fame-space--lg)
+
+		+media('<desk-md')
+			+grid-item-responsive(3, $fame-space--lg)
+
+		+media('<mob-md')
+			+grid-item-responsive(2, $fame-space--lg)
+
+		+media('<mob-md')
+			+grid-item-responsive(2, $fame-space--lg)
+
 .fame__inner
 	display: block
 	height: 100%
@@ -77,6 +102,9 @@ $fame-space--sm: 20px
 	&::before
 		+pseudo-block-relative()
 		+ratio(286, 410)
+
+		.compact-view &
+			+ratio(189, 261)
 
 	.fame--has-info &
 		&::after
@@ -165,6 +193,7 @@ $fame-space--sm: 20px
 
 .fame__text
 	+font-normal
+	color: $text-color-light
 
 .fame__info
 	position: absolute

@@ -1,0 +1,22 @@
+<article class="fame__item">
+	<div class="fame__inner">
+
+		<div class="fame__card add-shadow">
+			<div class="fame__figure">
+				<div class="fame__img">
+					<img src="img/@@src" alt="@@title" />
+				</div>
+			</div>
+		</div>
+
+		<div class="fame__content">
+			@@if (context.title) {
+				<div class="fame__title">@@title</div>
+			}
+			@@if (context.text) {
+				<div class="fame__text">@@text</div>
+			}
+		</div>
+
+	</div>
+</article>

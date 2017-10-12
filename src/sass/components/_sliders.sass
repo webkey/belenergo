@@ -527,6 +527,7 @@
 
 	+media('<mob-lg')
 		top: 0
+		height: 100%
 		background:
 			position: center top
 		transform: scale(1)
@@ -816,48 +817,20 @@
 
 /*tape slider*/
 .tape-slider
-	margin-bottom: $bottom-space--lg
 	+padding-horizontal(50px)
 	position: relative
+	margin-bottom: $bottom-space--lg
 
-	//.tape-slider__list, .#{$user-content} .tape-slider__list
-		margin: 0
+	+media('<desk-lg')
+		margin-bottom: $bottom-space--ml
 
-		li
-			padding: 0
-			margin: 0
-
-			&::before
-				content: none
-
-	//.tape-slider__list
-		li
-			display: inline-block
-			vertical-align: top
-
-			&.swiper-slide
-				width: auto
-				float: left
-
-//.tape-slider__anchor
-	+display-inline-block-top
-	padding: 14px 15px
-	text-decoration: none
-	font-family: $font-alt
-	font-weight: normal
-	+font(1.2rem, 30px)
-	color: $text-color
-	cursor: pointer
-	text-transform: uppercase
-	transition-property: color
-	transition-duration: $animation-speed
-
-	.no-touchevents &:hover, .no-touchevents .current &, .current &
-		color: $text-color-alt
+	&:last-child
+		margin-bottom: 0
 
 // swiper slider
 .swiper-container
 	position: relative
+	$sw-grad: $bg-color-base
 
 	&::before, &::after
 		content: ''
@@ -870,11 +843,11 @@
 
 	&::before
 		left: 0
-		+linear-gradient(to right, $bg-color-base 0%, transparentize($bg-color-base, 0.4) 50%, transparentize($bg-color-base, 0.9) 100%)
+		+linear-gradient(to right, $sw-grad 0%, transparentize($sw-grad, 0.4) 50%, transparentize($sw-grad, 0.9) 100%)
 
 	&::after
 		right: 0
-		+linear-gradient(to left, $bg-color-base 0%, transparentize($bg-color-base, 0.4) 50%, transparentize($bg-color-base, 0.9) 100%)
+		+linear-gradient(to left, $sw-grad 0%, transparentize($sw-grad, 0.4) 50%, transparentize($sw-grad, 0.9) 100%)
 
 .tape-slider
 	position: relative
@@ -932,6 +905,10 @@
 	opacity: 0
 	visibility: hidden
 	// before slide load end
+	margin-right: -15px
+
+	+media('<desk-hd')
+		margin-right: 0
 
 	&.slick-initialized, .no-js &
 		// after slide load
@@ -947,6 +924,10 @@
 	display: inline-block
 	vertical-align: top
 	// before slide load end
+	padding-right: 15px
+
+	+media('<desk-hd')
+		padding-right: 0
 
 	.slick-initialized &
 		// after slide load
@@ -955,9 +936,57 @@
 		// after slide load end
 
 .history-pages__img
+	position: relative
 	margin-bottom: $bottom-space--lg
+	margin-right: -15px
+
+	+media('<desk-hd')
+		margin-right: 0
 
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
+
+.history-gallery-open
+	position: absolute
+	right: 0
+	bottom: 0
+	+size(110px)
+	border: 1px solid $base-color
+	border-radius: 50%
+	z-index: 5
+	background: none
+	box-shadow: none
+
+	+media('<mob-lg')
+		position: relative
+		display: block
+		right: auto
+		bottom: auto
+		+push-auto
+		margin-top: 20px
+		+size(80px)
+
+	span
+		position: absolute
+		+position(50%)
+		+size(72px)
+		transform: translate(-50%, -50%)
+		background: $base-color url(../../img/depict-camera.svg) no-repeat center center
+		background-size: 30px
+		border-radius: 50%
+		+font(0, 0)
+
+		+media('<mob-lg')
+			+size(60px)
+
+	// hover
+	&:hover
+		border-color: $base-color-alt
+
+		span
+			background-color: $base-color-alt
+
+.history-gallery
+	display: none
 
 /*history pages end

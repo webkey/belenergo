@@ -30,18 +30,30 @@
 			property: background-color, color
 			duration: $animation-speed
 
-	.no-touchevents &:hover
-		background-color: $base-color-alt
-		color: $bg-color-base
-
 	+media('<desk-lg')
 		padding: #{round($grid-space--lg*1.5)} #{$grid-space--lg}
 
 	+media('<mob-md')
+		padding: #{round($grid-space--sm*1.5)} #{$grid-space--sm}
+
+	//+media('<mob-md')
 		display: block
 		padding: #{$grid-space--lg}
 		text-align: left
 		direction: rtl
+
+.popular__title
+	+font-normal
+	+font(16px, round-float(24/16, 2))
+	letter-spacing: 0.025em
+	color: inherit
+	padding-bottom: $bottom-space
+
+	//+media('<mob-md')
+		padding-bottom: 10px
+
+	&:last-child
+		padding-bottom: 0
 
 .popular__text
 	display: block
@@ -55,7 +67,7 @@
 		font-size: 14px
 		letter-spacing: 0.025em
 
-	+media('<mob-md')
+	//+media('<mob-md')
 		+display-inline-block-middle
 		margin: 0
 		width: calc(100% - 36px - 5px)
@@ -63,6 +75,14 @@
 		direction: ltr
 
 .popular__icon
+	margin-bottom: $bottom-space
+
+	//+media('<mob-md')
+		margin-bottom: 10px
+
+	&:last-child
+		margin-bottom: 0
+
 	svg
 		+display-inline-block-top
 		+size(50px)
@@ -70,11 +90,31 @@
 	path
 		fill: $base-color
 
-	+media('<mob-md')
+	//+media('<mob-md')
 		+display-inline-block-middle
 		+size(36px)
 
 		svg
 			+size(36px)
+
+.popular__value
+	+font-bold
+	+font(24px, round-float(32/24, 2))
+	letter-spacing: 0.05em
+	color: inherit
+	text-transform: uppercase
+	margin-bottom: 2px
+
+	.no-touchevents .several-slider__inner:hover &
+		color: $bg-color-base
+		transition-duration: $filling-speed
+
+	&:last-child
+		margin-bottom: 0
+
+// hover
+.no-touchevents a.popular__inner:hover
+	background-color: $base-color-alt
+	color: $bg-color-base
 
 /* popular end
