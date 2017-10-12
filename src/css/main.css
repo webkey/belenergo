@@ -9599,6 +9599,17 @@ li.open > .submenu__drop {
 	font-size: 1.6rem;
 	letter-spacing: normal;
 	background-color: #e6e6e6;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+.news-previews__figure.no-img {
+	background-image: url(../empty_img-light.jpg);
+}
+
+.theme-dark .news-previews__figure.no-img {
+	background-image: url(../empty_img-dark.jpg);
 }
 
 .news-previews__figure::before {

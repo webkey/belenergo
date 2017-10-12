@@ -180,6 +180,15 @@ $delay: 0.2s
 	font-size: $font-size
 	letter-spacing: normal
 	background-color: $border-color
+	background-repeat: no-repeat
+	background-position: center
+	background-size: cover
+
+	&.no-img
+		background-image: url(../empty_img-light.jpg)
+
+		.theme-dark &
+			background-image: url(../empty_img-dark.jpg)
 
 	&::before
 		+pseudo-block-relative()
