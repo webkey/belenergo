@@ -2272,6 +2272,25 @@
 	border-color: black;
 }
 
+.color-scheme-bw .goog-te-gadget-simple {
+	background-color: white !important;
+	border-width: 0 0 1px 1px !important;
+	border-color: black !important;
+}
+
+.color-scheme-bw .goog-te-gadget-simple a {
+	color: black !important;
+}
+
+.color-scheme-bw .goog-te-gadget-simple:hover {
+	background-color: black !important;
+	border-color: black !important;
+}
+
+.color-scheme-bw .goog-te-gadget-simple:hover a {
+	color: white !important;
+}
+
 /*=========== BLACK AND WHITE scheme end ===========*/
 /*=========== BLACK AND WHITE images ===========*/
 .images-bw img {

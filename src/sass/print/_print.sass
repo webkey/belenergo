@@ -158,6 +158,14 @@
 	.short-contacts a::after,
 	.contacts-map__frame,
 	.divider,
+	.article-footer,
+	.lg-backdrop,
+	.lg-outer,
+	.default-popup,
+	.menu-aside,
+	.filters-alt,
+	.history-slider .tape-slider,
+	.history-gallery-open,
 	.class
 		display: none !important
 
@@ -195,6 +203,10 @@
 	.short-contacts,
 	.short-contacts ul,
 	.short-contacts li,
+	.periods-panel,
+	.periods-panel__frame,
+	.structure-hand__number,
+	.structure-hand__number > span,
 	.class
 		+print-reset
 
@@ -233,6 +245,7 @@
 	.info-container__title,
 	.info-container__text,
 	.short-contacts li,
+	.structure-hand__number,
 	.class
 		+prints-space-bottom-sm
 
@@ -300,11 +313,14 @@
 	.class
 		display: block !important
 		width: 5cm !important
-		object-fit: none !important
-		font-family: 'object-fit: none' !important
+		object-fit: contain !important
+		font-family: 'object-fit: contain' !important
 
 		&[data-lazy]
 			display: none !important
+
+	.history-pages__img img
+		width: 10cm !important
 
 	.several-slider__text, .several-slider__content, .several-slider__value, .several-slider__unit
 		display: inline !important
@@ -361,3 +377,13 @@
 
 	.map-for-print
 		width: 12cm !important
+
+	.tbl-col-md, .tbl-col-lg
+		width: auto !important
+		max-width: none !important
+		min-width: 0 !important
+
+	.td-auto
+		height: auto !important
+		max-height: none !important
+		overflow: visible !important

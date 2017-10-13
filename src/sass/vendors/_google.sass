@@ -1,0 +1,64 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* google lang
+#google_translate_element
+	height: 100%
+
+.skiptranslate
+	height: 100%
+
+.goog-te-gadget-simple
+	height: 100%
+	letter-spacing: $letter-spacing
+	border: solid $border-color !important
+	border-width: 0 0 1px !important
+	padding: 0 10px !important
+
+	img
+		+display-inline-block-middle
+		//filter: grayscale(1)
+
+		& + span
+			+display-inline-block-middle
+			width: 75px
+
+	a
+		+display-inline-block-middle
+		padding: 0 !important
+		color: $text-color
+
+		img
+			display: none
+
+		span
+			display: none
+
+		& > span:first-child
+			+display-inline-block-middle
+			+font-medium
+			letter-spacing: normal
+			line-height: 1.2
+			white-space: normal
+			text-transform: uppercase
+			text-align: center
+
+	&:hover
+		background-color: $base-color-alt
+		border-color: $base-color-alt !important
+
+		a
+			color: $bg-color-base
+
+	&::before
+		+pseudo-inline-block()
+		vertical-align: middle
+		height: 100%
+
+.goog-te-menu-frame
+	box-shadow: none !important
+	background-color: $bg-color-base !important
+	border: 1px solid $border-color !important
+
+/* google lang end
