@@ -399,6 +399,22 @@
 				background-color: $bg-color-base
 
 	// button toggle menu end
+
+	// button popup close end
+	.btn-popup-close
+		border-color: $border-color !important
+
+		& > i
+			&::before, &::after
+				background-color: $text-color-base !important
+
+		&:hover
+			background-color: $base-color-alt !important
+
+			& > i
+				&::before, &::after
+					background-color: $bg-color-base !important
+
 	//=========== BUTTONS end ==========
 
 	//=========== FORM STYLES DEFAULT ==========
@@ -1249,6 +1265,9 @@
 		color: $text-color-base
 
 	.structure-hand
+		.title, .text, .structure-hand__number
+			color: $text-color-base
+
 		.angle
 			&::before, &::after
 				background-color: $text-color-base
@@ -1485,4 +1504,14 @@
 				background-color: $base-color !important
 
 	// periods end
+
+	// default popup
+	.default-popup
+		background-color: $bg-color-base !important
+
+	.default-popup__head
+		border-color: $border-color
+
+	// default popup end
+
 	//=========== FOOTER END ==========

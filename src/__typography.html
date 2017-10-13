@@ -51,6 +51,15 @@
 				})
 				<!--entry-text end-->
 
+				<div class="layout-text">
+					<!--popup-default-->
+					@@include('_tpl_typography_components.html', {
+					"component": "popupDefault"
+					})
+					<!--popup-default end-->
+				</div>
+				<div class="user-spacer"></div>
+
 				<!--paragraphs-->
 				@@include('_tpl_typography_components.html', {
 				"component": "paragraphs"
@@ -518,5 +527,12 @@
 <!--ASIDE end-->
 
 @@include('_tpl_PAGE_WRAP.html', { "pageWrap": "END" })
+
+@@include("_tpl_default-popup.html", {
+	"id": "example-default-popup"
+})
+@@include("_tpl_default-popup.html", {
+	"id": "example-default-popup-blah"
+})
 
 @@include('_tpl_layout_foot.html')

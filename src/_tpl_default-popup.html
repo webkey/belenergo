@@ -1,0 +1,12 @@
+<div class="default-popup default-popup-js"@@if(context.id){ id="@@id"}>
+	<div class="default-popup__head">
+		<a href="#" class="btn-popup-close btn-close-js"><i></i><span>Закрыть</span></a>
+	</div>
+	<div class="default-popup__content layout-article">
+		<div class="layout-text">
+			@@include('_tpl_forms_user-form.html', {
+				"title": "Пример формы в попапе"
+			})
+		</div>
+	</div>
+</div>

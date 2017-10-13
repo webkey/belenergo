@@ -1,0 +1,35 @@
+@import ../utils/variables
+@import ../utils/mixins
+@import ../../libs/include-media/dist/include-media
+
+/* default popup
+.default-popup
+	position: fixed
+	+position(0)
+	+size(100%)
+	z-index: 9999
+	background: $bg-color-base
+	overflow: hidden
+	opacity: 0
+	visibility: hidden
+
+	.btn-popup-close
+		float: right
+		border-width: 0 0 0 1px
+
+.default-popup__head
+	position: relative
+	border-bottom: 1px solid $border-color
+	z-index: 5
+	+clear
+
+.default-popup.show-shadow .default-popup__head
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.1)
+
+.default-popup__content
+	overflow-x: hidden
+	overflow-y: auto
+	position: relative
+	height: calc(100% - #{$header-height})
+
+/* default popup end

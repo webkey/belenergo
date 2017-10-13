@@ -559,3 +559,18 @@ body
 			display: none
 
 /* footer at bottom end
+
+/* popup layout
+.default-popup__content
+	padding: #{$layout-spaces}
+
+	+media('<desk-hd')
+		padding: #{$layout-spaces--hd}
+
+	+media('<desk-lg')
+		padding: #{$layout-spaces--lg}
+
+	+media('<mob-lg')
+		padding: #{$layout-spaces--sm}
+
+/* popup layout end

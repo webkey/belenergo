@@ -40,6 +40,15 @@
 	<hr>
 	<p>То, как будет выглядеть шрифт, зависит от того, как он будет набран. Times New Roman может выглядеть по-настоящему здорово. И главное: пусть лучше текст будет скучным, чем уродливым или нечитабельным.</p>
 
+}@@if(context.component === "popupDefault") {
+
+	@@include('_tpl_title-anchor.html', {
+		"taId": "popupDefault",
+		"taText": "Пример стандартного текстового попапа"
+	})
+
+	<a href="#example-default-popup" class="btn-default popup-opener-js">Открыть попап</a>
+
 }@@if(context.component === "h2h6") {
 
 	<h2>
@@ -1040,6 +1049,7 @@
 		"taId": "userFormExample",
 		"taText": "Форма обратной связи"
 	})
+
 	@@include('_tpl_forms_user-form.html', {
 		"title": "Форма обратной связи"
 	})

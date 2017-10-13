@@ -10,6 +10,9 @@ $structure-branch-space-v: 27px
 $structure-branch-space-v--sm: 21px
 $structure-branch-space-h: 28px
 $structure-branch-space-h--sm: 14px
+$structure-number-width: 126px
+$structure-number-width--lg: 100px
+$structure-number-width--sm: 60px
 
 .structure
 	margin-bottom: $bottom-space--lg
@@ -92,11 +95,6 @@ $structure-branch-space-h--sm: 14px
 	border: 2px solid $base-color-alt
 	padding: #{round($grid-space*0.5)} #{round($grid-space*2 + $this-angle-lines-width)} #{round($grid-space*0.5)} #{$grid-space}
 	cursor: pointer
-	+font-medium
-	+font(16px, round-float(24/16, 2))
-	letter-spacing: 0.05em
-	color: $base-color-alt
-	text-transform: uppercase
 	user-select: none
 
 	@if $has-animation
@@ -112,6 +110,18 @@ $structure-branch-space-h--sm: 14px
 		padding-right: #{round($grid-space--sm*2 + $this-angle-lines-width)}
 		padding-left: #{$grid-space--sm}
 
+	.structure--steps &
+		min-height: $structure-number-width
+		padding: #{round($grid-space*0.8)} #{round($grid-space*2 + $this-angle-lines-width)} #{round($grid-space*0.8)} #{$structure-number-width + $grid-space}
+
+		+media('<desk-lg')
+			min-height: $structure-number-width--lg
+			padding: #{round($grid-space--lg*0.8)} #{round($grid-space--lg*2 + $this-angle-lines-width)} #{round($grid-space--lg*0.8)} #{$structure-number-width--lg + $grid-space--lg}
+
+		+media('<mob-lg')
+			min-height: $structure-number-width--sm
+			padding: #{round($grid-space--sm*0.8)} #{round($grid-space--sm*2 + $this-angle-lines-width)} #{round($grid-space--lg*0.8)} #{$structure-number-width--sm + $grid-space--sm}
+
 	&::before
 		top: #{$structure-branch-space-v - $structure-branch-weight} // минус бордер
 		+size(#{$structure-branch-space-h}, 0)
@@ -123,12 +133,48 @@ $structure-branch-space-h--sm: 14px
 		+media('<mob-md')
 			width: $structure-branch-space-h--sm
 
-	.no-touchevents &:hover, &.is-open
-		background-color: $base-color-alt
-		color: $bg-color-base
+	.structure-hand__number
+		position: absolute
+		+position(0, 0)
+		+size($structure-number-width, 100%)
+		border: solid $base-color-alt
+		border-width: 0 2px 0 0
+		+font-extra-bold
+		+font(48px, 1)
+		color: $base-color-alt
+		text-align: center
 
-	.text
+		+media('<desk-lg')
+			font-size: 42px
+			width: $structure-number-width--lg
+
+		+media('<mob-lg')
+			font-size: 24px
+			width: $structure-number-width--sm
+
+		& > span
+			display: block
+			position: absolute
+			+position(50%)
+			transform: translate(-50%, -50%)
+
+	.text, .title
 		+display-inline-block-top
+		+font-medium
+		+font(16px, round-float(24/16, 2))
+		letter-spacing: 0.05em
+		color: $base-color-alt
+		text-transform: uppercase
+
+	.title
+		display: block
+		margin-bottom: 0.4em
+
+		&:last-child
+			margin-bottom: 0
+
+	.description
+		color: $text-color-light
 
 	.counter
 		$counter-space-h: 8px
@@ -194,11 +240,22 @@ $structure-branch-space-h--sm: 14px
 		+media('<mob-md')
 			right: $grid-space--sm
 
+	// hover, active
 	.no-touchevents &:hover, &.is-open
+		background-color: $base-color-alt
+		color: $bg-color-base
+
+		.title, .text, .structure-hand__number
+			color: $bg-color-base
+
+		.structure-hand__number
+			border-color: $bg-color-base
+
 		.angle
 			&::before, &::after
 				background-color: $bg-color-base
 
+	// active
 	&.is-open
 		.angle
 			&::after

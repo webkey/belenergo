@@ -515,12 +515,12 @@
 	//<a href="#" class="btn-popup-close js-btn-menu-close"><i></i><span>Закрыть</span></a>
 	$btn-bg: $bg-color-base
 	$btn-color: $text-color
-	$btn-size: 60px
-	$btn-space: 12px
+	$btn-size: $header-height
+	$btn-space: 5px
 	$btn-lines-width: 20px
-	$btn-lines-height: 3px
+	$btn-lines-height: 2px
 	$btn-lines-space: 5px
-	$btn-lines-color: $text-color
+	$btn-lines-color: $base-color-alt
 
 	=line-style()
 		+size($btn-lines-width, $btn-lines-height)
@@ -528,33 +528,29 @@
 
 	display: block
 	+size($btn-size)
-	background: $btn-bg
-	color: white
 	text-decoration: none
 	+clear-spacing
 	white-space: nowrap
+	border: solid $border-color
+	border-width: 1px
 
-	@if $has-animation
-		transition:
-			property: background-color, opacity, visibility
-			duration: $animation-speed
-
-	+media('<mob-lg')
-		+size(45px)
+	+media('<tab-lg')
+		+size($header-height--sm)
 
 	&::before
 		content: ''
-		display: inline-block
+		+display-inline-block-middle
 		height: $btn-size
 		min-height: 100%
-		vertical-align: middle
 
-	> span
+		+media('<tab-lg')
+			height: $header-height--sm
+
+	& > span
 		+hide-text
 
-	> i
-		display: inline-block
-		vertical-align: middle
+	& > i
+		+display-inline-block-middle
 		position: relative
 		backface-visibility: hidden
 		background-color: transparent
@@ -567,11 +563,6 @@
 			+line-style
 			background: $btn-lines-color
 
-			@if $has-animation
-				transition:
-					property: background-color
-					duration: $animation-speed
-
 		//first line menu
 		&::before
 			top: 0
@@ -582,8 +573,12 @@
 			top: 0
 			transform: rotate(45deg)
 
-	.no-touchevents &:hover
-		background-color: $mark-color
+	&:hover
+		background-color: $base-color-alt
+
+		& > i
+			&::before, &::after
+				background-color: $bg-color-base
 
 //& > i::before, & > i::after
 	background-color: white

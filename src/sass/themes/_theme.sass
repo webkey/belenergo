@@ -290,6 +290,14 @@ $checkbox-color: $text-color-base
 
 	// button toggle main menu end
 
+	// button popup close
+
+	// button popup close end
+	.btn-popup-close
+		& > i
+			&::before, &::after
+				background-color: $text-color-base
+
 	// button end
 	//=========== BUTTONS END ==========
 
@@ -959,7 +967,16 @@ $checkbox-color: $text-color-base
 		background-color: $base-color-alt
 		color: $text-color-base
 
+	.structure-hand__number
+		border-color: $text-color-base
+
+	.structure-header
+		box-shadow: none
+
 	.structure-hand
+		.title, .text, .structure-hand__number
+			color: $text-color-base
+
 		.angle
 			&::before, &::after
 				background-color: $text-color-base
@@ -967,6 +984,12 @@ $checkbox-color: $text-color-base
 	.no-touchevents & .structure-hand:hover, & .structure-hand.is-open
 		background-color: $text-color-base
 		color: $base-color-alt
+
+		.title, .text, .structure-hand__number
+			color: $base-color-alt
+
+		.structure-hand__number
+			border-color: $base-color-alt
 
 		.angle
 			&::before, &::after
@@ -1111,5 +1134,11 @@ $checkbox-color: $text-color-base
 				background-color: $text-color-base
 
 	// periods end
+
+	// default popup
+	.default-popup
+		background-color: $base-color-alt
+
+	// default popup end
 
 /*=========== Themes dark end ===========*/

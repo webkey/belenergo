@@ -1792,7 +1792,8 @@ function contactsMap() {
 		self.modifiers = {
 			active: options.activeClass,
 			opened: options.openedClass,
-			beforeOpen: options.beforeOpenClass
+			beforeOpen: options.beforeOpenClass,
+			showShadow: 'show-shadow'
 		};
 
 		self.outsideClick();
@@ -1804,6 +1805,7 @@ function contactsMap() {
 		self.clearStyles();
 		self.closeNavOnEsc();
 		self.closeNavMethod();
+		self.addShadowOnScroll();
 	};
 
 	ExtraPopup.prototype.navIsOpened = false;
@@ -1930,12 +1932,20 @@ function contactsMap() {
 
 		var self = this,
 			$html = self.$mainContainer,
-			$navContainer = self.$navContainer,
+			$navContainer,
 			$buttonMenu = self.$btnMenu,
 			$buttonClose = self.$btnMenuClose,
 			_animationSpeed = self._animateSpeedOverlay,
 			$staggerElement = self.$staggerElement,
 			ease = self.ease;
+
+		var navContainerHref = $buttonMenu.attr('href');
+
+		if(navContainerHref !== '#' && (navContainerHref).length){
+			$navContainer = $(navContainerHref);
+		} else {
+			$navContainer = self.$navContainer;
+		}
 
 		var modifiers = self.modifiers;
 		var classBeforeOpen = modifiers.beforeOpen;
@@ -1998,7 +2008,7 @@ function contactsMap() {
 
 		var self = this,
 			$html = self.$mainContainer,
-			$navContainer = self.$navContainer,
+			$navContainer,
 			$buttonMenu = self.$btnMenu,
 			$buttonClose = self.$btnMenuClose,
 			$staggerElement = self.$staggerElement,
@@ -2007,6 +2017,14 @@ function contactsMap() {
 			_animationType = self._animationType,
 			ease = self.ease,
 			alpha = self.alpha;
+
+		var navContainerHref = $buttonMenu.attr('href');
+
+		if(navContainerHref !== '#' && $(navContainerHref).length){
+			$navContainer = $(navContainerHref);
+		} else {
+			$navContainer = self.$navContainer;
+		}
 
 		var modifiers = self.modifiers;
 		var classAfterOpen = modifiers.opened;
@@ -2193,6 +2211,15 @@ function contactsMap() {
 		}
 	};
 
+	// add shadow to popup header after start scroll
+	ExtraPopup.prototype.addShadowOnScroll = function () {
+		var self = this;
+
+		$('.default-popup__content').on('scroll', function () {
+			$(this).closest(self.$navContainer).toggleClass(self.modifiers.showShadow, $(this).scrollTop() > 10);
+		})
+	};
+
 	window.ExtraPopup = ExtraPopup;
 
 }(jQuery));
@@ -2234,6 +2261,40 @@ function popupsInit(){
 	// 	$navPopup.trigger('extraPopupClose');
 	// });
 	$navPopup.on('extraPopupBeforeOpen', function () {
+		// close lang drop
+		var $choiceContainer = $('.js-choice-wrap');
+		if($choiceContainer.hasClass('choice-opened')) {
+			$choiceContainer.trigger('closeChoiceDrop');
+		}
+	});
+
+	/* default popup */
+	var defaultPopupClass = '.default-popup-js';
+	var $defaultPopup = $(defaultPopupClass);
+
+	if($defaultPopup.length){
+
+		new ExtraPopup({
+			navContainer: defaultPopupClass,
+			btnMenu: '.popup-opener-js',
+			btnMenuClose: '.btn-close-js',
+			overlayClass: 'default-popup-overlay',
+			overlayAppendTo: 'body',
+			closeOnResize: false,
+			animationSpeed: 200,
+			overlayAlpha: 0.35,
+			overlayIndex: 9998,
+			cssScrollBlocked: true,
+			openedClass: 'default-popup--opened',
+			beforeOpenClass: 'default-popup--before-open',
+			ease: 'Power2.easeInOut'
+		});
+	}
+
+	// $searchPopup.on('extraPopupBeforeOpen', function () {
+	// 	$navPopup.trigger('extraPopupClose');
+	// });
+	$defaultPopup.on('extraPopupBeforeOpen', function () {
 		// close lang drop
 		var $choiceContainer = $('.js-choice-wrap');
 		if($choiceContainer.hasClass('choice-opened')) {

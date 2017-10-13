@@ -1171,6 +1171,22 @@
 	background-color: white;
 }
 
+.color-scheme-bw .btn-popup-close {
+	border-color: black !important;
+}
+
+.color-scheme-bw .btn-popup-close > i::before, .color-scheme-bw .btn-popup-close > i::after {
+	background-color: black !important;
+}
+
+.color-scheme-bw .btn-popup-close:hover {
+	background-color: black !important;
+}
+
+.color-scheme-bw .btn-popup-close:hover > i::before, .color-scheme-bw .btn-popup-close:hover > i::after {
+	background-color: white !important;
+}
+
 .color-scheme-bw .label-holder, .color-scheme-bw label {
 	color: black;
 }
@@ -2025,6 +2041,10 @@
 	color: black;
 }
 
+.color-scheme-bw .structure-hand .title, .color-scheme-bw .structure-hand .text, .color-scheme-bw .structure-hand .structure-hand__number {
+	color: black;
+}
+
 .color-scheme-bw .structure-hand .angle::before, .color-scheme-bw .structure-hand .angle::after {
 	background-color: black;
 }
@@ -2242,6 +2262,14 @@
 
 .no-touchevents .color-scheme-bw .periods-hand:hover .angle::before, .no-touchevents .color-scheme-bw .periods-hand:hover .angle::after, .color-scheme-bw .periods-hand.is-open .angle::before, .color-scheme-bw .periods-hand.is-open .angle::after {
 	background-color: black !important;
+}
+
+.color-scheme-bw .default-popup {
+	background-color: white !important;
+}
+
+.color-scheme-bw .default-popup__head {
+	border-color: black;
 }
 
 /*=========== BLACK AND WHITE scheme end ===========*/

@@ -12,20 +12,24 @@
 	margin-bottom: $bottom-space--md
 
 	+media('<tab-sm')
+		+font($font-size-h3--sm, $line-height-h3--sm)
 		margin-bottom: $bottom-space
 
 .user-form
-	+padding-vertical(70px)
+	padding: 70px 40px
 	margin-bottom: $bottom-space--lg
 
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
 
 	+media('<tab-lg')
-		+padding-vertical(40px)
+		padding: 40px
 
 	+media('<mob-lg')
-		+padding-vertical(20px)
+		padding: 20px
+
+	&:last-child
+		margin-bottom: 0
 
 	.layout-text
 		max-width: 700px
