@@ -1,8 +1,23 @@
 <div class="info-links__item">
+	@@if(!context.children){
 	<a href="#" class="info-links__inner">
 		<strong class="info-links__text">@@text</strong>
 		<div class="info-links__icon">
-			@@icon
+		@@icon
 		</div>
 	</a>
+	}
+	@@if(context.children){
+	<div class="info-links__inner info-links--has-children">
+		<strong class="info-links__text">@@text</strong>
+		<div class="info-links__icon">
+		@@icon
+		</div>
+		<ul class="info-links__links">
+			@@for (var i = 0; i < children.length; i++) {
+			<li><a href="#" class="btn-default"><span>`+children[i]+`</span></a></li>
+			}
+		</ul>
+	</div>
+	}
 </div>

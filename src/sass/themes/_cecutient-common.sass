@@ -507,7 +507,7 @@
 	.several-slider__item
 		display: block
 		background: none
-		margin-bottom: $bottom-space--sm
+		margin-bottom: $bottom-space
 
 		+media('<mob-md')
 			border-color: transparent
@@ -524,11 +524,12 @@
 		text-align: left
 		padding: 0
 		background: none
+		height: auto
 
-		&::after
+		&::after, &::before
 			display: none
-		
-		+media('<tab-lg')
+
+		//+media('<tab-lg')
 			display: inline
 
 	.several-slider__figure,
@@ -545,10 +546,26 @@
 		display: inline-block
 		padding: 0
 
-	.duplicate .info-links__text
-		display: inline
-		padding: 0
-		border-bottom: 2px solid #{$border-color}
+	.duplicate
+		.several-slider__inner
+			display: block
+
+		a.several-slider__inner
+			display: inline-block
+
+		.info-links__text
+			display: block
+			padding: 0
+			width: auto
+			margin-bottom: 5px
+
+		a .info-links__text
+			display: inline
+			border-bottom: 2px solid #{$border-color}
+			margin: 0
+
+		.info-links__links
+			+margin-horizontal(-5px)
 
 	// several slider end
 	//=========== SLIDERS end ==========
@@ -756,15 +773,13 @@
 	// structure end
 
 	// info links
-	.info-links__inner
+	a.info-links__inner
 		&, &::before
 			@if $animation-none
 				transition: none
 
 		&::after
 			display: none
-
-		+media('<tab-lg')
 
 	// info links end
 

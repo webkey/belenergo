@@ -120,10 +120,10 @@ $delay: 0.2s
 	color: inherit
 
 .news-previews__meta
-	margin-bottom: $bottom-space
+	margin-bottom: 1rem
 	cursor: default
 	+clear-spacing
-	white-space: nowrap
+	//white-space: nowrap
 
 .news-previews__date
 	+display-inline-block-middle
@@ -131,8 +131,6 @@ $delay: 0.2s
 	+font(16px, round-float(24/16, 2))
 	letter-spacing: 0.025em
 	color: $text-color-light
-
-	margin-right: 1.1em
 
 	+media('<desk-hd')
 		font-size: 14px
@@ -156,18 +154,26 @@ $delay: 0.2s
 	+media('<desk-hd')
 		font-size: 14px
 
+	&:empty
+		box-shadow: none
+
 	.no-touchevents &:hover
 		background-color: $base-color
 		box-shadow: 0 0 0 1px #{$base-color}, 2px 0 0 1px #{$base-color}, -2px 0 0 1px #{$base-color}
+
+.news-previews__meta, .tags_list
+	.news-previews__date, .news-previews__label
+		margin-right: 1.1em
+		margin-bottom: 0.5em
 
 .news-previews__link
 	text-decoration: none
 	color: inherit
 	display: block
-	margin-bottom: $bottom-space
+	margin-bottom: 1.4rem
 
 	+media('<desk-lg')
-		margin-bottom: 2rem
+		margin-bottom: 1rem
 
 	&:last-child
 		margin-bottom: 0
@@ -175,7 +181,7 @@ $delay: 0.2s
 .news-previews__figure
 	//overflow: hidden
 	position: relative
-	margin: 0 0 3.8rem
+	margin: 0 0 $bottom-space
 	//max-width: 285px
 	font-size: $font-size
 	letter-spacing: normal
@@ -193,9 +199,6 @@ $delay: 0.2s
 	&::before
 		+pseudo-block-relative()
 		+ratio(1, 1)
-
-	+media('<desk-lg')
-		margin-bottom: 2.4rem
 
 	img
 		display: block
@@ -240,11 +243,11 @@ $delay: 0.2s
 .btn-read
 	+display-inline-block-top
 	+font-medium
-	+font(16px, round-float(24/16, 2))
+	+font(14px, round-float(24/16, 2))
 	letter-spacing: 0.05em
-	color: $text-color-base
+	color: $text-color-light
 	text-transform: uppercase
-	border-bottom: 2px solid $text-color-base
+	border-bottom: 1px solid $text-color-light
 
 	@if $has-animation
 		transition:
@@ -320,13 +323,13 @@ $delay: 0.2s
 
 	.news-previews__meta
 		margin-top: -6px
-		margin-bottom: $bottom-space--sm
+		margin-bottom: 1rem
 
 		+media('<mob-lg')
 			margin-top: 0
 
 	.news-previews__content
-		margin-bottom: $bottom-space--md
+		margin-bottom: 3.6rem
 
 	.news-previews__title, .news-previews__text
 		max-height: #{3 * 16px * round-float(24/16, 2)}

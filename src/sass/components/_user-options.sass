@@ -92,6 +92,9 @@
 		& > span
 			display: inline-block
 
+			&:empty
+				display: none
+
 		.hide-text
 			+hide-text
 
@@ -204,9 +207,15 @@
 			min-width: 0
 			width: 131px
 
-	&.cecutient-link, &.map-site-link, &.theme-toggle, &.lang
+		+media('<mob-md')
+			min-width: 0
+			width: 60px
+
+	&.cecutient-link, &.map-site-link, &.theme-toggle
 		+media('<mob-lg')
 			.header &
 				display: none
+
+	&.lang
 
 /* user options

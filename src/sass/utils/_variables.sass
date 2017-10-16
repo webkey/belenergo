@@ -26,41 +26,47 @@ $line-height-h1--lg: round-float(42px/$font-size-h1--lg, 2) !default
 $font-size-h1--md: 36px !default
 $line-height-h1--md: round-float(36px/$font-size-h1--md, 2) !default
 // sm ===
-$font-size-h1--sm: 30px !default
-$line-height-h1--sm: round-float(30px/$font-size-h1--sm, 2) !default
+$font-size-h1--sm: 24px !default
+$line-height-h1--sm: round-float(26px/$font-size-h1--sm, 2) !default
 
 // =======h2========
-$font-size-h2: round-float($font-size-h1*42/52, 1) !default
+$font-size-h2: round($font-size-h1*42/52) !default
 $line-height-h2: round-float(42/42, 2) !default
 // md ===
-$font-size-h2--md: round-float($font-size-h1--md*0.84, 1) !default
+$font-size-h2--md: round($font-size-h1--md*0.84) !default
 //$line-height-h2--md: round-float(($line-height-h1--md*1.02),2) !default
 $line-height-h2--md: 1 !default
 // sm ===
-$font-size-h2--sm: round-float($font-size-h1--sm*0.87, 1) !default
+$font-size-h2--sm: round($font-size-h1--sm*0.87) !default
 $line-height-h2--sm: 1 !default
 
 // =======h3========
-$font-size-h3: round-float($font-size-h1*32/52, 1) !default
+$font-size-h3: round($font-size-h1*32/52) !default
 $line-height-h3: round-float(32/32, 2) !default
 // md ===
-$font-size-h3--md: round-float($font-size-h1--md*0.78, 1) !default
+$font-size-h3--md: round($font-size-h1--md*0.78) !default
 $line-height-h3--md: 1 !default
 // sm ===
-$font-size-h3--sm: round-float($font-size-h1--sm*0.73, 1) !default
+$font-size-h3--sm: round($font-size-h1--sm*0.73) !default
 $line-height-h3--sm: 1 !default
 
 // =======h4========
-$font-size-h4: round-float($font-size-h1*24/52, 1) !default
-$line-height-h4: round-float(24/24, 2) !default
+$font-size-h4: round($font-size-h1*24/52) !default
+$line-height-h4: 1 !default
+// md ===
+$font-size-h4--md: round($font-size-h1--md*0.72) !default
+$line-height-h4--md: 1 !default
+// sm ===
+$font-size-h4--sm: round($font-size-h1--sm*0.68) !default
+$line-height-h4--sm: 1 !default
 
 // =======h5========
-$font-size-h5: $font-size !default
-$line-height-h5: $line-height !default
+$font-size-h5: 16px !default
+$line-height-h5: 1 !default
 
 // =======h6========
-$font-size-h6: round-float($font-size*0.75, 1) !default
-$line-height-h6: round-float($line-height*1.25, 2) !default
+$font-size-h6: round($font-size-h5*0.75) !default
+$line-height-h6: 1 !default
 
 $bottom-space: round-float($font-size*$line-height, 1) !default
 $bottom-space--lg: round-float($font-size*$line-height*3, 1) !default

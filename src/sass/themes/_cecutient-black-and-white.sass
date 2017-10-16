@@ -947,7 +947,7 @@
 	.several-slider__text, .several-slider__value, .several-slider__unit
 		color: $text-color-base
 
-	.no-touchevents & .several-slider__inner:hover
+	.no-touchevents & a.several-slider__inner:hover
 		background-color: $text-color-base
 
 		.several-slider__text, .several-slider__value, .several-slider__unit
@@ -1131,9 +1131,12 @@
 	.nav-list
 
 		li
+			&.selected > .nav__tab a
+				color: $text-color-base !important
+
 			&.hover > .nav__tab a
-				background-color: $text-color-base
-				color: $bg-color-base
+				background-color: $text-color-base !important
+				color: $bg-color-base !important
 
 		a
 			color: $text-color-base
@@ -1333,7 +1336,7 @@
 		border-bottom-color: $link-color
 		transition: none
 
-	.no-touchevents & .info-links__inner:hover, .current .info-links__inner
+	.no-touchevents & a.info-links__inner:hover, .current a.info-links__inner
 		background-color: $base-color-alt
 		color: $bg-color-base
 

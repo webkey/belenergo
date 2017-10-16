@@ -194,6 +194,10 @@ $checkbox-color: $text-color-base
 	// datetime
 	.datetime
 		color: $text-color-base
+
+		+media('<mob-lg')
+			border: none !important
+
 	// datetime end
 
 	//=========== TYPOGRAPHY END ==========
@@ -643,16 +647,17 @@ $checkbox-color: $text-color-base
 		&::after
 			background-color: $text-color-base
 
-		.no-touchevents &:hover
-			color: $bg-color-base
-
 		+media('<mob-md')
 			border-color: $text-color-base
+
+	a .several-slider__inner
+		.no-touchevents &:hover
+			color: $bg-color-base
 
 	.several-slider__value
 		color: $text-color-base
 
-	.no-touchevents & .several-slider__inner:hover .several-slider__value
+	.no-touchevents & a.several-slider__inner:hover .several-slider__value
 		color: $bg-color-base
 
 	// tape slider
@@ -888,6 +893,9 @@ $checkbox-color: $text-color-base
 			color: white
 			background-color: $base-color
 			box-shadow: 0 0 0 1px #{$base-color}, 2px 0 0 1px #{$base-color}, -2px 0 0 1px #{$base-color}
+
+		&:empty
+			box-shadow: none !important
 
 	.news-previews__figure
 		background-color: $bg-panels-color

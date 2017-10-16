@@ -145,9 +145,14 @@
 
 		li
 			margin-bottom: 0
+			white-space: nowrap
+
+			+media('<desk-hd')
+				white-space: normal
 
 		.dt, .dd
 			+display-inline-block-top
+			white-space: normal
 
 		.hide
 			display: none

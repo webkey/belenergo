@@ -66,6 +66,7 @@
 		&::before
 			content: none
 
+a.info-links__inner
 	.no-touchevents &:hover, .current &
 		//background-color: $base-color-alt
 		color: $bg-color-base
@@ -88,7 +89,7 @@
 	+font(16px, round-float(19/16, 2))
 	letter-spacing: 0.05em
 	text-transform: uppercase
-	margin-bottom: 20px
+	margin-bottom: 10px
 
 	transition:
 		property: color
@@ -99,18 +100,26 @@
 
 	+media('<mob-md')
 		+display-inline-block-middle
-		margin: 0
+		margin: 0 0 10px
 		width: calc(100% - 36px - 5px)
 		padding-left: $grid-space--lg
 		direction: ltr
+
+		a &
+			margin-bottom: 0
 
 	&:last-child
 		margin-bottom: 0
 
 .info-links__icon
+	margin-bottom: 10px
+
 	svg
 		+display-inline-block-top
-		+size(50px)
+		+size(28px)
+
+		a &
+			+size(50px)
 
 	path
 		fill: $base-color
@@ -120,7 +129,43 @@
 		+size(36px)
 
 		svg
-			+size(36px)
+
+			&, a &
+				+size(36px)
+
+	&:last-child
+		margin-bottom: 0
+
+.info-links__links
+	&, .#{$user-content} &
+		margin: 0 -15px
+		padding: 0
+		list-style: none
+
+		+media('<mob-md')
+			+margin-horizontal(-5px)
+
+		li
+			padding-left: 0
+			margin: 0 5px 5px
+
+			&::before
+				content: none
+
+	&
+		margin-bottom: 10px
+		+clear-spacing
+
+		&:last-child
+			margin-bottom: 0
+
+		li
+			+display-inline-block-top
+
+		a
+			padding: 5px 12px
+			font-size: 14px
+			text-transform: none
 
 /* info links end
 

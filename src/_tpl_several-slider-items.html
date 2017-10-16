@@ -1,4 +1,5 @@
 <div class="several-slider__item">
+	@@if(!context.children){
 	<a href="#" class="several-slider__inner">
 		@@if (context.name === "default") {
 			@@if (context.text) {
@@ -29,4 +30,42 @@
 			}
 		}
 	</a>
+	}
+	@@if(context.children){
+	<div class="several-slider__inner">
+		@@if (context.name === "default") {
+			@@if (context.text) {
+			<div class="several-slider__text">
+				<span>@@text</span>
+			</div>
+			}
+			<div class="several-slider__content">
+				@@if (context.icon) {
+				<div class="several-slider__figure">@@icon</div>
+				}
+				@@if (context.value) {
+				<div class="several-slider__value">@@value</div>
+				}
+				@@if (context.unit) {
+				<div class="several-slider__unit">@@unit</div>
+				}
+			</div>
+		}
+		@@if (context.name === "infoLink") {
+			@@if (context.text) {
+			<strong class="info-links__text">@@text</strong>
+			}
+			@@if (context.icon) {
+			<div class="info-links__icon">
+				@@icon
+			</div>
+			}
+			<ul class="info-links__links">
+				@@for (var i = 0; i < children.length; i++) {
+				<li><a href="#" class="btn-default"><span>`+children[i]+`</span></a></li>
+				}
+			</ul>
+		}
+	</div>
+	}
 </div>

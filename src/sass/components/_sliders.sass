@@ -659,7 +659,7 @@
 	height: 100%
 	text-decoration: none
 	display: flex
-	justify-content: space-between
+	justify-content: center
 	flex-direction: column
 	text-align: center
 	z-index: 1
@@ -680,6 +680,10 @@
 			property: opacity
 			duration: $filling-speed-mouseleave
 
+	+media('<mob-md')
+		padding: $grid-space--lg
+
+a.several-slider__inner
 	&::after
 		content: ''
 		+animation-filling()
@@ -689,9 +693,6 @@
 
 		&::after
 			+animation-filling-active
-
-	+media('<mob-md')
-		padding: $grid-space--lg
 
 .several-slider__item
 	&:last-child
@@ -744,7 +745,7 @@
 	text-transform: uppercase
 	margin-bottom: 2px
 
-	.no-touchevents .several-slider__inner:hover &
+	.no-touchevents a.several-slider__inner:hover &
 		color: $bg-color-base
 		transition-duration: $filling-speed
 
@@ -756,7 +757,7 @@
 	+font(14px, round-float(18/14, 2))
 	letter-spacing: 0.05em
 	color: $text-color-light
-	text-transform: uppercase
+	//text-transform: uppercase
 	margin-bottom: $bottom-space
 
 	&:last-child
@@ -769,7 +770,7 @@
 		property: color
 		duration: $filling-speed-mouseleave
 
-	.no-touchevents .several-slider__inner:hover &
+	.no-touchevents a.several-slider__inner:hover &
 		transition-duration: $filling-speed
 
 /* several slider end
@@ -806,7 +807,7 @@
 
 		.several-slider__inner
 			display: block
-			padding: #{$grid-space--lg}
+			padding: #{$grid-space--lg} #{round($grid-space--lg*0.6)}
 			text-align: left
 			direction: rtl
 

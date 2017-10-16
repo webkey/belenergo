@@ -540,10 +540,16 @@ body
 			padding-left: 130px
 
 		+media('<mob-lg')
-			padding-left: 65px
+			padding-left: 0
 
 		//+media('<desk-hd')
 			padding-left: 0
+
+.article-footer
+	.layout-flood, .layout-text
+		max-width: $text-layout-width
+		+padding-horizontal(0)
+		+push-auto
 
 /* footer at bottom
 .spacer

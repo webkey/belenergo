@@ -85,6 +85,16 @@ $nav-drop-item-width--sm: 240px
 					+font($font-size, $line-height)
 					letter-spacing: 0.05em
 
+		// selected
+		&.selected > .nav__tab
+			a
+				color: $base-color
+
+		// hover
+		&.hover > .nav__tab
+			a
+				color: $bg-color-base
+
 .nav__drop
 	position: absolute
 	left: 0

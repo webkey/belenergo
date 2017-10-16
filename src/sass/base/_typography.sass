@@ -42,7 +42,7 @@ h1, h2, h3, h4, h5, h6
 			color: $base-color
 			text-decoration: underline
 
-h1
+h1, .heading-article h2
 	+font-extra-bold
 	+font($font-size-h1, $line-height-h1)
 	margin-bottom: $bottom-space--lg
@@ -74,8 +74,17 @@ h3
 	+media('<desk-md')
 		+font($font-size-h3--md, $line-height-h3--md)
 
+	+media('<mob-lg')
+		+font($font-size-h3--sm, $line-height-h3--sm)
+
 h4
 	+font($font-size-h4, $line-height-h4)
+
+	+media('<desk-md')
+		+font($font-size-h4--md, $line-height-h4--md)
+
+	+media('<mob-lg')
+		+font($font-size-h4--sm, $line-height-h4--sm)
 
 h5
 	+font($font-size-h5, $line-height-h5)
@@ -197,16 +206,19 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 	color: $base-color-alt
 
 	+media('<mob-lg')
-		padding: 5px 2px 0
-		+size($datetime-size--sm)
-		font-size: 10px
+		position: relative
+		padding: 0
+		+size(auto)
+		+font($font-size, $line-height)
+		letter-spacing: $letter-spacing
+		text-transform: uppercase
+		color: $text-color-light
+		border: none
+		background-color: transparent
+		text-align: left
 
 		&::after
 			content: none
-
-	//+media('<desk-hd')
-		position: relative
-		margin-bottom: $bottom-space--md
 
 	&:last-child
 		margin-bottom: 0
@@ -218,7 +230,8 @@ i b, i strong, em b, em strong, b i, b em, strong i, strong em
 		margin-bottom: -5px
 
 		+media('<mob-lg')
-			font-size: 22px
+			+display-inline-block-top
+			+font(inherit, inherit)
 			margin-bottom: 0
 
 /* datetime end
@@ -798,6 +811,11 @@ table
 		a
 			+size(180px, $header-height--sm)
 			+push-auto
+
+	+media('<mob-md')
+
+		a
+			width: 130px
 
 .logo-for-print
 	display: none
