@@ -112,6 +112,18 @@
 				transition:
 					duration: $filling-speed
 
+		.ie9 &
+			transition: none
+
+			path
+				transition: none
+
+			&:hover
+				background-color: $base-color-alt
+
+			&::after
+				content: none
+
 	&.width-auto
 		a
 			+padding-horizontal(25px)
@@ -215,7 +227,5 @@
 		+media('<mob-lg')
 			.header &
 				display: none
-
-	&.lang
 
 /* user options

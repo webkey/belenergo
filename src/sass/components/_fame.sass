@@ -130,7 +130,7 @@ $fame-space--sm: 20px
 	+cover-abs()
 	font-size: $font-size
 	letter-spacing: normal
-	backface-visibility: hidden
+	//backface-visibility: hidden
 	//background: $border-color url(../../img/news-no-img.jpg) no-repeat bottom right
 	//background-size: cover
 	background-color: $border-color
@@ -163,8 +163,15 @@ $fame-space--sm: 20px
 		height: 100%
 		width: 100%
 		max-width: none
-		backface-visibility: hidden
+		//backface-visibility: hidden
 		+object-fit(cover)
+		opacity: 0
+		transition:
+			property: opacity
+			duration: $animation-speed
+
+		&.visible, .no-js &
+			opacity: 1
 
 .fame__content
 	position: relative

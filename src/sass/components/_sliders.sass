@@ -20,7 +20,7 @@
 	outline: none
 	box-shadow: none
 	opacity: 1
-	z-index: 6
+	//z-index: 6
 
 	@if $has-animation
 		transition:
@@ -170,6 +170,7 @@
 // ========== CUSTOM ARROW OF SLIDERS ==========//
 /* custom arrow of sliders
 .slider-arrows
+	position: relative
 	display: block
 	text-align: center
 	+clear-spacing
@@ -199,7 +200,7 @@
 	+font($font-size, $line-height)
 	letter-spacing: normal
 	position: relative
-	backface-visibility: hidden
+	//backface-visibility: hidden
 	text-indent: -9999px
 	overflow: hidden
 	cursor: pointer
@@ -397,6 +398,7 @@
 		position: absolute
 		bottom: round($promo-slider-space*0.96)
 		right: #{$promo-slider-space - 25px}
+		z-index: 9999
 
 		+media('<desk-hd')
 			bottom: round($promo-slider-space--md*0.96)
@@ -404,6 +406,9 @@
 
 		+media('<mob-lg')
 			display: none
+
+	.slick-dots
+		z-index: 9999
 
 .promo-slider
 	// before slide load
@@ -460,6 +465,7 @@
 	background-color: $bg-color-base
 	height: 460px
 	perspective: 1500px
+	overflow: hidden
 
 	.slick-initialized &
 		// after slide load
@@ -512,7 +518,7 @@
 	position: absolute
 	+position(50%, 0)
 	+size(100%, 50%)
-	transform: scale(1.15)
+	transform: scale(1.15) translateZ(0)
 	//background:
 		position: center
 		repeat: no-repeat
@@ -523,21 +529,20 @@
 		duration: 1.2s
 
 	.slick-active &
-		transform: scale(1)
+		transform: scale(1) translateZ(0)
 
 	+media('<mob-lg')
 		top: 0
 		height: 100%
 		background:
 			position: center top
-		transform: scale(1)
+		transform: scale(1) translateZ(0)
 
 	img
 		display: block
 		+size(100%)
 		max-width: none
 		+object-fit(cover)
-		backface-visibility: hidden
 
 .promo-slider__text
 	position: absolute

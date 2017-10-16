@@ -234,6 +234,9 @@ $structure-number-width--sm: 60px
 			top: 0
 			transform: rotate(90deg) translateZ(0)
 
+			.ie9 &
+				transform: rotate(90deg)
+
 		+media('<desk-lg')
 			right: $grid-space--lg
 
@@ -260,6 +263,9 @@ $structure-number-width--sm: 60px
 		.angle
 			&::after
 				transform: rotate(0) translateZ(0)
+
+				.ie9 &
+					transform: rotate(0)
 
 .structure-panel
 	background-color: $bg-color-base

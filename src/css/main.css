@@ -2524,6 +2524,19 @@ table td, table th {
 	transition-duration: 0.2s;
 }
 
+.ie9 [class*="btn-default"] {
+	transition: none;
+	background-color: #242b53;
+}
+
+.ie9 [class*="btn-default"]::before {
+	content: none;
+}
+
+.ie9 [class*="btn-default"]:hover {
+	background-color: #d3ab48;
+}
+
 [class*="btn-default"][type="submit"], [class*="btn-default"][type="button"], [class*="btn-default"][type="reset"] {
 	background-color: #242b53;
 	transition: none;
@@ -6293,7 +6306,6 @@ li.hover > .nav__drop {
 	outline: none;
 	box-shadow: none;
 	opacity: 1;
-	z-index: 6;
 }
 
 .no-touchevents .slick-arrow:not(.slick-disabled):not(.swiper-button-disabled):hover, .no-touchevents .swiper-arrow:not(.slick-disabled):not(.swiper-button-disabled):hover {
@@ -6474,6 +6486,7 @@ li.hover > .nav__drop {
 /* slick sliders end */
 /* custom arrow of sliders */
 .slider-arrows {
+	position: relative;
 	display: block;
 	text-align: center;
 	font-size: 0;
@@ -6515,8 +6528,6 @@ li.hover > .nav__drop {
 	line-height: 1.5;
 	letter-spacing: normal;
 	position: relative;
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
 	text-indent: -9999px;
 	overflow: hidden;
 	cursor: pointer;
@@ -6758,6 +6769,7 @@ li.hover > .nav__drop {
 	position: absolute;
 	bottom: 56px;
 	right: 33px;
+	z-index: 9999;
 }
 
 @media (max-width: 1919px) {
@@ -6771,6 +6783,10 @@ li.hover > .nav__drop {
 	.promo .slider-arrows {
 		display: none;
 	}
+}
+
+.promo .slick-dots {
+	z-index: 9999;
 }
 
 .promo-slider {
@@ -6835,6 +6851,7 @@ li.hover > .nav__drop {
 	height: 460px;
 	-webkit-perspective: 1500px;
 	        perspective: 1500px;
+	overflow: hidden;
 }
 
 .slick-initialized .promo-slide {
@@ -6920,9 +6937,8 @@ li.hover > .nav__drop {
 	left: 0;
 	width: 100%;
 	height: 50%;
-	-webkit-transform: scale(1.15);
-	    -ms-transform: scale(1.15);
-	        transform: scale(1.15);
+	-webkit-transform: scale(1.15) translateZ(0);
+	        transform: scale(1.15) translateZ(0);
 	transition-property: opacity, -webkit-transform;
 	transition-property: opacity, transform;
 	transition-property: opacity, transform, -webkit-transform;
@@ -6930,9 +6946,8 @@ li.hover > .nav__drop {
 }
 
 .slick-active .promo-slider__img {
-	-webkit-transform: scale(1);
-	    -ms-transform: scale(1);
-	        transform: scale(1);
+	-webkit-transform: scale(1) translateZ(0);
+	        transform: scale(1) translateZ(0);
 }
 
 @media (max-width: 639px) {
@@ -6940,9 +6955,8 @@ li.hover > .nav__drop {
 		top: 0;
 		height: 100%;
 		background-position: center top;
-		-webkit-transform: scale(1);
-		    -ms-transform: scale(1);
-		        transform: scale(1);
+		-webkit-transform: scale(1) translateZ(0);
+		        transform: scale(1) translateZ(0);
 	}
 }
 
@@ -6954,8 +6968,6 @@ li.hover > .nav__drop {
 	-o-object-fit: cover;
 	   object-fit: cover;
 	font-family: "object-fit: cover";
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
 }
 
 .promo-slider__text {
@@ -8463,6 +8475,22 @@ li.open > .submenu__drop {
 	transition-duration: 0.2s;
 }
 
+.ie9 .user-options__item > a {
+	transition: none;
+}
+
+.ie9 .user-options__item > a path {
+	transition: none;
+}
+
+.ie9 .user-options__item > a:hover {
+	background-color: #242b53;
+}
+
+.ie9 .user-options__item > a::after {
+	content: none;
+}
+
 .user-options__item.width-auto a {
 	padding-right: 25px;
 	padding-left: 25px;
@@ -9232,9 +9260,18 @@ li.open > .submenu__drop {
 	transition-duration: 0.2s;
 }
 
-.no-touchevents .hover-next a.info-links__inner::before, .no-touchevents a.info-links__inner:hover::before, .current a.info-links__inner::before, .current + .info-links__item a.info-links__inner::before {
+.hover-next a.info-links__inner::before, a.info-links__inner:hover::before, .current a.info-links__inner::before, .current + .info-links__item a.info-links__inner::before {
 	opacity: 0;
 	transition-duration: 0.2s;
+}
+
+.ie9 a.info-links__inner::before {
+	transition: none !important;
+}
+
+.ie9 a.info-links__inner:hover,
+.ie9 .current a.info-links__inner {
+	background-color: #242b53;
 }
 
 .info-links__text {
@@ -9249,6 +9286,10 @@ li.open > .submenu__drop {
 	margin-bottom: 10px;
 	transition-property: color;
 	transition-duration: 0.35s;
+}
+
+.ie9 .info-links__text {
+	transition: none;
 }
 
 @media (max-width: 1599px) {
@@ -10321,8 +10362,6 @@ a .info-links__icon svg {
 	height: 100%;
 	font-size: 1.6rem;
 	letter-spacing: normal;
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
 	background-color: #e6e6e6;
 	text-decoration: none;
 	color: inherit;
@@ -10360,11 +10399,16 @@ a .info-links__icon svg {
 	height: 100%;
 	width: 100%;
 	max-width: none;
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
 	-o-object-fit: cover;
 	   object-fit: cover;
 	font-family: "object-fit: cover";
+	opacity: 0;
+	transition-property: opacity;
+	transition-duration: 0.2s;
+}
+
+.fame__img img.visible, .no-js .fame__img img {
+	opacity: 1;
 }
 
 .fame__content {
@@ -10781,6 +10825,12 @@ a .info-links__icon svg {
 	        transform: rotate(90deg) translateZ(0);
 }
 
+.ie9 .structure-hand .angle::after {
+	-webkit-transform: rotate(90deg);
+	    -ms-transform: rotate(90deg);
+	        transform: rotate(90deg);
+}
+
 @media (max-width: 1599px) {
 	.structure-hand .angle {
 		right: 20px;
@@ -10813,6 +10863,12 @@ a .info-links__icon svg {
 .structure-hand.is-open .angle::after {
 	-webkit-transform: rotate(0) translateZ(0);
 	        transform: rotate(0) translateZ(0);
+}
+
+.ie9 .structure-hand.is-open .angle::after {
+	-webkit-transform: rotate(0);
+	    -ms-transform: rotate(0);
+	        transform: rotate(0);
 }
 
 .structure-panel {
@@ -11550,8 +11606,6 @@ a .info-links__icon svg {
 	   object-fit: cover;
 	font-family: "object-fit: cover";
 	will-change: transform;
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
 	transition-property: -webkit-transform;
 	transition-property: transform;
 	transition-property: transform, -webkit-transform;
@@ -11573,8 +11627,6 @@ a .info-links__icon svg {
 	opacity: 0;
 	-webkit-transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
 	        transform: translate(-50%, -50%) scale3d(1.2, 1.2, 1);
-	-webkit-backface-visibility: hidden;
-	        backface-visibility: hidden;
 	transition-property: opacity, -webkit-transform;
 	transition-property: transform, opacity;
 	transition-property: transform, opacity, -webkit-transform;
@@ -13898,9 +13950,13 @@ a .info-links__icon svg {
 	background-color: white;
 }
 
-.no-touchevents .theme-dark .user-options__item > a:hover, .no-touchevents .theme-dark .user-options__item > a:focus {
+.no-touchevents .theme-dark .user-options__item > a:hover {
 	color: black;
 	fill: black;
+}
+
+.ie9 .theme-dark .user-options__item > a:hover {
+	background-color: white;
 }
 
 .theme-dark .theme-toggle a {

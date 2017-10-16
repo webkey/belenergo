@@ -792,9 +792,12 @@ $checkbox-color: $text-color-base
 			&::after
 				background-color: $text-color-base
 
-			.no-touchevents &:hover, .no-touchevents &:focus
-					color: $bg-color-base
-					fill: $bg-color-base
+			.no-touchevents &:hover
+				color: $bg-color-base
+				fill: $bg-color-base
+
+			.ie9 &:hover
+				background-color: $text-color-base
 
 	.theme-toggle
 		a

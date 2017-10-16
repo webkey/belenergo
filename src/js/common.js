@@ -2828,6 +2828,7 @@ $(document).ready(function () {
 	equalHeight();
 	popupsInit();
 	objectFitImages(); // object-fit-images initial
+	$('.fame img').addClass('visible');
 	// initWow();
 	lightGalleryInit();
 	filterStructure();

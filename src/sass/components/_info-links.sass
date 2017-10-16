@@ -68,7 +68,6 @@
 
 a.info-links__inner
 	.no-touchevents &:hover, .current &
-		//background-color: $base-color-alt
 		color: $bg-color-base
 
 		&::after
@@ -78,10 +77,19 @@ a.info-links__inner
 			transition:
 				duration: $filling-speed
 
-	.no-touchevents .hover-next &, .no-touchevents &:hover, .current &, .current + .info-links__item &
+	.hover-next &, &:hover, .current &, .current + .info-links__item &
 		&::before
 			opacity: 0
 			transition-duration: $filling-speed
+
+	// ie9
+	.ie9 &
+		&::before
+			transition: none !important
+
+	.ie9 &:hover,
+	.ie9 .current &
+		background-color: $base-color-alt
 
 .info-links__text
 	display: block
@@ -94,6 +102,9 @@ a.info-links__inner
 	transition:
 		property: color
 		duration: $filling-speed-mouseleave
+
+	.ie9 &
+		transition: none
 
 	+media('<desk-lg')
 		+font(15px, round-float(19/15, 2))
