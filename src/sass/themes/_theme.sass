@@ -211,11 +211,18 @@ $checkbox-color: $text-color-base
 		fill: $bg-color-base
 
 		&::before
-			background: $text-color-base
+			background-color: $text-color-base
 
 		// input buttons
 		&[type="submit"], &[type="button"], &[type="reset"]
 			background-color: $text-color-base
+
+		// ie9
+		.ie9 &
+			background-color: $text-color-base
+
+			&:hover
+				background-color: $base-color
 
 	// btn-default end
 
@@ -239,6 +246,15 @@ $checkbox-color: $text-color-base
 
 		.no-touchevents &:hover
 			color: $base-color
+
+		// ie9
+		.ie9 &
+			background: $base-color-alt
+
+			&:hover
+				color: $base-color
+				fill: $base-color
+				background-color: $text-color-base
 
 	// btn-default-alt end
 	
@@ -295,12 +311,12 @@ $checkbox-color: $text-color-base
 	// button toggle main menu end
 
 	// button popup close
-
-	// button popup close end
 	.btn-popup-close
 		& > i
 			&::before, &::after
 				background-color: $text-color-base
+
+	// button popup close end
 
 	// button end
 	//=========== BUTTONS END ==========
@@ -1066,6 +1082,12 @@ $checkbox-color: $text-color-base
 					border-color: $base-color
 
 	// actual links end
+
+	.info-links__links
+		a
+			border: 1px solid $base-color-alt
+			padding: 3px 10px
+
 	// aside end
 
 	// footer

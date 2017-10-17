@@ -38,6 +38,21 @@ var TABLET = device.tablet();
 /*device detected end*/
 
 /**
+ * detect ie9
+ */
+// Detecting IE
+var ie9;
+if ($('html').is('.ie9')) {
+	ie9 = true;
+}
+
+if (ie9) {
+	// Here's your JS for IE..
+} else {
+	// ..And here's the full-fat code for everyone else
+}
+
+/**
  * !cookie
  * */
 function setCookie(name, value, options) {
@@ -857,6 +872,7 @@ function slidersInit() {
 			var $thisGroup = $(this);
 			// var $wrap = $thisSlider.parent();
 			var $thumbsSlider = $thisGroup.find('.tape-slider-js');
+			var $thumbsSliderItem = $thisGroup.find('.tape-slider__item'); // only for ie9 fix
 			var $panelsSlider = $thisGroup.find('.history-pages-js');
 			var thumbsSlidesLength = $thisGroup.find('.swiper-slide').length;
 			var $thisBtnNext = $('.swiper-button-next', $thisGroup);
@@ -865,25 +881,36 @@ function slidersInit() {
 			var dur = 300;
 			var infinite = false;
 
-			var thumbsSliderInit = new Swiper($thumbsSlider, {
-				loop: infinite,
-				loopedSlides: thumbsSlidesLength,
-				slidesPerView: 'auto',
-				watchSlidesVisibility: true,
-				keyboardControl: false,
-				// slideToClickedSlide: true,
+			if(!ie9){
+				var thumbsSliderInit = new Swiper($thumbsSlider, {
+					loop: infinite,
+					loopedSlides: thumbsSlidesLength,
+					slidesPerView: 'auto',
+					watchSlidesVisibility: true,
+					keyboardControl: false,
+					// slideToClickedSlide: true,
 
-				nextButton: $thisBtnNext,
-				prevButton: $thisBtnPrev
-			});
+					nextButton: $thisBtnNext,
+					prevButton: $thisBtnPrev
+				});
 
-			function addCurrentClass(index) {
-				$(thumbsSliderInit.slides).children().removeClass(currentClass);
-				$(thumbsSliderInit.slides[index]).children().addClass(currentClass);
+				function addCurrentClass(index) {
+					$(thumbsSliderInit.slides).children().removeClass(currentClass);
+					$(thumbsSliderInit.slides[index]).children().addClass(currentClass);
+				}
+			} else {
+				function addCurrentClassForIe9(index) {
+					$($thumbsSlider).find($thumbsSliderItem).children().removeClass(currentClass);
+					$($thumbsSlider).find($thumbsSliderItem).eq(index).children().addClass(currentClass);
+				}
 			}
 
 			var panelsSliderInit = $panelsSlider.on('init', function (event, target) {
-				addCurrentClass(target.currentSlide);
+				if(!ie9) {
+					addCurrentClass(target.currentSlide);
+				} else {
+					addCurrentClassForIe9(target.currentSlide);
+				}
 			}).slick({
 				accessibility: false,
 				adaptiveHeight: true,
@@ -893,25 +920,41 @@ function slidersInit() {
 				speed: dur,
 				slidesToShow: 1,
 				slidesToScroll: 1,
-				infinite: infinite,
+				infinite: false,
 				dots: false,
 				arrows: false
 			}).on('beforeChange', function (event, target, currentSlide, nextSlide) {
-				addCurrentClass(nextSlide);
-			});
-
-			thumbsSliderInit.on('tap', function (swiper, event) {
-				if (infinite) {
-					// if infinite is true
-					panelsSliderInit.slick('slickGoTo', $(swiper.clickedSlide).data('swiper-slide-index'));
+				if(!ie9) {
+					addCurrentClass(nextSlide);
 				} else {
-					// if infinite is false
-					panelsSliderInit.slick('slickGoTo', swiper.clickedIndex);
+					addCurrentClassForIe9(nextSlide);
 				}
 			});
 
+			if(!ie9){
+				thumbsSliderInit.on('tap', function (swiper, event) {
+					if (infinite) {
+						// if infinite is true
+						panelsSliderInit.slick('slickGoTo', $(swiper.clickedSlide).data('swiper-slide-index'));
+					} else {
+						// if infinite is false
+						panelsSliderInit.slick('slickGoTo', swiper.clickedIndex);
+					}
+				});
+			} else {
+				$($thumbsSlider).find($thumbsSliderItem).on('click', function (e) {
+					e.preventDefault();
+
+					console.log("$(this).index(): ", $(this).index());
+
+					panelsSliderInit.slick('slickGoTo', $(this).index());
+				})
+			}
+
 			setTimeout(function () {
-				thumbsSliderInit.update();
+				if(!ie9) {
+					thumbsSliderInit.update();
+				}
 			}, 1000);
 		});
 	}
@@ -2815,7 +2858,9 @@ $(document).ready(function () {
 	// if (!Modernizr.touchevents) {
 	// 	customSelect($('select.cselect'));
 	// }
-	customSelect($('select.cselect'));
+	if (!ie9) {
+		customSelect($('select.cselect'));
+	}
 	hoverClassInit();
 	toggleSiblingClasses();
 	fileInput();

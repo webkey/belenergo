@@ -295,18 +295,19 @@
 		padding-top: 62.5%
 
 	img
+		display: block
 		position: absolute
 		+position(0)
-		//top: -2px
-		//left: 50%
-		text-align: center
+		top: -2px
+		left: 50%
+		//width: 100%
+		//height: 100%
 		max-width: none
-		width: 100%
-		height: 100%
-		//height: calc(100% + 4px)
-		//transform: translate(-50%, 0)
-		object-fit: contain
-		font-family: 'object-fit: contain'
+		text-align: center
+		height: calc(100% + 4px)
+		transform: translate(-50%, 0)
+		// для ие нельзя исспользовать одновременно lazy-load и object-fit script
+		//+object-fit(contain)
 
 .images-slider
 
@@ -673,6 +674,10 @@
 		property: color
 		duration: $filling-speed-mouseleave
 
+	// ie9
+	.ie9 &
+		display: block
+
 	&::before
 		+pseudo()
 		right: 0
@@ -698,6 +703,10 @@ a.several-slider__inner
 
 		&::after
 			+animation-filling-active
+
+	// ie9
+	.ie9.no-touchevents &:hover
+		background-color: $base-color-alt
 
 .several-slider__item
 	&:last-child

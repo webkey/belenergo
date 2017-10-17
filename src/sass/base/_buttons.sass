@@ -102,17 +102,6 @@
 		&::after
 			+animation-filling-active
 
-	// ie9
-	.ie9 &
-		transition: none
-		background-color: $base-color-alt
-
-		&::before
-			content: none
-
-		&:hover
-			background-color: $base-color
-
 	// input buttons
 	&[type="submit"], &[type="button"], &[type="reset"]
 		background-color: $base-color-alt
@@ -134,6 +123,21 @@
 
 		&::before, &::after
 			display: none
+
+	// ie9
+	.ie9 &
+		transition: none
+		background-color: $base-color-alt
+
+		& > i
+			&, &::before, &::after
+				transition: none
+
+		&::before
+			content: none
+
+		&:hover
+			background-color: $base-color
 
 /* btn-default end
 
@@ -168,6 +172,17 @@
 
 		&::before, &::after
 			display: none
+
+	// ie9
+	.ie9 &
+		transition: none
+		background: $bg-color-base
+
+		&::before
+			content: none
+
+		&:hover
+			background-color: $base-color-alt
 
 /* btn-default-alt end
 

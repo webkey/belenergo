@@ -169,15 +169,15 @@
 
 	// btn-default
 	[class*="btn-default"]
-		color: $bg-color-base
-		fill: $bg-color-base
-		background: $text-color-base
+		color: $bg-color-base !important
+		fill: $bg-color-base !important
+		background-color: $text-color-base !important
 
 		&:not(.btn-default-alt):not(.disabled):not([data-disabled]):not([disabled])
-			box-shadow: inset 0 0 0 2px $text-color-base
+			box-shadow: inset 0 0 0 2px $text-color-base !important
 
 		&::before, &::after
-			display: none
+			display: none !important
 
 		@if $animation-none
 			transition: none
@@ -186,17 +186,24 @@
 			@if $animation-none
 				transition: none
 
+		&:hover
+			color: $text-color-base !important
+			fill: $text-color-base !important
+			background-color: $bg-color-base !important
+
 	// btn-default end
 
 	// btn-default-alt
 	.btn-default-alt
-		color: $text-color-base
-		border-color: $text-color-base
-		background: $base-color-alt
+		color: $text-color-base !important
+		fill: $text-color-base !important
+		border-color: $text-color-base !important
+		background-color: $bg-color-base !important
 
-		.no-touchevents &:hover
-			border-color: $base-color
-			color: $base-color
+		&:hover
+			color: $bg-color-base !important
+			fill: $bg-color-base !important
+			background-color: $text-color-base !important
 
 	// btn-default-alt end
 

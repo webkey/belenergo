@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <!--[if lt IE 9]>      <html class="no-js old-ie" lang="ru"> <![endif]-->
 <!--[if IE 9]>         <html class="no-js ie9" lang="ru"> <![endif]-->
-<!--[if gt IE 9]><!--> <html class="no-js" lang="ru"> <!--<![endif]-->
+<!--[if gt IE 9]><!--> <html class="no-js ie9" lang="ru"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
 	<title>@@title</title>
@@ -36,6 +36,6 @@
 		var cssPath = 'css/';
 	</script>
 </head>
-<body @@if (pageClass !== "") {class="@@pageClass"}>
+<body @@if (context.pageClass) {class="@@pageClass"}>
 <!--[if lt IE 9]> <div class="browserupgrade"><p>You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p></div> <![endif]-->
 <!-- >>> head.tpl END <<< -->

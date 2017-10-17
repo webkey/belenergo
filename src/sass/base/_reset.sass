@@ -24,6 +24,13 @@ textarea, .select select, input[type="text"], input[type="email"], input[type="s
 	border-radius: 0
 input[type=radio], input[type=checkbox], select
 	cursor: pointer
+select
+	// for ie10+
+	&::ms-expand
+		display: none
+	// for ie9
+	.ie9 &, .old-ie &
+		background-image: none
 textarea, input, button
 	-webkit-appearance: none
 	border-radius: 0

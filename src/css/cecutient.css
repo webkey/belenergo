@@ -137,33 +137,41 @@
 }
 
 .cecutient-version [class*="btn-default"] {
-	color: white;
-	fill: white;
-	background: black;
+	color: white !important;
+	fill: white !important;
+	background-color: black !important;
 	transition: none;
 }
 
 .cecutient-version [class*="btn-default"]:not(.btn-default-alt):not(.disabled):not([data-disabled]):not([disabled]) {
-	box-shadow: inset 0 0 0 2px black;
+	box-shadow: inset 0 0 0 2px black !important;
 }
 
 .cecutient-version [class*="btn-default"]::before, .cecutient-version [class*="btn-default"]::after {
-	display: none;
+	display: none !important;
 }
 
 .cecutient-version [class*="btn-default"] path {
 	transition: none;
 }
 
-.cecutient-version .btn-default-alt {
-	color: black;
-	border-color: black;
-	background: #242b53;
+.cecutient-version [class*="btn-default"]:hover {
+	color: black !important;
+	fill: black !important;
+	background-color: white !important;
 }
 
-.no-touchevents .cecutient-version .btn-default-alt:hover {
-	border-color: #d3ab48;
-	color: #d3ab48;
+.cecutient-version .btn-default-alt {
+	color: black !important;
+	fill: black !important;
+	border-color: black !important;
+	background-color: white !important;
+}
+
+.cecutient-version .btn-default-alt:hover {
+	color: white !important;
+	fill: white !important;
+	background-color: black !important;
 }
 
 .cecutient-version .btn-with-arrow > i::before, .cecutient-version .btn-with-arrow > i::after {

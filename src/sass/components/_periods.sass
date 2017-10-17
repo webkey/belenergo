@@ -73,6 +73,10 @@
 			property: transform
 			duration: $animation-speed
 
+		// ie9
+		.ie9 &
+			transform: none
+
 		+media('<desk-lg')
 			margin-top: 10px
 
@@ -104,6 +108,10 @@
 	&.is-open
 		.angle
 			transform: rotate(0.5turn) translateZ(0)
+
+			// ie9
+			.ie9 &
+				transform: rotate(0.5turn)
 
 .periods-panel
 	display: none
