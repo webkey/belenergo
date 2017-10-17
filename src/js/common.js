@@ -2494,7 +2494,7 @@ function lightGalleryInit() {
 		self.callbacks();
 		self.resetFilters();
 		self.event();
-		// self.toggleButtons();
+		self.toggleButtons();
 		self.init();
 	}
 
@@ -2512,8 +2512,6 @@ function lightGalleryInit() {
 
 	Sfilters.prototype.event = function () {
 		var self = this;
-
-		console.log('event');
 
 		var noItemText = self.element.data('no-filters-test') || self.config.noItemText;
 		var counterText = self.element.data('counter-text') || self.config.counterText;
@@ -2545,18 +2543,14 @@ function lightGalleryInit() {
 		});
 
 		var timeout;
-
 		var tagsGroup = self.element.find(self.config.tagsGroup);
 		var tagsElement = self.element.find(self.config.tagsElement);
 
-		self.filters.on('click', 'input[type="checkbox"]', function () {
+		self.filters.on('change', 'input[type="checkbox"]', function () {
+			console.log('change');
+			// console.log('click change');
 
 			tplPreloader.clone().appendTo(self.config.filters.parent());
-
-			console.log("this: ", this);
-
-			console.log('click');
-			// console.log('click change');
 
 			if(tagsElement) {
 				// add preloader
