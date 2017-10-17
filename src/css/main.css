@@ -5773,6 +5773,10 @@ li.hover > .nav__drop {
 
 /* filters end */
 /* filters alt */
+.filters-alt {
+	position: relative;
+}
+
 .filters-alt-list, .user-content .filters-alt-list {
 	margin-left: -14px;
 	margin-right: -14px;
@@ -6331,6 +6335,7 @@ li.hover > .nav__drop {
 	outline: none;
 	box-shadow: none;
 	opacity: 1;
+	z-index: 6;
 }
 
 .no-touchevents .slick-arrow:not(.slick-disabled):not(.swiper-button-disabled):hover, .no-touchevents .swiper-arrow:not(.slick-disabled):not(.swiper-button-disabled):hover {
@@ -7214,7 +7219,8 @@ a.several-slider__inner::after {
 	content: none;
 }
 
-.no-touchevents .several-slider__item .several-slider__inner:hover::before, .no-touchevents .several-slider__item.hover-prev .several-slider__inner::before {
+.no-touchevents .several-slider__item.hover-prev .several-slider__inner::before,
+.no-touchevents a.several-slider__inner:hover::before {
 	opacity: 0;
 	transition-duration: 0.2s;
 }
@@ -12490,7 +12496,7 @@ a .info-links__icon svg {
 	height: 100%;
 }
 
-.skiptranslate {
+#google_translate_element .skiptranslate {
 	height: 100%;
 }
 
@@ -12571,6 +12577,8 @@ a .info-links__icon svg {
 	white-space: normal;
 	text-transform: uppercase;
 	text-align: center;
+	max-width: 65px;
+	word-wrap: break-word;
 }
 
 .goog-te-gadget-simple:hover {

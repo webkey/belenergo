@@ -20,7 +20,7 @@
 	outline: none
 	box-shadow: none
 	opacity: 1
-	//z-index: 6
+	z-index: 6
 
 	@if $has-animation
 		transition:
@@ -714,10 +714,11 @@ a.several-slider__inner
 			&::before
 				content: none
 
-	.no-touchevents & .several-slider__inner:hover, .no-touchevents &.hover-prev .several-slider__inner
-		&::before
-			opacity: 0
-			transition-duration: $filling-speed
+.no-touchevents .several-slider__item.hover-prev .several-slider__inner,
+.no-touchevents a.several-slider__inner:hover
+	&::before
+		opacity: 0
+		transition-duration: $filling-speed
 
 .several-slider__text
 	+font-normal

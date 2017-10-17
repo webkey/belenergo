@@ -945,8 +945,6 @@ function slidersInit() {
 				$($thumbsSlider).find($thumbsSliderItem).on('click', function (e) {
 					e.preventDefault();
 
-					console.log("$(this).index(): ", $(this).index());
-
 					panelsSliderInit.slick('slickGoTo', $(this).index());
 				})
 			}
@@ -2477,7 +2475,9 @@ function lightGalleryInit() {
 		noItemText: 'No items',
 		classCounter: 'filter-counter',
 		counterText: 'Total: ',
-		classHideElements: 'filters--hide'
+		classHideElements: 'filters--hide',
+		classPreloader: 'filter-preloader',
+		classPreloaderShow: 'filter-preloader--show'
 
 		// Callback-functions
 		// created: function () {}
@@ -2494,7 +2494,7 @@ function lightGalleryInit() {
 		self.callbacks();
 		self.resetFilters();
 		self.event();
-		self.toggleButtons();
+		// self.toggleButtons();
 		self.init();
 	}
 
@@ -2513,6 +2513,8 @@ function lightGalleryInit() {
 	Sfilters.prototype.event = function () {
 		var self = this;
 
+		console.log('event');
+
 		var noItemText = self.element.data('no-filters-test') || self.config.noItemText;
 		var counterText = self.element.data('counter-text') || self.config.counterText;
 
@@ -2525,12 +2527,41 @@ function lightGalleryInit() {
 			class: self.config.classCounter
 		});
 
-		self.filters.on('change', ':checkbox', function () {
+		var tplPreloader = $('<div />', {
+			class: this.config.classPreloader
+		})
+			.css({
+			position: 'absolute',
+			left: 0,
+			top: 0,
+			width: '100%',
+			height: '100%',
+			backgroundRepeat: "no-repeat",
+			backgroundPosition: 'center',
+			backgroundSize: '48px',
+			backgroundColor: 'rgba(250, 250, 250, 0.85)',
+			backgroundImage: 'url(img/preloader.svg)',
+			zIndex: 999
+		});
 
-			var tagsGroup = self.element.find(self.config.tagsGroup);
-			var tagsElement = self.element.find(self.config.tagsElement);
+		var timeout;
+
+		var tagsGroup = self.element.find(self.config.tagsGroup);
+		var tagsElement = self.element.find(self.config.tagsElement);
+
+		self.filters.on('click', 'input[type="checkbox"]', function () {
+
+			tplPreloader.clone().appendTo(self.config.filters.parent());
+
+			console.log("this: ", this);
+
+			console.log('click');
+			// console.log('click change');
 
 			if(tagsElement) {
+				// add preloader
+				// self.element.find('.'+ self.config.classPreloader).addClass(self.config.classPreloaderShow);
+
 				var arrTags = self.checkedFilters(self.filters);
 
 				var filterSelector = self.createSelectorTypeAnd(arrTags);
@@ -2571,6 +2602,13 @@ function lightGalleryInit() {
 						$(el).addClass(self.config.classHideElements).hide(0);
 					}
 				});
+
+				clearTimeout(timeout);
+
+				timeout = setTimeout(function () {
+					// self.element.find('.'+ self.config.classPreloader).removeClass(self.config.classPreloaderShow);
+					self.element.find('.'+ self.config.classPreloader).remove();
+				}, 200);
 			}
 
 		});
@@ -2580,7 +2618,8 @@ function lightGalleryInit() {
 	Sfilters.prototype.toggleButtons = function () {
 		var self = this;
 
-		self.filters.on('change', ':checkbox', function () {
+		self.filters.on('change', 'input[type="checkbox"]', function () {
+			console.log('change 2');
 			self.element.find(self.config.btnReset).prop('disabled', !self.checkedFilters(self.filters).length);
 		})
 
@@ -2591,13 +2630,13 @@ function lightGalleryInit() {
 		var self = this;
 
 		self.element.find(self.config.btnReset).on('click', function () {
-			self.filters.find(':checkbox').prop('checked', false).trigger('change');
+			self.filters.find('input[type="checkbox"]').prop('checked', false).trigger('change');
 		})
 	};
 
 	// create an array of tag values for the selected filters
 	Sfilters.prototype.checkedFilters = function ($container) {
-		var $input = $container.find(':checkbox');
+		var $input = $container.find('input[type="checkbox"]');
 
 		var hasCheckedInput = false;
 
@@ -2654,6 +2693,9 @@ function filterStructure() {
 	var $filtersContainer = $('.filters-container-js');
 
 	if($filtersContainer.length) {
+		// $(':checkbox').on('click',function () {
+		// 	console.log('test click');
+		// })
 		$filtersContainer.sfilters({
 			tagsItem: $('.structure-item')
 		});
