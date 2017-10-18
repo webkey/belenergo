@@ -1710,6 +1710,11 @@
 	border-bottom-color: black;
 }
 
+.color-scheme-bw .filter-preloader {
+	background-color: rgba(255, 255, 255, 0.85) !important;
+	background-image: url(../img/preloader.svg) !important;
+}
+
 .no-touchevents .color-scheme-bw .pg-first:not(.disabled):hover [class*="-arr"], .no-touchevents .color-scheme-bw .pg-first:not(.disabled):hover [class*="-arr"]::before, .no-touchevents .color-scheme-bw .pg-first:not(.disabled):hover [class*="-arr"]::after, .no-touchevents .color-scheme-bw .pg-last:not(.disabled):hover [class*="-arr"], .no-touchevents .color-scheme-bw .pg-last:not(.disabled):hover [class*="-arr"]::before, .no-touchevents .color-scheme-bw .pg-last:not(.disabled):hover [class*="-arr"]::after, .no-touchevents .color-scheme-bw .pg-prev:not(.disabled):hover [class*="-arr"], .no-touchevents .color-scheme-bw .pg-prev:not(.disabled):hover [class*="-arr"]::before, .no-touchevents .color-scheme-bw .pg-prev:not(.disabled):hover [class*="-arr"]::after, .no-touchevents .color-scheme-bw .pg-next:not(.disabled):hover [class*="-arr"], .no-touchevents .color-scheme-bw .pg-next:not(.disabled):hover [class*="-arr"]::before, .no-touchevents .color-scheme-bw .pg-next:not(.disabled):hover [class*="-arr"]::after {
 	border-color: black;
 }

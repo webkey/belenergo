@@ -1385,3 +1385,60 @@ table
 	height: 100%
 
 /* video end
+
+/* site map
+.map-columns
+	&, .#{$user-content} &, .table-auto &
+		table-layout: fixed
+		width: 100%
+
+		td
+			vertical-align: top
+
+		ul
+			font-size: 1.4rem
+			line-height: round-float(18/14, 2)
+
+			li
+				&::before
+					top: 0.4em
+
+				+media('<desk-md')
+					padding-left: 18px
+
+			a
+				display: inline
+				text-decoration: none
+				letter-spacing: normal
+				padding-top: 0.4em
+
+				&:hover
+					text-decoration: underline
+
+			&.map-level-0 > li
+				&::before
+					top: 0.5em
+
+				& > a
+					+font-bold
+					font-size: 1.9rem
+
+			&.map-level-1 > li > a
+				+font-medium
+				font-size: 1.6rem
+
+			&.map-level-2 > li
+				&::before
+					border-radius: 0
+					border-width: 0 0 2px
+					height: 0
+					top: 0.6em
+
+		+media('<tab-lg')
+			display: block
+
+			tbody, tfoot, thead, tr, td, th
+				display: block
+				padding: 0
+
+/* site map end
