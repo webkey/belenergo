@@ -5777,6 +5777,20 @@ li.hover > .nav__drop {
 	position: relative;
 }
 
+.filter-preloader {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 48px;
+	background-color: rgba(250, 250, 250, 0.85);
+	background-image: url(../img/preloader.svg);
+	z-index: 999;
+}
+
 .filters-alt-list, .user-content .filters-alt-list {
 	margin-left: -14px;
 	margin-right: -14px;
@@ -10625,7 +10639,7 @@ a .info-links__icon svg {
 }
 
 .structure-item.filters--hide {
-	opacity: 0.3;
+	display: none;
 }
 
 .structure-item:last-child {

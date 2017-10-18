@@ -2527,19 +2527,6 @@ function lightGalleryInit() {
 
 		var tplPreloader = $('<div />', {
 			class: this.config.classPreloader
-		})
-			.css({
-			position: 'absolute',
-			left: 0,
-			top: 0,
-			width: '100%',
-			height: '100%',
-			backgroundRepeat: "no-repeat",
-			backgroundPosition: 'center',
-			backgroundSize: '48px',
-			backgroundColor: 'rgba(250, 250, 250, 0.85)',
-			backgroundImage: 'url(img/preloader.svg)',
-			zIndex: 999
 		});
 
 		var timeout;
@@ -2547,41 +2534,41 @@ function lightGalleryInit() {
 		var tagsElement = self.element.find(self.config.tagsElement);
 
 		self.filters.on('change', 'input[type="checkbox"]', function () {
-			console.log('change');
-			// console.log('click change');
 
+			// add preloader
 			tplPreloader.clone().appendTo(self.config.filters.parent());
 
 			if(tagsElement) {
-				// add preloader
-				// self.element.find('.'+ self.config.classPreloader).addClass(self.config.classPreloaderShow);
 
 				var arrTags = self.checkedFilters(self.filters);
 
 				var filterSelector = self.createSelectorTypeAnd(arrTags);
 
 				// show all tag elements
-				tagsGroup.removeClass(self.config.classHideElements).show(0);
-				tagsElement.removeClass(self.config.classHideElements).show(0);
+				tagsGroup.removeClass(self.config.classHideElements);
+				tagsElement.removeClass(self.config.classHideElements);
 
 				// remove messages
 				self.element.find('.'+ self.config.classNoItem).remove();
 				self.element.find('.'+ self.config.classCounter).remove();
 
 				// add counter message
-				if (tagsElement.filter(filterSelector).length) {
-					tplCounter.clone().appendTo(self.filters.parent()).end().text(counterText + ' ' + tagsElement.filter(filterSelector).length);
+				var tagsElementFiltered = tagsElement.filter(filterSelector);
+				var filtersParent = self.filters.parent();
+
+				if (tagsElementFiltered.length) {
+					tplCounter.clone().appendTo(filtersParent).end().text(counterText + ' ' + tagsElementFiltered.length);
 				}
 
 				if (filterSelector) {
 					// hide all tag elements
-					tagsElement.addClass(self.config.classHideElements).hide(0);
+					tagsElement.addClass(self.config.classHideElements);
 					// show filtering tag elements
-					tagsElement.filter(filterSelector).removeClass(self.config.classHideElements).show(0);
+					tagsElementFiltered.removeClass(self.config.classHideElements);
 
 					// add not found tags message
-					if (!tagsElement.filter(filterSelector).length) {
-						self.filters.parent().append(tplNoItem.clone());
+					if (!tagsElementFiltered.length) {
+						filtersParent.append(tplNoItem.clone());
 					}
 				}
 
@@ -2593,16 +2580,16 @@ function lightGalleryInit() {
 
 					$(el).find(self.config.counterTags).attr('data-text', countFilteringTagsItems);
 					if(!countFilteringTagsElements){
-						$(el).addClass(self.config.classHideElements).hide(0);
+						$(el).addClass(self.config.classHideElements);
 					}
 				});
 
 				clearTimeout(timeout);
-
 				timeout = setTimeout(function () {
-					// self.element.find('.'+ self.config.classPreloader).removeClass(self.config.classPreloaderShow);
 					self.element.find('.'+ self.config.classPreloader).remove();
 				}, 200);
+
+				// self.element.find('.'+ self.config.classPreloader).remove();
 			}
 
 		});
@@ -2613,7 +2600,6 @@ function lightGalleryInit() {
 		var self = this;
 
 		self.filters.on('change', 'input[type="checkbox"]', function () {
-			console.log('change 2');
 			self.element.find(self.config.btnReset).prop('disabled', !self.checkedFilters(self.filters).length);
 		})
 
@@ -2687,9 +2673,6 @@ function filterStructure() {
 	var $filtersContainer = $('.filters-container-js');
 
 	if($filtersContainer.length) {
-		// $(':checkbox').on('click',function () {
-		// 	console.log('test click');
-		// })
 		$filtersContainer.sfilters({
 			tagsItem: $('.structure-item')
 		});
