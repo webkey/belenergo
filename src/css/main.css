@@ -2415,6 +2415,59 @@ table td, table th {
 }
 
 /* site map end */
+/* test version */
+.header::after {
+	content: 'Тестовая версия';
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 340px;
+	height: 40px;
+	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
+	color: white;
+	font-size: 28px;
+	line-height: 40px;
+	background-color: red;
+	z-index: 30;
+	pointer-events: none;
+}
+
+@media (max-width: 1599px) {
+	.header::after {
+		width: 260px;
+		height: 26px;
+		font-size: 18px;
+		line-height: 26px;
+	}
+}
+
+@media (max-width: 1199px) {
+	.header::after {
+		left: auto;
+		right: 0;
+		top: auto;
+		bottom: 0;
+		width: 220px;
+		height: 40px;
+		font-size: 20px;
+		line-height: 40px;
+	}
+}
+
+@media (max-width: 479px) {
+	.header::after {
+		width: 100%;
+	}
+}
+
+@media (max-width: 1199px) {
+	.footer-common {
+		padding-bottom: 60px !important;
+	}
+}
+
+/* test version end */
 /* v-middle */
 .v-middle {
 	overflow: hidden;
