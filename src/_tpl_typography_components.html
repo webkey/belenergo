@@ -1150,6 +1150,42 @@
 	})
 	@@include("_tpl_feature-list.html")
 
+}@@if(context.component === "linksList") {
+
+	@@include('_tpl_title-anchor.html', {
+		"taId": "linksList",
+		"taText": "Стилизованный список ссылок"
+	})
+	<div class="structure structure-no-branches">
+		<div class="structure-item add-shadow">
+			<a href="#" class="structure-header">
+				<div class="structure-hand">
+					<div class="text">
+						Обращения                         </div>
+					<i class="angle angle-right">&nbsp;</i>
+				</div>
+			</a>
+		</div>
+		<div class="structure-item add-shadow">
+			<a href="#" class="structure-header">
+				<div class="structure-hand">
+					<div class="text">
+						Подключение                        </div>
+					<i class="angle angle-right">&nbsp;</i>
+				</div>
+			</a>
+		</div>
+		<div class="structure-item add-shadow">
+			<a href="#" class="structure-header">
+				<div class="structure-hand">
+					<div class="text">
+						ВИЭ                        </div>
+					<i class="angle angle-right">&nbsp;</i>
+				</div>
+			</a>
+		</div>
+	</div>
+
 }@@if(context.component === "viewPrint") {
 
 	<a href="#" class="view-print">

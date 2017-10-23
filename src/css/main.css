@@ -11084,6 +11084,25 @@ a .info-links__icon svg {
 	        transform: rotate(0);
 }
 
+.structure-hand .angle-right::before {
+	top: auto;
+	bottom: 50%;
+	-webkit-transform: rotate(-45deg) translateZ(0);
+	        transform: rotate(-45deg) translateZ(0);
+	-webkit-transform-origin: right bottom;
+	    -ms-transform-origin: right bottom;
+	        transform-origin: right bottom;
+}
+
+.structure-hand .angle-right::after {
+	top: 50%;
+	-webkit-transform: rotate(45deg) translateZ(0);
+	        transform: rotate(45deg) translateZ(0);
+	-webkit-transform-origin: right top;
+	    -ms-transform-origin: right top;
+	        transform-origin: right top;
+}
+
 .structure-panel {
 	background-color: white;
 	display: none;
