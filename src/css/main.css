@@ -6041,7 +6041,7 @@ li.hover > .nav__drop {
 	background: none;
 	box-shadow: none;
 	border: none;
-	font-family: "brutaltype-medium", sans-serif;
+	font-family: "brutaltype-bold", sans-serif;
 	font-weight: normal;
 	font-style: normal;
 	color: inherit;
@@ -6095,6 +6095,12 @@ li.hover > .nav__drop {
 
 .filters-reset:hover:not(:disabled) span {
 	border-bottom-color: #d3ab48;
+}
+
+.filter-counter {
+	font-family: "brutaltype-bold", sans-serif;
+	font-weight: normal;
+	font-style: normal;
 }
 
 /* filters reset button end */
@@ -9717,7 +9723,6 @@ a .info-links__icon svg {
 
 @media (max-width: 1919px) {
 	.popular__text {
-		font-size: 14px;
 		letter-spacing: 0.025em;
 	}
 }

@@ -698,7 +698,7 @@ function slidersInit() {
 				touchMove: false,
 				// initialSlide: 2,
 				// lazyLoad: 'ondemand',
-				// autoplay: true,
+				autoplay: true,
 				// autoplaySpeed: 8000,
 				infinite: true,
 				dots: true,
@@ -2474,7 +2474,7 @@ function lightGalleryInit() {
 		classNoItem: 'filter-no-item',
 		noItemText: 'No items',
 		classCounter: 'filter-counter',
-		counterText: 'Total: ',
+		counterText: 'Найдено: ',
 		classHideElements: 'filters--hide',
 		classPreloader: 'filter-preloader',
 		classPreloaderShow: 'filter-preloader--show'
@@ -2650,6 +2650,9 @@ function lightGalleryInit() {
 	};
 
 	Sfilters.prototype.init = function () {
+		this.config.filters.find('input').each(function () {
+			$(this).prop('disabled', false);
+		});
 
 		this.element.addClass(this.config.containerClass);
 
@@ -2712,16 +2715,19 @@ function wrapTable() {
 			$currentElem.wrap('<div class="' + classAuto + '"></div>');
 		}
 
+		var $currentElemContainer = $currentElem.closest('.' + classAuto);
 		if(DESKTOP) {
-			$currentElem.closest('.' + classAuto).wrap('<div class="' + classAutoWrap + '"></div>');
-			$currentElem.closest('.' + classAuto).before(tplTopScroll.clone());
+			$currentElemContainer.wrap('<div class="' + classAutoWrap + '"></div>');
+			$currentElemContainer.before(tplTopScroll.clone());
 
 			$currentElem.closest('.' + classAutoWrap).find('.topscroll-hand').width($currentElem.outerWidth(true));
 		}
 
-		$currentElem.find('td').wrapInner( "<div class='td-auto' />");
 
-		$currentElem.closest('.table').before(tplThumbs.clone());
+		if($currentElemContainer.hasClass('add-compact')){
+			$currentElem.find('td').wrapInner( "<div class='td-auto' />");
+			$currentElem.closest('.table').before(tplThumbs.clone());
+		}
 
 		$(document).on('click', '.tbl-toggle-view', function () {
 			var $currentBtn = $(this);
