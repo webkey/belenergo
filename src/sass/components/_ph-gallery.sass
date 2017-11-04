@@ -9,6 +9,15 @@
 	+media('<desk-lg')
 		margin-bottom: $bottom-space--ml
 
+.ph-gallery-heading
+	+font($font-size-h3, $line-height-h3)
+
+	+media('<desk-md')
+		+font($font-size-h3--md, $line-height-h3--md)
+
+	+media('<mob-lg')
+		+font($font-size-h3--sm, $line-height-h3--sm)
+
 .ph-gallery__list
 	+grid-parent(40px)
 	+clear-spacing

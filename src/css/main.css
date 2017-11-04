@@ -11704,6 +11704,25 @@ a .info-links__icon svg {
 	}
 }
 
+.ph-gallery-heading {
+	font-size: 32px;
+	line-height: 1;
+}
+
+@media (max-width: 1365px) {
+	.ph-gallery-heading {
+		font-size: 28px;
+		line-height: 1;
+	}
+}
+
+@media (max-width: 639px) {
+	.ph-gallery-heading {
+		font-size: 18px;
+		line-height: 1;
+	}
+}
+
 .ph-gallery__list {
 	margin-left: -20px;
 	margin-right: -20px;
