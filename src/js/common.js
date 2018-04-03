@@ -197,7 +197,7 @@ function switchTheme() {
  * !Check cecutient version cookie
  */
 /*На этапе программирования добавлять или удалять класс через php*/
-/*Удалить после прокграммирования*/
+/*Удалить после программирования*/
 function checkThemeCookie() {
 	if (getCookie(cookieColorTheme) === themeDarkValue && !$documentBody.hasClass(themeDarkValue)) {
 		$documentBody.addClass(themeDarkValue);

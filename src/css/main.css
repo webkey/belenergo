@@ -400,16 +400,6 @@ html {
 	font-size: 62.5%;
 }
 
-html.css-scroll-fixed {
-	width: 100% !important;
-	height: 100% !important;
-	max-width: 100% !important;
-	max-height: 100% !important;
-	margin: 0 !important;
-	padding: 0 !important;
-	overflow: hidden !important;
-}
-
 body {
 	font-family: "brutaltype", sans-serif;
 	font-weight: normal;
@@ -4315,6 +4305,20 @@ select.success ~ .select2-container--default .select2-selection--multiple {
 /*======================================================*/
 /*LAYOUT*/
 /*======================================================*/
+html.css-scroll-fixed {
+	width: 100% !important;
+	height: 100% !important;
+	max-width: 100% !important;
+	max-height: 100% !important;
+	margin: 0 !important;
+	padding: 0 !important;
+	overflow: hidden !important;
+}
+
+html.css-scroll-fixed body.home-page {
+	overflow-y: hidden;
+}
+
 body {
 	height: 100%;
 	background: #fafafa url(../img/empty.png) no-repeat left top fixed;
